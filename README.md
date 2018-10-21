@@ -96,6 +96,27 @@ Tips for using the AVD:
 - `ctrl+M`: display develper menu
 - Enable Hot Reloading (in developer menu) for refreshing app on file changes without losing the app state
 
+## Running the app
+
+### Android Virtual Device
+
+- Start any compatible AVD
+- Run `npm start`
+
+### iOS Simulator (macOS)
+
+Run the following in Terminal:
+
+- `open -a Simulator`
+- `npm start`
+
+## Tests
+
+The project uses Jest testing framework.
+
+- `npm test` to run tests once
+- `npm test:watch` to run tests in watch mode
+
 ## VS Code
 
 If developing with Visual Studio Code, install the following plugins:
