@@ -1,6 +1,8 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 
+import { mount } from 'enzyme';
+
 import Hello from '../Hello';
 
 describe('Hello World', () => {
@@ -9,8 +11,8 @@ describe('Hello World', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders correctly with name', async () => {
-    const component = renderer.create(<Hello name="John" />);
-    expect(component).toMatchSnapshot();
+  it('has property name correctly set', async () => {
+    const wrapper = mount(<Hello name="John" />);
+    expect(wrapper.prop('name')).toEqual('John');
   });
 });
