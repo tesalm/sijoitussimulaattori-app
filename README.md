@@ -115,7 +115,7 @@ Run the following in Terminal:
 The project uses Jest testing framework.
 
 - `npm test` to run tests once
-- `npm test:watch` to run tests in watch mode
+- `npm run test:watch` to run tests in watch mode
 
 ## VS Code
 
