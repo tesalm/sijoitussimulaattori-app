@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/carpppa/sijoitussimulaattori-app.svg?token=xQqx3oEyeT4LX1PHsDTx&branch=master)](https://travis-ci.com/carpppa/sijoitussimulaattori-app)
+
 # sijoitussimulaattori-app
 
 ## Getting started
