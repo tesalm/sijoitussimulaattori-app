@@ -28,6 +28,7 @@ const suppressedErrors = [
   'Received `true` for a non-boolean attribute `accessible`',
   'The tag.*is unrecognized in this browser',
   '.*is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements',
+  'Warning: Received `%s` for a non-boolean attribute `%s`.',
 ];
 const realConsoleError = console.error;
 console.error = (message) => {
