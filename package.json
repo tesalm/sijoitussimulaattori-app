@@ -61,11 +61,11 @@
     "jest-enzyme": "^7.0.0",
     "jsdom": "^12.2.0",
     "metro-react-native-babel-preset": "0.48.1",
-    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.5.2",
     "react-native-mock-render": "^0.1.2",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.6.0-alpha.8af6728",
+    "redux-devtools-extension": "^2.13.5",
     "ts-jest": "^23.10.4",
     "typescript": "^3.1.3"
   }
