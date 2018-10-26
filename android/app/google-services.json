@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "852225616486",
+    "firebase_url": "https://sijoitussimulaattori.firebaseio.com",
+    "project_id": "sijoitussimulaattori",
+    "storage_bucket": "sijoitussimulaattori.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852225616486:android:e6c33878499185a1",
+        "android_client_info": {
+          "package_name": "com.sijoitussimulaattori"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852225616486-e79ltma1e4ve9nq0fr3j4t8t0cbpn4ou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtX-wjI04d50Pbscndcg8japmv0pw3pDA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
