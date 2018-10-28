@@ -1,22 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { loadingStyles as styles } from './styles';
-import LoadingView from './components/Loading';
-import LoggedInView from './components/HelloUser';
-import { RootState } from '../redux/reducers';
-import { bindActionCreators, Dispatch } from 'redux';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+
 import { login } from '../Auth/actions';
 import { User } from '../models';
+import { RootState } from '../redux/reducers';
+import LoggedInView from './components/HelloUser';
+import LoadingView from './components/Loading';
+import { loadingStyles as styles } from './styles';
 
 export interface LoadingProps {
-  user?: User
-  onLogin: typeof login;
+  user?: User;
+  loginRequest: typeof login;
 }
 
-export interface LoadingState {
-  
-}
+export interface LoadingState {}
 
 export class Loading extends React.Component<LoadingProps, LoadingState> {
   constructor(props: LoadingProps) {
@@ -24,9 +23,7 @@ export class Loading extends React.Component<LoadingProps, LoadingState> {
   }
 
   componentDidMount() {
-    setTimeout(() =>{
-      this.props.onLogin();
-    }, 3000)
+    this.props.loginRequest();
   }
 
   render() {
@@ -34,28 +31,27 @@ export class Loading extends React.Component<LoadingProps, LoadingState> {
     if (user) {
       return (
         <View style={styles.container}>
-          <LoggedInView user={user}/>
+          <LoggedInView user={user} />
         </View>
       );
     } else {
       return (
         <View style={styles.container}>
-          <LoadingView/>
+          <LoadingView />
         </View>
-      )
+      );
     }
-
   }
 }
 
 const mapStateToProps = (state: RootState) => ({
-  user: state.login.user
+  user: state.login.user,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      onLogin: login
+      loginRequest: login,
     },
     dispatch
   );

@@ -1,58 +1,64 @@
-import { Dispatch } from 'redux';
 import { to } from 'await-to-js';
 import firebase from 'react-native-firebase';
+import { Dispatch } from 'redux';
 
 import { User } from '../models';
 
 export enum ActionType {
-  Login = '[Login] Login',
-  Logout = '[Login] Logout',
+  LoginRequest = '[Login] Login Request',
+  LogoutRequest = '[Login] Logout Request',
   LoginSuccess = '[Login] Login Success',
   LoginFailure = '[Login] Login Failure',
 }
-  
-export type AuthAction = Login | LoginSuccess | LoginFailure | Logout;
 
-export class Login {
-  readonly type = ActionType.Login;
+export type AuthAction =
+  | LoginRequest
+  | LoginSuccess
+  | LoginFailure
+  | LogoutRequest;
+
+export class LoginRequest {
+  readonly type = ActionType.LoginRequest;
   constructor() {
-    return {type: this.type};
+    return { type: this.type };
   }
 }
 
 export class LoginSuccess {
   readonly type = ActionType.LoginSuccess;
   constructor(public user: User) {
-    return {type: this.type, user};
-   }
+    return { type: this.type, user };
+  }
 }
 
 export class LoginFailure {
   readonly type = ActionType.LoginFailure;
-  constructor(public error: string) { 
-    return {type: this.type, error};
+  constructor(public error: Error) {
+    return { type: this.type, error };
   }
 }
 
-export class Logout {
-  readonly type = ActionType.Logout;
-  constructor() { 
-    return {type: this.type};
+export class LogoutRequest {
+  readonly type = ActionType.LogoutRequest;
+  constructor() {
+    return { type: this.type };
   }
 }
 
-const login = () => async (
-  dispatch: Dispatch<LoginSuccess | LoginFailure>
-) => {
+const login = () => async (dispatch: Dispatch<AuthAction>) => {
+  dispatch(new LoginRequest());
+
+  // TODO: remove this once the login is in use:
+  await new Promise((r) => setTimeout(r, 3000));
 
   const [err, fsUser] = await to(firebase.auth().signInAnonymously());
 
   if (err || !fsUser) {
-    return dispatch(new LoginFailure(err || 'User not found.'));
+    return dispatch(new LoginFailure(err || Error('User not found.')));
   }
 
   const user: User = {
-    uid: fsUser.user.uid
+    uid: fsUser.user.uid,
   };
 
   if (fsUser.additionalUserInfo) {
@@ -64,17 +70,16 @@ const login = () => async (
   }
 
   dispatch(new LoginSuccess(user));
-}
+};
 
-const logout = () => async (dispatch: Dispatch<Logout>) => {
-
+const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
   const [err] = await to(firebase.auth().signOut());
-  
+
   if (err) {
     console.error('Error logging out');
   } else {
-    dispatch(new Logout());
+    dispatch(new LogoutRequest());
   }
-}
+};
 
 export { login, logout };
