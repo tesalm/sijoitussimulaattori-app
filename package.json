@@ -34,9 +34,11 @@
     "cacheDirectory": ".jest/cache"
   },
   "dependencies": {
+    "await-to-js": "^2.0.1",
     "axios": "^0.18.0",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "^0.57.4",
+    "react-native-firebase": "^5.0.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
     "redux-axios-middleware": "^4.0.0",

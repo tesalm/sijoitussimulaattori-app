@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Hello from '../HelloFeature/Hello';
+import Loading from '../LoadingFeature/Loading';
 
 const App = () => {
-  return <Hello />;
+  return <Loading />;
 };
 
 export default App;
