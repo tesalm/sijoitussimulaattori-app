@@ -49,7 +49,10 @@ Prerequisities:
 
 To build and run the app in the iOS Simulator:
 
-- `react-native run-ios`
+- run `pod install` in the ios folder
+- run `react-native run-ios` in the root folder
+
+If you are using Xcode for developing, instead of `Sijoitussimulaattori.xcodeproj` you must use `Sijoitussimulaattori.xcworkspace` to open the project.
 
 If you encounter build errors, the following might help:
 
