@@ -5,9 +5,9 @@ HOW TO USE?
 
 On your .tsx-file:
 
--inclue: import i18next from '../Texts/i18n';
+-inclue: import i18next from '../assets/i18n';
 
-and then add texts similar than below, and use them as props:
+Use translations as props:
 {i18next.t('hello.hello')}
 {i18next.t('hello.world')}
 
