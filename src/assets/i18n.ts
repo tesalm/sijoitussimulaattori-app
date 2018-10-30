@@ -1,36 +1,28 @@
 import i18next from 'i18next';
+import RNLanguages from 'react-native-languages';
 
-/*
-HOW TO USE?
+import translations_en from './locales/en/translations.json';
 
-On your .tsx-file:
+console.log('######', RNLanguages);
 
--inclue: import i18next from '../assets/i18n';
-
-Use translations as props:
-{i18next.t('hello.hello')}
-{i18next.t('hello.world')}
-
-*/
-
-i18next.init({
+const i18nInstance = i18next.init({
+  fallbackLng: 'en',
+  debug: true,
   interpolation: {
     // React already does escaping
     escapeValue: false,
   },
-  lng: 'en', // 'en' | 'fi'
+  lng: RNLanguages.locale || 'en', // 'en' | 'fi'
+  preload: ['en'],
+  ns: ['translations'],
+  defaultNS: 'translations',
   resources: {
     en: {
-      translation: {
-        //View
-        hello: {
-          //Texts in view
-          hello: 'Hello',
-          world: 'world',
-        },
-      },
+      translations: translations_en,
     },
   },
+  react: { wait: true },
 });
 
-export default i18next;
+const t = i18next.t.bind(i18nInstance);
+export default t;

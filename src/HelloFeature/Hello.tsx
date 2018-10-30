@@ -1,11 +1,13 @@
 import React from 'react';
-import { Platform, Text, View, Button } from 'react-native';
+import { Button, Platform, Text, View } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+
+import t from '../assets/i18n';
+import { RootState } from '../redux/reducers';
+import { addToCounter, removeFromCounter } from './actions';
 import CounterView from './components/CounterView';
 import { helloStyles as styles } from './styles';
-import { RootState } from '../redux/reducers';
-import { Dispatch, bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { CounterAction, addToCounter, removeFromCounter } from './actions';
 
 const instructions = Platform.select<string>({
   ios: 'You are on iOS',
@@ -23,7 +25,7 @@ interface HelloState {
   amount: number;
 }
 
-export class Hello extends React.Component<HelloProps, HelloState> {
+class Hello extends React.Component<HelloProps, HelloState> {
   constructor(props: HelloProps) {
     super(props);
     this.state = { amount: 1 };
@@ -34,7 +36,9 @@ export class Hello extends React.Component<HelloProps, HelloState> {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Hello, {name || 'World'}!</Text>
+        <Text style={styles.welcome}>
+          {t('Hello.HelloGreetee', { greetee: name || t('Hello.World') })}
+        </Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <CounterView counterValue={counterValue} />
         <Button
@@ -71,3 +75,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Hello);
+
+export { Hello as HelloTest };

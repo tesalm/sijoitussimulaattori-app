@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextStyle } from 'react-native';
+import { StyleSheet, Text, TextStyle } from 'react-native';
+
+import t from '../../assets/i18n';
 import { User } from '../../models';
 
 interface HelloUserProps {
@@ -9,7 +11,7 @@ interface HelloUserProps {
 const LoggedInView = (props: HelloUserProps): JSX.Element => {
   return (
     <>
-      <Text style={styles.counterTitle}>Logged in as </Text>
+      <Text style={styles.counterTitle}>{t('Loading.LoggedInAs')} </Text>
       <Text style={styles.counterValue}>{props.user.uid}</Text>
     </>
   );

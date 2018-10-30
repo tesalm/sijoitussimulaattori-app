@@ -1,15 +1,22 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { JSDOM } from 'jsdom';
+
+import 'react-native-mock-render/mock';
 
 configure({ adapter: new Adapter() });
+
+jest.mock('react-native-languages', () => ({
+  Languages: {
+    language: 'en',
+    languages: ['en'],
+  },
+}));
 
 // Set up jsdom with RN:
 // (modified from https://github.com/kentcdodds/react-testing-library/issues/22)
 
-import { JSDOM } from 'jsdom';
 // used to fully render native components as react components
-import 'react-native-mock-render/mock';
-
 const { window } = new JSDOM();
 
 global.window = window;

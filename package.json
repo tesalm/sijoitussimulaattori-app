@@ -25,7 +25,8 @@
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "testPathIgnorePatterns": [
       "\\.snap$",
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/ios/Pods/"
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(react-native)/)"
@@ -36,9 +37,11 @@
   "dependencies": {
     "await-to-js": "^2.0.1",
     "axios": "^0.18.0",
+    "i18next": "^12.0.0",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "^0.57.4",
     "react-native-firebase": "^5.0.0",
+    "react-native-languages": "^3.0.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
     "redux-axios-middleware": "^4.0.0",
@@ -47,6 +50,8 @@
   "devDependencies": {
     "@types/enzyme": "^3.1.14",
     "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/i18n-js": "^3.0.1",
+    "@types/i18next": "^11.9.3",
     "@types/jest": "^23.3.5",
     "@types/jsdom": "^12.2.0",
     "@types/node": "^10.12.0",
@@ -54,20 +59,17 @@
     "@types/react-native": "^0.57.7",
     "@types/react-redux": "^6.0.9",
     "@types/react-test-renderer": "^16.0.3",
-    "@types/i18next": "^11.9.3",
-    "@types/react-i18next": "^7.8.3",
     "babel-core": "^6.26.3",
     "babel-jest": "23.6.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
-    "i18next": "^12.0.0",
+    "i18n-js": "^3.0.11",
     "jest": "23.6.0",
     "jest-environment-jsdom": "^23.4.0",
     "jest-enzyme": "^7.0.0",
     "jsdom": "^12.2.0",
     "metro-react-native-babel-preset": "0.48.1",
     "react-dom": "^16.5.2",
-    "react-i18next": "^8.3.1",
     "react-native-mock-render": "^0.1.2",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.6.0-alpha.8af6728",

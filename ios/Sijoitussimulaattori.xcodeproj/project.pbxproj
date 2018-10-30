@@ -39,6 +39,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* SijoitussimulaattoriTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SijoitussimulaattoriTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2FA9A43F218470A60010B24B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FA9A418218470A60010B24B /* GoogleService-Info.plist */; };
+		2FB546CB2188CDD600395D0E /* libRNLanguages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB546CA2188CDD600395D0E /* libRNLanguages.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C31D2798A2B4781143D97762 /* libPods-Sijoitussimulaattori-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C10E96C7D6BD3653969E89D /* libPods-Sijoitussimulaattori-tvOS.a */; };
@@ -201,6 +202,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
+		2FB546C62188CD8700395D0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FB5469B2188CD8700395D0E /* RNLanguages.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNLanguages;
+		};
+		2FB546C82188CD8700395D0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FB5469B2188CD8700395D0E /* RNLanguages.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28471D9B043800D4039D;
+			remoteInfo = "RNLanguages-tvOS";
+		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
@@ -355,6 +370,8 @@
 		2D02E4901E0B4A5D006451C7 /* Sijoitussimulaattori-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sijoitussimulaattori-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA9A418218470A60010B24B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FB5469B2188CD8700395D0E /* RNLanguages.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNLanguages.xcodeproj; path = "../node_modules/react-native-languages/ios/RNLanguages.xcodeproj"; sourceTree = "<group>"; };
+		2FB546CA2188CDD600395D0E /* libRNLanguages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNLanguages.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D31671121C36398F7628634 /* libPods-Sijoitussimulaattori.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5590CC737D1D46D8B478CCEC /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		5C10E96C7D6BD3653969E89D /* libPods-Sijoitussimulaattori-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,6 +404,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB546CB2188CDD600395D0E /* libRNLanguages.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -552,6 +570,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FB546CA2188CDD600395D0E /* libRNLanguages.a */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				3D31671121C36398F7628634 /* libPods-Sijoitussimulaattori.a */,
 				5C10E96C7D6BD3653969E89D /* libPods-Sijoitussimulaattori-tvOS.a */,
@@ -577,6 +596,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2FB5469C2188CD8700395D0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FB546C72188CD8700395D0E /* libRNLanguages.a */,
+				2FB546C92188CD8700395D0E /* libRNLanguages-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +626,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2FB5469B2188CD8700395D0E /* RNLanguages.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -842,6 +871,10 @@
 					ProductGroup = 2F07CCF021846E61009D6A2E /* Products */;
 					ProjectRef = 28FE62D8A46847F0B18B8805 /* RNFirebase.xcodeproj */;
 				},
+				{
+					ProductGroup = 2FB5469C2188CD8700395D0E /* Products */;
+					ProjectRef = 2FB5469B2188CD8700395D0E /* RNLanguages.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -992,6 +1025,20 @@
 			fileType = archive.ar;
 			path = libRNFirebase.a;
 			remoteRef = 2F07CCF321846E61009D6A2E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2FB546C72188CD8700395D0E /* libRNLanguages.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNLanguages.a;
+			remoteRef = 2FB546C62188CD8700395D0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2FB546C92188CD8700395D0E /* libRNLanguages-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNLanguages-tvOS.a";
+			remoteRef = 2FB546C82188CD8700395D0E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
