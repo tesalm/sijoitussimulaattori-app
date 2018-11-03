@@ -5,6 +5,7 @@ import { NavigationScreenProps } from 'react-navigation';
 export default class CommissionsScreen extends React.Component<
   NavigationScreenProps
 > {
+  static navigationOptions = { title: 'Commissions' };
   render() {
     return (
       <View style={styles.container}>

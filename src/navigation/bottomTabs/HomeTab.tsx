@@ -6,11 +6,11 @@ import MenuIcon from '../components/MenuIcon';
 import HomeScreen from '../screens/HomeScreen';
 import InfoScreen from '../screens/InfoScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import { navStyles as styles } from '../styles';
+import { Colors, Styles } from '../styles';
 
 const HomeStack = createStackNavigator(
   {
-    Home: { screen: HomeScreen, navigationOptions: { title: 'Omistukset' } },
+    Home: { screen: HomeScreen },
     Profile: { screen: ProfileScreen },
     Info: { screen: InfoScreen },
     // TODO add more pages related to this tab
@@ -20,25 +20,26 @@ const HomeStack = createStackNavigator(
     headerMode: 'float',
     initialRouteName: 'Home',
     navigationOptions: ({ navigation }) => ({
-      headerStyle: styles.header,
-      headerTintColor: '#F3EBDD',
+      headerStyle: Styles.header,
+      headerTintColor: Colors.headerTint,
+      headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
       headerRight: <MenuIcon navigation={navigation} />,
     }),
   }
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Omistukset',
+  tabBarLabel: 'Portfolios',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image
         source={require('../assets/briefcase.png')}
-        style={styles.iconActive}
+        style={Styles.iconActive}
       />
     ) : (
       <Image
         source={require('../assets/briefcase.png')}
-        style={styles.iconInactive}
+        style={Styles.iconInactive}
       />
     ),
 };

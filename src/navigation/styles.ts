@@ -1,18 +1,26 @@
 import { StyleSheet } from 'react-native';
 
-const navStyles = StyleSheet.create({
+const Colors = {
+  headerTint: '#F3EBDD',
+  bottomBarBackground: '#FFFFFF',
+  bottomBarBorderTop: '#004D40',
+  inactive: '#004D40',
+  active: '#0040FF',
+};
+
+const Styles = StyleSheet.create({
   header: {
     backgroundColor: '#004D40',
   },
   iconActive: {
     height: 24,
     width: 24,
-    tintColor: '#58D3F7',
+    tintColor: Colors.active,
   },
   iconInactive: {
     height: 24,
     width: 24,
-    tintColor: '#F3EBDD',
+    tintColor: Colors.inactive,
   },
   drawerIcon: {
     height: 24,
@@ -20,4 +28,4 @@ const navStyles = StyleSheet.create({
   },
 });
 
-export { navStyles };
+export { Styles, Colors };

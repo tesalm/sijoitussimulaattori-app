@@ -3,19 +3,17 @@ import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import MenuIcon from '../components/MenuIcon';
-import InfoScreen from '../screens/InfoScreen';
-import MarketScreen from '../screens/MarketScreen';
+import CommunityScreen from '../screens/CommunityScreen';
 import { Colors, Styles } from '../styles';
 
-const MarketStack = createStackNavigator(
+const CommunityStack = createStackNavigator(
   {
-    Market: { screen: MarketScreen },
-    Info: { screen: InfoScreen },
+    Community: { screen: CommunityScreen },
     // TODO add more pages related to this tab
   },
   {
     headerMode: 'float',
-    initialRouteName: 'Market',
+    initialRouteName: 'Community',
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
@@ -25,17 +23,17 @@ const MarketStack = createStackNavigator(
   }
 );
 
-MarketStack.navigationOptions = {
-  tabBarLabel: 'Stocks',
+CommunityStack.navigationOptions = {
+  tabBarLabel: 'Community',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image
-        source={require('../assets/chart.png')}
+        source={require('../assets/community.png')}
         style={Styles.iconActive}
       />
     ) : (
       <Image
-        source={require('../assets/chart.png')}
+        source={require('../assets/community.png')}
         style={Styles.iconInactive}
       />
     ),
@@ -45,4 +43,4 @@ MarketStack.navigationOptions = {
   },
 };
 
-export default MarketStack;
+export default CommunityStack;

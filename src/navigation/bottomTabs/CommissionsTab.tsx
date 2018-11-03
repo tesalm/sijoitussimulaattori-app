@@ -5,14 +5,11 @@ import { createStackNavigator } from 'react-navigation';
 import MenuIcon from '../components/MenuIcon';
 import CommissionsScreen from '../screens/CommissionsScreen';
 import InfoScreen from '../screens/InfoScreen';
-import { navStyles as styles } from '../styles';
+import { Colors, Styles } from '../styles';
 
 const CommissionsStack = createStackNavigator(
   {
-    Commissions: {
-      screen: CommissionsScreen,
-      navigationOptions: { title: 'Toimeksiannot' },
-    },
+    Commissions: { screen: CommissionsScreen },
     Info: { screen: InfoScreen },
     // TODO add more pages related to this tab
   },
@@ -20,25 +17,26 @@ const CommissionsStack = createStackNavigator(
     headerMode: 'float',
     initialRouteName: 'Commissions',
     navigationOptions: ({ navigation }) => ({
-      headerStyle: styles.header,
-      headerTintColor: '#F3EBDD',
+      headerStyle: Styles.header,
+      headerTintColor: Colors.headerTint,
+      headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
       headerRight: <MenuIcon navigation={navigation} />,
     }),
   }
 );
 
 CommissionsStack.navigationOptions = {
-  tabBarLabel: 'Toimeksiannot',
+  tabBarLabel: 'Commissions',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image
         source={require('../assets/transaction.png')}
-        style={styles.iconActive}
+        style={Styles.iconActive}
       />
     ) : (
       <Image
         source={require('../assets/transaction.png')}
-        style={styles.iconInactive}
+        style={Styles.iconInactive}
       />
     ),
   tabBarOnPress: ({ navigation, defaultHandler }: any) => {

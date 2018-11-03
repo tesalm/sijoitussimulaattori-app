@@ -1,13 +1,14 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
 export default class MarketScreen extends React.Component<
   NavigationScreenProps
 > {
+  static navigationOptions = { title: 'Stocks' };
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Lista tarjolla olevista arvopapereista</Text>
         <View style={{ padding: 10 }}>
           <Button
@@ -25,11 +26,3 @@ export default class MarketScreen extends React.Component<
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

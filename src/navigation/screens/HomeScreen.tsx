@@ -3,7 +3,7 @@ import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
 export default class HomeScreen extends React.Component<NavigationScreenProps> {
-  //static navigationOptions = { title: 'Home' };
+  static navigationOptions = { title: 'Portfolios' };
 
   render() {
     return (

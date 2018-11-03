@@ -4,7 +4,7 @@ import { createDrawerNavigator, DrawerItems, NavigationScreenProps, SafeAreaView
 
 import BottomNav from './BottomNavigator';
 import ProfileScreen from './screens/ProfileScreen';
-import { navStyles as styles } from './styles';
+import { Styles } from './styles';
 
 const DrawerNavigator = createDrawerNavigator(
   {
@@ -15,11 +15,11 @@ const DrawerNavigator = createDrawerNavigator(
     Profile: {
       screen: ProfileScreen,
       navigationOptions: {
-        drawerLabel: 'Profiili',
+        drawerLabel: 'Profile',
         drawerIcon: (
           <Image
             source={require('./assets/profile.png')}
-            style={styles.drawerIcon}
+            style={Styles.drawerIcon}
           />
         ),
       },
@@ -39,7 +39,7 @@ const DrawerNavigator = createDrawerNavigator(
         >
           <Image
             source={require('./assets/close.png')}
-            style={styles.drawerIcon}
+            style={Styles.drawerIcon}
           />
         </TouchableOpacity>
       </SafeAreaView>
