@@ -23,7 +23,7 @@ const HomeStack = createStackNavigator(
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
       headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
-      headerRight: <MenuIcon navigation={navigation} />,
+      headerLeft: <MenuIcon navigation={navigation} />,
     }),
   }
 );

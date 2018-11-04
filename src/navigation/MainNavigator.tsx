@@ -28,7 +28,7 @@ const DrawerNavigator = createDrawerNavigator(
   },
   {
     initialRouteName: 'Main',
-    drawerPosition: 'right',
+    drawerPosition: 'left',
     drawerWidth: 200,
     contentComponent: (props: NavigationScreenProps) => (
       <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>

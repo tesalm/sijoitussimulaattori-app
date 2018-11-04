@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     height: 24,
     width: 24,
     tintColor: Colors.headerTint,
-    marginRight: 20,
+    marginLeft: 20,
   },
 });
 
