@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 
 import t from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
+import { RouteName } from '../routes';
 import CommissionsScreen from '../screens/CommissionsScreen';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
@@ -16,7 +17,7 @@ const CommissionsStack = createStackNavigator(
   },
   {
     headerMode: 'float',
-    initialRouteName: 'Commissions',
+    initialRouteName: RouteName.Commissions,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,

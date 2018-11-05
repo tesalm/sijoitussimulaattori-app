@@ -3,6 +3,7 @@ import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
 import t from '../../assets/i18n';
+import { RouteName } from '../routes';
 
 export default class MarketScreen extends React.Component<
   NavigationScreenProps
@@ -15,13 +16,15 @@ export default class MarketScreen extends React.Component<
         <View style={{ padding: 10 }}>
           <Button
             title={t('MarketPage.GoToCommissionsButtonLabel')}
-            onPress={() => this.props.navigation.navigate('Commissions')}
+            onPress={() =>
+              this.props.navigation.navigate(RouteName.Commissions)
+            }
           />
         </View>
         <View style={{ padding: 10 }}>
           <Button
             title={t('MarketPage.GoToHomePageButtonLabel')}
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => this.props.navigation.navigate(RouteName.Home)}
           />
         </View>
       </View>

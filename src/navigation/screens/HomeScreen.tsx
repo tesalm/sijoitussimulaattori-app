@@ -3,6 +3,7 @@ import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
 import t from '../../assets/i18n';
+import { RouteName } from '../routes';
 
 export default class HomeScreen extends React.Component<NavigationScreenProps> {
   static navigationOptions = { title: t('PortfoliosPage.Title') };
@@ -14,7 +15,7 @@ export default class HomeScreen extends React.Component<NavigationScreenProps> {
         <View style={{ padding: 10 }}>
           <Button
             title={t('PortfoliosPage.GoToProfileButtonLabel')}
-            onPress={() => this.props.navigation.navigate('Profile')}
+            onPress={() => this.props.navigation.navigate(RouteName.Profile)}
           />
         </View>
       </View>

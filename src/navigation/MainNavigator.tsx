@@ -4,6 +4,7 @@ import { createDrawerNavigator, DrawerItems, NavigationScreenProps, SafeAreaView
 
 import t from '../assets/i18n';
 import BottomNav from './BottomNavigator';
+import { RouteName } from './routes';
 import ProfileScreen from './screens/ProfileScreen';
 import { Styles } from './styles';
 
@@ -28,7 +29,7 @@ const DrawerNavigator = createDrawerNavigator(
     // TODO add more drawer items
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: RouteName.Main,
     drawerPosition: 'left',
     drawerWidth: 200,
     contentComponent: (props: NavigationScreenProps) => (

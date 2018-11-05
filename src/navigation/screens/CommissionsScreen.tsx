@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
 import t from '../../assets/i18n';
+import { RouteName } from '../routes';
 
 export default class CommissionsScreen extends React.Component<
   NavigationScreenProps
@@ -17,7 +18,7 @@ export default class CommissionsScreen extends React.Component<
         <View style={{ padding: 10 }}>
           <Button
             title={t('CommissionsPage.GoToMarketsButtonLabel')}
-            onPress={() => this.props.navigation.navigate('Market')}
+            onPress={() => this.props.navigation.navigate(RouteName.Market)}
           />
         </View>
       </View>
