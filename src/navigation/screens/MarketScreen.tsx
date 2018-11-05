@@ -2,23 +2,25 @@ import React from 'react';
 import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
+import t from '../../assets/i18n';
+
 export default class MarketScreen extends React.Component<
   NavigationScreenProps
 > {
-  static navigationOptions = { title: 'Stocks' };
+  static navigationOptions = { title: t('MarketPage.Title') };
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Lista tarjolla olevista arvopapereista</Text>
+        <Text>{t('MarketPage.PlaceholderText')}</Text>
         <View style={{ padding: 10 }}>
           <Button
-            title="Go to Commissions"
+            title={t('MarketPage.GoToCommissionsButtonLabel')}
             onPress={() => this.props.navigation.navigate('Commissions')}
           />
         </View>
         <View style={{ padding: 10 }}>
           <Button
-            title="Go to Home"
+            title={t('MarketPage.GoToHomePageButtonLabel')}
             onPress={() => this.props.navigation.navigate('Home')}
           />
         </View>

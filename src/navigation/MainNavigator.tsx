@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { createDrawerNavigator, DrawerItems, NavigationScreenProps, SafeAreaView } from 'react-navigation';
 
+import t from '../assets/i18n';
 import BottomNav from './BottomNavigator';
 import ProfileScreen from './screens/ProfileScreen';
 import { Styles } from './styles';
@@ -15,7 +16,7 @@ const DrawerNavigator = createDrawerNavigator(
     Profile: {
       screen: ProfileScreen,
       navigationOptions: {
-        drawerLabel: 'Profile',
+        drawerLabel: t('Navigation.Labels.Profile'),
         drawerIcon: (
           <Image
             source={require('./assets/profile.png')}

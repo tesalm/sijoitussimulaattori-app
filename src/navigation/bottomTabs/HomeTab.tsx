@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import t from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import HomeScreen from '../screens/HomeScreen';
 import InfoScreen from '../screens/InfoScreen';
@@ -29,7 +30,7 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Portfolios',
+  tabBarLabel: t('Navigation.Labels.Portfolios'),
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

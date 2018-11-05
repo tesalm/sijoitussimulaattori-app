@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import t from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import CommissionsScreen from '../screens/CommissionsScreen';
 import InfoScreen from '../screens/InfoScreen';
@@ -26,7 +27,7 @@ const CommissionsStack = createStackNavigator(
 );
 
 CommissionsStack.navigationOptions = {
-  tabBarLabel: 'Commissions',
+  tabBarLabel: t('Navigation.Labels.Commissions'),
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

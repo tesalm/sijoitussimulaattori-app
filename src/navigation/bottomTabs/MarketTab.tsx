@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import t from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import InfoScreen from '../screens/InfoScreen';
 import MarketScreen from '../screens/MarketScreen';
@@ -26,7 +27,7 @@ const MarketStack = createStackNavigator(
 );
 
 MarketStack.navigationOptions = {
-  tabBarLabel: 'Stocks',
+  tabBarLabel: t('Navigation.Labels.Stocks'),
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

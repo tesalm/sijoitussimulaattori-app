@@ -1,4 +1,40 @@
 {
+  "Navigation": {
+    "Labels": {
+      "Profile": "Profile",
+      "Commissions": "Commissions",
+      "Community": "Community",
+      "Portfolios": "Portfolios",
+      "Stocks": "Stocks"
+    }
+  },
+  "CommissionsPage": {
+    "Title": "Commissions",
+    "PlaceholderText": "Omat toimeksiannot",
+    "GoToMarketsButtonLabel": "Go to Markets"
+  },
+  "CommunityPage": {
+    "Title": "Community",
+    "PlaceholderText": "Yhteisösivu"
+  },
+  "PortfoliosPage": {
+    "Title": "Portfolios",
+    "PlaceholderText": "Listaus salkuista",
+    "GoToProfileButtonLabel": "Go to Profile"
+  },
+  "MarketPage": {
+    "Title": "Stocks",
+    "PlaceholderText": "Lista tarjolla olevista arvopapereista",
+    "GoToCommissionsButtonLabel": "Go to Commissions",
+    "GoToHomePageButtonLabel": "Go to Home Page"
+  },
+  "ProfilePage": {
+    "Title": "Profile",
+    "PlaceholderText": "Profiilisivu"
+  },
+  "InfoPage": {
+    "PlaceholderText": "Infosivu"
+  },
   "Hello": {
     "HelloGreetee": "Hello, {{greetee}}!",
     "World": "world"
