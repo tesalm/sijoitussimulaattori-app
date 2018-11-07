@@ -1,0 +1,45 @@
+{
+  "Navigation": {
+    "Labels": {
+      "Profile": "Profile",
+      "Commissions": "Commissions",
+      "Community": "Community",
+      "Portfolios": "Portfolios",
+      "Stocks": "Stocks"
+    }
+  },
+  "CommissionsPage": {
+    "Title": "Commissions",
+    "PlaceholderText": "PLACEHOLDER: My commissions",
+    "GoToMarketsButtonLabel": "Go to Markets"
+  },
+  "CommunityPage": {
+    "Title": "Community",
+    "PlaceholderText": "PLACEHOLDER: Community page"
+  },
+  "PortfoliosPage": {
+    "Title": "Portfolios",
+    "PlaceholderText": "PLACEHOLDER: Listing of portfolios",
+    "GoToProfileButtonLabel": "Go to Profile"
+  },
+  "MarketPage": {
+    "Title": "Stocks",
+    "PlaceholderText": "PLACEHOLDER: List of stocks",
+    "GoToCommissionsButtonLabel": "Go to Commissions",
+    "GoToHomePageButtonLabel": "Go to Home Page"
+  },
+  "ProfilePage": {
+    "Title": "Profile",
+    "PlaceholderText": "PLACEHOLDER: Profile page"
+  },
+  "InfoPage": {
+    "PlaceholderText": "PLACEHOLDER: Info page"
+  },
+  "Hello": {
+    "HelloGreetee": "Hello, {{greetee}}!",
+    "World": "world"
+  },
+  "Loading": {
+    "LoggedInAs": "Logged in as"
+  }
+}

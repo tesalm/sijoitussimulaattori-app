@@ -130,3 +130,7 @@ If developing with Visual Studio Code, install the following plugins:
 - EditorConfig for VS Code
 - Prettier - Code formatter
 - TypeScript Hero
+
+## Other
+
+- The app is using some icons from [Icons8](https://icons8.com).

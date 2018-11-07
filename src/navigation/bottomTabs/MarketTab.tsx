@@ -2,7 +2,9 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
+import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
 import MarketScreen from '../screens/MarketScreen';
 import { Colors, Styles } from '../styles';
@@ -15,7 +17,7 @@ const MarketStack = createStackNavigator(
   },
   {
     headerMode: 'float',
-    initialRouteName: 'Market',
+    initialRouteName: RouteName.Market,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
@@ -26,7 +28,7 @@ const MarketStack = createStackNavigator(
 );
 
 MarketStack.navigationOptions = {
-  tabBarLabel: 'Stocks',
+  tabBarLabel: t('Navigation.Labels.Stocks'),
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

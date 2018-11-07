@@ -2,7 +2,9 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
+import { RouteName } from '../routes';
 import CommissionsScreen from '../screens/CommissionsScreen';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
@@ -15,7 +17,7 @@ const CommissionsStack = createStackNavigator(
   },
   {
     headerMode: 'float',
-    initialRouteName: 'Commissions',
+    initialRouteName: RouteName.Commissions,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
@@ -26,7 +28,7 @@ const CommissionsStack = createStackNavigator(
 );
 
 CommissionsStack.navigationOptions = {
-  tabBarLabel: 'Commissions',
+  tabBarLabel: t('Navigation.Labels.Commissions'),
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

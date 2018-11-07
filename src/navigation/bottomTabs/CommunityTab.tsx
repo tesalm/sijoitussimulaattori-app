@@ -2,7 +2,9 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
+import { RouteName } from '../routes';
 import CommunityScreen from '../screens/CommunityScreen';
 import { Colors, Styles } from '../styles';
 
@@ -13,7 +15,7 @@ const CommunityStack = createStackNavigator(
   },
   {
     headerMode: 'float',
-    initialRouteName: 'Community',
+    initialRouteName: RouteName.Community,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
@@ -24,7 +26,7 @@ const CommunityStack = createStackNavigator(
 );
 
 CommunityStack.navigationOptions = {
-  tabBarLabel: 'Community',
+  tabBarLabel: t('Navigation.Labels.Community'),
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

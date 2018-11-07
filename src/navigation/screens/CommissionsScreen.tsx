@@ -2,18 +2,23 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
+import { t } from '../../assets/i18n';
+import { RouteName } from '../routes';
+
 export default class CommissionsScreen extends React.Component<
   NavigationScreenProps
 > {
-  static navigationOptions = { title: 'Commissions' };
+  static navigationOptions = {
+    title: t('CommissionsPage.Title'),
+  };
   render() {
     return (
       <View style={styles.container}>
-        <Text>Omat toimeksiannot</Text>
+        <Text>{t('CommissionsPage.PlaceholderText')}</Text>
         <View style={{ padding: 10 }}>
           <Button
-            title="Go to Markets"
-            onPress={() => this.props.navigation.navigate('Market')}
+            title={t('CommissionsPage.GoToMarketsButtonLabel')}
+            onPress={() => this.props.navigation.navigate(RouteName.Market)}
           />
         </View>
       </View>
