@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
-import t from '../../assets/i18n';
+import { t } from '../../assets/i18n';
 import { RouteName } from '../routes';
 
 export default class MarketScreen extends React.Component<

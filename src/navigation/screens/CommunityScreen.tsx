@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
-import t from '../../assets/i18n';
+import { t } from '../../assets/i18n';
 
 export default class CommunityScreen extends React.Component<
   NavigationScreenProps

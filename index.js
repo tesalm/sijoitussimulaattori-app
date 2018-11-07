@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { name as appName } from './app.json';
 import App from './src/App/App.tsx';
-import configureStore from './src/redux/store';
+import { configureStore } from './src/redux/store';
 
 // Create the store
 const store = configureStore();

@@ -24,5 +24,4 @@ const i18nInstance = i18next.init({
   react: { wait: true },
 });
 
-const t = i18next.t.bind(i18nInstance);
-export default t;
+export const t = i18next.t.bind(i18nInstance);

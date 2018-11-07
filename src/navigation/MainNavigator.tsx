@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { createDrawerNavigator, DrawerItems, NavigationScreenProps, SafeAreaView } from 'react-navigation';
 
-import t from '../assets/i18n';
+import { t } from '../assets/i18n';
 import BottomNav from './BottomNavigator';
 import { RouteName } from './routes';
 import ProfileScreen from './screens/ProfileScreen';

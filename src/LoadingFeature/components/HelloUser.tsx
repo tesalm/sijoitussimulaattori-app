@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextStyle } from 'react-native';
 
-import t from '../../assets/i18n';
+import { t } from '../../assets/i18n';
 import { User } from '../../models';
 
 interface HelloUserProps {

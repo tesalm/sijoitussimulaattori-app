@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
-import t from '../../assets/i18n';
+import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';

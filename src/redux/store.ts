@@ -1,14 +1,12 @@
 // tslint:disable no-string-literal
-
-import { createStore, applyMiddleware, Middleware } from 'redux';
+import { applyMiddleware, createStore, Middleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import { rootReducer } from './reducers';
 
-export default function configureStore(
-  additionalMiddleware: Middleware[] = []
-) {
+
+export function configureStore(additionalMiddleware: Middleware[] = []) {
   return createStore(
     rootReducer,
     composeWithDevTools(

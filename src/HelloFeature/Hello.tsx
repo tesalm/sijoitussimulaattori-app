@@ -3,7 +3,7 @@ import { Button, Platform, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import t from '../assets/i18n';
+import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
 import { addToCounter, removeFromCounter } from './actions';
 import CounterView from './components/CounterView';
