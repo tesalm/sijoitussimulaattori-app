@@ -4,15 +4,6 @@ import { List, ListItem} from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { Styles } from '../styles';
 
-<<<<<<< HEAD
-import { t } from '../../assets/i18n';
-import { RouteName } from '../routes';
-
-export default class MarketScreen extends React.Component<
-  NavigationScreenProps
-> {
-  static navigationOptions = { title: t('MarketPage.Title') };
-=======
 interface StockProps{
   info: string;
 }
@@ -27,7 +18,6 @@ class Stocks extends React.Component<StockProps,StockState> {
       data:[{key: "Nokia", value: "3.5%"},{key: "Apple", value: "4.5%"}] 
     }
   }
->>>>>>> Testing with flatlist
   render() {
     return (
         <FlatList

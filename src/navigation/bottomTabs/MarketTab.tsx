@@ -6,7 +6,7 @@ import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
-import MarketScreen from '../screens/MarketScreen';
+import MarketScreen from '../../ListStockFeature/MarketScreen';
 import { Colors, Styles } from '../styles';
 
 const MarketStack = createStackNavigator(
