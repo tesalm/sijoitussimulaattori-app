@@ -1,8 +1,8 @@
 import { StocksAction, ActionType } from './actions';
 
 export interface Stocks {
-  stocks: Array<{key: string, value: string}>;
-  loading: Boolean;
+  stocks: Array<{key: string,  revenue: string, lastsale: string}>;
+  loading: boolean;
   error: Error | null;
 }
 
@@ -14,7 +14,7 @@ const initialState: Stocks = {
 
 export const stocksReducer = (
   state: Stocks = initialState,
-  action: StocksAction
+  action: StocksAction  
 ): Stocks => {
   switch (action.type) {
     case ActionType.GetStocksBegin:

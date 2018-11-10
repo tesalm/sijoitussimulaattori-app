@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+import axios from 'axios';
 
 export enum ActionType {
     GetStocksBegin = 'GET_STOCKS_BEGIN',
@@ -8,49 +9,33 @@ export enum ActionType {
 
 export type StocksAction = GetStocksBegin | GetStocksSuccess | GetStocksFailure;
 
-interface GetStocksBegin {
-    type: ActionType.GetStocksBegin;
-}
-  
-interface GetStocksSuccess {
-    type: ActionType.GetStocksSuccess;
-    stocks: Array<{key: string, value: string}>;
-}
-  
-interface GetStocksFailure {
-    type: ActionType.GetStocksFailure;
-    error: Error,
+export class GetStocksBegin {
+    readonly type = ActionType.GetStocksBegin;
+    constructor(){
+        return {type: this.type}
+    }
 }
 
-const getStocksBeginAction = (): GetStocksBegin => ({
-    type: ActionType.GetStocksBegin,
-  });
-  
-const getStocksSuccessAction = (stocks: Array<{key: string, value: string}> ): GetStocksSuccess => ({
-    type: ActionType.GetStocksSuccess,
-    stocks: stocks,
-  });
+export class GetStocksSuccess {
+    readonly type = ActionType.GetStocksSuccess;
+    constructor(public stocks :Array<{key: string, revenue: string, lastsale: string}> ){
+        return {type: this.type, stocks}
+    }
+}
 
-const getStocksFailureAction = (error: Error): GetStocksFailure => ({
-    type: ActionType.GetStocksFailure,
-    error : error,
-  });
+export class GetStocksFailure {
+    readonly type = ActionType.GetStocksFailure;
+    constructor(public error: Error){
+        return {type: this.type, error}
+    }
+}
 
-const begin = () => (dispatch: Dispatch<GetStocksBegin>) =>
-    dispatch(getStocksBeginAction());
-
-
-const success = (stocks: Array<{key: string, value: string}> ) => (dispatch: Dispatch<GetStocksSuccess>) =>
-    dispatch(getStocksSuccessAction(stocks));
-
-const errorr = (error: Error) => (dispatch: Dispatch<GetStocksFailure>) =>
-    dispatch(getStocksFailureAction(error));
-
-function getStocks():void{
-    begin();
-    fetch("http://localhost:3000/stocks/list").then(res => res.json()).then(json => {success(json)})
-    .catch(error => errorr(error))
+const getStocks = ()  => async(dispatch:Dispatch<StocksAction>) => {
+    dispatch(new GetStocksBegin());
+    fetch("http://192.168.0.19:3000/stocks/list").then(res => res.json())
+    .then(json => {dispatch(new GetStocksSuccess(json.results))})
+    .catch(error => {dispatch(new GetStocksFailure(error))})
 
 }
 
-export{getStocks,begin}
+export{getStocks}
