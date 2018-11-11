@@ -4,7 +4,7 @@ const StockStyles = StyleSheet.create({
     titleStyle:{
         fontWeight: "bold",
         color: '#004D40',
-        fontSize: 20,    
+        fontSize: 16,    
         marginTop: 5,    
     },
 
@@ -13,10 +13,11 @@ const StockStyles = StyleSheet.create({
       paddingTop: 10,
       marginLeft: 5,
       marginBottom: 5,
+
        
     },
     lastSaleText: {
-        fontSize: 11,
+        fontSize: 12,
         color: '#004D40',
         textAlign: "justify",
         marginLeft: 5,
@@ -24,11 +25,13 @@ const StockStyles = StyleSheet.create({
  
     },
     lastSaleValue:{
-        fontSize: 15,
+        fontSize: 14,
+        fontWeight: "bold",
         color: '#004D40',
         textAlign: "justify",
-        marginLeft: 0,
-        marginTop: -5 
+        marginLeft: 1,
+        marginTop: -5,
+         
 
   
     },
@@ -41,9 +44,15 @@ const StockStyles = StyleSheet.create({
         fontSize: 10,
         color: '#004D40',
     },
-    revenueValue:{
-        fontSize: 25,
-        color: 'green',
+    revenueValueGreen:{
+        fontSize: 18,
+        fontWeight: "bold",
+        color: '#54c242',
+    },
+    revenueValueRed:{
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "#e20f00"
     },
     listItemWhite:{
         backgroundColor: "white",
