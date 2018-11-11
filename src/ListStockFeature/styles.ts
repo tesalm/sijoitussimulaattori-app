@@ -5,14 +5,15 @@ const StockStyles = StyleSheet.create({
         fontWeight: "bold",
         color: '#004D40',
         fontSize: 16,    
-        marginTop: 5,    
+        marginTop: 8, 
+        marginLeft: 16   
     },
 
     subtitleView: {
       flexDirection: 'column',
-      paddingTop: 10,
-      marginLeft: 5,
-      marginBottom: 5,
+      marginTop: 8,
+      marginLeft: 16,
+      marginBottom: 8,
 
        
     },
@@ -20,7 +21,6 @@ const StockStyles = StyleSheet.create({
         fontSize: 12,
         color: '#004D40',
         textAlign: "justify",
-        marginLeft: 5,
         marginBottom: 1
  
     },
@@ -28,12 +28,11 @@ const StockStyles = StyleSheet.create({
         fontSize: 14,
         fontWeight: "bold",
         color: '#004D40',
-        textAlign: "justify",
-        marginLeft: 1,
+        textAlign: "left",     
         marginTop: -5,
-         
+        marginLeft: -4
 
-  
+         
     },
 
     rightTitleView:{
@@ -48,11 +47,13 @@ const StockStyles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         color: '#54c242',
+        marginLeft: 16
     },
     revenueValueRed:{
         fontSize: 18,
         fontWeight: "bold",
-        color: "#e20f00"
+        color: "#e20f00",
+        marginLeft: 16
     },
     listItemWhite:{
         backgroundColor: "white",

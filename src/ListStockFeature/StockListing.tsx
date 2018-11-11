@@ -1,12 +1,12 @@
-import React, { Props } from 'react';
-import { Text, View, FlatList, StyleSheet, NativeSyntheticEvent } from 'react-native';
-import { List, ListItem, SearchBar, Icon} from 'react-native-elements';
+import React from 'react';
+import { Text, View, FlatList } from 'react-native';
+import {  ListItem, SearchBar} from 'react-native-elements';
 import { connect } from 'react-redux';
 import { RootState } from '../redux/reducers';
 import {getStocks }from './actions'
 import { Dispatch, bindActionCreators } from 'redux';
 import {StockStyles} from './styles'
-import { TabRouter } from 'react-navigation';
+
 
 interface StockProps{
   stocks: Array<{key: string, revenue: string, lastsale: string}>;
@@ -32,20 +32,24 @@ class StockListing extends React.Component<StockProps,StockState> {
   }
 
   componentDidMount(){
+    //Dispatch the actions
     this.props.getAllStocks();
   }
 
    renderHeader = ():any => {
     return (
       <SearchBar
+        inputStyle={{backgroundColor: 'white'}}
+        lightTheme round
+        noIcon
         placeholder="Search for stocks"
-        lightTheme
         //Todo: search bar functionality
         autoCorrect={false}
       />
     );
   };
 
+  //This chekc what color revenue should be
   revenueColor = (revenue:string): (typeof StockStyles.revenueValueGreen) => {
     if (revenue.charAt(0) == "+"){
       return StockStyles.revenueValueGreen;
@@ -55,6 +59,7 @@ class StockListing extends React.Component<StockProps,StockState> {
     }
   }
 
+  //Every other listitem has gray background
   listBackgroundColor = (index:number): string =>{
     if(index % 2){
       return "#F0F0F0"
@@ -74,16 +79,16 @@ class StockListing extends React.Component<StockProps,StockState> {
     }
 
     return (
-      <FlatList
+      <FlatList 
         data= {stocks}
         renderItem={({ item,index }) => (
       
-          <ListItem containerStyle = {{height: 80, backgroundColor: this.listBackgroundColor(index)}}
+          <ListItem containerStyle = {{height: 80, backgroundColor: this.listBackgroundColor(index), borderBottomWidth:0}}
+
             title={item.key}
             titleStyle ={StockStyles.titleStyle}
             rightTitle ={item.revenue}
             rightTitleStyle = {this.revenueColor(item.revenue)}
-        
             hideChevron
             subtitle={
               <View style = {StockStyles.subtitleView}>
@@ -100,9 +105,9 @@ class StockListing extends React.Component<StockProps,StockState> {
   }
 }
 const mapStateToProps = (state: RootState) => ({
-  stocks: state.stocks.stocks,
-  loading:state.stocks.loading,
-  error:state.stocks.error
+  stocks: state.stocksListing.stocks,
+  loading:state.stocksListing.loading,
+  error:state.stocksListing.error
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => 

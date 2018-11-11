@@ -29,10 +29,10 @@ export class GetStocksFailure {
         return {type: this.type, error}
     }
 }
-
+//This is called by StockListing. Dispatch needed actions and fetch the data
 const getStocks = ()  => async(dispatch:Dispatch<StocksAction>) => {
     dispatch(new GetStocksBegin());
-    fetch("http://192.168.0.19:3000/stocks/list").then(res => res.json())
+    fetch("http://192.168.1.7:3000/stocks/list").then(res => res.json())
     .then(json => {dispatch(new GetStocksSuccess(json.results))})
     .catch(error => {dispatch(new GetStocksFailure(error))})
 

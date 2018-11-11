@@ -1,21 +1,21 @@
 import { StocksAction, ActionType } from './actions';
 
-export interface Stocks {
+export interface StocksListing {
   stocks: Array<{key: string,  revenue: string, lastsale: string}>;
   loading: boolean;
   error: Error | null;
 }
 
-const initialState: Stocks = {
+const initialState: StocksListing = {
   stocks: [],
   loading: false,
   error: null,
 };
 
-export const stocksReducer = (
-  state: Stocks = initialState,
+export const stocksListingReducer = (
+  state: StocksListing = initialState,
   action: StocksAction  
-): Stocks => {
+): StocksListing => {
   switch (action.type) {
     case ActionType.GetStocksBegin:
       return { ...state, stocks: [], loading: true, error: null};
