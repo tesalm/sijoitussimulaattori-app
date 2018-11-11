@@ -1,6 +1,7 @@
 import { to } from 'await-to-js';
 import firebase from 'react-native-firebase';
 import { Dispatch } from 'redux';
+import { t } from '../assets/i18n';
 
 import { User } from '../models';
 
@@ -9,13 +10,19 @@ export enum ActionType {
   LogoutRequest = '[Login] Logout Request',
   LoginSuccess = '[Login] Login Success',
   LoginFailure = '[Login] Login Failure',
+  DeleteCurrentUserRequest = '[Login] Delete Current User Request',
+  DeleteCurrentUserSuccess = '[Login] Delete Current User Success',
+  DeleteCurrentUserFailure = '[Login] Delete Current User Failure'
 }
 
 export type AuthAction =
   | LoginRequest
   | LoginSuccess
   | LoginFailure
-  | LogoutRequest;
+  | LogoutRequest
+  | DeleteCurrentUserRequest
+  | DeleteCurrentUserSuccess
+  | DeleteCurrentUserFailure;
 
 export class LoginRequest {
   readonly type = ActionType.LoginRequest;
@@ -42,6 +49,27 @@ export class LogoutRequest {
   readonly type = ActionType.LogoutRequest;
   constructor() {
     return { type: this.type };
+  }
+}
+
+export class DeleteCurrentUserRequest {
+  readonly type = ActionType.DeleteCurrentUserRequest;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class DeleteCurrentUserSuccess {
+  readonly type = ActionType.DeleteCurrentUserSuccess;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class DeleteCurrentUserFailure {
+  readonly type = ActionType.DeleteCurrentUserFailure;
+  constructor(public error: Error) {
+    return { type: this.type, error: this.error };
   }
 }
 
@@ -82,4 +110,24 @@ const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
   }
 };
 
-export { login, logout };
+const deleteCurrentUser = () => async (dispatch: Dispatch<AuthAction>) => {
+  dispatch(new DeleteCurrentUserRequest());
+
+  const currentUser = firebase.auth().currentUser;
+
+  if (!currentUser) {
+    dispatch(new DeleteCurrentUserFailure(new Error(t('Auth.NoAuthenticatedUser') || 'PLACEHOLDER: No authenticated user')));
+    return;
+  }
+
+  const [err] = await to(currentUser.delete());
+
+  if (err) {
+    dispatch(new DeleteCurrentUserFailure(err));
+  } else {
+    dispatch(new DeleteCurrentUserSuccess());
+  }
+
+}
+
+export { login, logout, deleteCurrentUser };
