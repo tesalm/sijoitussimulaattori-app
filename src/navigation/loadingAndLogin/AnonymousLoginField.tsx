@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -62,10 +62,17 @@ export class AnonymousLoginField extends React.Component<LoginViewProps, LoginVi
     return(
     <View style={loginScrStyles.background}>
       {/*TODO container for the logo.*/}
+      <View style={[loginScrStyles.containerRow, {flex: 0.4}]}>
+      <View style={[loginScrStyles.containerColumn, {flex: 0.8}]}>
+        <Image resizeMode={'contain'}
+          style={{flex:1, height: undefined, width: undefined}}
+          source={require('../../../resources/Logo.png')} />
+      </View>
+      </View>
 
       {/*Container for the anonymous login (button).*/}
       <View style={[loginScrStyles.containerRow, {flex: 0.2}]}>
-      <View style={loginScrStyles.containerColumn}>
+      <View style={[loginScrStyles.containerColumn, {flex: 0.5}]}>
 
         <Text style={loginScrStyles.text}>
           {loginError ? loginError.message : "Your first time at the ValueTown?"}
@@ -73,7 +80,9 @@ export class AnonymousLoginField extends React.Component<LoginViewProps, LoginVi
         <TouchableOpacity 
           onPress={() => {onLoginAsAnonym(); this.setState({wait: true});}}>
           <View style={loginScrStyles.button}>
-            <Text style={loginScrStyles.buttonText}>CONTINUE AS NEW USER</Text>
+            <Text style={loginScrStyles.buttonText}>
+              {loginError ? "TRY AGAIN" : "CONTINUE AS NEW USER"}
+            </Text>
           </View>
         </TouchableOpacity>
 
