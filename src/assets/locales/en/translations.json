@@ -64,5 +64,10 @@
     "Updated": "Updated",
     "RevenueOverYear": "Revenue over a year",
     "Bid": "Bid"
+  },
+  "LoginScreen": {
+    "NewUserGreetee": "Your first time at the ValueTown?",
+    "NewUserButton": "Continue as new user",
+    "AfterErrButton": "Try again"
   }
 }

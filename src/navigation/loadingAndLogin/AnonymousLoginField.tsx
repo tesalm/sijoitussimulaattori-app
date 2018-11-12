@@ -4,6 +4,7 @@ import firebase from 'react-native-firebase';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
+import { t } from '../../assets/i18n';
 import { login, restorePreviousLogin } from '../../Auth/actions';
 import { User } from '../../models';
 import { RootState } from '../../redux/reducers';
@@ -53,7 +54,7 @@ export class AnonymousLoginField extends React.Component<LoginViewProps, LoginVi
           flex: 1, flexDirection: 'row', alignItems: 'center', 
           justifyContent: 'center',  backgroundColor: '#004D40' }}>
     
-          <Text style={{color: '#FFFFFF', fontSize: 30}}>Just a moment please...</Text>
+          <Text style={{color: '#FFFFFF', fontSize: 30}}>{t('Loading.PleaseWait')}</Text>
     
         </View>
         );
@@ -61,7 +62,7 @@ export class AnonymousLoginField extends React.Component<LoginViewProps, LoginVi
 
     return(
     <View style={loginScrStyles.background}>
-      {/*TODO container for the logo.*/}
+      {/*Container for the logo.*/}
       <View style={[loginScrStyles.containerRow, {flex: 0.4}]}>
       <View style={[loginScrStyles.containerColumn, {flex: 0.8}]}>
         <Image resizeMode={'contain'}
@@ -75,13 +76,13 @@ export class AnonymousLoginField extends React.Component<LoginViewProps, LoginVi
       <View style={[loginScrStyles.containerColumn, {flex: 0.5}]}>
 
         <Text style={loginScrStyles.text}>
-          {loginError ? loginError.message : "Your first time at the ValueTown?"}
+          {loginError ? loginError.message : t('LoginScreen.NewUserGreetee')}
         </Text>
         <TouchableOpacity 
           onPress={() => {onLoginAsAnonym(); this.setState({wait: true});}}>
           <View style={loginScrStyles.button}>
             <Text style={loginScrStyles.buttonText}>
-              {loginError ? "TRY AGAIN" : "CONTINUE AS NEW USER"}
+              {loginError ? t('LoginScreen.AfterErrButton') : t('LoginScreen.NewUserButton')}
             </Text>
           </View>
         </TouchableOpacity>
