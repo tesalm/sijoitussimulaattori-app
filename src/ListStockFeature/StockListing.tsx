@@ -6,16 +6,17 @@ import { RootState } from '../redux/reducers';
 import {getStocks }from './actions'
 import { Dispatch, bindActionCreators } from 'redux';
 import {StockStyles} from './styles'
+import { string } from 'prop-types';
 
 
 interface StockProps{
-  stocks: Array<{key: string, revenue: string, lastsale: string}>;
+  stocks: Array<{key: string, revenue: number, lastsale: number}>;
   loading:boolean;
   error:Error | null;
   getAllStocks: typeof getStocks;
 }
 interface StockState{
-  stocks:Array<{key: string,  revenue: string, lastsale: string}>;
+  stocks:Array<{key: string,  revenue: number, lastsale: number}>;
   loading:boolean;
   error:Error|null;
 }
@@ -49,9 +50,9 @@ class StockListing extends React.Component<StockProps,StockState> {
     );
   };
 
-  //This chekc what color revenue should be
-  revenueColor = (revenue:string): (typeof StockStyles.revenueValueGreen) => {
-    if (revenue.charAt(0) == "+"){
+  //This checks what color revenue should be
+  revenueColor = (revenue:number): (typeof StockStyles.revenueValueGreen) => {
+    if (revenue >= 0){
       return StockStyles.revenueValueGreen;
     }
     else{
@@ -66,6 +67,19 @@ class StockListing extends React.Component<StockProps,StockState> {
     }
     else{
       return  "#F0F0F0"
+    }
+  }
+
+  //format revenue to right forms. Converts number to string and add procent marker.
+  formatRevenue = (revenue:number): string =>{
+    if(revenue >= 0){
+      return ("+" + (revenue*100).toFixed(2) + " %")
+    }
+    else if(revenue < 0){
+      return((revenue*100).toFixed(2) + " %")
+    }
+    else {
+      return "ERROR"
     }
   }
 
@@ -87,13 +101,13 @@ class StockListing extends React.Component<StockProps,StockState> {
 
             title={item.key}
             titleStyle ={StockStyles.titleStyle}
-            rightTitle ={item.revenue}
+            rightTitle ={this.formatRevenue(item.revenue)}
             rightTitleStyle = {this.revenueColor(item.revenue)}
             hideChevron
             subtitle={
               <View style = {StockStyles.subtitleView}>
                 <Text style = {StockStyles.lastSaleText}>Last sale</Text>
-                <Text style = {StockStyles.lastSaleValue}> {item.lastsale} </Text>
+                <Text style = {StockStyles.lastSaleValue}> {item.lastsale + " $"} </Text>
               </View>
             }
           />

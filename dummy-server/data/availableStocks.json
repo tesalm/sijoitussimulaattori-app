@@ -2,83 +2,83 @@
     "results":[
     {
         "key" : "Nokia",
-        "revenue": "+3.5%",
-        "lastsale": "13.44 €"
+        "revenue": 0.035,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "-3.5%",
-        "lastsale": "13.44 €"
+        "revenue": -0.035,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.44 €"
+        "revenue": -0.035,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "-3.5%",
-        "lastsale": "13.44 €"
+        "revenue": 0.035,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "9.44 €"
+        "revenue": 0.035,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 0.035,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     },
     {
         "key" : "Apple",
-        "revenue": "+3.5%",
-        "lastsale": "13.4 €"
+        "revenue": 3.5,
+        "lastsale": 13.44
     }
 
     ]

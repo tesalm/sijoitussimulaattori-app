@@ -1,7 +1,7 @@
 import { StocksAction, ActionType } from './actions';
 
 export interface StocksListing {
-  stocks: Array<{key: string,  revenue: string, lastsale: string}>;
+  stocks: Array<{key: string,  revenue: number, lastsale: number}>;
   loading: boolean;
   error: Error | null;
 }

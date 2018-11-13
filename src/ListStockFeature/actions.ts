@@ -18,7 +18,7 @@ export class GetStocksBegin {
 
 export class GetStocksSuccess {
     readonly type = ActionType.GetStocksSuccess;
-    constructor(public stocks :Array<{key: string, revenue: string, lastsale: string}> ){
+    constructor(public stocks :Array<{key: string, revenue: number, lastsale: number}> ){
         return {type: this.type, stocks}
     }
 }
