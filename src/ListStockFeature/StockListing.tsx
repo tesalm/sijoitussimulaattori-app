@@ -62,10 +62,10 @@ class StockListing extends React.Component<StockProps,StockState> {
   //Every other listitem has gray background
   listBackgroundColor = (index:number): string =>{
     if(index % 2){
-      return "#F0F0F0"
+      return "white"
     }
     else{
-      return  "#FFFFF"
+      return  "#F0F0F0"
     }
   }
 
@@ -97,8 +97,7 @@ class StockListing extends React.Component<StockProps,StockState> {
               </View>
             }
           />
-        )} 
-        
+        )}        
         ListHeaderComponent =  {this.renderHeader}   
       />
     );
@@ -109,12 +108,11 @@ const mapStateToProps = (state: RootState) => ({
   loading:state.stocksListing.loading,
   error:state.stocksListing.error
 });
-
+ 
 const mapDispatchToProps = (dispatch: Dispatch) => 
   bindActionCreators(
     {
       getAllStocks: getStocks,
-
     },
     dispatch
 );

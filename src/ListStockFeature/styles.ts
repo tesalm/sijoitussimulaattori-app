@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const StockStyles = StyleSheet.create({
+    
     titleStyle:{
         fontWeight: "bold",
         color: '#004D40',
@@ -8,14 +9,11 @@ const StockStyles = StyleSheet.create({
         marginTop: 8, 
         marginLeft: 16   
     },
-
     subtitleView: {
       flexDirection: 'column',
-      marginTop: 8,
+      paddingTop: 8,
       marginLeft: 16,
-      marginBottom: 8,
-
-       
+      marginBottom: 8,     
     },
     lastSaleText: {
         fontSize: 12,
@@ -31,8 +29,6 @@ const StockStyles = StyleSheet.create({
         textAlign: "left",     
         marginTop: -5,
         marginLeft: -4
-
-         
     },
 
     rightTitleView:{
