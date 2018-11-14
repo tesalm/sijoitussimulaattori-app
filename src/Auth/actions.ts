@@ -1,9 +1,12 @@
+import { UserData } from './../models/user.model';
 import { to } from 'await-to-js';
 import firebase from 'react-native-firebase';
 import { Dispatch } from 'redux';
 import { t } from '../assets/i18n';
 
-import { User } from '../models';
+import { User, UserAuth } from '../models';
+import { upsertUserData, getUserData } from '../firestore';
+import { createDefaultUser } from '../util/users';
 
 export enum ActionType {
   LoginRequest = '[Login] Login Request',
@@ -77,7 +80,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
   dispatch(new LoginRequest());
 
   // TODO: remove this once the login is in use:
-  await new Promise((r) => setTimeout(r, 3000));
+  // await new Promise((r) => setTimeout(r, 3000));
 
   const [err, fsUser] = await to(firebase.auth().signInAnonymously());
 
@@ -85,16 +88,40 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
     return dispatch(new LoginFailure(err || Error('User not found.')));
   }
 
-  const user: User = {
+  const userAuth: UserAuth = {
     uid: fsUser.user.uid,
   };
 
+  let userData: UserData = { };
+
   if (fsUser.additionalUserInfo) {
     if (fsUser.additionalUserInfo.isNewUser) {
-      // TODO User was just created. Navigate to "give username" -page.
+      const defaultUser = createDefaultUser();
+      const [updateErr] = await to(upsertUserData(userAuth.uid, defaultUser));
+
+      if (updateErr) {
+        // TODO: Handle default user creation error?
+      console.error('Error creating defaut user:' + updateErr);
+      }
+      // TODO User was created. Navigate to profile -page for setup or mst.
+      userData = defaultUser;
+
     } else {
-      // TODO Get user profile and stuff and add to user -object.
+      const [getErr, foundData] = await to(getUserData(userAuth.uid));
+      if (getErr) {
+        // TODO: Handle user fetch error?
+      console.error('Error fetching user data:' + getErr);
+      }
+
+      if(foundData) {
+        userData = foundData;
+      }
     }
+  }
+
+  const user: User = {
+    ...userAuth,
+    ...userData
   }
 
   dispatch(new LoginSuccess(user));

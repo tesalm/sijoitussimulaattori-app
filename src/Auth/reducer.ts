@@ -27,6 +27,7 @@ export const authReducer = (
         user: undefined,
         error: action.error,
       };
+    case ActionType.DeleteCurrentUserSuccess:
     case ActionType.LogoutRequest:
       return initialState;
     default:

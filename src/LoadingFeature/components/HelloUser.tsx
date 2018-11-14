@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, TextStyle } from 'react-native';
 
 import { t } from '../../assets/i18n';
-import { User } from '../../models';
+import { UserAuth } from '../../models';
 
 interface HelloUserProps {
-  user: User;
+  user: UserAuth;
 }
 
 const LoggedInView = (props: HelloUserProps): JSX.Element => {
