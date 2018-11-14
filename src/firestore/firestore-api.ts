@@ -9,11 +9,7 @@ enum Collections {
 }
 
 const getUserData = async (userId: Uid) => {
-  const [err, doc] = await to(firebase.firestore().collection(Collections.USERS).doc(userId).get());
-
-  if (err) {
-    throw err;
-  }
+  const doc = await firebase.firestore().collection(Collections.USERS).doc(userId).get();
 
   if (doc && doc.exists) {
     return doc.data() as UserData;

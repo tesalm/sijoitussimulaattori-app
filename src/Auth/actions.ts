@@ -101,7 +101,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
 
       if (updateErr) {
         // TODO: Handle default user creation error?
-      console.error('Error creating defaut user:' + updateErr);
+        console.error('Error creating defaut user:' + updateErr);
       }
       // TODO User was created. Navigate to profile -page for setup or mst.
       userData = defaultUser;
@@ -110,7 +110,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
       const [getErr, foundData] = await to(getUserData(userAuth.uid));
       if (getErr) {
         // TODO: Handle user fetch error?
-      console.error('Error fetching user data:' + getErr);
+        console.error('Error fetching user data:' + getErr);
       }
 
       if(foundData) {
