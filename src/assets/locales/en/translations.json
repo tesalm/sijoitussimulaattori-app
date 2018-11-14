@@ -41,5 +41,8 @@
   },
   "Loading": {
     "LoggedInAs": "Logged in as"
+  },
+  "Auth": {
+    "NoAuthenticatedUser": "No authenticated user"
   }
 }
