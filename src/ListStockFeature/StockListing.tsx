@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, ActivityIndicator } from 'react-native';
 import {  ListItem, SearchBar} from 'react-native-elements';
 import { connect } from 'react-redux';
 import { RootState } from '../redux/reducers';
@@ -40,9 +40,8 @@ class StockListing extends React.Component<StockProps,StockState> {
    renderHeader = ():any => {
     return (
       <SearchBar
-        inputStyle={{backgroundColor: 'white'}}
+        //inputStyle={{backgroundColor: 'white'}}
         lightTheme round
-        noIcon
         placeholder="Search for stocks"
         //Todo: search bar functionality
         autoCorrect={false}
@@ -89,7 +88,7 @@ class StockListing extends React.Component<StockProps,StockState> {
       return <Text>Error! {error.message} </Text>
     }
     if(loading){
-      return<Text>Loading...</Text>
+      return <View style = {StockStyles.loadingView}><ActivityIndicator size="large"/></View>
     }
 
     return (
@@ -97,13 +96,18 @@ class StockListing extends React.Component<StockProps,StockState> {
         data= {stocks}
         renderItem={({ item,index }) => (
       
-          <ListItem containerStyle = {{height: 80, backgroundColor: this.listBackgroundColor(index), borderBottomWidth:0}}
+          <ListItem containerStyle = {{height: 80, backgroundColor:
+             this.listBackgroundColor(index), borderBottomWidth:0}}
 
             title={item.key}
             titleStyle ={StockStyles.titleStyle}
-            rightTitle ={this.formatRevenue(item.revenue)}
-            rightTitleStyle = {this.revenueColor(item.revenue)}
-            hideChevron
+            rightTitle ={ 
+              <View style = {StockStyles.rightTitleView}>
+                <Text style = {StockStyles.revenueText}>Revenue in 24h</Text>
+                <Text style = {this.revenueColor(item.revenue)}>{this.formatRevenue(item.revenue)}</Text>
+              </View>}
+      
+
             subtitle={
               <View style = {StockStyles.subtitleView}>
                 <Text style = {StockStyles.lastSaleText}>Last sale</Text>

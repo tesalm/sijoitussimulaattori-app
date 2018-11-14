@@ -11,9 +11,9 @@ const StockStyles = StyleSheet.create({
     },
     subtitleView: {
       flexDirection: 'column',
-      marginTop: verticalScale(8),
+      marginTop: verticalScale(12),
       marginLeft: scale(8),
-      marginBottom: verticalScale(8),     
+      //marginBottom: verticalScale(4),     
     },
     lastSaleText: {
         fontSize: 12,
@@ -29,29 +29,31 @@ const StockStyles = StyleSheet.create({
         textAlign: "justify",   
         marginTop: verticalScale(-2),
         marginLeft: scale(-3)
-
     },
-
     rightTitleView:{
-        flexDirection: 'column'
-
+        flexDirection: 'column',
+        marginLeft: scale(8)
     },
     revenueText:{
-        fontSize: 10,
+        fontSize: 12,
         color: '#004D40',
     },
     revenueValueGreen:{
         fontSize: 18,
         fontWeight: "bold",
         color: '#54c242',
-        marginLeft: scale(8)
+        textAlign: 'center'     
     },
     revenueValueRed:{
         fontSize: 18,
         fontWeight: "bold",
         color: "#e20f00",
-        marginLeft: scale(8)
+        textAlign: 'center'
     },
+    loadingView:{
+        flex: 1,
+        justifyContent: 'center'
+    }
 
 });
 
