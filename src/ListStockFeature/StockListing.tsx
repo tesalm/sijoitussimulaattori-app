@@ -6,10 +6,11 @@ import { RootState } from '../redux/reducers';
 import {getStocks }from './actions'
 import { Dispatch, bindActionCreators } from 'redux';
 import {StockStyles} from './styles'
-import { string } from 'prop-types';
+import { NavigationScreenProps } from 'react-navigation';
 
 
-interface StockProps{
+
+interface StockProps extends NavigationScreenProps{
   stocks: Array<{key: string, revenue: number, lastsale: number}>;
   loading:boolean;
   error:Error | null;
@@ -96,8 +97,9 @@ class StockListing extends React.Component<StockProps,StockState> {
         data= {stocks}
         renderItem={({ item,index }) => (
       
-          <ListItem containerStyle = {{height: 80, backgroundColor:
-             this.listBackgroundColor(index), borderBottomWidth:0}}
+          <ListItem onPress = {() => this.props.navigation.navigate('Market')} 
+            containerStyle = {{height: 80, backgroundColor:
+            this.listBackgroundColor(index), borderBottomWidth:0}}
 
             title={item.key}
             titleStyle ={StockStyles.titleStyle}
@@ -106,8 +108,6 @@ class StockListing extends React.Component<StockProps,StockState> {
                 <Text style = {StockStyles.revenueText}>Revenue in 24h</Text>
                 <Text style = {this.revenueColor(item.revenue)}>{this.formatRevenue(item.revenue)}</Text>
               </View>}
-      
-
             subtitle={
               <View style = {StockStyles.subtitleView}>
                 <Text style = {StockStyles.lastSaleText}>Last sale</Text>
