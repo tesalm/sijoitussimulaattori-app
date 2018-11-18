@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Image, Text, View, TouchableHighlight } from 'react-native';
-import { Card, Divider } from 'react-native-elements';
+
+import { Image, Text, View, TouchableHighlight } from 'react-native';
+import { Card } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 
 import { t } from '../assets/i18n';
@@ -10,8 +11,40 @@ import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
 import { stockStyles } from './styles';
 
-export default class StockScreen extends React.Component<NavigationScreenProps> {
+import { getStock } from './actions'
+import { RootState } from '../redux/reducers';
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect } from 'react-redux';
+
+interface StockProps extends NavigationScreenProps {
+  stock: Array<{
+    key: string,
+    bid: number,
+    offer: number,
+    high: number,
+    low: number,
+    marketValue: number,
+    revenue: number}>;
+  loading: boolean;
+  error: Error | null;
+  getSingleStock: typeof getStock;
+}
+
+class StockScreen extends React.Component<StockProps> {
   static navigationOptions = { title: t('StockPage.Title') };
+  constructor(props:StockProps) {
+    super(props);
+
+    this.state = {
+      stock: [],
+      loading: false,
+      error: null,
+    }
+  }
+
+  componentDidMount() {
+    this.props.getSingleStock();
+  }
 
   render() {
     return (
@@ -64,3 +97,22 @@ export default class StockScreen extends React.Component<NavigationScreenProps> 
     );
   }
 }
+
+const mapStateToProps = (state: RootState) => ({
+  stock: state.singleStock.stock,
+  loading: state.singleStock.loading,
+  error: state.singleStock.error
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+      getSingleStock: getStock,
+    },
+    dispatch
+  );
+
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(StockScreen);

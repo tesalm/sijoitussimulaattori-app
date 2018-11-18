@@ -17,5 +17,4 @@ app.get('/stocks/list/:key', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Dummy server listening on http://localhost:${port}`)
-})
+  console.log(`Dummy server listening on http://localhost:${port}`)})
