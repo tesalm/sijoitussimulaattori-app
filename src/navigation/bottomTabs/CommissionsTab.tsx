@@ -8,11 +8,13 @@ import { RouteName } from '../routes';
 import CommissionsScreen from '../screens/CommissionsScreen';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
+import StockScreen from '../../StockFeature/StockScreen';
 
 const CommissionsStack = createStackNavigator(
   {
     Commissions: { screen: CommissionsScreen },
     Info: { screen: InfoScreen },
+    Stock: { screen: StockScreen },
     // TODO add more pages related to this tab
   },
   {

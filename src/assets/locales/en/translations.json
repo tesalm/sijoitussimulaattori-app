@@ -11,7 +11,8 @@
   "CommissionsPage": {
     "Title": "Commissions",
     "PlaceholderText": "PLACEHOLDER: My commissions",
-    "GoToMarketsButtonLabel": "Go to Markets"
+    "GoToMarketsButtonLabel": "Go to Markets",
+    "GoToStockButtonLabel": "Go to Stock"
   },
   "CommunityPage": {
     "Title": "Community",
@@ -41,5 +42,18 @@
   },
   "Loading": {
     "LoggedInAs": "Logged in as"
+  },
+  "StockPage": {
+    "Title": "Stock",
+    "PlaceholderText": "PLACEHOLDER: This shall be a page for a single stock!",
+    "GoToProfilePageButton": "Profile",
+    "Bid": "Bid",
+    "Offer": "Offer",
+    "High": "High",
+    "Low": "Low",
+    "Market value": "Market value",
+    "Revenue in 24h": "Revenue in 24h",
+    "Updated": "Updated",
+    "Revenue over a year": "Revenue over a year"
   }
 }
