@@ -11,6 +11,14 @@ app.get('/stocks/list', (req, res) => {
   res.json(availableStocks);
 })
 
+app.get('/stocks/list/:key', (req, res) => {
+  for (x in availableStocks.bestMatches) {
+    if (availableStocks.bestMatches[x]["1. symbol"] === req.params.key) {
+      res.json(availableStocks.bestMatches[x])
+    }
+  }
+})
+
 app.listen(port, () => {
   console.log(`Dummy server listening on http://localhost:${port}`)
 })
