@@ -1,15 +1,15 @@
 import React from 'react';
 import { Text, View, FlatList, ActivityIndicator } from 'react-native';
-import {  ListItem, SearchBar} from 'react-native-elements';
+import { ListItem, SearchBar} from 'react-native-elements';
 import { connect } from 'react-redux';
 import { RootState } from '../redux/reducers';
-import {getStocks }from './actions'
+import { getStocks }from './actions'
 import { Dispatch, bindActionCreators } from 'redux';
-import {StockStyles} from './styles'
+import { StockStyles} from './styles'
 import { NavigationScreenProps } from 'react-navigation';
 
 
-interface StockProps extends NavigationScreenProps{
+export interface StockProps extends NavigationScreenProps{
   stocks: Array<{key: string, revenue: number, lastsale: number}>;
   loading:boolean;
   error:Error | null;
@@ -21,7 +21,7 @@ interface StockState{
   error:Error|null;
 }
 
- class MarketScreen extends React.Component<
+ export class MarketScreen extends React.Component<
    StockProps, StockState> {
   static navigationOptions = { title: 'Stocks' };
   constructor(props:StockProps){
@@ -140,6 +140,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MarketScreen);
+
+
 
 
 

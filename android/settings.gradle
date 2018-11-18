@@ -1,6 +1,11 @@
 rootProject.name = 'Sijoitussimulaattori'
+<<<<<<< HEAD
 include ':react-native-languages'
 project(':react-native-languages').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-languages/android')
+=======
+include ':react-native-config'
+project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
+>>>>>>>  Added enviromental variables to react native project and installed all necessary modules. Also made snahshot-tests for the MarketScreen
 include ':react-native-firebase'
 project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
 

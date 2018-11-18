@@ -3,7 +3,11 @@ package com.sijoitussimulaattori;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+<<<<<<< HEAD
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
+=======
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
+>>>>>>>  Added enviromental variables to react native project and installed all necessary modules. Also made snahshot-tests for the MarketScreen
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
@@ -28,7 +32,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+<<<<<<< HEAD
             new RNLanguagesPackage(),
+=======
+            new ReactNativeConfigPackage(),
+>>>>>>>  Added enviromental variables to react native project and installed all necessary modules. Also made snahshot-tests for the MarketScreen
             new RNFirebasePackage(),
               new RNFirebaseAuthPackage(),
               new RNFirebaseFirestorePackage()

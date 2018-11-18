@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
-import axios from 'axios';
+import Config from 'react-native-config'
+
 
 export enum ActionType {
     GetStocksBegin = 'GET_STOCKS_BEGIN',
@@ -32,7 +33,7 @@ export class GetStocksFailure {
 //This is called by StockListing. Dispatch needed actions and fetch the data
 const getStocks = ()  => async(dispatch:Dispatch<StocksAction>) => {
     dispatch(new GetStocksBegin());
-    fetch("http://192.168.1.9:3000/stocks/list").then(res => res.json())
+    fetch(Config.STOCK_API_URL).then(res => res.json())
     .then(json => {dispatch(new GetStocksSuccess(json.results))})
     .catch(error => {dispatch(new GetStocksFailure(error))})
 
