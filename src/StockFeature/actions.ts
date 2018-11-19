@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+import { Stock } from '../models';
 
 export enum ActionType {
   GetStockBegin = 'GET_STOCK_BEGIN',
@@ -17,15 +18,7 @@ export class GetStockBegin {
 
 export class GetStockSuccess {
   readonly type = ActionType.GetStockSuccess;
-  constructor(public stock : Array<{
-      key: string,
-      bid: number,
-      offer: number,
-      high: number,
-      low: number,
-      marketValue: number,
-      revenue: number
-    }>)
+  constructor(public stock : Stock)
   {
     return {type: this.type, stock}
   }
@@ -41,7 +34,7 @@ export class GetStockFailure {
 // The API-call
 const getStock = () => async(dispatch:Dispatch<StockAction>) => {
   dispatch(new GetStockBegin());
-  fetch("http://192.168.1.9:3000/stocks/list/BA").then(res => res.json())
+  fetch("http://192.168.0.103:3000/stocks/list/BA").then(res => res.json())
   .then(json => {dispatch(new GetStockSuccess(json.results))})
   .catch(error => {dispatch(new GetStockFailure(error))})
 }

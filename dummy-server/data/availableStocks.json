@@ -1,15 +1,13 @@
 {
   "bestMatches": [
       {
-          "1. symbol": "BA",
-          "2. name": "The Boeing Company",
-          "3. type": "Equity",
-          "4. region": "United States",
-          "5. marketOpen": "09:30",
-          "6. marketClose": "16:00",
-          "7. timezone": "UTC-04",
-          "8. currency": "USD",
-          "9. matchScore": "1.0000"
+          "key": "BA",
+          "bid": 2.39,
+          "offer": 3.39,
+          "high": 14.59,
+          "low": 17.89,
+          "marketValue": 33.22,
+          "revenue": 4.75
       },
       {
           "1. symbol": "BSVN",
