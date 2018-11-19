@@ -13,8 +13,7 @@ app.get('/stocks/list', (req, res) => {
 })
 
 app.get('/stocks/list/:key', (req, res) => {
-  res.json(singleStock);
-})
+  res.json(singleStock);})
 
 app.listen(port, () => {
-  console.log(`Dummy server listening on http://localhost:${port}`)})
+})
