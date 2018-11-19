@@ -13,8 +13,10 @@ app.get('/stocks/list', (req, res) => {
 
 app.get('/stocks/list/:key', (req, res) => {
   for (x in availableStocks.bestMatches) {
-    if (availableStocks.bestMatches[x]["1. symbol"] === req.params.key) {
-      res.json(availableStocks.bestMatches[x])
+    if (availableStocks.bestMatches[x]["key"] === req.params.key) {
+      res.json(availableStocks.bestMatches[x]);
+      console.log(availableStocks.bestMatches[x]);
+      break;
     }
   }
 })

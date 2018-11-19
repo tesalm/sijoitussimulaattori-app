@@ -16,15 +16,10 @@ import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
+import { Stock } from '../models';
+
 interface StockProps extends NavigationScreenProps {
-  stock: Array<{
-    key: string,
-    bid: number,
-    offer: number,
-    high: number,
-    low: number,
-    marketValue: number,
-    revenue: number}>;
+  stockInfo: Stock;
   loading: boolean;
   error: Error | null;
   getSingleStock: typeof getStock;
@@ -32,9 +27,8 @@ interface StockProps extends NavigationScreenProps {
 
 class StockScreen extends React.Component<StockProps> {
   static navigationOptions = { title: t('StockPage.Title') };
-  constructor(props:StockProps) {
+  constructor(props: StockProps) {
     super(props);
-
     this.state = {
       stock: [],
       loading: false,
@@ -47,10 +41,20 @@ class StockScreen extends React.Component<StockProps> {
   }
 
   render() {
+    const {
+      stockInfo,
+      loading,
+      error,
+    } = this.props;
+
     return (
       <View>
         <Card containerStyle={{ margin: 0, height: 147 }}>
-          <Basicinfo></Basicinfo>
+          <Basicinfo
+            stockInfo={ stockInfo }
+            loading={ loading }
+            error={ error }
+            ></Basicinfo>
         </Card>
 
         <Card containerStyle={{ margin: 0, height: 200 }}>
@@ -99,7 +103,15 @@ class StockScreen extends React.Component<StockProps> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  stock: state.singleStock.stock,
+  stockInfo: {
+    key: state.singleStock.stock.key,
+    bid: state.singleStock.stock.bid,
+    offer: state.singleStock.stock.offer,
+    high: state.singleStock.stock.high,
+    low: state.singleStock.stock.low,
+    revenue: state.singleStock.stock.revenue,
+    marketValue: state.singleStock.stock.marketValue,
+  },
   loading: state.singleStock.loading,
   error: state.singleStock.error
 });
