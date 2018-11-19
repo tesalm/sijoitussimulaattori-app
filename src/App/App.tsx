@@ -1,28 +1,51 @@
 import React from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
-import { User } from '../models';
-import { createConditionalSwitchNavigator } from '../navigation/AppNavigator';
+import { restorePreviousLogin } from '../Auth/actions';
+import { LoginStatus } from '../models';
+import { createMainSwitchNavigator } from '../navigation/AppNavigator';
 import { RootState } from '../redux/reducers';
 
 export interface AppProps {
-  user?: User;
+  loginStatus: LoginStatus;
+  restoreLogin: typeof restorePreviousLogin;
 }
 
-export class App extends React.Component<AppProps> {
+class App extends React.Component<AppProps> {
   constructor(props: AppProps){
     super(props);
   }
 
+  componentDidMount(){ 
+    this.props.restoreLogin();
+  }
+
   render(){
-    const { user } = this.props;
-    const Layout = createConditionalSwitchNavigator( user != undefined );
-    return <Layout />;
+    const { loginStatus } = this.props;
+
+    {/*Temporary fix before splash screen implementation*/}
+    if(loginStatus === LoginStatus.CheckingPreviousLogin){
+      {/*Render empty view before the previous session (if exists) is restored*/}
+      return <View />;
+    }
+
+    const showLoginScreen: boolean = loginStatus !== LoginStatus.LoggedIn;
+    const MainNavigation = createMainSwitchNavigator(showLoginScreen);
+    return <MainNavigation />;
   }
 }
 
 const mapStateToProps = (state: RootState) => ({
-  user: state.login.user,
+  loginStatus: state.login.loginState,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch: Dispatch) => 
+  bindActionCreators({
+      restoreLogin: restorePreviousLogin,
+    },
+    dispatch
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

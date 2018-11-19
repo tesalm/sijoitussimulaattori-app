@@ -1,4 +1,3 @@
-
 export type Uid = string;
 
 /** Defines auth-related properties that belongs to the user */
@@ -12,4 +11,13 @@ export interface UserData {
 }
 
 /** Combines UserAuth and UserData */
-export interface User extends UserAuth, UserData { }
+export interface User extends UserAuth, UserData {}
+
+/** Indicates in which state the user login is. */
+export enum LoginStatus {
+  CheckingPreviousLogin,
+  LoggedOut,
+  LoggedIn,
+  LoggingIn,
+  LoggingOut,
+}
