@@ -21,7 +21,10 @@ const initialState: SingleStock = {
   error: null,
 };
 
-export const stockReducer = (state: SingleStock = initialState, action: StockAction): SingleStock => {
+export const stockReducer = (
+  state: SingleStock = initialState,
+  action: StockAction
+): SingleStock => {
   switch (action.type) {
     case ActionType.GetStockBegin:
       return {
@@ -43,13 +46,13 @@ export const stockReducer = (state: SingleStock = initialState, action: StockAct
       return {
         ...state,
         stock: {
-          key: action.stock.key,
-          bid: action.stock.bid,
-          offer: action.stock.offer,
-          high: action.stock.high,
-          low: action.stock.low,
-          marketValue: action.stock.marketValue,
-          revenue: action.stock.revenue
+          key: state.stock.key,
+          bid: state.stock.bid,
+          offer: state.stock.offer,
+          high: state.stock.high,
+          low: state.stock.low,
+          marketValue: state.stock.marketValue,
+          revenue: state.stock.revenue
         },
         loading: false,
         error: null
