@@ -140,11 +140,8 @@ android {
 }
 
 dependencies {
-<<<<<<< HEAD
     implementation project(':react-native-languages')
-=======
     compile project(':react-native-config')
->>>>>>>  Added enviromental variables to react native project and installed all necessary modules. Also made snahshot-tests for the MarketScreen
     implementation project(':react-native-firebase')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
