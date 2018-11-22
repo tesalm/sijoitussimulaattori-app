@@ -2,8 +2,8 @@
   "bestMatches": [
       {
           "key": "BA",
-          "bid": 2.39,
-          "offer": 3.39,
+          "buy": 2.39,
+          "sell": 3.39,
           "high": 14.59,
           "low": 17.89,
           "marketValue": 33.22,
