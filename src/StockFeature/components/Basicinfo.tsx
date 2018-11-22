@@ -15,10 +15,11 @@ import { Stock } from '../../models'
 interface BasicinfoProps {
   stockInfo: Stock;
   loading: boolean;
-  error: Error | null;
+  error?: Error;
 }
 
 const Basicinfo = (props: BasicinfoProps): JSX.Element => {
+
   if (props.error) {
     return <Text>Error! {props.error.message} </Text>
   }
@@ -31,22 +32,22 @@ const Basicinfo = (props: BasicinfoProps): JSX.Element => {
     <View style={{ flex: 3, justifyContent: 'space-between' }}>
       <View style={{ flex: 2, flexDirection: 'row'  }}>
         <View style={{ width: '25%', flexDirection: 'column' }}>
-          <Text style={ stockStyles.infoHeader }>{t('Bid')}</Text>
-          <Text>{props.stockInfo.bid}</Text>
-          <Text style={ stockStyles.infoHeader }>{t('Offer')}</Text>
-          <Text style={ stockStyles.infoText }>500€</Text>
+          <Text style={ stockStyles.infoHeader }>{t('Buy')}</Text>
+          <Text style={ stockStyles.infoText }>{ props.stockInfo.buy }€</Text>
+          <Text style={ stockStyles.infoHeader }>{t('Sell')}</Text>
+          <Text style={ stockStyles.infoText }>{ props.stockInfo.sell }€</Text>
         </View>
         <View style={{ width: '25%', flexDirection: 'column' }}>
           <Text style={ stockStyles.infoHeader }>{t('High')}</Text>
-          <Text style={ stockStyles.infoText }>10€</Text>
+          <Text style={ stockStyles.infoText }>{ props.stockInfo.high }€</Text>
           <Text style={ stockStyles.infoHeader }>{t('Low')}</Text>
-          <Text style={ stockStyles.infoText }>500€</Text>
+          <Text style={ stockStyles.infoText }>{ props.stockInfo.low }€</Text>
         </View>
         <View style={{ width: '50%', flexDirection: 'column'}}>
           <Text>{t('Market value')}</Text>
-          <Text>8</Text>
+          <Text>{props.stockInfo.marketValue}€</Text>
           <Text>{t('Revenue in 24h')}</Text>
-          <Text>7</Text>
+          <Text>{props.stockInfo.revenue}€</Text>
         </View>
       </View>
       <View style={{ flex: 1 }}>

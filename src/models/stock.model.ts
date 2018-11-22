@@ -1,7 +1,7 @@
 export interface Stock {
   key: string,
-  bid: number,
-  offer: number,
+  buy: number,
+  sell: number,
   high: number,
   low: number,
   marketValue: number,
