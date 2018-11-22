@@ -1,51 +1,39 @@
 import React from 'react';
-import { Text, View, FlatList, ActivityIndicator } from 'react-native';
-import { ListItem, SearchBar} from 'react-native-elements';
-import { connect } from 'react-redux';
-import { RootState } from '../redux/reducers';
-import { getStocks }from './actions'
-import { Dispatch, bindActionCreators } from 'redux';
-import { StockStyles} from './styles'
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
+import { t } from '.././assets/i18n';
+import { RootState } from '../redux/reducers';
+import { getStocks, Stock } from './actions';
+import { StockStyles } from './styles';
 
-export interface StockProps extends NavigationScreenProps{
-  stocks: Array<{key: string, revenue: number, lastsale: number}>;
-  loading:boolean;
-  error:Error | null;
+export interface StockProps extends NavigationScreenProps {
+  stocks: Array<Stock>;
+  loading: boolean;
+  error?: Error;
   getAllStocks: typeof getStocks;
 }
-interface StockState{
-  stocks:Array<{key: string,  revenue: number, lastsale: number}>;
-  loading:boolean;
-  error:Error|null;
-}
 
- export class MarketScreen extends React.Component<
-   StockProps, StockState> {
-  static navigationOptions = { title: 'Stocks' };
-  constructor(props:StockProps){
+export class MarketScreen extends React.Component<StockProps> {
+  constructor(props: StockProps) {
     super(props);
-
-    this.state = {
-      stocks:[],
-      loading: false,
-      error: null
-    }
-    
   }
 
-  componentDidMount(){
+  componentDidMount() {
     //Dispatch the actions
     this.props.getAllStocks();
   }
 
-   renderHeader = ():any => {
+  renderHeader = (): JSX.Element => {
     return (
       <SearchBar
         //inputStyle={{backgroundColor: 'white'}}
-        lightTheme round
-        placeholder="Search for stocks"
+        lightTheme
+        round
+        placeholder={t('ListStockPage.SearcBarPlaceholder')}
         //Todo: search bar functionality
         autoCorrect={false}
       />
@@ -53,96 +41,88 @@ interface StockState{
   };
 
   //This checks what color revenue should be
-  revenueColor = (revenue:number): (typeof StockStyles.revenueValueGreen) => {
-    if (revenue >= 0){
-      return StockStyles.revenueValueGreen;
-    }
-    else{
-      return StockStyles.revenueValueRed;
-    }
-  }
+  revenueColor = (revenue: number): typeof StockStyles.revenueValueGreen => {
+    return revenue >= 0
+      ? StockStyles.revenueValueGreen
+      : StockStyles.revenueValueRed;
+  };
 
   //Every other listitem has gray background
-  listBackgroundColor = (index:number): string =>{
-    if(index % 2){
-      return "white"
-    }
-    else{
-      return  "#F0F0F0"
-    }
-  }
+  listBackgroundColor = (index: number): typeof StockStyles.greyContainer => {
+    return index % 2 ? StockStyles.whiteContainer : StockStyles.greyContainer;
+  };
 
   //format revenue to right forms. Converts number to string and add procent marker.
-  formatRevenue = (revenue:number): string =>{
-    if(revenue >= 0){
-      return ("+" + (revenue*100).toFixed(2) + " %")
-    }
-    else if(revenue < 0){
-      return((revenue*100).toFixed(2) + " %")
-    }
-    else {
-      return "ERROR"
-    }
-  }
+  formatRevenue = (revenue: number): string => {
+    return revenue >= 0
+      ? '+' + (revenue * 100).toFixed(2) + ' %'
+      : (revenue * 100).toFixed(2) + ' %';
+  };
 
   render() {
-    const {stocks,loading,error}= this.props;
-    if(error){
-      return <Text>Error! {error.message} </Text>
+    const { stocks, loading, error } = this.props;
+    if (error) {
+      return <Text>Error! {error.message} </Text>;
     }
-    if(loading){
-      return <View style = {StockStyles.loadingView}><ActivityIndicator size="large"/></View>
+    if (loading) {
+      return (
+        <View style={StockStyles.loadingView}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
     }
 
     return (
-      <FlatList 
-        data= {stocks}
-        renderItem={({ item,index }) => (
+      <FlatList
+        data={stocks}
+        renderItem={({ item, index }) => (
           //To do: navigate to to right stock page.
-          <ListItem onPress = {() => this.props.navigation.navigate('Commissions')} 
-            containerStyle = {{height: 80, backgroundColor:
-            this.listBackgroundColor(index), borderBottomWidth:0}}
-
-            title={item.key}
-            titleStyle ={StockStyles.titleStyle}
-            rightTitle ={ 
-              <View style = {StockStyles.rightTitleView}>
-                <Text style = {StockStyles.revenueText}>Revenue in 24h</Text>
-                <Text style = {this.revenueColor(item.revenue)}>{this.formatRevenue(item.revenue)}</Text>
-              </View>}
+          <ListItem
+            onPress={() => this.props.navigation.navigate('Commissions')}
+            containerStyle={this.listBackgroundColor(index)}
+            title={item.name}
+            titleStyle={StockStyles.titleStyle}
+            rightTitle={
+              <View style={StockStyles.rightTitleView}>
+                <Text style={StockStyles.revenueText}>
+                  {t('ListStockPage.RevenueText')}
+                </Text>
+                <Text style={this.revenueColor(item.revenue)}>
+                  {this.formatRevenue(item.revenue)}
+                </Text>
+              </View>
+            }
             subtitle={
-              <View style = {StockStyles.subtitleView}>
-                <Text style = {StockStyles.lastSaleText}>Last sale</Text>
-                <Text style = {StockStyles.lastSaleValue}> {item.lastsale + " $"} </Text>
+              <View style={StockStyles.subtitleView}>
+                <Text style={StockStyles.lastSaleText}>
+                  {t('ListStockPage.LastSaleText')}
+                </Text>
+                <Text style={StockStyles.lastSaleValue}>
+                  {item.lastsale + ' $'}
+                </Text>
               </View>
             }
           />
-        )}        
-        ListHeaderComponent =  {this.renderHeader}   
+        )}
+        ListHeaderComponent={this.renderHeader}
       />
     );
   }
 }
 const mapStateToProps = (state: RootState) => ({
   stocks: state.stocksListing.stocks,
-  loading:state.stocksListing.loading,
-  error:state.stocksListing.error
+  loading: state.stocksListing.loading,
+  error: state.stocksListing.error,
 });
- 
-const mapDispatchToProps = (dispatch: Dispatch) => 
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllStocks: getStocks,
     },
     dispatch
-);
+  );
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MarketScreen);
-
-
-
-
-
-

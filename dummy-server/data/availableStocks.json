@@ -1,85 +1,100 @@
 {
-    "results":[
+  "results": [
     {
-        "key" : "Nokia",
-        "revenue": 0.035,
-        "lastsale": 13.44
+      "key": "NOK",
+      "name": "Nokia",
+      "revenue": 0.035,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": -0.035,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": -0.035,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": -0.035,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": -0.035,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 0.035,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 0.035,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 0.035,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 0.035,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 0.035,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 0.035,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     },
     {
-        "key" : "Apple",
-        "revenue": 3.5,
-        "lastsale": 13.44
+      "key": "APL",
+      "name": "Apple",
+      "revenue": 3.5,
+      "lastsale": 13.44
     }
-
-    ]
+  ]
 }

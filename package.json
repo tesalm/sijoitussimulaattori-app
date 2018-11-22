@@ -30,7 +30,8 @@
       "<rootDir>/ios/Pods/"
     ],
     "transformIgnorePatterns": [
-      "!node_modules/react-runtime"
+      "!node_modules/react-runtime",
+      "node_modules/(?!(react-native)/)"
     ],
     "testEnvironment": "jsdom",
     "cacheDirectory": ".jest/cache"
