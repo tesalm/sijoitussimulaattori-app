@@ -4,21 +4,21 @@ import { Stock } from '../models/index';
 export interface SingleStock {
   stock: Stock;
   loading: boolean;
-  error: Error | null;
+  error?: Error;
 }
 
 const initialState: SingleStock = {
   stock: {
     key: "",
-    bid: 0,
-    offer: 0,
+    buy: 0,
+    sell: 0,
     high: 0,
     low: 0,
     marketValue: 0,
     revenue: 0
   },
   loading: false,
-  error: null,
+  error: undefined,
 };
 
 export const stockReducer = (
@@ -31,15 +31,15 @@ export const stockReducer = (
         ...state,
         stock: {
           key: "",
-          bid: 0,
-          offer: 0,
+          buy: 0,
+          sell: 0,
           high: 0,
           low: 0,
           marketValue: 0,
           revenue: 0
         },
         loading: true,
-        error: null
+        error: undefined
       };
 
     case ActionType.GetStockSuccess:
@@ -47,15 +47,15 @@ export const stockReducer = (
         ...state,
         stock: {
           key: state.stock.key,
-          bid: state.stock.bid,
-          offer: state.stock.offer,
+          buy: state.stock.buy,
+          sell: state.stock.sell,
           high: state.stock.high,
           low: state.stock.low,
           marketValue: state.stock.marketValue,
           revenue: state.stock.revenue
         },
         loading: false,
-        error: null
+        error: undefined
       };
 
     case ActionType.GetStockFailure:
@@ -63,8 +63,8 @@ export const stockReducer = (
         ...state,
         stock: {
           key: "",
-          bid: 0,
-          offer: 0,
+          buy: 0,
+          sell: 0,
           high: 0,
           low: 0,
           marketValue: 0,

@@ -30,7 +30,7 @@ const stockStyles = StyleSheet.create({
     marginTop: verticalScale(-2),
     marginLeft: scale(8)
   },
-  bidOfferButton:{
+  buySellButton:{
     margin: 0,
     height: 50,
   },

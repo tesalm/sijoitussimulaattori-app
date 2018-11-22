@@ -15,7 +15,6 @@ app.get('/stocks/list/:key', (req, res) => {
   for (x in availableStocks.bestMatches) {
     if (availableStocks.bestMatches[x]["key"] === req.params.key) {
       res.json(availableStocks.bestMatches[x]);
-      console.log(availableStocks.bestMatches[x]);
       break;
     }
   }
