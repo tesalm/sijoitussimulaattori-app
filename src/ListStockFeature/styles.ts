@@ -15,7 +15,6 @@ const StockStyles = StyleSheet.create({
     flexDirection: 'column',
     marginTop: verticalScale(12),
     marginLeft: scale(8),
-    //marginBottom: verticalScale(4),
   },
   lastSaleText: {
     fontSize: 12,
@@ -41,13 +40,13 @@ const StockStyles = StyleSheet.create({
   revenueValueGreen: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: Colors.greenProcent,
+    color: Colors.greenPercent,
     textAlign: 'center',
   },
   revenueValueRed: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: Colors.redProcent,
+    color: Colors.redPercent,
     textAlign: 'center',
   },
   loadingView: {

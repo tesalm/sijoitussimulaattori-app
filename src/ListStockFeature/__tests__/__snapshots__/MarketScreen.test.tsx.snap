@@ -215,14 +215,16 @@ exports[`Hello World renders correctly with stocks 1`] = `
   data={
     Array [
       Object {
-        "key": "Nokia",
         "lastsale": 13.44,
+        "name": "Apple",
         "revenue": 0.035,
+        "symbol": "APL",
       },
       Object {
-        "key": "Apple",
         "lastsale": 13.44,
+        "name": "Apple",
         "revenue": -0.035,
+        "symbol": "APL",
       },
     ]
   }
@@ -424,7 +426,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
-              "height": 80,
+              "height": 147.13235294117646,
               "padding": 14,
             }
           }
@@ -468,7 +470,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 }
               }
             >
-              Nokia
+              Apple
             </Text>
             <View
               style={
@@ -497,15 +499,12 @@ exports[`Hello World renders correctly with stocks 1`] = `
                     "color": "#004D40",
                     "fontSize": 14,
                     "fontWeight": "bold",
-                    "marginLeft": -6.428571428571429,
                     "marginTop": -3.9235294117647057,
                     "textAlign": "justify",
                   }
                 }
               >
-                 
                 13.44 $
-                 
               </Text>
             </View>
           </View>
@@ -579,7 +578,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
-              "height": 80,
+              "height": 147.13235294117646,
               "padding": 14,
             }
           }
@@ -652,15 +651,12 @@ exports[`Hello World renders correctly with stocks 1`] = `
                     "color": "#004D40",
                     "fontSize": 14,
                     "fontWeight": "bold",
-                    "marginLeft": -6.428571428571429,
                     "marginTop": -3.9235294117647057,
                     "textAlign": "justify",
                   }
                 }
               >
-                 
                 13.44 $
-                 
               </Text>
             </View>
           </View>

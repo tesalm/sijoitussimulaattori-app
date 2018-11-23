@@ -7,18 +7,21 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '.././assets/i18n';
 import { RootState } from '../redux/reducers';
-import { getStocks, Stock } from './actions';
+import { getStocks } from './actions';
+import { Stock } from './reducers';
 import { StockStyles } from './styles';
 
-export interface StockProps extends NavigationScreenProps {
+export interface StockProps {
   stocks: Array<Stock>;
   loading: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;
 }
 
-export class MarketScreen extends React.Component<StockProps> {
-  constructor(props: StockProps) {
+type StockPropsWithNavigation = StockProps & NavigationScreenProps;
+
+export class MarketScreen extends React.Component<StockPropsWithNavigation> {
+  constructor(props: StockPropsWithNavigation) {
     super(props);
   }
 
@@ -30,11 +33,10 @@ export class MarketScreen extends React.Component<StockProps> {
   renderHeader = (): JSX.Element => {
     return (
       <SearchBar
-        //inputStyle={{backgroundColor: 'white'}}
         lightTheme
         round
         placeholder={t('ListStockPage.SearcBarPlaceholder')}
-        //Todo: search bar functionality
+        //TODO: search bar functionality
         autoCorrect={false}
       />
     );
@@ -62,6 +64,7 @@ export class MarketScreen extends React.Component<StockProps> {
   render() {
     const { stocks, loading, error } = this.props;
     if (error) {
+      //TODO: Format the error message to user
       return <Text>Error! {error.message} </Text>;
     }
     if (loading) {
@@ -75,8 +78,9 @@ export class MarketScreen extends React.Component<StockProps> {
     return (
       <FlatList
         data={stocks}
+        keyExtractor={(item, index) => item.symbol}
         renderItem={({ item, index }) => (
-          //To do: navigate to to right stock page.
+          //TODO: navigate to to right stock page.
           <ListItem
             onPress={() => this.props.navigation.navigate('Commissions')}
             containerStyle={this.listBackgroundColor(index)}

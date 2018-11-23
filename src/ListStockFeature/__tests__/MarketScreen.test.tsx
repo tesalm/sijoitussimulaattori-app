@@ -4,32 +4,14 @@ import renderer from 'react-test-renderer';
 import { MarketScreen, StockProps } from '../MarketScreen';
 
 describe('Hello World', () => {
-  //Mock for navigation props. This was only solution I found, other would be to set defaultStockProps type to any
-  const navigationMock = {
-    state: { key: 'Hei', index: 1, routeName: 'Hei' },
-    dispatch: jest.fn(),
-    goBack: jest.fn(),
-    dismiss: jest.fn(),
-    navigate: jest.fn(),
-    openDrawer: jest.fn(),
-    closeDrawer: jest.fn(),
-    toggleDrawer: jest.fn(),
-    getParam: jest.fn(),
-    setParams: jest.fn(),
-    addListener: jest.fn(),
-    push: jest.fn(),
-    replace: jest.fn(),
-    pop: jest.fn(),
-    popToTop: jest.fn(),
-    isFocused: jest.fn(),
-  };
+  //Mock for navigation.
+  const navigationMock: any = {};
 
   const defaultStockProps: StockProps = {
     stocks: [],
     loading: false,
     error: undefined,
     getAllStocks: jest.fn(),
-    navigation: navigationMock,
   };
 
   const loadingStockProps: StockProps = {
@@ -37,7 +19,6 @@ describe('Hello World', () => {
     loading: true,
     error: undefined,
     getAllStocks: jest.fn(),
-    navigation: navigationMock,
   };
 
   const errorStockProps: StockProps = {
@@ -45,19 +26,18 @@ describe('Hello World', () => {
     loading: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
     getAllStocks: jest.fn(),
-    navigation: navigationMock,
   };
 
   const stocksStockProps: StockProps = {
     stocks: [
       {
-        key: 'APL',
+        symbol: 'APL',
         name: 'Apple',
         revenue: 0.035,
         lastsale: 13.44,
       },
       {
-        key: 'APL',
+        symbol: 'APL',
         name: 'Apple',
         revenue: -0.035,
         lastsale: 13.44,
@@ -66,33 +46,32 @@ describe('Hello World', () => {
     loading: false,
     error: undefined,
     getAllStocks: jest.fn(),
-    navigation: navigationMock,
   };
 
   it('renders correctly', async () => {
     const component = renderer
-      .create(<MarketScreen {...defaultStockProps} />)
+      .create(<MarketScreen {...defaultStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with loading', async () => {
     const component = renderer
-      .create(<MarketScreen {...loadingStockProps} />)
+      .create(<MarketScreen {...loadingStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with error', async () => {
     const component = renderer
-      .create(<MarketScreen {...errorStockProps} />)
+      .create(<MarketScreen {...errorStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with stocks', async () => {
     const component = renderer
-      .create(<MarketScreen {...stocksStockProps} />)
+      .create(<MarketScreen {...stocksStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

@@ -1,49 +1,48 @@
-import Config from 'react-native-config';
 import { Dispatch } from 'redux';
 
-export interface Stock {
-  key: string;
-  name: string;
-  revenue: number;
-  lastsale: number;
-}
+import { config } from '../config';
+import { Stock } from './reducers';
+
 export enum ActionType {
-  GetStocksBegin = '[Stocks] API Request',
-  GetStocksSuccess = '[Stocks] API Success',
-  GetStocksFailure = '[Stocks] API Failure',
+  RequestStocksBegin = '[Stocks] API Request',
+  RequestStocksSuccess = '[Stocks] API Success',
+  RequestStocksFailure = '[Stocks] API Failure',
 }
 
-export type StocksAction = GetStocksBegin | GetStocksSuccess | GetStocksFailure;
+export type StocksAction =
+  | RequestStocksBegin
+  | RequestStocksSuccess
+  | RequestStocksFailure;
 
-export class GetStocksBegin {
-  readonly type = ActionType.GetStocksBegin;
+export class RequestStocksBegin {
+  readonly type = ActionType.RequestStocksBegin;
   constructor() {
     return { type: this.type };
   }
 }
 
-export class GetStocksSuccess {
-  readonly type = ActionType.GetStocksSuccess;
+export class RequestStocksSuccess {
+  readonly type = ActionType.RequestStocksSuccess;
   constructor(public stocks: Array<Stock>) {
     return { type: this.type, stocks };
   }
 }
 
-export class GetStocksFailure {
-  readonly type = ActionType.GetStocksFailure;
+export class RequestStocksFailure {
+  readonly type = ActionType.RequestStocksFailure;
   constructor(public error: Error) {
     return { type: this.type, error };
   }
 }
 
 const getStocks = () => async (dispatch: Dispatch<StocksAction>) => {
-  dispatch(new GetStocksBegin());
+  dispatch(new RequestStocksBegin());
   try {
-    const res = await fetch(Config.STOCK_API_URL);
+    const res = await fetch(config.app.STOCK_API_URL);
     const json = await res.json();
-    dispatch(new GetStocksSuccess(json.results));
+    dispatch(new RequestStocksSuccess(json.results));
   } catch (error) {
-    dispatch(new GetStocksFailure(error));
+    dispatch(new RequestStocksFailure(error));
   }
 };
 
