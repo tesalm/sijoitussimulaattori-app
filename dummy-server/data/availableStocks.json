@@ -4,97 +4,97 @@
       "symbol": "NOK",
       "name": "Nokia",
       "revenue": 0.035,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "APLL",
       "name": "Apple",
       "revenue": -0.035,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "SS",
       "name": "Apple",
       "revenue": -0.035,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "DDD",
       "name": "Apple",
       "revenue": 0.035,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "DD",
       "name": "Apple",
       "revenue": 0.035,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "AAA",
       "name": "Apple",
       "revenue": 0.035,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "OKS",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "SDPW",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "ASDH",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "FGR",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "QQQ",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "WWW",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "APEERL",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "RED",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "HFV",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     },
     {
-      "symbol": "APL",
+      "symbol": "HR",
       "name": "Apple",
       "revenue": 3.5,
-      "lastsale": 13.44
+      "close": 13.44
     }
   ]
 }
