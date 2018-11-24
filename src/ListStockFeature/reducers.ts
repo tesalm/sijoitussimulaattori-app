@@ -4,7 +4,7 @@ export interface Stock {
   symbol: string;
   name: string;
   revenue: number;
-  lastsale: number;
+  close: number;
 }
 
 export interface StocksListing {

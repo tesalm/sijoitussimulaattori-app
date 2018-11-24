@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '.././assets/i18n';
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getStocks } from './actions';
 import { Stock } from './reducers';
@@ -78,11 +79,13 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
     return (
       <FlatList
         data={stocks}
-        keyExtractor={(item, index) => item.symbol}
+        keyExtractor={(item) => item.symbol}
         renderItem={({ item, index }) => (
-          //TODO: navigate to to right stock page.
           <ListItem
-            onPress={() => this.props.navigation.navigate('Commissions')}
+            //TODO: navigate to to right stock page.
+            onPress={() =>
+              this.props.navigation.navigate(RouteName.Commissions)
+            }
             containerStyle={this.listBackgroundColor(index)}
             title={item.name}
             titleStyle={StockStyles.titleStyle}
@@ -102,7 +105,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {item.lastsale + ' $'}
+                  {item.close + ' $'}
                 </Text>
               </View>
             }

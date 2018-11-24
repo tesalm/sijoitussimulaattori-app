@@ -215,16 +215,16 @@ exports[`Hello World renders correctly with stocks 1`] = `
   data={
     Array [
       Object {
-        "lastsale": 13.44,
+        "close": 13.44,
         "name": "Apple",
         "revenue": 0.035,
         "symbol": "APL",
       },
       Object {
-        "lastsale": 13.44,
+        "close": 13.44,
         "name": "Apple",
         "revenue": -0.035,
-        "symbol": "APL",
+        "symbol": "APLL",
       },
     ]
   }
