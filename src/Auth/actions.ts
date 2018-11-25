@@ -78,9 +78,6 @@ export class DeleteCurrentUserFailure {
 const login = () => async (dispatch: Dispatch<AuthAction>) => {
   dispatch(new LoginRequest());
 
-  // TODO: remove this once the login is in use:
-  // await new Promise((r) => setTimeout(r, 3000));
-
   const [err, fsUser] = await to(signInAnonymously());
 
   if (err || !fsUser) {
@@ -93,29 +90,24 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
 
   let userData: UserData = { };
 
-  if (fsUser.additionalUserInfo) {
-    if (fsUser.additionalUserInfo.isNewUser) {
-      const defaultUser = createDefaultUser();
-      const [updateErr] = await to(upsertUserData(userAuth.uid, defaultUser));
+  if (fsUser.additionalUserInfo && fsUser.additionalUserInfo.isNewUser) {
 
-      if (updateErr) {
-        // TODO: Handle default user creation error?
-        console.error('Error creating defaut user:' + updateErr);
-      }
-      // TODO User was created. Navigate to profile -page for setup or mst.
-      userData = defaultUser;
+    userData = createDefaultUser();
 
-    } else {
-      const [getErr, foundData] = await to(getUserData(userAuth.uid));
-      if (getErr) {
-        // TODO: Handle user fetch error?
-        console.error('Error fetching user data:' + getErr);
-      }
-
-      if(foundData) {
-        userData = foundData;
-      }
+    try {
+      await upsertUserData(userAuth.uid, userData);
+    } catch (err) {
+      console.error('Error creating defaut user:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
     }
+
+  } else {
+
+    try {
+      userData = (await getUserData(userAuth.uid)) || userData;
+    } catch (err) {
+      console.error('Error fetching user data:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
+    }
+
   }
 
   const user: User = {
@@ -142,7 +134,7 @@ const deleteCurrentUser = () => async (dispatch: Dispatch<AuthAction>) => {
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
-    dispatch(new DeleteCurrentUserFailure(new Error(t('Auth.NoAuthenticatedUser') || 'PLACEHOLDER: No authenticated user')));
+    dispatch(new DeleteCurrentUserFailure(new Error(t('Auth.NoAuthenticatedUser'))));
     return;
   }
 
