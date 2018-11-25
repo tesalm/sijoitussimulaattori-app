@@ -1,12 +1,11 @@
 import { UserData } from './../models/user.model';
 import { to } from 'await-to-js';
-import firebase from 'react-native-firebase';
 import { Dispatch } from 'redux';
 import { t } from '../assets/i18n';
 
 import { User, UserAuth } from '../models';
-import { upsertUserData, getUserData } from '../firestore';
 import { createDefaultUser } from '../util/users';
+import { signInAnonymously, upsertUserData, getUserData, signOut, getCurrentUser } from '../firestore';
 
 export enum ActionType {
   LoginRequest = '[Login] Login Request',
@@ -82,7 +81,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
   // TODO: remove this once the login is in use:
   // await new Promise((r) => setTimeout(r, 3000));
 
-  const [err, fsUser] = await to(firebase.auth().signInAnonymously());
+  const [err, fsUser] = await to(signInAnonymously());
 
   if (err || !fsUser) {
     return dispatch(new LoginFailure(err || Error('User not found.')));
@@ -128,7 +127,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
 };
 
 const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
-  const [err] = await to(firebase.auth().signOut());
+  const [err] = await to(signOut());
 
   if (err) {
     console.error('Error logging out');
@@ -140,7 +139,7 @@ const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
 const deleteCurrentUser = () => async (dispatch: Dispatch<AuthAction>) => {
   dispatch(new DeleteCurrentUserRequest());
 
-  const currentUser = firebase.auth().currentUser;
+  const currentUser = getCurrentUser();
 
   if (!currentUser) {
     dispatch(new DeleteCurrentUserFailure(new Error(t('Auth.NoAuthenticatedUser') || 'PLACEHOLDER: No authenticated user')));

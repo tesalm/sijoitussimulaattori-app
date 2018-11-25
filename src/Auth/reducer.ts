@@ -6,10 +6,13 @@ export interface Auth {
   error?: Error;
 }
 
-const initialState: Auth = {};
+export const initialAuthState: Auth = {
+  user: undefined,
+  error: undefined,
+};
 
 export const authReducer = (
-  state: Auth = initialState,
+  state: Auth = initialAuthState,
   action: AuthAction
 ): Auth => {
   switch (action.type) {
@@ -29,7 +32,7 @@ export const authReducer = (
       };
     case ActionType.DeleteCurrentUserSuccess:
     case ActionType.LogoutRequest:
-      return initialState;
+      return initialAuthState;
     default:
       return state;
   }

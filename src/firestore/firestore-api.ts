@@ -8,6 +8,18 @@ enum Collections {
   USERS = 'users'
 }
 
+const signInAnonymously = async () => {
+  return firebase.auth().signInAnonymously();
+}
+
+const signOut = async () => {
+  return firebase.auth().signOut();
+}
+
+const getCurrentUser = () => {
+  return firebase.auth().currentUser;
+}
+
 const getUserData = async (userId: Uid) => {
   const doc = await firebase.firestore().collection(Collections.USERS).doc(userId).get();
 
@@ -23,7 +35,10 @@ const upsertUserData = async (userId: Uid, data: UserData) => {
   return upsert(docRef, data);
 }
 
-export { 
+export {
+  signInAnonymously,
+  signOut,
+  getCurrentUser,
   getUserData,
   upsertUserData
 }
