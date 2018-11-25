@@ -30,6 +30,7 @@ export const authReducer = (
     case ActionType.RestoreLoginImpossible:
       return {
         ...state,
+        user: undefined,
         loginState: LoginState.LoggedOut,
       };
     case ActionType.LoginRequest:

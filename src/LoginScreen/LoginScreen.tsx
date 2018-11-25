@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Image, ImageStyle, Modal, Text, TouchableOpacity, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
@@ -10,14 +10,16 @@ import { LoginState } from '../models';
 import { RootState } from '../redux/reducers';
 import { loginScreenStyles } from './styles';
 
-export interface LoginViewProps extends Partial<NavigationInjectedProps> {
+export interface LoginViewProps {
   loginState: LoginState;
   loginError?: Error; 
   onLoginAsAnonym: typeof login;
 }
 
-class LoginScreen extends React.Component<LoginViewProps> {
-  constructor(props: LoginViewProps){
+type LoginViewPropsWithNavigation = LoginViewProps & NavigationScreenProps;
+
+class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
+  constructor(props: LoginViewPropsWithNavigation){
     super(props);
   }
 
@@ -101,6 +103,6 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch
 );
 
-export default withNavigation (
-  connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+
+export { LoginScreen as LoginScreenTest };
