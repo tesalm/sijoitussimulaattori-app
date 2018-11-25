@@ -10,6 +10,7 @@ export interface SingleStock {
 const initialState: SingleStock = {
   stock: {
     key: "",
+    name: "",
     buy: 0,
     sell: 0,
     high: 0,
@@ -29,40 +30,22 @@ export const stockReducer = (
     case ActionType.GetStockBegin:
       return {
         ...state,
-        stock: {
-          key: "",
-          buy: 0,
-          sell: 0,
-          high: 0,
-          low: 0,
-          marketValue: 0,
-          revenue: 0
-        },
-        loading: true,
-        error: undefined
+        loading: true
       };
 
     case ActionType.GetStockSuccess:
       return {
         ...state,
-        stock: {
-          key: state.stock.key,
-          buy: state.stock.buy,
-          sell: state.stock.sell,
-          high: state.stock.high,
-          low: state.stock.low,
-          marketValue: state.stock.marketValue,
-          revenue: state.stock.revenue
-        },
+        stock: action.stock,
         loading: false,
         error: undefined
       };
 
     case ActionType.GetStockFailure:
       return {
-        ...state,
         stock: {
           key: "",
+          name: "",
           buy: 0,
           sell: 0,
           high: 0,
