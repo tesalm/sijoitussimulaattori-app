@@ -65,7 +65,6 @@ export const loginScreenStyles = StyleSheet.create({
     // <Text>
     color: Colors.buttonText,
     fontFamily: 'Roboto',
-    //textTransform: 'uppercase', <- For some reason this is not working (on Android?).
   },
   modalSplash: {
     flex: 1,

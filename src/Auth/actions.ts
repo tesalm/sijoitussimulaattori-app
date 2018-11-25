@@ -173,6 +173,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
   let userData: UserData = {};
 
   if (fsUser.additionalUserInfo && fsUser.additionalUserInfo.isNewUser) {
+    // Create new user.
     userData = createDefaultUser();
 
     try {
@@ -181,6 +182,7 @@ const login = () => async (dispatch: Dispatch<AuthAction>) => {
       console.error('Error creating defaut user:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
     }
   } else {
+    // Fetch data for "old" user.
     fetchUserData(dispatch, userAuth);
     return; // <- !
   }

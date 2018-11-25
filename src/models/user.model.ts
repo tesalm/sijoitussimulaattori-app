@@ -14,7 +14,7 @@ export interface UserData {
 export interface User extends UserAuth, UserData {}
 
 /** Indicates in which state the user login is. */
-export enum LoginStatus {
+export enum LoginState {
   CheckingPreviousLogin,
   LoggedOut,
   LoggedIn,

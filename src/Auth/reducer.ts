@@ -1,18 +1,18 @@
-import { LoginStatus, User } from '../models';
+import { LoginState, User } from '../models';
 import { ActionType, AuthAction } from './actions';
 
 export interface Auth {
   user?: User;
   loginError?: Error;
   userDataError?: Error;
-  loginState: LoginStatus;
+  loginState: LoginState;
 }
 
 export const initialAuthState: Auth = {
   user: undefined,
   loginError: undefined,
   userDataError: undefined,
-  loginState: LoginStatus.CheckingPreviousLogin,
+  loginState: LoginState.CheckingPreviousLogin,
 };
 
 export const authReducer = (
@@ -25,39 +25,31 @@ export const authReducer = (
         ...state,
         user: action.userAuth,
         loginError: undefined,
-        loginState: LoginStatus.LoggedIn,
+        loginState: LoginState.LoggedIn,
       };
     case ActionType.RestoreLoginImpossible:
       return {
         ...state,
-        loginState: LoginStatus.LoggedOut,
+        loginState: LoginState.LoggedOut,
       };
     case ActionType.LoginRequest:
       return {
         ...state,
-        loginState: LoginStatus.LoggingIn,
+        loginState: LoginState.LoggingIn,
       };
     case ActionType.LoginSuccess:
       return {
         ...state,
         user: action.user,
         loginError: undefined,
-        loginState: LoginStatus.LoggedIn,
+        loginState: LoginState.LoggedIn,
       };
     case ActionType.LoginFailure:
       return {
         ...state,
         user: undefined,
         loginError: action.error,
-        loginState: LoginStatus.LoggedOut,
-      };
-    case ActionType.DeleteCurrentUserSuccess:
-    case ActionType.LogoutRequest:
-      return {
-        ...state,
-        user: undefined,
-        loginError: undefined,
-        loginState: LoginStatus.LoggedOut,
+        loginState: LoginState.LoggedOut,
       };
     case ActionType.FetchUserDataSuccess:
       return {
@@ -69,6 +61,14 @@ export const authReducer = (
       return {
         ...state,
         userDataError: action.userDataError,
+      };
+    case ActionType.DeleteCurrentUserSuccess:
+    case ActionType.LogoutRequest:
+      return {
+        ...state,
+        user: undefined,
+        loginError: undefined,
+        loginState: LoginState.LoggedOut,
       };
     default:
       return state;

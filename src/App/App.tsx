@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { restorePreviousLogin } from '../Auth/actions';
-import { LoginStatus } from '../models';
+import { LoginState } from '../models';
 import { createMainSwitchNavigator } from '../navigation/AppNavigator';
 import { RootState } from '../redux/reducers';
 
 export interface AppProps {
-  loginStatus: LoginStatus;
+  loginStatus: LoginState;
   restoreLogin: typeof restorePreviousLogin;
 }
 
@@ -25,13 +25,13 @@ class App extends React.Component<AppProps> {
   render(){
     const { loginStatus } = this.props;
 
-    {/*Temporary fix before splash screen implementation*/}
-    if(loginStatus === LoginStatus.CheckingPreviousLogin){
+    {/*Temporary fix before splash / loading screen implementation*/}
+    if(loginStatus === LoginState.CheckingPreviousLogin){
       {/*Render empty view before the previous session (if exists) is restored*/}
       return <View />;
     }
 
-    const showLoginScreen: boolean = loginStatus !== LoginStatus.LoggedIn;
+    const showLoginScreen: boolean = loginStatus !== LoginState.LoggedIn;
     const MainNavigation = createMainSwitchNavigator(showLoginScreen);
     return <MainNavigation />;
   }

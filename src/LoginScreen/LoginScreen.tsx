@@ -6,12 +6,12 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { login } from '../Auth/actions';
-import { LoginStatus } from '../models';
+import { LoginState } from '../models';
 import { RootState } from '../redux/reducers';
 import { loginScreenStyles } from './styles';
 
 export interface LoginViewProps extends Partial<NavigationInjectedProps> {
-  loginState: LoginStatus;
+  loginState: LoginState;
   loginError?: Error; 
   onLoginAsAnonym: typeof login;
 }
@@ -43,7 +43,7 @@ class LoginScreen extends React.Component<LoginViewProps> {
     <View style={loginScreenStyles.background}>
 
       { // Show modal activity indicator on top of everything else when logging in.
-        loginState === LoginStatus.LoggingIn && modalActivityIndicator
+        loginState === LoginState.LoggingIn && modalActivityIndicator
       }
 
       {/*Container for the logo.*/}
@@ -92,7 +92,7 @@ class LoginScreen extends React.Component<LoginViewProps> {
 
 const mapStateToProps = (state: RootState) => ({
   loginState: state.login.loginState,
-  loginError: state.login.error,
+  loginError: state.login.loginError,
 });
 const mapDispatchToProps = (dispatch: Dispatch) => 
   bindActionCreators({
