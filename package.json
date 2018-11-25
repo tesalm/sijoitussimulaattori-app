@@ -38,6 +38,18 @@
       "node_modules/(?!(react-native|react-navigation|victory-*)|!(react-runtime)/)"
     ],
     "testEnvironment": "jsdom",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,tsx,ts}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "rn-cli.config.js",
+      "reports/",
+      "sijoitussimulaattori-app/dummy-server",
+      "/node_modules/",
+      "/vendor/"
+    ],
+    "coverageDirectory": "reports",
     "cacheDirectory": ".jest/cache"
   },
   "dependencies": {
