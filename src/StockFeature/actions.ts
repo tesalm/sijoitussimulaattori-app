@@ -2,9 +2,9 @@ import { Dispatch } from 'redux';
 import { Stock } from '../models';
 
 export enum ActionType {
-  GetStockBegin = 'GET_STOCK_BEGIN',
-  GetStockSuccess = 'GET_STOCK_SUCCESS',
-  GetStockFailure = 'GET_STOCK_FAILURE',
+  GetStockBegin = '[Stock] Stock begin',
+  GetStockSuccess = '[Stock] Stock success',
+  GetStockFailure = '[Stock] Stock failure',
 }
 
 export type StockAction = GetStockBegin | GetStockSuccess | GetStockFailure;
