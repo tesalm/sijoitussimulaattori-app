@@ -16,7 +16,7 @@ import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { Stock } from '../models';
+import { Stock } from './reducer';
 
 export interface StockProps extends NavigationScreenProps {
   stockInfo: Stock;
