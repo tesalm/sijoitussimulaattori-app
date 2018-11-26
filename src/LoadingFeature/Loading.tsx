@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { login } from '../Auth/actions';
-import { User } from '../models';
+import { UserAuth } from '../models';
 import { RootState } from '../redux/reducers';
 import LoggedInView from './components/HelloUser';
 import LoadingView from './components/Loading';
 import { loadingStyles as styles } from './styles';
 
 export interface LoadingProps {
-  user?: User;
+  user?: UserAuth;
   loginRequest: typeof login;
 }
 

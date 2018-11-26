@@ -1,21 +1,30 @@
+import { UserData } from './../models/user.model';
 import { to } from 'await-to-js';
-import firebase from 'react-native-firebase';
 import { Dispatch } from 'redux';
+import { t } from '../assets/i18n';
 
-import { User } from '../models';
+import { User, UserAuth } from '../models';
+import { createDefaultUser } from '../util/users';
+import { signInAnonymously, upsertUserData, getUserData, signOut, getCurrentUser } from '../firestore';
 
 export enum ActionType {
   LoginRequest = '[Login] Login Request',
   LogoutRequest = '[Login] Logout Request',
   LoginSuccess = '[Login] Login Success',
   LoginFailure = '[Login] Login Failure',
+  DeleteCurrentUserRequest = '[Login] Delete Current User Request',
+  DeleteCurrentUserSuccess = '[Login] Delete Current User Success',
+  DeleteCurrentUserFailure = '[Login] Delete Current User Failure'
 }
 
 export type AuthAction =
   | LoginRequest
   | LoginSuccess
   | LoginFailure
-  | LogoutRequest;
+  | LogoutRequest
+  | DeleteCurrentUserRequest
+  | DeleteCurrentUserSuccess
+  | DeleteCurrentUserFailure;
 
 export class LoginRequest {
   readonly type = ActionType.LoginRequest;
@@ -45,35 +54,72 @@ export class LogoutRequest {
   }
 }
 
+export class DeleteCurrentUserRequest {
+  readonly type = ActionType.DeleteCurrentUserRequest;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class DeleteCurrentUserSuccess {
+  readonly type = ActionType.DeleteCurrentUserSuccess;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class DeleteCurrentUserFailure {
+  readonly type = ActionType.DeleteCurrentUserFailure;
+  constructor(public error: Error) {
+    return { type: this.type, error: this.error };
+  }
+}
+
 const login = () => async (dispatch: Dispatch<AuthAction>) => {
   dispatch(new LoginRequest());
 
-  // TODO: remove this once the login is in use:
-  await new Promise((r) => setTimeout(r, 3000));
-
-  const [err, fsUser] = await to(firebase.auth().signInAnonymously());
+  const [err, fsUser] = await to(signInAnonymously());
 
   if (err || !fsUser) {
     return dispatch(new LoginFailure(err || Error('User not found.')));
   }
 
-  const user: User = {
+  const userAuth: UserAuth = {
     uid: fsUser.user.uid,
   };
 
-  if (fsUser.additionalUserInfo) {
-    if (fsUser.additionalUserInfo.isNewUser) {
-      // TODO User was just created. Navigate to "give username" -page.
-    } else {
-      // TODO Get user profile and stuff and add to user -object.
+  let userData: UserData = { };
+
+  if (fsUser.additionalUserInfo && fsUser.additionalUserInfo.isNewUser) {
+
+    userData = createDefaultUser();
+
+    try {
+      await upsertUserData(userAuth.uid, userData);
+    } catch (err) {
+      console.error('Error creating defaut user:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
     }
+
+  } else {
+
+    try {
+      userData = (await getUserData(userAuth.uid)) || userData;
+    } catch (err) {
+      console.error('Error fetching user data:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
+    }
+
+  }
+
+  const user: User = {
+    ...userAuth,
+    ...userData
   }
 
   dispatch(new LoginSuccess(user));
 };
 
 const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
-  const [err] = await to(firebase.auth().signOut());
+  const [err] = await to(signOut());
 
   if (err) {
     console.error('Error logging out');
@@ -82,4 +128,24 @@ const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
   }
 };
 
-export { login, logout };
+const deleteCurrentUser = () => async (dispatch: Dispatch<AuthAction>) => {
+  dispatch(new DeleteCurrentUserRequest());
+
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    dispatch(new DeleteCurrentUserFailure(new Error(t('Auth.NoAuthenticatedUser'))));
+    return;
+  }
+
+  const [err] = await to(currentUser.delete());
+
+  if (err) {
+    dispatch(new DeleteCurrentUserFailure(err));
+  } else {
+    dispatch(new DeleteCurrentUserSuccess());
+  }
+
+}
+
+export { login, logout, deleteCurrentUser };
