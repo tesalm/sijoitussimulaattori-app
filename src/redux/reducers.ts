@@ -12,5 +12,5 @@ export interface RootState {
 export const rootReducer = combineReducers<RootState>({
   counter: counterReducer,
   login: authReducer,
-  singleStock: stockReducer
+  singleStock: stockReducer,
 });
