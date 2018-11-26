@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+import { StockApiRequest } from '../utils/stockApi';
 import { Stock } from './reducer';
 
 export enum ActionType {
@@ -11,32 +12,38 @@ export type StockAction = GetStockBegin | GetStockSuccess | GetStockFailure;
 
 export class GetStockBegin {
   readonly type = ActionType.GetStockBegin;
-  constructor () {
-    return { type: this.type }
+  constructor() {
+    console.log(this.type);
+    return { type: this.type };
   }
 }
 
 export class GetStockSuccess {
   readonly type = ActionType.GetStockSuccess;
-  constructor(public stock : Stock)
-  {
-    return {type: this.type, stock}
+  constructor(public stock: Stock) {
+    //console.log(stock);
+    return { type: this.type, stock };
   }
 }
 
 export class GetStockFailure {
   readonly type = ActionType.GetStockFailure;
   constructor(public error: Error) {
-    return {type: this.type, error}
+    return { type: this.type, error };
   }
 }
 
 // The API-call
-const getStock = () => async(dispatch:Dispatch<StockAction>) => {
+const getStock = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new GetStockBegin());
-  fetch("http://192.168.0.103:3000/stocks/list/BA").then(res => res.json())
-  .then(json => {dispatch(new GetStockSuccess(json.results))})
-  .catch(error => {dispatch(new GetStockFailure(error))})
-}
+  console.log('moi');
+  try {
+    const data = await StockApiRequest();
+    console.log(data);
+    dispatch(new GetStockSuccess(data.results));
+  } catch (error) {
+    dispatch(new GetStockFailure(error));
+  }
+};
 
-export{ getStock }
+export { getStock };
