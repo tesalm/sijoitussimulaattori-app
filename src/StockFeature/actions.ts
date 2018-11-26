@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { Stock } from '../models';
+import { Stock } from './reducer';
 
 export enum ActionType {
   GetStockBegin = '[Stock] Stock begin',
