@@ -10,7 +10,7 @@ import { getStock } from '../actions';
 import { RootState } from '../../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { Stock } from '../../models'
+import { Stock } from '../reducer'
 
 interface BasicinfoProps {
   stockInfo: Stock;
