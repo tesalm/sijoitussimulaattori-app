@@ -8,7 +8,7 @@ import { stockStyles } from '../styles';
 const Diagram = (): JSX.Element => {
   return (
     <View>
-        <Text style={ stockStyles.titleStyle }>{t('Revenue over a year')}</Text>
+      <Text style={stockStyles.titleStyle}>{t('Revenue over a year')}</Text>
     </View>
   );
 };
