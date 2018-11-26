@@ -17,5 +17,4 @@ export const rootReducer = combineReducers<RootState>({
   counter: counterReducer,
   login: authReducer,
   stocksListing: stocksListingReducer,
-  singleStock: stockReducer
 });
