@@ -32,6 +32,7 @@ const HomeStack = createStackNavigator(
 
 HomeStack.navigationOptions = {
   tabBarLabel: t('Navigation.Labels.Portfolios'),
+  tabBarTestID: 'Home',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image
