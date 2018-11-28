@@ -1,7 +1,8 @@
-import { Auth, authReducer } from './../Auth/reducer';
 import { combineReducers } from 'redux';
-import { counterReducer, Counter } from '../HelloFeature/reducer';
-import { StocksListing, stocksListingReducer } from '../ListStockFeature/reducers';
+
+import { Counter, counterReducer } from '../HelloFeature/reducer';
+import { StocksListing, stocksListingReducer } from '../MarketScreen/reducers';
+import { Auth, authReducer } from './../Auth/reducer';
 
 export interface RootState {
   counter: Counter;
@@ -12,5 +13,5 @@ export interface RootState {
 export const rootReducer = combineReducers<RootState>({
   counter: counterReducer,
   login: authReducer,
-  stocksListing: stocksListingReducer
+  stocksListing: stocksListingReducer,
 });

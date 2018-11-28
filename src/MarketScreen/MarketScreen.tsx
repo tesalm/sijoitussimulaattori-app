@@ -5,7 +5,7 @@ import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { t } from '.././assets/i18n';
+import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getStocks } from './actions';
