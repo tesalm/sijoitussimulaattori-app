@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { config } from '../config';
-import { Stock } from '../ListStockFeature/reducers';
+import { Stock } from '../MarketScreen/reducers';
 
 interface StockListResponse {
   results: [Stock];
