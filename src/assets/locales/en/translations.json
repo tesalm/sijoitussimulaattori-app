@@ -44,5 +44,10 @@
   },
   "Auth": {
     "NoAuthenticatedUser": "No authenticated user"
+  },
+  "ListStockPage": {
+    "SearcBarPlaceholder": "Search for stocks",
+    "RevenueText": "Revenue in 24h",
+    "LastSaleText": "Last sale"
   }
 }

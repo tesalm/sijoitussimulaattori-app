@@ -7,6 +7,7 @@ const fs = require('fs');
 const availableStocks = JSON.parse(fs.readFileSync(__dirname + '/data/availableStocks.json'));
 
 app.get('/stocks/list', (req, res) => {
+  console.log("Connected...")
   res.json(availableStocks);
 })
 
