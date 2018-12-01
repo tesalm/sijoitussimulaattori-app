@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { StockApiRequest } from '../utils/api';
+import { StockApiRequest } from '../utils/stockApi';
 import { Stock } from './reducer';
 
 export enum ActionType {
