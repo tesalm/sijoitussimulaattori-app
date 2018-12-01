@@ -15,14 +15,14 @@ const stockStyles = StyleSheet.create({
     marginLeft: scale(8),
     marginBottom: verticalScale(4),
   },
-  infoHeader: {
+  valueHeader: {
     fontSize: 12,
     color: '#004D40',
     textAlign: 'left',
     marginBottom: verticalScale(0),
     marginLeft: scale(8),
   },
-  infoText: {
+  valuesStyle: {
     fontSize: 14,
     fontWeight: 'bold',
     color: '#004D40',
@@ -37,6 +37,19 @@ const stockStyles = StyleSheet.create({
   arrowImage: {
     height: 24,
     width: 24,
+  },
+  basicinfo: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  basicinfoSmallerComp: {
+    flexDirection: 'column',
+    width: '25%',
+  },
+  basicinfoMidComp: {
+    flexDirection: 'column',
+    width: '50%',
+    alignContent: 'flex-end',
   },
 });
 

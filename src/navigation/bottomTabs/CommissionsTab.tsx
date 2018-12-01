@@ -8,7 +8,7 @@ import { RouteName } from '../routes';
 import CommissionsScreen from '../screens/CommissionsScreen';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
-import StockScreen from '../../StockFeature/StockScreen';
+import StockScreen from '../../Stock/StockScreen';
 
 const CommissionsStack = createStackNavigator(
   {

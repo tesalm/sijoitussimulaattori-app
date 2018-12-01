@@ -11,7 +11,7 @@ import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
 import { stockStyles } from './styles';
 
-import { getStock } from './actions'
+import { getStock } from './actions';
 import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
@@ -36,36 +36,27 @@ export class StockScreen extends React.Component<StockProps> {
   }
 
   render() {
-    const {
-      stockInfo,
-      loading,
-      error
-    } = this.props;
+    const { stockInfo, loading, error } = this.props;
 
     return (
       <View>
         <Card containerStyle={{ margin: 0, height: 147 }}>
-          <Basicinfo
-            stockInfo={ stockInfo }
-            loading={ loading }
-            error={ error }
-            ></Basicinfo>
+          <Basicinfo stockInfo={stockInfo} loading={loading} error={error} />
         </Card>
 
         <Card containerStyle={{ margin: 0, height: 200 }}>
-          <Diagram></Diagram>
+          <Diagram />
         </Card>
 
-        <Card
-          containerStyle={{ margin: 0, height: 50 }}>
+        <Card containerStyle={{ margin: 0, height: 50 }}>
           <TouchableHighlight
             onPress={() => this.props.navigation.navigate(RouteName.Profile)}
-            style={ stockStyles.buySellButton }
+            style={stockStyles.buySellButton}
+          >
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}
             >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text style={ stockStyles.infoText }>
-                  {t('Buy')}
-              </Text>
+              <Text style={stockStyles.infoText}>{t('Buy')}</Text>
               <Image
                 source={require('../navigation/assets/close.png')}
                 style={{ height: 30, width: 30 }}
@@ -74,16 +65,15 @@ export class StockScreen extends React.Component<StockProps> {
           </TouchableHighlight>
         </Card>
 
-        <Card
-          containerStyle={{ margin: 0, height: 50 }}>
+        <Card containerStyle={{ margin: 0, height: 50 }}>
           <TouchableHighlight
             onPress={() => this.props.navigation.navigate(RouteName.Profile)}
-            style={ stockStyles.buySellButton }
+            style={stockStyles.buySellButton}
+          >
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}
             >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text style={ stockStyles.infoText }>
-                  {t('Sell')}
-              </Text>
+              <Text style={stockStyles.infoText}>{t('Sell')}</Text>
               <Image
                 source={require('../navigation/assets/close.png')}
                 style={{ height: 30, width: 30 }}
@@ -91,7 +81,6 @@ export class StockScreen extends React.Component<StockProps> {
             </View>
           </TouchableHighlight>
         </Card>
-
       </View>
     );
   }
@@ -100,7 +89,7 @@ export class StockScreen extends React.Component<StockProps> {
 const mapStateToProps = (state: RootState) => ({
   stockInfo: state.singleStock.stock,
   loading: state.singleStock.loading,
-  error: state.singleStock.error
+  error: state.singleStock.error,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
@@ -111,7 +100,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch
   );
 
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(StockScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StockScreen);

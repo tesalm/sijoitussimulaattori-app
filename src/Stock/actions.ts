@@ -13,7 +13,6 @@ export type StockAction = GetStockBegin | GetStockSuccess | GetStockFailure;
 export class GetStockBegin {
   readonly type = ActionType.GetStockBegin;
   constructor() {
-    console.log(this.type);
     return { type: this.type };
   }
 }
@@ -21,7 +20,6 @@ export class GetStockBegin {
 export class GetStockSuccess {
   readonly type = ActionType.GetStockSuccess;
   constructor(public stock: Stock) {
-    //console.log(stock);
     return { type: this.type, stock };
   }
 }
@@ -36,11 +34,9 @@ export class GetStockFailure {
 // The API-call
 const getStock = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new GetStockBegin());
-  console.log('moi');
   try {
     const data = await StockApiRequest();
-    console.log(data);
-    dispatch(new GetStockSuccess(data.results));
+    dispatch(new GetStockSuccess(data));
   } catch (error) {
     dispatch(new GetStockFailure(error));
   }
