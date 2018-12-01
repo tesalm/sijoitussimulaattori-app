@@ -4,6 +4,8 @@
 
 ## Getting started
 
+Create `.env` file according to the sample (`.env.sample`).
+
 (For further information of the following, see the [React Native: Getting Started -guide](https://facebook.github.io/react-native/docs/getting-started))
 
 ### macOS and Linux
@@ -67,17 +69,6 @@ Tips for the iOS Simulator:
 - Enable Hot Reloading (in developer menu) for refreshing app on file changes without losing the app state
 
 To run on device, see instructions in the [React Native: Running on Device -guide](https://facebook.github.io/react-native/docs/running-on-device).
-
-To make package 'react-native-vector-icons' work, see instructions (https://github.com/oblador/react-native-vector-icons)
-
-To make package 'react-native-config' work make sure you have done following steps (https://github.com/luggit/react-native-config):
-
-- Go to your project -> Build Settings -> All
-- Search for "preprocess"
-- Set Preprocess Info.plist File to Yes
-- Set Info.plist Preprocessor Prefix File to \${BUILD_DIR}/GeneratedInfoPlistDotEnv.h
-- Set Info.plist Other Preprocessor Flags to -traditional
-- If you don't see those settings, verify that "All" is selected at the top (instead of "Basic")
 
 ### Windows
 
