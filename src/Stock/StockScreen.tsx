@@ -32,7 +32,7 @@ export class StockScreen extends React.Component<StockProps> {
   }
 
   componentDidMount() {
-    this.props.getSingleStock();
+    this.props.getSingleStock(this.props.navigation.getParam('key', ''));
   }
 
   render() {
@@ -56,7 +56,7 @@ export class StockScreen extends React.Component<StockProps> {
             <View
               style={{ flexDirection: 'row', justifyContent: 'space-between' }}
             >
-              <Text style={stockStyles.infoText}>{t('Buy')}</Text>
+              <Text style={stockStyles.subtitleView}>{t('Buy')}</Text>
               <Image
                 source={require('../navigation/assets/close.png')}
                 style={{ height: 30, width: 30 }}
@@ -73,7 +73,7 @@ export class StockScreen extends React.Component<StockProps> {
             <View
               style={{ flexDirection: 'row', justifyContent: 'space-between' }}
             >
-              <Text style={stockStyles.infoText}>{t('Sell')}</Text>
+              <Text style={stockStyles.subtitleView}>{t('Sell')}</Text>
               <Image
                 source={require('../navigation/assets/close.png')}
                 style={{ height: 30, width: 30 }}

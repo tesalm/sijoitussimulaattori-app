@@ -1,14 +1,9 @@
 import React from 'react';
 
 import { Text, View } from 'react-native';
-import { connect } from 'react-redux';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-import { NavigationScreenProps } from 'react-navigation';
-import { getStock } from '../actions';
-import { RootState } from '../../redux/reducers';
-import { bindActionCreators, Dispatch } from 'redux';
 
 import { Stock } from '../reducer';
 
