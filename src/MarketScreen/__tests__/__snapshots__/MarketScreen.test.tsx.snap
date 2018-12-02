@@ -215,15 +215,25 @@ exports[`Hello World renders correctly with stocks 1`] = `
   data={
     Array [
       Object {
-        "close": 13.44,
+        "buy": 10.26,
+        "close": 14.57,
+        "high": 10.28,
+        "low": 9.99,
+        "marketValue": 10.26,
         "name": "Apple",
-        "revenue": 0.035,
+        "revenue": -0.035,
+        "sell": 10.26,
         "symbol": "APL",
       },
       Object {
-        "close": 13.44,
+        "buy": 10.26,
+        "close": 14.57,
+        "high": 10.28,
+        "low": 9.99,
+        "marketValue": 10.26,
         "name": "Apple",
         "revenue": -0.035,
+        "sell": 10.26,
         "symbol": "APLL",
       },
     ]
@@ -504,7 +514,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
                   }
                 }
               >
-                13.44 $
+                14.57 $
               </Text>
             </View>
           </View>
@@ -541,14 +551,14 @@ exports[`Hello World renders correctly with stocks 1`] = `
               <Text
                 style={
                   Object {
-                    "color": "#54c242",
+                    "color": "#e20f00",
                     "fontSize": 18,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }
                 }
               >
-                +3.50 %
+                -3.50 %
               </Text>
             </View>
           </View>
@@ -656,7 +666,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
                   }
                 }
               >
-                13.44 $
+                14.57 $
               </Text>
             </View>
           </View>
