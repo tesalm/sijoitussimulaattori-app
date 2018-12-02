@@ -8,7 +8,8 @@ interface StockListResponse {
 
 const StockListApiRequest = async (): Promise<StockListResponse> => {
   try {
-    const res = await axios.get(config.app.STOCK_API_URL);
+    const url = config.app.API_URL + 'stocks/list';
+    const res = await axios.get(url);
     const data = res.data;
     return data;
   } catch (error) {
@@ -16,4 +17,17 @@ const StockListApiRequest = async (): Promise<StockListResponse> => {
   }
 };
 
-export { StockListApiRequest };
+const StockApiRequest = (key: string) => async () => {
+  try {
+    const url = config.app.API_URL + 'stocks/list/' + key;
+    console.log(key);
+    const res = await axios.get(url);
+    console.log(res);
+    console.log('HELLOOOOO');
+    return res.data as Stock;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { StockListApiRequest, StockApiRequest };

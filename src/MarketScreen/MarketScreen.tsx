@@ -84,7 +84,9 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
           <ListItem
             //TODO: navigate to to right stock page.
             onPress={() =>
-              this.props.navigation.navigate(RouteName.Commissions)
+              this.props.navigation.navigate(RouteName.Stock, {
+                key: item.symbol,
+              })
             }
             containerStyle={this.listBackgroundColor(index)}
             title={item.name}
