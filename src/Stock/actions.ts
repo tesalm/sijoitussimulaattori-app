@@ -33,14 +33,11 @@ export class GetStockFailure {
 
 // The API-call
 const getStock = (key: string) => async (dispatch: Dispatch<StockAction>) => {
-  console.log(key);
   dispatch(new GetStockBegin());
-  console.log(key);
   try {
     const data = await stockApiRequest(key);
     dispatch(new GetStockSuccess(data));
   } catch (error) {
-    console.log(error);
     dispatch(new GetStockFailure(error));
   }
 };

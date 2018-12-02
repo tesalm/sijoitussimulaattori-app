@@ -16,7 +16,7 @@ app.get('/stocks/list', (req, res) => {
 });
 
 app.get('/stocks/list/:key', (req, res) => {
-  console.log(req.params.key);
+  console.log(req.params.key + '-stock being fethced');
   res.json(singleStock(req.params.key));
 });
 
