@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
 import { StockListApiRequest } from '../utils/api';
-import { Stock } from './reducers';
+import { Stock2 } from './reducers';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
@@ -23,7 +23,7 @@ export class RequestStocksBegin {
 
 export class RequestStocksSuccess {
   readonly type = ActionType.RequestStocksSuccess;
-  constructor(public stocks: Array<Stock>) {
+  constructor(public stocks: Array<Stock2>) {
     return { type: this.type, stocks };
   }
 }

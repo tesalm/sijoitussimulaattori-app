@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 import { config } from '../config';
-import { Stock } from '../MarketScreen/reducers';
+import { Stock2 } from '../MarketScreen/reducers';
+import { Stock } from '../Stock/reducer';
 
 interface StockListResponse {
-  results: [Stock];
+  results: [Stock2];
 }
 
 const StockListApiRequest = async (): Promise<StockListResponse> => {
@@ -18,7 +19,8 @@ const StockListApiRequest = async (): Promise<StockListResponse> => {
   }
 };
 
-const StockApiRequest = (key: string) => async () => {
+const stockApiRequest = async (key: string) => {
+  console.log('API' + key);
   try {
     const url = config.app.API_URL + 'stocks/list/' + key;
     console.log(key);
@@ -31,4 +33,4 @@ const StockApiRequest = (key: string) => async () => {
   }
 };
 
-export { StockListApiRequest, StockApiRequest };
+export { StockListApiRequest, stockApiRequest };
