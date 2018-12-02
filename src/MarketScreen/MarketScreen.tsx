@@ -9,11 +9,11 @@ import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getStocks } from './actions';
-import { Stock } from './reducers';
+import { Stock2 } from './reducers';
 import { StockStyles } from './styles';
 
 export interface StockProps {
-  stocks: Array<Stock>;
+  stocks: Array<Stock2>;
   loading: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;

@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { Colors } from '../App/colors';
 
 const stockStyles = StyleSheet.create({
   titleStyle: {
     fontWeight: 'bold',
-    color: '#004D40',
+    color: Colors.baseColor,
     fontSize: 16,
     marginTop: verticalScale(8),
     marginLeft: scale(8),
@@ -13,30 +14,63 @@ const stockStyles = StyleSheet.create({
     flexDirection: 'column',
     marginTop: verticalScale(12),
     marginLeft: scale(8),
-    marginBottom: verticalScale(4),
+    //marginBottom: verticalScale(4),
   },
   valueHeader: {
     fontSize: 12,
-    color: '#004D40',
-    textAlign: 'left',
+    color: Colors.baseColor,
+    textAlign: 'justify',
     marginBottom: verticalScale(0),
     marginLeft: scale(8),
   },
   valuesStyle: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#004D40',
-    textAlign: 'left',
+    color: Colors.baseColor,
+    textAlign: 'justify',
     marginTop: verticalScale(-2),
     marginLeft: scale(8),
+    marginBottom: verticalScale(8),
+  },
+  valueHeaderRightSide: {
+    fontSize: 12,
+    color: Colors.baseColor,
+    marginBottom: verticalScale(0),
+    marginLeft: scale(8),
+  },
+  revenueValueGreen: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.greenPercent,
+    textAlign: 'center',
+    marginBottom: verticalScale(8),
+  },
+  revenueValueRed: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.redPercent,
+    textAlign: 'center',
+    marginBottom: verticalScale(8),
+  },
+  marketValue: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.baseColor,
+    textAlign: 'center',
+    marginBottom: verticalScale(8),
+  },
+  buySellText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.baseColor,
   },
   buySellButton: {
     margin: 0,
     height: 50,
   },
   arrowImage: {
-    height: 24,
-    width: 24,
+    height: 20,
+    width: 20,
   },
   basicinfo: {
     display: 'flex',
@@ -48,7 +82,7 @@ const stockStyles = StyleSheet.create({
   },
   basicinfoMidComp: {
     flexDirection: 'column',
-    width: '50%',
+    width: '25%',
     alignContent: 'flex-end',
   },
 });

@@ -56,10 +56,10 @@ export class StockScreen extends React.Component<StockProps> {
             <View
               style={{ flexDirection: 'row', justifyContent: 'space-between' }}
             >
-              <Text style={stockStyles.subtitleView}>{t('Buy')}</Text>
+              <Text style={stockStyles.buySellText}>{t('Buy')}</Text>
               <Image
                 source={require('../navigation/assets/close.png')}
-                style={{ height: 30, width: 30 }}
+                style={{ height: 24, width: 24 }}
               />
             </View>
           </TouchableHighlight>
@@ -73,10 +73,10 @@ export class StockScreen extends React.Component<StockProps> {
             <View
               style={{ flexDirection: 'row', justifyContent: 'space-between' }}
             >
-              <Text style={stockStyles.subtitleView}>{t('Sell')}</Text>
+              <Text style={stockStyles.buySellText}>{t('Sell')}</Text>
               <Image
                 source={require('../navigation/assets/close.png')}
-                style={{ height: 30, width: 30 }}
+                style={{ height: 24, width: 24 }}
               />
             </View>
           </TouchableHighlight>

@@ -1,6 +1,6 @@
 import { ActionType, StocksAction } from './actions';
 
-export interface Stock {
+export interface Stock2 {
   symbol: string;
   name: string;
   revenue: number;
@@ -8,7 +8,7 @@ export interface Stock {
 }
 
 export interface StocksListing {
-  stocks: Array<Stock>;
+  stocks: Array<Stock2>;
   loading: boolean;
   error?: Error;
 }
