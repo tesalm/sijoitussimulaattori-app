@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { config } from '../config';
-import { Stock2 } from '../MarketScreen/reducers';
-import { Stock } from '../Stock/reducer';
+import { Stock } from '../redux/reducers';
 
 interface StockListResponse {
-  results: [Stock2];
+  results: [Stock];
 }
 
 const StockListApiRequest = async (): Promise<StockListResponse> => {
@@ -18,10 +17,10 @@ const StockListApiRequest = async (): Promise<StockListResponse> => {
   }
 };
 
-const stockApiRequest = async (key: string) => {
-  console.log('API' + key);
+const stockApiRequest = async (symbol: string) => {
+  console.log('API' + symbol);
   try {
-    const url = config.app.API_URL + 'stocks/list/' + key;
+    const url = config.app.API_URL + 'stocks/list/' + symbol;
     const res = await axios.get(url);
     return res.data as Stock;
   } catch (error) {

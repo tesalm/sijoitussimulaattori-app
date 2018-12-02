@@ -1,15 +1,5 @@
 import { StockAction, ActionType } from './actions';
-
-export interface Stock {
-  key: string;
-  name: string;
-  buy: number;
-  sell: number;
-  high: number;
-  low: number;
-  marketValue: number;
-  revenue: number;
-}
+import { Stock } from '../redux/reducers';
 
 export interface SingleStock {
   stock: Stock;
@@ -19,7 +9,7 @@ export interface SingleStock {
 
 const initialState: SingleStock = {
   stock: {
-    key: '',
+    symbol: '',
     name: '',
     buy: 0,
     sell: 0,
@@ -27,6 +17,7 @@ const initialState: SingleStock = {
     low: 0,
     marketValue: 0,
     revenue: 0,
+    close: 0,
   },
   loading: false,
   error: undefined,
@@ -54,7 +45,7 @@ export const stockReducer = (
     case ActionType.GetStockFailure:
       return {
         stock: {
-          key: '',
+          symbol: '',
           name: '',
           buy: 0,
           sell: 0,
@@ -62,6 +53,7 @@ export const stockReducer = (
           low: 0,
           marketValue: 0,
           revenue: 0,
+          close: 0,
         },
         loading: false,
         error: action.error,

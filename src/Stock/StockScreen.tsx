@@ -16,7 +16,7 @@ import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { Stock } from './reducer';
+import { Stock } from '../redux/reducers';
 
 export interface StockProps extends NavigationScreenProps {
   stockInfo: Stock;
@@ -32,7 +32,7 @@ export class StockScreen extends React.Component<StockProps> {
   }
 
   componentDidMount() {
-    this.props.getSingleStock(this.props.navigation.getParam('key', ''));
+    this.props.getSingleStock(this.props.navigation.getParam('symbol', ''));
   }
 
   render() {

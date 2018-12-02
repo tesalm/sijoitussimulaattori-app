@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { stockApiRequest } from '../utils/api';
-import { Stock } from './reducer';
+import { Stock } from '../redux/reducers';
 
 export enum ActionType {
   GetStockBegin = '[Stock] Stock begin',
@@ -32,10 +32,12 @@ export class GetStockFailure {
 }
 
 // The API-call
-const getStock = (key: string) => async (dispatch: Dispatch<StockAction>) => {
+const getStock = (symbol: string) => async (
+  dispatch: Dispatch<StockAction>
+) => {
   dispatch(new GetStockBegin());
   try {
-    const data = await stockApiRequest(key);
+    const data = await stockApiRequest(symbol);
     dispatch(new GetStockSuccess(data));
   } catch (error) {
     dispatch(new GetStockFailure(error));

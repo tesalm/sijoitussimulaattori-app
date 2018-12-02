@@ -1,14 +1,8 @@
 import { ActionType, StocksAction } from './actions';
-
-export interface Stock2 {
-  symbol: string;
-  name: string;
-  revenue: number;
-  close: number;
-}
+import { Stock } from '../redux/reducers';
 
 export interface StocksListing {
-  stocks: Array<Stock2>;
+  stocks: Array<Stock>;
   loading: boolean;
   error?: Error;
 }

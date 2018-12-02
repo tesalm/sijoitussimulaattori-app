@@ -9,11 +9,11 @@ import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getStocks } from './actions';
-import { Stock2 } from './reducers';
+import { Stock } from '../redux/reducers';
 import { StockStyles } from './styles';
 
 export interface StockProps {
-  stocks: Array<Stock2>;
+  stocks: Array<Stock>;
   loading: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;
@@ -85,7 +85,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
             //TODO: navigate to to right stock page.
             onPress={() =>
               this.props.navigation.navigate(RouteName.Stock, {
-                key: item.symbol,
+                symbol: item.symbol,
               })
             }
             containerStyle={this.listBackgroundColor(index)}
