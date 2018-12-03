@@ -4,6 +4,8 @@
 
 ## Getting started
 
+Create `.env` file according to the sample (`.env.sample`).
+
 (For further information of the following, see the [React Native: Getting Started -guide](https://facebook.github.io/react-native/docs/getting-started))
 
 ### macOS and Linux
