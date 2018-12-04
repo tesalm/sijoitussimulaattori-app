@@ -8,6 +8,7 @@ describe('stock tests', () => {
   const navigationMock: any = {};
 
   const defaultStockProps: StockProps = {
+    symbol: '',
     stockInfo: {
       symbol: '',
       name: '',
@@ -19,29 +20,11 @@ describe('stock tests', () => {
       revenue: 0,
       close: 0,
     },
-    loading: false,
     error: undefined,
-    getSingleStock: jest.fn(),
-  };
-
-  const loadingStockProps: StockProps = {
-    stockInfo: {
-      symbol: '',
-      name: '',
-      buy: 0,
-      sell: 0,
-      high: 0,
-      low: 0,
-      marketValue: 0,
-      revenue: 0,
-      close: 0,
-    },
-    loading: true,
-    error: undefined,
-    getSingleStock: jest.fn(),
   };
 
   const errorStockProps: StockProps = {
+    symbol: '',
     stockInfo: {
       symbol: '',
       name: '',
@@ -53,12 +36,11 @@ describe('stock tests', () => {
       revenue: 0,
       close: 0,
     },
-    loading: false,
-    error: { name: 'Network Error', message: 'Network connection failed' },
-    getSingleStock: jest.fn(),
+    error: { name: 'Error', message: 'Stockdata could not be fetched' },
   };
 
   const stockStockProps: StockProps = {
+    symbol: 'APL',
     stockInfo: {
       symbol: 'APL',
       name: 'Apple',
@@ -70,21 +52,12 @@ describe('stock tests', () => {
       revenue: -0.035,
       close: 14.57,
     },
-    loading: false,
     error: undefined,
-    getSingleStock: jest.fn(),
   };
 
   it('renders correctly', async () => {
     const component = renderer
       .create(<StockScreen {...defaultStockProps} {...navigationMock} />)
-      .toJSON();
-    expect(component).toMatchSnapshot();
-  });
-
-  it('renders correctly with loading', async () => {
-    const component = renderer
-      .create(<StockScreen {...loadingStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

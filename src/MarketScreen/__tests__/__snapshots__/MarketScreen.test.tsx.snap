@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hello World renders correctly 1`] = `
+exports[`stock-list tests renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   data={Array []}
@@ -183,7 +183,7 @@ exports[`Hello World renders correctly 1`] = `
 </RCTScrollView>
 `;
 
-exports[`Hello World renders correctly with error 1`] = `
+exports[`stock-list tests renders correctly with error 1`] = `
 <Text>
   Error! 
   Network connection failed
@@ -191,7 +191,7 @@ exports[`Hello World renders correctly with error 1`] = `
 </Text>
 `;
 
-exports[`Hello World renders correctly with loading 1`] = `
+exports[`stock-list tests renders correctly with loading 1`] = `
 <View
   style={
     Object {
@@ -209,7 +209,7 @@ exports[`Hello World renders correctly with loading 1`] = `
 </View>
 `;
 
-exports[`Hello World renders correctly with stocks 1`] = `
+exports[`stock-list tests renders correctly with stocks 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   data={

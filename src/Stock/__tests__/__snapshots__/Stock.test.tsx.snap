@@ -1,0 +1,1426 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stock tests renders correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 147,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Buy
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Sell
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              High
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Low
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                }
+              }
+            >
+              Market value
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "textAlign": "center",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                }
+              }
+            >
+              Revenue in 24h
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#54c242",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "textAlign": "center",
+                }
+              }
+            >
+              +0.00 %
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Updated
+               09.11.2018 16:36.48
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 200,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#004D40",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "marginLeft": 17.142857142857142,
+              "marginTop": 15.694117647058823,
+            }
+          }
+        >
+          Revenue over a year
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 50,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 50,
+            "margin": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Buy
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/navigation/assets/close.png",
+              }
+            }
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 50,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 50,
+            "margin": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Sell
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/navigation/assets/close.png",
+              }
+            }
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`stock tests renders correctly with error 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 147,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Buy
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Sell
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              High
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Low
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                }
+              }
+            >
+              Market value
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "textAlign": "center",
+                }
+              }
+            >
+              0
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                }
+              }
+            >
+              Revenue in 24h
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#54c242",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "textAlign": "center",
+                }
+              }
+            >
+              +0.00 %
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Updated
+               09.11.2018 16:36.48
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 200,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#004D40",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "marginLeft": 17.142857142857142,
+              "marginTop": 15.694117647058823,
+            }
+          }
+        >
+          Revenue over a year
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 50,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 50,
+            "margin": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Buy
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/navigation/assets/close.png",
+              }
+            }
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 50,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 50,
+            "margin": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Sell
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/navigation/assets/close.png",
+              }
+            }
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`stock tests renders correctly with stock 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 147,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Buy
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              10.26
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Sell
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              10.26
+              €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              High
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              10.28
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Low
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "marginLeft": 17.142857142857142,
+                  "marginTop": -3.9235294117647057,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              9.99
+              €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "flexDirection": "column",
+                "width": "25%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                }
+              }
+            >
+              Market value
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "textAlign": "center",
+                }
+              }
+            >
+              10.26
+              €
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                }
+              }
+            >
+              Revenue in 24h
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#e20f00",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginBottom": 15.694117647058823,
+                  "textAlign": "center",
+                }
+              }
+            >
+              -3.50 %
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 12,
+                  "marginBottom": 0,
+                  "marginLeft": 17.142857142857142,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Updated
+               09.11.2018 16:36.48
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 200,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#004D40",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "marginLeft": 17.142857142857142,
+              "marginTop": 15.694117647058823,
+            }
+          }
+        >
+          Revenue over a year
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 50,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 50,
+            "margin": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Buy
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/navigation/assets/close.png",
+              }
+            }
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#e1e8ee",
+        "borderWidth": 1,
+        "height": 50,
+        "margin": 0,
+        "marginBottom": 0,
+        "padding": 15,
+        "shadowColor": "rgba(0,0,0, .2)",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 50,
+            "margin": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Sell
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/navigation/assets/close.png",
+              }
+            }
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
