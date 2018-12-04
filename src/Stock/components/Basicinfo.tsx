@@ -5,11 +5,11 @@ import { Text, View, ActivityIndicator } from 'react-native';
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
 
-import { Stock } from '../reducer';
+import { Stock } from '../../redux/reducers';
 
 interface BasicinfoProps {
-  stockInfo: Stock;
-  loading: boolean;
+  stockInfo?: Stock;
+  //loading: boolean;
   error?: Error;
 }
 
@@ -32,15 +32,16 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
   };
 
   render() {
-    const { stockInfo, loading, error } = this.props;
+    const { stockInfo, error } = this.props;
 
-    if (error) {
-      return <Text>Error! {error.message} </Text>;
+    if (stockInfo == undefined) {
+      console.log(stockInfo);
+      return <Text>Error!</Text>;
     }
 
-    if (loading) {
-      return <ActivityIndicator size="large" style={{ marginTop: '5%' }} />;
-    }
+    // if (loading) {
+    //   return <ActivityIndicator size="large" style={{ marginTop: '5%' }} />;
+    // }
 
     return (
       <View>

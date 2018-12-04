@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import { MarketScreen, StockProps } from '../MarketScreen';
 
-describe('Hello World', () => {
+describe('stock-list tests', () => {
   //Mock for navigation.
   const navigationMock: any = {};
 

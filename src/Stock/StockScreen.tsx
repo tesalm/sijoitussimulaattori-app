@@ -18,30 +18,28 @@ import { connect } from 'react-redux';
 
 import { Stock } from '../redux/reducers';
 
-export interface StockProps extends NavigationScreenProps {
-  stockInfo: Stock;
-  loading: boolean;
+export interface StockProps {
+  symbol: string;
+  stockInfo?: Stock;
+  //loading: boolean;
   error?: Error;
-  getSingleStock: typeof getStock;
 }
 
 export class StockScreen extends React.Component<StockProps> {
-  static navigationOptions = { title: t('StockPage.Title') };
   constructor(props: StockProps) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.getSingleStock(this.props.navigation.getParam('symbol', ''));
-  }
-
   render() {
-    const { stockInfo, loading, error } = this.props;
+    const { stockInfo, error } = this.props;
+
+    console.log('STOCKSCREEN' + this.props.symbol);
+    console.log(stockInfo);
 
     return (
       <View>
         <Card containerStyle={{ margin: 0, height: 147 }}>
-          <Basicinfo stockInfo={stockInfo} loading={loading} error={error} />
+          <Basicinfo stockInfo={stockInfo} error={error} />
         </Card>
 
         <Card containerStyle={{ margin: 0, height: 200 }}>
@@ -50,7 +48,7 @@ export class StockScreen extends React.Component<StockProps> {
 
         <Card containerStyle={{ margin: 0, height: 50 }}>
           <TouchableHighlight
-            onPress={() => this.props.navigation.navigate(RouteName.Profile)}
+            //onPress={() => this.props.navigation.navigate(RouteName.Profile)}
             style={stockStyles.buySellButton}
           >
             <View
@@ -67,7 +65,7 @@ export class StockScreen extends React.Component<StockProps> {
 
         <Card containerStyle={{ margin: 0, height: 50 }}>
           <TouchableHighlight
-            onPress={() => this.props.navigation.navigate(RouteName.Profile)}
+            //onPress={() => this.props.navigation.navigate(RouteName.Profile)}
             style={stockStyles.buySellButton}
           >
             <View
@@ -86,19 +84,15 @@ export class StockScreen extends React.Component<StockProps> {
   }
 }
 
-const mapStateToProps = (state: RootState) => ({
-  stockInfo: state.singleStock.stock,
-  loading: state.singleStock.loading,
+const mapStateToProps = (state: RootState, ownProps: StockProps) => ({
+  stockInfo: state.stocksListing.stocks.find(
+    (s) => s.symbol == ownProps.symbol
+  ),
+  //loading: state.singleStock.loading,
   error: state.singleStock.error,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators(
-    {
-      getSingleStock: getStock,
-    },
-    dispatch
-  );
+const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
 export default connect(
   mapStateToProps,
