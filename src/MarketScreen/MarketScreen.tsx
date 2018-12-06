@@ -6,16 +6,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
-import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getStocks } from './actions';
-import { Stock } from '../redux/reducers';
+import { Stock } from '../Stock/reducers';
 import { StockStyles } from './styles';
-import { StockScreen } from '../Stock/StockScreen';
-import StackNavi from '../navigation/StackNavigator';
 
 export interface StockProps {
-  symbol?: string;
   stocks: Array<Stock>;
   loading: boolean;
   error?: Error;
@@ -28,6 +24,9 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
   constructor(props: StockPropsWithNavigation) {
     super(props);
   }
+  static navigationOptions = {
+    title: t('MarketPage.Title'),
+  };
 
   componentDidMount() {
     //Dispatch the actions

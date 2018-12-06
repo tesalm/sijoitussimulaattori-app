@@ -9,9 +9,9 @@ import {
 import { MarketScreen } from '../MarketScreen/MarketScreen';
 import { StockScreen } from '../Stock/StockScreen';
 
-type SingleStockProps = {
+interface SingleStockProps {
   navigation: NavigationScreenProp<NavigationState>;
-};
+}
 const SingleStockScreen = (props: SingleStockProps) => {
   <StockScreen symbol={props.navigation.getParam('symbol')} />;
 };

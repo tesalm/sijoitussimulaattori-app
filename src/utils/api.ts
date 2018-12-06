@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { config } from '../config';
-import { Stock } from '../redux/reducers';
+import { Stock } from '../Stock/reducers';
 
 interface StockListResponse {
   results: [Stock];
@@ -8,7 +8,7 @@ interface StockListResponse {
 
 const StockListApiRequest = async (): Promise<StockListResponse> => {
   try {
-    const url = config.app.API_URL + 'stocks/list';
+    const url = config.app.API_URL + '/stocks/list';
     const res = await axios.get(url);
     const data = res.data;
     return data;
@@ -18,9 +18,8 @@ const StockListApiRequest = async (): Promise<StockListResponse> => {
 };
 
 const stockApiRequest = async (symbol: string) => {
-  console.log('API' + symbol);
   try {
-    const url = config.app.API_URL + 'stocks/list/' + symbol;
+    const url = config.app.API_URL + '/stocks/list/' + symbol;
     const res = await axios.get(url);
     return res.data as Stock;
   } catch (error) {

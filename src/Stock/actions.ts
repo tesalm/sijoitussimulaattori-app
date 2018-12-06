@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { stockApiRequest } from '../utils/api';
-import { Stock } from '../redux/reducers';
+import { Stock } from './reducers';
 
 export enum ActionType {
   GetStockBegin = '[Stock] Stock begin',

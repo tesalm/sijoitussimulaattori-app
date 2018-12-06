@@ -2,6 +2,21 @@ import { StyleSheet } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { Colors } from '../App/colors';
 
+const stockContainerStyles = StyleSheet.create({
+  basicInfo: {
+    margin: 0,
+    height: 147,
+  },
+  diagram: {
+    margin: 0,
+    height: 200,
+  },
+  buttonContainer: {
+    margin: 0,
+    height: 50,
+  },
+});
+
 const stockStyles = StyleSheet.create({
   titleStyle: {
     fontWeight: 'bold',
@@ -87,4 +102,4 @@ const stockStyles = StyleSheet.create({
   },
 });
 
-export { stockStyles };
+export { stockContainerStyles, stockStyles };

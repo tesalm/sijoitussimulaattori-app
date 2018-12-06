@@ -1,5 +1,16 @@
 import { StockAction, ActionType } from './actions';
-import { Stock } from '../redux/reducers';
+
+export interface Stock {
+  symbol: string;
+  name: string;
+  buy: number;
+  sell: number;
+  high: number;
+  low: number;
+  marketValue: number;
+  revenue: number;
+  close: number;
+}
 
 export interface SingleStock {
   stock: Stock;

@@ -14,12 +14,11 @@ import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
 import { StockScreen } from '../../Stock/StockScreen';
 
-type SingleStockProps = {
+interface SingleStockProps {
   navigation: NavigationScreenProp<NavigationState>;
-};
+}
 const SingleStockScreen = (props: SingleStockProps) => {
   if (props.navigation.state.params == undefined) {
-    console.log('STOCK-SYMBOL EI LÖYTYNYT');
     return <StockScreen symbol={''} stockInfo={undefined} />;
   }
 
