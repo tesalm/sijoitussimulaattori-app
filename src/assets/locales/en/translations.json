@@ -60,8 +60,8 @@
     "High": "High",
     "Low": "Low",
     "Market value": "Market value",
-    "Revenue in 24h": "Revenue in 24h",
+    "RevenueText": "Revenue in 24h",
     "Updated": "Updated",
-    "Revenue over a year": "Revenue over a year"
+    "RevenueOverYear": "Revenue over a year"
   }
 }

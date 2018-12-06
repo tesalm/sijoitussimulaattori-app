@@ -62,7 +62,7 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
               {stockInfo.marketValue}€
             </Text>
             <Text style={stockStyles.valueHeaderRightSide}>
-              {t('Revenue in 24h')}
+              {t('RevenueText')}
             </Text>
             <Text style={this.revenueColor(stockInfo.revenue)}>
               {this.formatRevenue(stockInfo.revenue)}
