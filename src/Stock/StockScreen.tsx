@@ -1,20 +1,17 @@
 import React from 'react';
 
-import { Image, Text, View, TouchableHighlight } from 'react-native';
+import { View } from 'react-native';
 import { Card } from 'react-native-elements';
-
-import { t } from '../assets/i18n';
 
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
-import { stockContainerStyles, stockStyles } from './styles';
+import { stockContainerStyles } from './styles';
 
 import { RootState } from '../redux/reducers';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import { Stock } from './reducers';
-import Icon from '../general/icon';
 import BuySell from './components/BuySell';
 
 export interface StockProps {

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextStyle } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-//import { stockStyles } from '../styles';
 
 const Diagram = (): JSX.Element => {
   return (
