@@ -42,27 +42,27 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
       <View>
         <View style={stockStyles.basicinfo}>
           <View style={stockStyles.basicinfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>{t('Buy')}</Text>
+            <Text style={stockStyles.valueHeader}>{t('StockPage.Buy')}</Text>
             <Text style={stockStyles.valuesStyle}>{stockInfo.buy}€</Text>
-            <Text style={stockStyles.valueHeader}>{t('Sell')}</Text>
+            <Text style={stockStyles.valueHeader}>{t('StockPage.Sell')}</Text>
             <Text style={stockStyles.valuesStyle}>{stockInfo.sell}€</Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>{t('High')}</Text>
+            <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
             <Text style={stockStyles.valuesStyle}>{stockInfo.high}€</Text>
-            <Text style={stockStyles.valueHeader}>{t('Low')}</Text>
+            <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
             <Text style={stockStyles.valuesStyle}>{stockInfo.low}€</Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp} />
           <View style={stockStyles.basicinfoMidComp}>
             <Text style={stockStyles.valueHeaderRightSide}>
-              {t('Market value')}
+              {t('StockPage.MarketValue')}
             </Text>
             <Text style={stockStyles.marketValue}>
               {stockInfo.marketValue}€
             </Text>
             <Text style={stockStyles.valueHeaderRightSide}>
-              {t('RevenueText')}
+              {t('StockPage.RevenueText')}
             </Text>
             <Text style={this.revenueColor(stockInfo.revenue)}>
               {this.formatRevenue(stockInfo.revenue)}
@@ -72,7 +72,7 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
         <View style={stockStyles.basicinfo}>
           <View>
             <Text style={stockStyles.valueHeader}>
-              {t('Updated')} 09.11.2018 16:36.48
+              {t('StockPage.Updated')} 09.11.2018 16:36.48
             </Text>
           </View>
         </View>

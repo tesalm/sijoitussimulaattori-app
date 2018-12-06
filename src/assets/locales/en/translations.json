@@ -53,13 +53,12 @@
   },
   "StockPage": {
     "Title": "Stock",
-    "PlaceholderText": "PLACEHOLDER: This shall be a page for a single stock!",
     "GoToProfilePageButton": "Profile",
     "Buy": "Buy",
     "Sell": "Sell",
     "High": "High",
     "Low": "Low",
-    "Market value": "Market value",
+    "MarketValue": "Market value",
     "RevenueText": "Revenue in 24h",
     "Updated": "Updated",
     "RevenueOverYear": "Revenue over a year"

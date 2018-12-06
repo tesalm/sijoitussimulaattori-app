@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
 import { StockListApiRequest } from '../utils/api';
-import { Stock } from '../redux/reducers';
+import { Stock } from '../Stock/reducers';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
