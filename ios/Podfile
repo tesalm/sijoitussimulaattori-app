@@ -48,6 +48,7 @@ post_install do |installer|
                            " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
                            " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
                            " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"\
+                           " && mkdir -p ./ios/build/Build/Products/"\
                            " && cp $RNC_ROOT/ios/ReactNativeConfig/GeneratedInfoPlistDotEnv.h ./ios/build/Build/Products/GeneratedInfoPlistDotEnv.h"
 
       target.build_phases << phase
