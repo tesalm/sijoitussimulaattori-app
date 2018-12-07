@@ -29,7 +29,6 @@ const CommissionsStack = createStackNavigator(
 
 CommissionsStack.navigationOptions = {
   tabBarLabel: t('Navigation.Labels.Commissions'),
-  tabBarTestID: 'Commissions',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

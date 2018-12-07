@@ -27,7 +27,6 @@ const CommunityStack = createStackNavigator(
 
 CommunityStack.navigationOptions = {
   tabBarLabel: t('Navigation.Labels.Community'),
-  tabBarTestID: 'Community',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image

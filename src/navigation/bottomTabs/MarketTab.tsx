@@ -29,7 +29,6 @@ const MarketStack = createStackNavigator(
 
 MarketStack.navigationOptions = {
   tabBarLabel: t('Navigation.Labels.Stocks'),
-  tabBarTestID: 'Market',
   tabBarIcon: ({ focused }: any) =>
     focused ? (
       <Image
