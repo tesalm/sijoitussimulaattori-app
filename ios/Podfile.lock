@@ -115,17 +115,17 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
-  - React (0.57.4):
-    - React/Core (= 0.57.4)
+  - React (0.58.0-rc.1):
+    - React/Core (= 0.58.0-rc.1)
   - react-native-config (0.11.5):
     - React
-  - React/Core (0.57.4):
-    - yoga (= 0.57.4.React)
+  - React/Core (0.58.0-rc.1):
+    - yoga (= 0.58.0-rc.1.React)
   - RNLanguages (3.0.1):
     - React
   - RNVectorIcons (6.0.2):
     - React
-  - yoga (0.57.4.React)
+  - yoga (0.58.0-rc.1.React)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -192,12 +192,12 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  React: 9b873b38b92ed8012d7cdf3b965477095ed364c4
   react-native-config: 408003951fd9d8b1dfd7ebf535f67c315f44d823
   RNLanguages: e3ae05ef105937645218272429dac0c3f7633451
   RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
-  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
+  yoga: 0885622311729a02c2bc02dca97167787a51488b
 
-PODFILE CHECKSUM: ca9e127fe94d25f5336b107113ff1abdf9407ddb
+PODFILE CHECKSUM: a5c9839162b414ce7008657beb00d25b4d2a193f
 
 COCOAPODS: 1.5.3
