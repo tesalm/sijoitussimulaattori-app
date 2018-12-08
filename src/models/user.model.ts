@@ -10,9 +10,6 @@ export interface UserData {
   username?: string;
 }
 
-/** Combines UserAuth and UserData */
-export interface User extends UserAuth, UserData {}
-
 /** Indicates in which state the user login is. */
 export enum LoginState {
   CheckingPreviousLogin,

@@ -1,17 +1,15 @@
-import { LoginState, User } from '../models';
+import { LoginState, UserAuth } from '../models';
 import { ActionType, AuthAction } from './actions';
 
 export interface Auth {
-  user?: User;
+  userAuth?: UserAuth;
   loginError?: Error;
-  userDataError?: Error;
   loginState: LoginState;
 }
 
 export const initialAuthState: Auth = {
-  user: undefined,
+  userAuth: undefined,
   loginError: undefined,
-  userDataError: undefined,
   loginState: LoginState.CheckingPreviousLogin,
 };
 
@@ -23,14 +21,14 @@ export const authReducer = (
     case ActionType.RestoreLoginSuccess:
       return {
         ...state,
-        user: action.userAuth,
+        userAuth: action.userAuth,
         loginError: undefined,
         loginState: LoginState.LoggedIn,
       };
     case ActionType.RestoreLoginImpossible:
       return {
         ...state,
-        user: undefined,
+        userAuth: undefined,
         loginState: LoginState.LoggedOut,
       };
     case ActionType.LoginRequest:
@@ -41,34 +39,21 @@ export const authReducer = (
     case ActionType.LoginSuccess:
       return {
         ...state,
-        user: action.user,
+        userAuth: action.userAuth,
         loginError: undefined,
         loginState: LoginState.LoggedIn,
       };
     case ActionType.LoginFailure:
       return {
         ...state,
-        user: undefined,
+        userAuth: undefined,
         loginError: action.error,
         loginState: LoginState.LoggedOut,
       };
-    case ActionType.FetchUserDataSuccess:
+    case ActionType.Logout:
       return {
         ...state,
-        user: action.user,
-        userDataError: undefined,
-      };
-    case ActionType.FetchUserDataFailure:
-      return {
-        ...state,
-        userDataError: action.userDataError,
-      };
-    case ActionType.DeleteCurrentUserSuccess:
-    case ActionType.LogoutRequest:
-      return {
-        ...state,
-        user: undefined,
-        loginError: undefined,
+        userAuth: undefined,
         loginState: LoginState.LoggedOut,
       };
     default:

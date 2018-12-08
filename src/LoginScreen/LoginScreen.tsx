@@ -1,13 +1,15 @@
 import React from 'react';
-import { ActivityIndicator, Image, ImageStyle, Modal, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageStyle, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { login } from '../Auth/actions';
+import { Button } from '../input/button';
 import { LoginState } from '../models';
 import { RootState } from '../redux/reducers';
+import { ModalActivityIndicator } from './components/ModalActivityIndicator';
 import { loginScreenStyles } from './styles';
 
 export interface LoginViewProps {
@@ -26,67 +28,34 @@ class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
   render() {
     const { onLoginAsAnonym, loginError, loginState } = this.props;
 
-    // Define modal "screen" with activity indicator.
-    const modalActivityIndicator = 
-      <Modal animationType="none" 
-        transparent={true}
-        visible={true}
-        onRequestClose={()=>{/*Mandatory to define; do nothing*/}}
-        >
-        <View style={loginScreenStyles.modalSplash}>
-          <ActivityIndicator animating = {true} 
-            color = '#FFFFFF'
-            size = "large" 
-          />
-        </View>
-      </Modal>;
+    const loginButtonText = loginError ?
+      t('LoginScreen.AfterErrButton') :
+      t('LoginScreen.NewUserButton');
+    const loginGreetee = loginError ? 
+      loginError.message :
+      t('LoginScreen.NewUserGreetee');
 
     return(
     <View style={loginScreenStyles.background}>
-
       { // Show modal activity indicator on top of everything else when logging in.
-        loginState === LoginState.LoggingIn && modalActivityIndicator
+        loginState === LoginState.LoggingIn && <ModalActivityIndicator />
       }
-
-      {/*Container for the logo.*/}
-      <View style={loginScreenStyles.logoContainerRow}>
-      <View style={loginScreenStyles.logoContainerColumn}>
-        <Image resizeMode={'contain'}
-          style={loginScreenStyles.logo as ImageStyle}
-          source={require('../../resources/Logo.png')} />
-      </View>
-      </View>
-
-      {/*Container for the anonymous login button.*/}
-      <View style={loginScreenStyles.buttonContainerRow}>
-      <View style={loginScreenStyles.buttonContainerColumn}>
-
+      {/*Logo.*/}
+      <Image
+        style={loginScreenStyles.logo as ImageStyle}
+        source={require('../../resources/Logo.png')} 
+      />
+      {/*New user greetee and anonymous login button.*/}
+      <View style={loginScreenStyles.buttonContainer}>
         <Text style={loginScreenStyles.text}>
-          {
-            loginError ? 
-            loginError.message : 
-            t('LoginScreen.NewUserGreetee')
-          }
+          {loginGreetee}
         </Text>
-
-        {/*Login button*/}
-        <TouchableOpacity 
-        onPress={() => onLoginAsAnonym()}>
-          <View style={loginScreenStyles.button}>
-            <Text style={loginScreenStyles.buttonText}>
-              {
-                (loginError ? 
-                  t('LoginScreen.AfterErrButton') : 
-                  t('LoginScreen.NewUserButton')
-                ).toUpperCase()
-              }
-            </Text>
-          </View>
-        </TouchableOpacity>
-
+        <Button
+          buttonText={loginButtonText}
+          onPress={onLoginAsAnonym}
+          lightBackground={true}
+        />
       </View>
-      </View>
-
     </View>
     );
   }

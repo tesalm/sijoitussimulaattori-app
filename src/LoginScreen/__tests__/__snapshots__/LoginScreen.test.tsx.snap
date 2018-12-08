@@ -4,117 +4,88 @@ exports[`Testing Login Screen renders correctly 1`] = `
 <View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#004D40",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
+      "justifyContent": "space-evenly",
     }
   }
 >
+  <Image
+    source={
+      Object {
+        "testUri": "../../../resources/Logo.png",
+      }
+    }
+    style={
+      Object {
+        "height": "30%",
+        "marginTop": "8%",
+        "resizeMode": "contain",
+        "width": "60%",
+      }
+    }
+  />
   <View
     style={
       Object {
-        "flex": 0.4,
-        "flexDirection": "row",
-        "justifyContent": "space-evenly",
+        "marginBottom": "8%",
+        "width": "65%",
       }
     }
   >
-    <View
+    <Text
       style={
         Object {
-          "flex": 0.5,
-          "flexDirection": "column",
-          "justifyContent": "space-evenly",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
+          "fontSize": 17,
+          "marginBottom": "4%",
+          "textAlign": "center",
         }
       }
     >
-      <Image
-        resizeMode="contain"
-        source={
-          Object {
-            "testUri": "../../../resources/Logo.png",
-          }
-        }
-        style={
-          Object {
-            "flex": 1,
-            "height": undefined,
-            "width": undefined,
-          }
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "flex": 0.2,
-        "flexDirection": "row",
-        "justifyContent": "space-evenly",
-      }
-    }
-  >
+      Your first time at the ValueTown?
+    </Text>
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "flex": 0.6,
-          "flexDirection": "column",
-          "justifyContent": "space-evenly",
+          "opacity": 1,
         }
       }
     >
-      <Text
-        style={
-          Object {
-            "color": "#FFFFFF",
-            "fontFamily": "Roboto",
-            "fontSize": 16,
-            "textAlign": "center",
-          }
-        }
-      >
-        Your first time at the ValueTown?
-      </Text>
       <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 5,
+            "elevation": 3,
+            "fontSize": 16,
+            "justifyContent": "center",
+            "padding": 16,
           }
         }
       >
-        <View
+        <Text
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#FFFFFF",
-              "borderRadius": 5,
-              "elevation": 3,
-              "fontSize": 16,
-              "justifyContent": "center",
-              "padding": 16,
+              "color": "#004D40",
+              "fontFamily": "Roboto",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#004D40",
-                "fontFamily": "Roboto",
-              }
-            }
-          >
-            CONTINUE AS NEW USER
-          </Text>
-        </View>
+          CONTINUE AS NEW USER
+        </Text>
       </View>
     </View>
   </View>
@@ -125,117 +96,88 @@ exports[`Testing Login Screen renders correctly after login error 1`] = `
 <View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#004D40",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
+      "justifyContent": "space-evenly",
     }
   }
 >
+  <Image
+    source={
+      Object {
+        "testUri": "../../../resources/Logo.png",
+      }
+    }
+    style={
+      Object {
+        "height": "30%",
+        "marginTop": "8%",
+        "resizeMode": "contain",
+        "width": "60%",
+      }
+    }
+  />
   <View
     style={
       Object {
-        "flex": 0.4,
-        "flexDirection": "row",
-        "justifyContent": "space-evenly",
+        "marginBottom": "8%",
+        "width": "65%",
       }
     }
   >
-    <View
+    <Text
       style={
         Object {
-          "flex": 0.5,
-          "flexDirection": "column",
-          "justifyContent": "space-evenly",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
+          "fontSize": 17,
+          "marginBottom": "4%",
+          "textAlign": "center",
         }
       }
     >
-      <Image
-        resizeMode="contain"
-        source={
-          Object {
-            "testUri": "../../../resources/Logo.png",
-          }
-        }
-        style={
-          Object {
-            "flex": 1,
-            "height": undefined,
-            "width": undefined,
-          }
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "flex": 0.2,
-        "flexDirection": "row",
-        "justifyContent": "space-evenly",
-      }
-    }
-  >
+      fake-failure occurred
+    </Text>
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "flex": 0.6,
-          "flexDirection": "column",
-          "justifyContent": "space-evenly",
+          "opacity": 1,
         }
       }
     >
-      <Text
-        style={
-          Object {
-            "color": "#FFFFFF",
-            "fontFamily": "Roboto",
-            "fontSize": 16,
-            "textAlign": "center",
-          }
-        }
-      >
-        fake-failure occurred
-      </Text>
       <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 5,
+            "elevation": 3,
+            "fontSize": 16,
+            "justifyContent": "center",
+            "padding": 16,
           }
         }
       >
-        <View
+        <Text
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#FFFFFF",
-              "borderRadius": 5,
-              "elevation": 3,
-              "fontSize": 16,
-              "justifyContent": "center",
-              "padding": 16,
+              "color": "#004D40",
+              "fontFamily": "Roboto",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#004D40",
-                "fontFamily": "Roboto",
-              }
-            }
-          >
-            TRY AGAIN
-          </Text>
-        </View>
+          TRY AGAIN
+        </Text>
       </View>
     </View>
   </View>
@@ -246,10 +188,11 @@ exports[`Testing Login Screen renders correctly when logging in and waiting 1`] 
 <View
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#004D40",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
+      "justifyContent": "space-evenly",
     }
   }
 >
@@ -277,110 +220,80 @@ exports[`Testing Login Screen renders correctly when logging in and waiting 1`] 
       />
     </View>
   </Modal>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../resources/Logo.png",
+      }
+    }
+    style={
+      Object {
+        "height": "30%",
+        "marginTop": "8%",
+        "resizeMode": "contain",
+        "width": "60%",
+      }
+    }
+  />
   <View
     style={
       Object {
-        "flex": 0.4,
-        "flexDirection": "row",
-        "justifyContent": "space-evenly",
+        "marginBottom": "8%",
+        "width": "65%",
       }
     }
   >
-    <View
+    <Text
       style={
         Object {
-          "flex": 0.5,
-          "flexDirection": "column",
-          "justifyContent": "space-evenly",
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto",
+          "fontSize": 17,
+          "marginBottom": "4%",
+          "textAlign": "center",
         }
       }
     >
-      <Image
-        resizeMode="contain"
-        source={
-          Object {
-            "testUri": "../../../resources/Logo.png",
-          }
-        }
-        style={
-          Object {
-            "flex": 1,
-            "height": undefined,
-            "width": undefined,
-          }
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "flex": 0.2,
-        "flexDirection": "row",
-        "justifyContent": "space-evenly",
-      }
-    }
-  >
+      Your first time at the ValueTown?
+    </Text>
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "flex": 0.6,
-          "flexDirection": "column",
-          "justifyContent": "space-evenly",
+          "opacity": 1,
         }
       }
     >
-      <Text
-        style={
-          Object {
-            "color": "#FFFFFF",
-            "fontFamily": "Roboto",
-            "fontSize": 16,
-            "textAlign": "center",
-          }
-        }
-      >
-        Your first time at the ValueTown?
-      </Text>
       <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 5,
+            "elevation": 3,
+            "fontSize": 16,
+            "justifyContent": "center",
+            "padding": 16,
           }
         }
       >
-        <View
+        <Text
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#FFFFFF",
-              "borderRadius": 5,
-              "elevation": 3,
-              "fontSize": 16,
-              "justifyContent": "center",
-              "padding": 16,
+              "color": "#004D40",
+              "fontFamily": "Roboto",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#004D40",
-                "fontFamily": "Roboto",
-              }
-            }
-          >
-            CONTINUE AS NEW USER
-          </Text>
-        </View>
+          CONTINUE AS NEW USER
+        </Text>
       </View>
     </View>
   </View>
