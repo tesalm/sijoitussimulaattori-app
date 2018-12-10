@@ -25,8 +25,6 @@ target 'Sijoitussimulaattori' do
   pod 'Firebase/Firestore', '~> 5.11.0'
   pod 'Firebase/Auth'
 
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
-
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   # Third party deps podspec link
@@ -57,19 +55,6 @@ end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    if target.name == 'react-native-config'
-      phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
-      phase.shell_script = "cd ../../"\
-                           " && RNC_ROOT=./node_modules/react-native-config/"\
-                           " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
-                           " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
-                           " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"\
-                           " && mkdir -p ./ios/build/Build/Products/"\
-                           " && cp $RNC_ROOT/ios/ReactNativeConfig/GeneratedInfoPlistDotEnv.h ./ios/build/Build/Products/GeneratedInfoPlistDotEnv.h"
-
-      target.build_phases << phase
-      target.build_phases.move(phase,0)
-    end
     if target.name == "React"
       target.remove_from_project
     end

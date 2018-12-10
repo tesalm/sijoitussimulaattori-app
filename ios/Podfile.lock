@@ -124,8 +124,6 @@ PODS:
   - Protobuf (3.6.1)
   - React (0.58.0-rc.1):
     - React/Core (= 0.58.0-rc.1)
-  - react-native-config (0.11.7):
-    - React
   - React/Core (0.58.0-rc.1):
     - yoga (= 0.58.0-rc.1.React)
   - React/DevSupport (0.58.0-rc.1):
@@ -160,7 +158,6 @@ DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - GoogleAppMeasurement (~> 5.3.0)
-  - react-native-config (from `../node_modules/react-native-config`)
   - React/Core (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
   - React/RCTImage (from `../node_modules/react-native`)
@@ -202,8 +199,6 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
-  react-native-config:
-    :path: "../node_modules/react-native-config"
   RNFirebase:
     :path: "../node_modules/react-native-firebase/ios"
   RNLanguages:
@@ -238,12 +233,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: 9b873b38b92ed8012d7cdf3b965477095ed364c4
-  react-native-config: 8c2a92aa66a6cec1a23d9eda7ba6fcf31a63ace5
   RNFirebase: 2b25fd2e60269f26bb0a76c71dcc942b35a77df0
   RNLanguages: e3ae05ef105937645218272429dac0c3f7633451
   RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: 0885622311729a02c2bc02dca97167787a51488b
 
-PODFILE CHECKSUM: faecb237a0de94aa1eff977403b832acfc284b1d
+PODFILE CHECKSUM: a3e097313041ab06ac784bcb7f6593024c742654
 
 COCOAPODS: 1.5.3
