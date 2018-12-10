@@ -14,7 +14,6 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* SijoitussimulaattoriTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SijoitussimulaattoriTests.m */; };
 		039B539DC1784A8C802B0145 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DC23520EA82480EB29338F0 /* FontAwesome5_Regular.ttf */; };
-		0C71EC80FA92DC540F3084FC /* libPods-SijoitussimulaattoriTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 822C75275386B6781C942B63 /* libPods-SijoitussimulaattoriTests.a */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -25,7 +24,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		15A5A2F1EE4D2764A51E49D2 /* libPods-Sijoitussimulaattori-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C8FD1D863CCB4B3C38FB7F /* libPods-Sijoitussimulaattori-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -42,11 +40,13 @@
 		2FA9A43F218470A60010B24B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FA9A418218470A60010B24B /* GoogleService-Info.plist */; };
 		2FB546CB2188CDD600395D0E /* libRNLanguages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB546CA2188CDD600395D0E /* libRNLanguages.a */; };
 		3BC3D3AEE54A4ED3BB7182C9 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14B375E5EA234703BC6B6688 /* Zocial.ttf */; };
-		4AC7D4A9B81F29665BC2A7AE /* libPods-Sijoitussimulaattori.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1915F26270F3D1B65163A964 /* libPods-Sijoitussimulaattori.a */; };
+		403BDE9B9353B2A741AF3A74 /* libPods-Sijoitussimulaattori-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 160B895691665DFFF24FB248 /* libPods-Sijoitussimulaattori-tvOSTests.a */; };
+		72E84ACCDEEE0A3682116957 /* libPods-SijoitussimulaattoriTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBD0AD59522DF4E1BC75238 /* libPods-SijoitussimulaattoriTests.a */; };
+		779C070A95231CDD9286CD10 /* libPods-Sijoitussimulaattori.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF3EF5EF2C8D6720C0E0EFC /* libPods-Sijoitussimulaattori.a */; };
 		7C988FAEA52143A4BA7E4646 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CAE78FBBA72498C8742C5A5 /* FontAwesome5_Solid.ttf */; };
-		7F587C05B069626DF6E9D3C5 /* libPods-Sijoitussimulaattori-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A015162A5E9C83D36CE142 /* libPods-Sijoitussimulaattori-tvOSTests.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9384DA8D29A1439DB9220EDE /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3911B6E5A034C93AECCC72D /* FontAwesome5_Brands.ttf */; };
+		9C3EB7DDB4C0284818D1E908 /* libPods-Sijoitussimulaattori-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5058791710E5F6155F9DD /* libPods-Sijoitussimulaattori-tvOS.a */; };
 		A4135ECB50AD4084BA376430 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA25B4BB5EA41379D60A375 /* Ionicons.ttf */; };
 		A80E794F4D9E47489EE81EEC /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F11960802B6147949FEF4800 /* MaterialIcons.ttf */; };
 		ACDBF10FDAA749FA98759D25 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F47C2C0BD340EB9F560F5C /* AntDesign.ttf */; };
@@ -55,7 +55,6 @@
 		B2BD2685B71D4251BFB991F1 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D57000B29784129909A6AAB /* Entypo.ttf */; };
 		B71065176F894ECF9CEBFBC4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D5E73B23D554AA79DDB0C60 /* FontAwesome.ttf */; };
 		C0B7773DE57F44E7A288147B /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 925EE5BFDE1442798E45A972 /* SimpleLineIcons.ttf */; };
-		C67ABEEB49294FBD800A952E /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5590CC737D1D46D8B478CCEC /* libRNFirebase.a */; };
 		D6BF4A686EB345E5879120C5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1223465A67E421794D430C2 /* EvilIcons.ttf */; };
 		DC10AB4A2017450B86ECBA10 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0712D10F76AF4E8098238556 /* Octicons.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -197,13 +196,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
-		};
-		2F07CCF321846E61009D6A2E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28FE62D8A46847F0B18B8805 /* RNFirebase.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNFirebase;
 		};
 		2FB546C62188CD8700395D0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -384,11 +376,11 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Sijoitussimulaattori/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		14B375E5EA234703BC6B6688 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		1915F26270F3D1B65163A964 /* libPods-Sijoitussimulaattori.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		160B895691665DFFF24FB248 /* libPods-Sijoitussimulaattori-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A3F9C4963961228DD1F48EE /* Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOSTests/Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1AF3EF5EF2C8D6720C0E0EFC /* libPods-Sijoitussimulaattori.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA25B4BB5EA41379D60A375 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		1DE97207DD414879EEEBEC64 /* Pods-SijoitussimulaattoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SijoitussimulaattoriTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SijoitussimulaattoriTests/Pods-SijoitussimulaattoriTests.debug.xcconfig"; sourceTree = "<group>"; };
-		25FDDFCCA879DA301FCDBDDE /* Pods-Sijoitussimulaattori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori/Pods-Sijoitussimulaattori.release.xcconfig"; sourceTree = "<group>"; };
-		28FE62D8A46847F0B18B8805 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
+		24D5058791710E5F6155F9DD /* libPods-Sijoitussimulaattori-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* Sijoitussimulaattori-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sijoitussimulaattori-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Sijoitussimulaattori-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sijoitussimulaattori-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,33 +388,31 @@
 		2FB5469B2188CD8700395D0E /* RNLanguages.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNLanguages.xcodeproj; path = "../node_modules/react-native-languages/ios/RNLanguages.xcodeproj"; sourceTree = "<group>"; };
 		2FB546CA2188CDD600395D0E /* libRNLanguages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNLanguages.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE647BA21BAA9B2001F1DEA /* GeneratedInfoPlistDotEnv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GeneratedInfoPlistDotEnv.h; path = "../node_modules/react-native-config/ios/ReactNativeConfig/GeneratedInfoPlistDotEnv.h"; sourceTree = "<group>"; };
-		30FAB32D7CD6C1BBB6AD1937 /* Pods-Sijoitussimulaattori-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOS/Pods-Sijoitussimulaattori-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		3A3E5F38031643A1AB40CA98 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		3C25536BF0D51379FF04C0AA /* Pods-Sijoitussimulaattori-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOS/Pods-Sijoitussimulaattori-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		3D57000B29784129909A6AAB /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		3DC23520EA82480EB29338F0 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		3EDD200C4DAD591422559845 /* Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOSTests/Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5E73B23D554AA79DDB0C60 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		5590CC737D1D46D8B478CCEC /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		5CAE78FBBA72498C8742C5A5 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		76074903AEEF469DAA58202A /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		81F47C2C0BD340EB9F560F5C /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		822C75275386B6781C942B63 /* libPods-SijoitussimulaattoriTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SijoitussimulaattoriTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		84A015162A5E9C83D36CE142 /* libPods-Sijoitussimulaattori-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B76063DEA82F6DE4AAE5CE /* Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOSTests/Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		90518F04C81ADB070329C0B2 /* Pods-Sijoitussimulaattori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori/Pods-Sijoitussimulaattori.release.xcconfig"; sourceTree = "<group>"; };
 		925EE5BFDE1442798E45A972 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		A3DDF759F427ABF98E53DF0E /* Pods-Sijoitussimulaattori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori/Pods-Sijoitussimulaattori.debug.xcconfig"; sourceTree = "<group>"; };
+		A8E84CA88732A5CBCCD572D8 /* Pods-SijoitussimulaattoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SijoitussimulaattoriTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SijoitussimulaattoriTests/Pods-SijoitussimulaattoriTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADBD0AD59522DF4E1BC75238 /* libPods-SijoitussimulaattoriTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SijoitussimulaattoriTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C1223465A67E421794D430C2 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		E1C8FD1D863CCB4B3C38FB7F /* libPods-Sijoitussimulaattori-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sijoitussimulaattori-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C18ED7D5A7B967F033CBD826 /* Pods-Sijoitussimulaattori-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOS/Pods-Sijoitussimulaattori-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		E3911B6E5A034C93AECCC72D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		EB4C448F1612531352E7D7AE /* Pods-SijoitussimulaattoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SijoitussimulaattoriTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SijoitussimulaattoriTests/Pods-SijoitussimulaattoriTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC10BB9877F5F7932B6D3945 /* Pods-Sijoitussimulaattori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori/Pods-Sijoitussimulaattori.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F05E6FE944AB376F783D4DDF /* Pods-Sijoitussimulaattori-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOS/Pods-Sijoitussimulaattori-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F11960802B6147949FEF4800 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		FAF45FD83DCC861FF3EF7605 /* Pods-SijoitussimulaattoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SijoitussimulaattoriTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SijoitussimulaattoriTests/Pods-SijoitussimulaattoriTests.release.xcconfig"; sourceTree = "<group>"; };
+		F143FDADE869F9D99A5E72F3 /* Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sijoitussimulaattori-tvOSTests/Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,7 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				0C71EC80FA92DC540F3084FC /* libPods-SijoitussimulaattoriTests.a in Frameworks */,
+				72E84ACCDEEE0A3682116957 /* libPods-SijoitussimulaattoriTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +443,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				C67ABEEB49294FBD800A952E /* libRNFirebase.a in Frameworks */,
-				4AC7D4A9B81F29665BC2A7AE /* libPods-Sijoitussimulaattori.a in Frameworks */,
+				779C070A95231CDD9286CD10 /* libPods-Sijoitussimulaattori.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +460,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				15A5A2F1EE4D2764A51E49D2 /* libPods-Sijoitussimulaattori-tvOS.a in Frameworks */,
+				9C3EB7DDB4C0284818D1E908 /* libPods-Sijoitussimulaattori-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,7 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				7F587C05B069626DF6E9D3C5 /* libPods-Sijoitussimulaattori-tvOSTests.a in Frameworks */,
+				403BDE9B9353B2A741AF3A74 /* libPods-Sijoitussimulaattori-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,10 +600,10 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				1915F26270F3D1B65163A964 /* libPods-Sijoitussimulaattori.a */,
-				E1C8FD1D863CCB4B3C38FB7F /* libPods-Sijoitussimulaattori-tvOS.a */,
-				84A015162A5E9C83D36CE142 /* libPods-Sijoitussimulaattori-tvOSTests.a */,
-				822C75275386B6781C942B63 /* libPods-SijoitussimulaattoriTests.a */,
+				1AF3EF5EF2C8D6720C0E0EFC /* libPods-Sijoitussimulaattori.a */,
+				24D5058791710E5F6155F9DD /* libPods-Sijoitussimulaattori-tvOS.a */,
+				160B895691665DFFF24FB248 /* libPods-Sijoitussimulaattori-tvOSTests.a */,
+				ADBD0AD59522DF4E1BC75238 /* libPods-SijoitussimulaattoriTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -622,17 +611,8 @@
 		2F07CCCA21846E5F009D6A2E /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				5590CC737D1D46D8B478CCEC /* libRNFirebase.a */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		2F07CCF021846E61009D6A2E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2F07CCF421846E61009D6A2E /* libRNFirebase.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2FB5469C2188CD8700395D0E /* Products */ = {
@@ -642,21 +622,6 @@
 				2FB546C92188CD8700395D0E /* libRNLanguages-tvOS.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		382EEDCDA54F46EF9507BB3F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A3DDF759F427ABF98E53DF0E /* Pods-Sijoitussimulaattori.debug.xcconfig */,
-				25FDDFCCA879DA301FCDBDDE /* Pods-Sijoitussimulaattori.release.xcconfig */,
-				30FAB32D7CD6C1BBB6AD1937 /* Pods-Sijoitussimulaattori-tvOS.debug.xcconfig */,
-				3C25536BF0D51379FF04C0AA /* Pods-Sijoitussimulaattori-tvOS.release.xcconfig */,
-				3EDD200C4DAD591422559845 /* Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig */,
-				84B76063DEA82F6DE4AAE5CE /* Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig */,
-				1DE97207DD414879EEEBEC64 /* Pods-SijoitussimulaattoriTests.debug.xcconfig */,
-				FAF45FD83DCC861FF3EF7605 /* Pods-SijoitussimulaattoriTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -693,7 +658,6 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				28FE62D8A46847F0B18B8805 /* RNFirebase.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -718,7 +682,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2F07CCCA21846E5F009D6A2E /* Recovered References */,
 				E9D82EF68812472286FCA6CB /* Resources */,
-				382EEDCDA54F46EF9507BB3F /* Pods */,
+				D3D7159DC1265E08A33FA926 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -743,6 +707,21 @@
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D3D7159DC1265E08A33FA926 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC10BB9877F5F7932B6D3945 /* Pods-Sijoitussimulaattori.debug.xcconfig */,
+				90518F04C81ADB070329C0B2 /* Pods-Sijoitussimulaattori.release.xcconfig */,
+				F05E6FE944AB376F783D4DDF /* Pods-Sijoitussimulaattori-tvOS.debug.xcconfig */,
+				C18ED7D5A7B967F033CBD826 /* Pods-Sijoitussimulaattori-tvOS.release.xcconfig */,
+				1A3F9C4963961228DD1F48EE /* Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig */,
+				F143FDADE869F9D99A5E72F3 /* Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig */,
+				EB4C448F1612531352E7D7AE /* Pods-SijoitussimulaattoriTests.debug.xcconfig */,
+				A8E84CA88732A5CBCCD572D8 /* Pods-SijoitussimulaattoriTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E9D82EF68812472286FCA6CB /* Resources */ = {
@@ -774,7 +753,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SijoitussimulaattoriTests" */;
 			buildPhases = (
-				3F8749CE359C1991B625DF9E /* [CP] Check Pods Manifest.lock */,
+				370C4C50B31CF5D94A670FE9 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -793,12 +772,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Sijoitussimulaattori" */;
 			buildPhases = (
-				E1E873EE6E4F91547A804BFA /* [CP] Check Pods Manifest.lock */,
+				FFF5FB310A194ECED59DE866 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				EF6A3F8C79DBFB02398D74FD /* [CP] Copy Pods Resources */,
+				1472BA8D3A30C83C0B32E1CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -813,7 +792,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Sijoitussimulaattori-tvOS" */;
 			buildPhases = (
-				2AFC8E7A165B1C48E4CBADC2 /* [CP] Check Pods Manifest.lock */,
+				FF261F5B380181E9ACB46063 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
@@ -832,7 +811,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Sijoitussimulaattori-tvOSTests" */;
 			buildPhases = (
-				C5641F2927E20DB0D7F190AE /* [CP] Check Pods Manifest.lock */,
+				ECB380680243A7464705D892 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -930,10 +909,6 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = 2F07CCF021846E61009D6A2E /* Products */;
-					ProjectRef = 28FE62D8A46847F0B18B8805 /* RNFirebase.xcodeproj */;
 				},
 				{
 					ProductGroup = 2FB5469C2188CD8700395D0E /* Products */;
@@ -1068,13 +1043,6 @@
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
 			remoteRef = 2DF0FFE82056DD460020B375 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2F07CCF421846E61009D6A2E /* libRNFirebase.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFirebase.a;
-			remoteRef = 2F07CCF321846E61009D6A2E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2FB546C72188CD8700395D0E /* libRNLanguages.a */ = {
@@ -1298,109 +1266,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		2AFC8E7A165B1C48E4CBADC2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sijoitussimulaattori-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		3F8749CE359C1991B625DF9E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SijoitussimulaattoriTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5641F2927E20DB0D7F190AE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sijoitussimulaattori-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1E873EE6E4F91547A804BFA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sijoitussimulaattori-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF6A3F8C79DBFB02398D74FD /* [CP] Copy Pods Resources */ = {
+		1472BA8D3A30C83C0B32E1CF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1451,6 +1317,108 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sijoitussimulaattori/Pods-Sijoitussimulaattori-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		370C4C50B31CF5D94A670FE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SijoitussimulaattoriTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECB380680243A7464705D892 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sijoitussimulaattori-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF261F5B380181E9ACB46063 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sijoitussimulaattori-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFF5FB310A194ECED59DE866 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sijoitussimulaattori-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1520,7 +1488,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DE97207DD414879EEEBEC64 /* Pods-SijoitussimulaattoriTests.debug.xcconfig */;
+			baseConfigurationReference = EB4C448F1612531352E7D7AE /* Pods-SijoitussimulaattoriTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1534,10 +1502,7 @@
 				INFOPLIST_FILE = SijoitussimulaattoriTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1551,7 +1516,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAF45FD83DCC861FF3EF7605 /* Pods-SijoitussimulaattoriTests.release.xcconfig */;
+			baseConfigurationReference = A8E84CA88732A5CBCCD572D8 /* Pods-SijoitussimulaattoriTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1562,10 +1527,7 @@
 				INFOPLIST_FILE = SijoitussimulaattoriTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1579,7 +1541,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3DDF759F427ABF98E53DF0E /* Pods-Sijoitussimulaattori.debug.xcconfig */;
+			baseConfigurationReference = EC10BB9877F5F7932B6D3945 /* Pods-Sijoitussimulaattori.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1632,7 +1594,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25FDDFCCA879DA301FCDBDDE /* Pods-Sijoitussimulaattori.release.xcconfig */;
+			baseConfigurationReference = 90518F04C81ADB070329C0B2 /* Pods-Sijoitussimulaattori.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1684,7 +1646,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30FAB32D7CD6C1BBB6AD1937 /* Pods-Sijoitussimulaattori-tvOS.debug.xcconfig */;
+			baseConfigurationReference = F05E6FE944AB376F783D4DDF /* Pods-Sijoitussimulaattori-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1701,10 +1663,7 @@
 				);
 				INFOPLIST_FILE = "Sijoitussimulaattori-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1720,7 +1679,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C25536BF0D51379FF04C0AA /* Pods-Sijoitussimulaattori-tvOS.release.xcconfig */;
+			baseConfigurationReference = C18ED7D5A7B967F033CBD826 /* Pods-Sijoitussimulaattori-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1737,10 +1696,7 @@
 				);
 				INFOPLIST_FILE = "Sijoitussimulaattori-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1756,7 +1712,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EDD200C4DAD591422559845 /* Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 1A3F9C4963961228DD1F48EE /* Pods-Sijoitussimulaattori-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1772,10 +1728,7 @@
 				);
 				INFOPLIST_FILE = "Sijoitussimulaattori-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1791,7 +1744,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84B76063DEA82F6DE4AAE5CE /* Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = F143FDADE869F9D99A5E72F3 /* Pods-Sijoitussimulaattori-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1807,10 +1760,7 @@
 				);
 				INFOPLIST_FILE = "Sijoitussimulaattori-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
