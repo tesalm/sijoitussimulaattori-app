@@ -1,17 +1,18 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../../assets/i18n';
-import { connect } from 'react-redux';
+import { login, logout } from '../../Auth/actions';
+import { UserData } from '../../models';
 import { RootState } from '../../redux/reducers';
-import { Dispatch, bindActionCreators } from 'redux';
-import { deleteCurrentUser, login, logout } from '../../Auth/actions';
-import { User } from '../../models';
+import { deleteUser } from '../../User/actions';
 
 export interface ProfileScreenProps extends NavigationScreenProps {
-  user?: User;
-  deleteCurrentUserRequest: typeof deleteCurrentUser;
+  user?: UserData;
+  deleteUserRequest: typeof deleteUser;
   loginRequest: typeof login;
 }
 
@@ -26,7 +27,7 @@ export class ProfileScreen extends React.Component<
   static navigationOptions = { title: t('ProfilePage.Title') };
 
   render() {
-    const { user, deleteCurrentUserRequest, loginRequest } = this.props;
+    const { user, deleteUserRequest, loginRequest } = this.props;
 
     let userText = '';
     if(user) {
@@ -40,20 +41,20 @@ export class ProfileScreen extends React.Component<
         <Text>{userText}</Text>
         <Text>{t('ProfilePage.PlaceholderText')}</Text>
         <Button onPress={loginRequest} title="Login"></Button>
-        <Button onPress={deleteCurrentUserRequest} title="Delete Me"></Button>
+        <Button onPress={deleteUserRequest} title="Delete Me"></Button>
       </View>
     );
   }
 }
 
 const mapStateToProps = (state: RootState) => ({
-  user: state.login.user
+  user: state.user.userData
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => (
   bindActionCreators(
     {
-      deleteCurrentUserRequest: deleteCurrentUser,
+      deleteCurrentUserRequest: deleteUser,
       loginRequest: login,
       logoutRequest: logout
     },

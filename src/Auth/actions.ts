@@ -76,7 +76,15 @@ const restorePreviousLogin = () => async (
       if (userAuth) {
         // Previous user can be restored.
         dispatch(new RestoreLoginSuccess(userAuth));
-        fetchUserData()(dispatch);
+
+        // Try to fetch the user data.
+        try {
+          fetchUserData()(dispatch);
+        } catch {
+          // No need to handle any further exceptions raised by 'fetchUserData' function as
+          // it should take care of handling the user data related issues. At this stage,
+          // the actual user authentication is already restored successfully.
+        }
       } else {
         // There is no previous user to restore.
         dispatch(new RestoreLoginImpossible());
