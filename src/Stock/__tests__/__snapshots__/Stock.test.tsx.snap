@@ -309,7 +309,7 @@ exports[`stock tests renders correctly 1`] = `
             }
           }
         >
-          RevenueOverYear
+          Revenue over a year
         </Text>
       </View>
     </View>
@@ -784,7 +784,7 @@ exports[`stock tests renders correctly with error 1`] = `
             }
           }
         >
-          RevenueOverYear
+          Revenue over a year
         </Text>
       </View>
     </View>
@@ -1259,7 +1259,7 @@ exports[`stock tests renders correctly with stock 1`] = `
             }
           }
         >
-          RevenueOverYear
+          Revenue over a year
         </Text>
       </View>
     </View>
