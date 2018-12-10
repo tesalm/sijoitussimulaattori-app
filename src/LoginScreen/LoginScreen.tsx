@@ -6,8 +6,8 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { login } from '../Auth/actions';
+import { LoginState } from '../Auth/reducer';
 import { Button } from '../input/button';
-import { LoginState } from '../models';
 import { RootState } from '../redux/reducers';
 import { ModalActivityIndicator } from './components/ModalActivityIndicator';
 import { loginScreenStyles } from './styles';
@@ -31,9 +31,9 @@ class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
     const loginButtonText = loginError ?
       t('LoginScreen.AfterErrButton') :
       t('LoginScreen.NewUserButton');
-    const loginGreetee = loginError ? 
+    const loginGreeting = loginError ? 
       loginError.message :
-      t('LoginScreen.NewUserGreetee');
+      t('LoginScreen.NewUserGreeting');
 
     return(
     <View style={loginScreenStyles.background}>
@@ -48,7 +48,7 @@ class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
       {/*New user greetee and anonymous login button.*/}
       <View style={loginScreenStyles.buttonContainer}>
         <Text style={loginScreenStyles.text}>
-          {loginGreetee}
+          {loginGreeting}
         </Text>
         <Button
           buttonText={loginButtonText}

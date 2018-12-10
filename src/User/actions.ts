@@ -121,7 +121,6 @@ const deleteUser = () => async (dispatch: Dispatch<UserAction | Logout>) => {
   } else {
     dispatch(new DeleteCurrentUserSuccess());
     dispatch(new Logout());
-    // Should the sign out function also be called?
   }
 };
 

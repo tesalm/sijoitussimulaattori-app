@@ -1,5 +1,14 @@
-import { LoginState, UserAuth } from '../models';
+import { UserAuth } from '../models';
 import { ActionType, AuthAction } from './actions';
+
+/** Indicates in which state the user login is. */
+export enum LoginState {
+  CheckingPreviousLogin,
+  LoggedOut,
+  LoggedIn,
+  LoggingIn,
+  LoggingOut,
+}
 
 export interface Auth {
   userAuth?: UserAuth;

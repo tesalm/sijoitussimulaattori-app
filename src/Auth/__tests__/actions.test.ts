@@ -2,11 +2,11 @@ import * as React from 'react';
 import * as reactNativeFirebaseMock from 'react-native-firebase';
 
 import {
-  AuthStateChangeReactNativeFirebaseMock,
-  SpecialReactNativeFirebaseMock,
+  CreateCustomReactNativeFirebaseMock,
+  CreateRestorePreviousLoginCustomMock,
   TestCaseType,
 } from '../../../tools/mocks/firebase';
-import { LoginState } from '../../models';
+import { LoginState } from '../../Auth/reducer';
 import { configureStore } from '../../redux/store';
 
 import 'react-native-mock-render/mock';
@@ -19,7 +19,7 @@ describe('>>> Auth actions - successfull cases', () => {
     // Override original mock with the special one.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return SpecialReactNativeFirebaseMock(TestCaseType.NormalCase);
+      return CreateCustomReactNativeFirebaseMock(TestCaseType.NormalCase);
     });
   });
 
@@ -82,7 +82,7 @@ describe('>>> Auth actions - failure cases', () => {
     // Override original mock with the special one.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return SpecialReactNativeFirebaseMock(TestCaseType.ErrorCase);
+      return CreateCustomReactNativeFirebaseMock(TestCaseType.ErrorCase);
     });
   });
 
@@ -137,8 +137,6 @@ describe('>>> Auth actions - restore previous logins', () => {
       const stateAfter = store.getState();
       expect(stateAfter.login.loginState).toEqual(LoginState.LoggedIn);
       expect(stateAfter.login.userAuth).toBeDefined();
-      expect(stateAfter.user.userData).toBeDefined(); // User related
-      expect(stateAfter.user.dataInitError).toBeUndefined(); // User related
       done();
     };
 
@@ -146,7 +144,7 @@ describe('>>> Auth actions - restore previous logins', () => {
     // is having an observer to be triggered in the test.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return AuthStateChangeReactNativeFirebaseMock(
+      return CreateRestorePreviousLoginCustomMock(
         TestCaseType.NormalCase,
         true, // Previous login exists.
         expectAndDone
@@ -172,8 +170,6 @@ describe('>>> Auth actions - restore previous logins', () => {
       const stateAfter = store.getState();
       expect(stateAfter.login.loginState).toEqual(LoginState.LoggedIn);
       expect(stateAfter.login.userAuth).toBeDefined();
-      expect(stateAfter.user.userData).toBeUndefined(); // User related
-      expect(stateAfter.user.dataFetchError).toBeDefined(); // User related
       done();
     };
 
@@ -181,7 +177,7 @@ describe('>>> Auth actions - restore previous logins', () => {
     // is having an observer to be triggered in the test.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return AuthStateChangeReactNativeFirebaseMock(
+      return CreateRestorePreviousLoginCustomMock(
         TestCaseType.ErrorCase,
         true, // Previous login exists.
         expectAndDone
@@ -215,7 +211,7 @@ describe('>>> Auth actions - restore previous logins', () => {
     // is having an observer to be triggered in the test.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return AuthStateChangeReactNativeFirebaseMock(
+      return CreateRestorePreviousLoginCustomMock(
         TestCaseType.NormalCase,
         false, // Previous login does not exists.
         expectAndDone

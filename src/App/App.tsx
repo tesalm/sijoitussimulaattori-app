@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { restorePreviousLogin } from '../Auth/actions';
-import { LoginState } from '../models';
+import { LoginState } from '../Auth/reducer';
 import { createMainSwitchNavigator } from '../navigation/AppNavigator';
 import { RootState } from '../redux/reducers';
 

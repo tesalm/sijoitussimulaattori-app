@@ -9,12 +9,3 @@ export interface UserAuth {
 export interface UserData {
   username?: string;
 }
-
-/** Indicates in which state the user login is. */
-export enum LoginState {
-  CheckingPreviousLogin,
-  LoggedOut,
-  LoggedIn,
-  LoggingIn,
-  LoggingOut,
-}

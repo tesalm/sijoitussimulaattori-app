@@ -70,20 +70,20 @@ const restorePreviousLogin = () => async (
 ) => {
   // Wait the completion of the Firebase initialization and catch the logged in user
   // after it (if exists).
-  const unsubscripe = firebase
+  const unsubscribe = firebase
     .auth()
     .onAuthStateChanged(async (userAuth: UserAuth | undefined) => {
       if (userAuth) {
         // Previous user can be restored.
         dispatch(new RestoreLoginSuccess(userAuth));
-        await fetchUserData()(dispatch);
+        fetchUserData()(dispatch);
       } else {
         // There is no previous user to restore.
         dispatch(new RestoreLoginImpossible());
       }
 
       // Catch only the first authentication state change event.
-      unsubscripe();
+      unsubscribe();
     });
 };
 

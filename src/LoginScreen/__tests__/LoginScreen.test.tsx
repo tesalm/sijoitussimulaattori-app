@@ -1,7 +1,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 
-import { LoginState } from '../../models';
+import { LoginState } from '../../Auth/reducer';
 import { LoginScreenTest, LoginViewProps } from '../LoginScreen';
 
 describe('Testing Login Screen', () => {

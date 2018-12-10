@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as reactNativeFirebaseMock from 'react-native-firebase';
 
-import { SpecialReactNativeFirebaseMock, TestCaseType } from '../../../tools/mocks/firebase';
+import { CreateCustomReactNativeFirebaseMock, TestCaseType } from '../../../tools/mocks/firebase';
 import { LoginSuccess } from '../../Auth/actions';
-import { LoginState, UserAuth, UserData } from '../../models';
+import { LoginState } from '../../Auth/reducer';
+import { UserAuth, UserData } from '../../models';
 import { configureStore } from '../../redux/store';
 import { FetchUserDataSuccess } from '../actions';
 
@@ -24,7 +25,7 @@ describe('>>> User actions - succesfull cases', () => {
     // Override original mock with the special one.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return SpecialReactNativeFirebaseMock(TestCaseType.NormalCase);
+      return CreateCustomReactNativeFirebaseMock(TestCaseType.NormalCase);
     });
   });
 
@@ -105,7 +106,7 @@ describe('>>> User actions - failure cases', () => {
     // Override original mock with the special one.
     jest.resetModules();
     jest.mock('react-native-firebase', () => {
-      return SpecialReactNativeFirebaseMock(TestCaseType.ErrorCase);
+      return CreateCustomReactNativeFirebaseMock(TestCaseType.ErrorCase);
     });
   });
 
