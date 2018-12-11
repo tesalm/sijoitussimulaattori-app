@@ -33,12 +33,16 @@ describe('Hello World', () => {
       {
         symbol: 'APL',
         name: 'Apple',
+        high: 14.55,
+        low: 13.0,
         revenue: 0.035,
         close: 13.44,
       },
       {
         symbol: 'APLL',
         name: 'Apple',
+        high: 14.55,
+        low: 13.0,
         revenue: -0.035,
         close: 13.44,
       },

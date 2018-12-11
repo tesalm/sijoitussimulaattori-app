@@ -3,6 +3,8 @@ import { ActionType, StocksAction } from './actions';
 export interface Stock {
   symbol: string;
   name: string;
+  high: number;
+  low: number;
   revenue: number;
   close: number;
 }
