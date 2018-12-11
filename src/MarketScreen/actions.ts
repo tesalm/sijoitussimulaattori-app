@@ -39,7 +39,7 @@ const getStocks = () => async (dispatch: Dispatch<StocksAction>) => {
   dispatch(new RequestStocksBegin());
   try {
     const data = await StockListApiRequest();
-    dispatch(new RequestStocksSuccess(data.results));
+    dispatch(new RequestStocksSuccess(data));
   } catch (error) {
     dispatch(new RequestStocksFailure(error));
   }
