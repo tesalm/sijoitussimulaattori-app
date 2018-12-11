@@ -5,7 +5,7 @@ import { Stock } from '../MarketScreen/reducers';
 
 const StockListApiRequest = async (): Promise<Stock[]> => {
   try {
-    const res = await axios.get(config.app.STOCK_API_URL + '/stock');
+    const res = await axios.get(config.app.STOCK_API_URL + '/stocks');
     const data = res.data;
     return data;
   } catch (error) {
