@@ -67,19 +67,19 @@ const stockStyles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: verticalScale(8),
   },
-  marketValue: {
+  close: {
     fontSize: 18,
     fontWeight: 'bold',
     color: Colors.baseColor,
     textAlign: 'center',
     marginBottom: verticalScale(8),
   },
-  buySellText: {
+  bidText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.baseColor,
   },
-  buySellButton: {
+  bidButton: {
     margin: 0,
     height: 50,
   },

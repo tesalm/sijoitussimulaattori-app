@@ -8,9 +8,8 @@ export interface Stock {
   sell: number;
   high: number;
   low: number;
-  marketValue: number;
-  revenue: number;
   close: number;
+  revenue: number;
 }
 
 export interface SingleStock {

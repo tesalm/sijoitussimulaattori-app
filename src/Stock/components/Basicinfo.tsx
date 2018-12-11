@@ -75,8 +75,8 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
             <Text style={stockStyles.valueHeaderRightSide}>
               {t('StockPage.MarketValue')}
             </Text>
-            <Text style={stockStyles.marketValue}>
-              {this.formatValue(stockInfo.marketValue, stockInfo.currency)}
+            <Text style={stockStyles.close}>
+              {this.formatValue(stockInfo.close, stockInfo.currency)}
             </Text>
             <Text style={stockStyles.valueHeaderRightSide}>
               {t('StockPage.RevenueText')}

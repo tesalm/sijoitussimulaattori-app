@@ -48,7 +48,7 @@
   },
   "ListStockPage": {
     "SearcBarPlaceholder": "Search for stocks",
-    "RevenueText": "Revenue in 24h",
+    "RevenueText": "Revenue today",
     "LastSaleText": "Last sale"
   },
   "StockPage": {
@@ -59,7 +59,7 @@
     "High": "High",
     "Low": "Low",
     "MarketValue": "Market value",
-    "RevenueText": "Revenue in 24h",
+    "RevenueText": "Revenue today",
     "Updated": "Updated",
     "RevenueOverYear": "Revenue over a year",
     "Bid": "Bid"
