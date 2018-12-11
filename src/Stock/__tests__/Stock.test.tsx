@@ -9,33 +9,13 @@ describe('stock tests', () => {
 
   const defaultStockProps: StockProps = {
     symbol: '',
-    stockInfo: {
-      symbol: '',
-      name: '',
-      buy: 0,
-      sell: 0,
-      high: 0,
-      low: 0,
-      marketValue: 0,
-      revenue: 0,
-      close: 0,
-    },
+    stockInfo: undefined,
     error: undefined,
   };
 
   const errorStockProps: StockProps = {
     symbol: '',
-    stockInfo: {
-      symbol: '',
-      name: '',
-      buy: 0,
-      sell: 0,
-      high: 0,
-      low: 0,
-      marketValue: 0,
-      revenue: 0,
-      close: 0,
-    },
+    stockInfo: undefined,
     error: { name: 'Error', message: 'Stockdata could not be fetched' },
   };
 
@@ -44,11 +24,11 @@ describe('stock tests', () => {
     stockInfo: {
       symbol: 'APL',
       name: 'Apple',
+      currency: 'EUR',
       buy: 10.26,
       sell: 10.26,
       high: 10.28,
       low: 9.99,
-      marketValue: 10.26,
       revenue: -0.035,
       close: 14.57,
     },

@@ -217,9 +217,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
       Object {
         "buy": 10.26,
         "close": 14.57,
+        "currency": "USD",
         "high": 10.28,
         "low": 9.99,
-        "marketValue": 10.26,
         "name": "Apple",
         "revenue": -0.035,
         "sell": 10.26,
@@ -228,9 +228,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
       Object {
         "buy": 10.26,
         "close": 14.57,
+        "currency": "EUR",
         "high": 10.28,
         "low": 9.99,
-        "marketValue": 10.26,
         "name": "Apple",
         "revenue": -0.035,
         "sell": 10.26,
@@ -546,7 +546,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                Revenue in 24h
+                Revenue today
               </Text>
               <Text
                 style={
@@ -666,7 +666,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                14.57 $
+                14.57 €
               </Text>
             </View>
           </View>
@@ -698,7 +698,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                Revenue in 24h
+                Revenue today
               </Text>
               <Text
                 style={
