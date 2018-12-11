@@ -24,9 +24,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
   constructor(props: StockPropsWithNavigation) {
     super(props);
   }
-  static navigationOptions = {
-    title: t('MarketPage.Title'),
-  };
+  static navigationOptions = { title: t('MarketPage.Title') };
 
   componentDidMount() {
     //Dispatch the actions
@@ -38,8 +36,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
       <SearchBar
         lightTheme
         round
-        placeholder={t('ListStockPage.SearcBarPlaceholder')}
-        //TODO: search bar functionality
+        placeholder={t('ListStockPage.SearcBarPlaceholder')} //TODO: search bar functionality
         autoCorrect={false}
       />
     );
@@ -62,6 +59,15 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
     return revenue >= 0
       ? '+' + (revenue * 100).toFixed(2) + ' %'
       : (revenue * 100).toFixed(2) + ' %';
+  };
+
+  formatValue = (value: number, currency: string): string => {
+    if (currency == 'USD') {
+      return value + ' $';
+    } else if (currency == 'EUR') {
+      return value + ' €';
+    }
+    return value + ' $';
   };
 
   render() {
@@ -109,7 +115,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {item.close + ' $'}
+                  {this.formatValue(item.close, item.currency)}
                 </Text>
               </View>
             }

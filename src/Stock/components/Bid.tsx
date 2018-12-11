@@ -5,20 +5,18 @@ import Icon from '../../general/icon';
 
 import { t } from '../../assets/i18n';
 
-interface BuySellProps {
-  containerName: string;
-}
+interface BidProps {}
 
-const BuySell = (props: BuySellProps): JSX.Element => {
+const Bid = (props: BidProps): JSX.Element => {
   return (
     // TODO: Make onPress for these items that go to buy or sell view.
-    <TouchableHighlight style={stockStyles.buySellButton}>
+    <TouchableHighlight style={stockStyles.bidButton}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={stockStyles.buySellText}>{t(props.containerName)}</Text>
-        <Icon iconName={'close.png'} iconHeight={24} iconWidth={24} />
+        <Text style={stockStyles.bidText}>{t('Bid')}</Text>
+        <Icon iconName={'close'} iconHeight={24} iconWidth={24} />
       </View>
     </TouchableHighlight>
   );
 };
 
-export default BuySell;
+export default Bid;

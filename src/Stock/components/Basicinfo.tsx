@@ -30,6 +30,15 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
       : (revenue * 100).toFixed(2) + ' %';
   };
 
+  formatValue = (value: number, currency: string): string => {
+    if (currency == 'USD') {
+      return value + ' $';
+    } else if (currency == 'EUR') {
+      return value + ' €';
+    }
+    return value + ' $';
+  };
+
   render() {
     const { stockInfo, error } = this.props;
 
@@ -43,15 +52,23 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
         <View style={stockStyles.basicinfo}>
           <View style={stockStyles.basicinfoSmallerComp}>
             <Text style={stockStyles.valueHeader}>{t('StockPage.Buy')}</Text>
-            <Text style={stockStyles.valuesStyle}>{stockInfo.buy}€</Text>
+            <Text style={stockStyles.valuesStyle}>
+              {this.formatValue(stockInfo.buy, stockInfo.currency)}
+            </Text>
             <Text style={stockStyles.valueHeader}>{t('StockPage.Sell')}</Text>
-            <Text style={stockStyles.valuesStyle}>{stockInfo.sell}€</Text>
+            <Text style={stockStyles.valuesStyle}>
+              {this.formatValue(stockInfo.sell, stockInfo.currency)}
+            </Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp}>
             <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
-            <Text style={stockStyles.valuesStyle}>{stockInfo.high}€</Text>
+            <Text style={stockStyles.valuesStyle}>
+              {this.formatValue(stockInfo.high, stockInfo.currency)}
+            </Text>
             <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
-            <Text style={stockStyles.valuesStyle}>{stockInfo.low}€</Text>
+            <Text style={stockStyles.valuesStyle}>
+              {this.formatValue(stockInfo.low, stockInfo.currency)}
+            </Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp} />
           <View style={stockStyles.basicinfoMidComp}>
@@ -59,7 +76,7 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
               {t('StockPage.MarketValue')}
             </Text>
             <Text style={stockStyles.marketValue}>
-              {stockInfo.marketValue}€
+              {this.formatValue(stockInfo.marketValue, stockInfo.currency)}
             </Text>
             <Text style={stockStyles.valueHeaderRightSide}>
               {t('StockPage.RevenueText')}
@@ -72,7 +89,7 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
         <View style={stockStyles.basicinfo}>
           <View>
             <Text style={stockStyles.valueHeader}>
-              {t('StockPage.Updated')} 09.11.2018 16:36.48
+              {t('StockPage.Updated')}
             </Text>
           </View>
         </View>

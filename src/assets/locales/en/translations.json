@@ -61,6 +61,7 @@
     "MarketValue": "Market value",
     "RevenueText": "Revenue in 24h",
     "Updated": "Updated",
-    "RevenueOverYear": "Revenue over a year"
+    "RevenueOverYear": "Revenue over a year",
+    "Bid": "Bid",
   }
 }

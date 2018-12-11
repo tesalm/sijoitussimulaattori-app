@@ -3,6 +3,7 @@ import { StockAction, ActionType } from './actions';
 export interface Stock {
   symbol: string;
   name: string;
+  currency: string;
   buy: number;
   sell: number;
   high: number;
@@ -13,23 +14,13 @@ export interface Stock {
 }
 
 export interface SingleStock {
-  stock: Stock;
+  stock?: Stock;
   loading: boolean;
   error?: Error;
 }
 
 const initialState: SingleStock = {
-  stock: {
-    symbol: '',
-    name: '',
-    buy: 0,
-    sell: 0,
-    high: 0,
-    low: 0,
-    marketValue: 0,
-    revenue: 0,
-    close: 0,
-  },
+  stock: undefined,
   loading: false,
   error: undefined,
 };
@@ -55,17 +46,7 @@ export const stockReducer = (
 
     case ActionType.GetStockFailure:
       return {
-        stock: {
-          symbol: '',
-          name: '',
-          buy: 0,
-          sell: 0,
-          high: 0,
-          low: 0,
-          marketValue: 0,
-          revenue: 0,
-          close: 0,
-        },
+        stock: undefined,
         loading: false,
         error: action.error,
       };

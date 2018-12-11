@@ -12,7 +12,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import { Stock } from './reducers';
-import BuySell from './components/BuySell';
+import Bid from './components/Bid';
 
 export interface StockProps {
   symbol: string;
@@ -39,11 +39,7 @@ export class StockScreen extends React.Component<StockProps> {
         </Card>
 
         <Card containerStyle={stockContainerStyles.buttonContainer}>
-          <BuySell containerName={'Buy'} />
-        </Card>
-
-        <Card containerStyle={stockContainerStyles.buttonContainer}>
-          <BuySell containerName={'Sell'} />
+          <Bid />
         </Card>
       </View>
     );

@@ -8,10 +8,10 @@ interface IconProps {
 }
 
 const Icon = (props: IconProps): JSX.Element => {
+  console.log('PROPSI' + props.iconName);
   return (
     <Image
-      //source={require(`../navigation/assets/${props.iconName}`)}
-      source={require('../navigation/assets/close.png')}
+      source={{ uri: `${props.iconName}` }}
       style={{ height: props.iconHeight, width: props.iconWidth }}
     />
   );
