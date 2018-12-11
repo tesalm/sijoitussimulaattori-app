@@ -14,8 +14,6 @@
     {
       "symbol": "APEERL",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -24,8 +22,6 @@
     {
       "symbol": "APLL",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -34,8 +30,6 @@
     {
       "symbol": "ASDH",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -44,8 +38,6 @@
     {
       "symbol": "DD",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -54,8 +46,6 @@
     {
       "symbol": "DDD",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -64,8 +54,6 @@
     {
       "symbol": "FGR",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -74,8 +62,6 @@
     {
       "symbol": "HWF",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -84,8 +70,6 @@
     {
       "symbol": "HR",
       "name": "Apple",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
@@ -104,8 +88,6 @@
     {
       "symbol": "FRU",
       "name": "Ferratum Oyj",
-      "buy": 10.26,
-      "sell": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": 2.7,
