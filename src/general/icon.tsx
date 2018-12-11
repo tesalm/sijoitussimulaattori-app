@@ -11,6 +11,7 @@ const Icon = (props: IconProps): JSX.Element => {
   console.log('PROPSI' + props.iconName);
   return (
     <Image
+      // TODO: Make this work:
       //source={{ uri: `${props.iconName}` }}
       source={require('../navigation/assets/close.png')}
       style={{ height: props.iconHeight, width: props.iconWidth }}
