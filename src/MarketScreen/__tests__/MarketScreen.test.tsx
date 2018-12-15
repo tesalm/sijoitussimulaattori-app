@@ -12,6 +12,8 @@ describe('stock-list tests', () => {
     loading: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
+    symbol: ''
   };
 
   const loadingStockProps: StockProps = {
@@ -19,6 +21,8 @@ describe('stock-list tests', () => {
     loading: true,
     error: undefined,
     getAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
+    symbol: ''
   };
 
   const errorStockProps: StockProps = {
@@ -26,6 +30,8 @@ describe('stock-list tests', () => {
     loading: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
     getAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
+    symbol: ''
   };
 
   const stocksStockProps: StockProps = {
@@ -33,9 +39,6 @@ describe('stock-list tests', () => {
       {
         symbol: 'APL',
         name: 'Apple',
-        currency: 'USD',
-        buy: 10.26,
-        sell: 10.26,
         high: 10.28,
         low: 9.99,
         revenue: -0.035,
@@ -44,9 +47,6 @@ describe('stock-list tests', () => {
       {
         symbol: 'APLL',
         name: 'Apple',
-        currency: 'EUR',
-        buy: 10.26,
-        sell: 10.26,
         high: 10.28,
         low: 9.99,
         revenue: -0.035,
@@ -56,6 +56,8 @@ describe('stock-list tests', () => {
     loading: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
+    symbol: ''
   };
 
   it('renders correctly', async () => {

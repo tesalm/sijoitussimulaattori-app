@@ -7,7 +7,7 @@ export interface Metadata {
   region: string;
   marketOpen: string;
   marketClose: string;
-  timezone: string;
+  timeZone: string;
   currency: string;
   fetchTime: Date;
 }

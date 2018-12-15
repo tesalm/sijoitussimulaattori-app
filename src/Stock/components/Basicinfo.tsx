@@ -10,7 +10,7 @@ import { RootState } from '../../redux/reducers';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-interface BasicinfoProps {
+export interface BasicinfoProps {
   metadata?: Metadata;
   intraday?: Intraday;
   metaLoading?: boolean;
