@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { View, ScrollView, RefreshControl } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
-import { stockContainerStyles } from './styles';
+import { stockContainerStyles, stockStyles } from './styles';
 
 import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -15,6 +15,7 @@ import { Metadata, Intraday, Historydata } from './reducers';
 
 import Bid from './components/Bid';
 import { getMetadata, getIntraday, getHistory } from './actions';
+import { Colors } from '../App/colors';
 
 export interface StockProps {
   metadata?: Metadata;
@@ -26,11 +27,17 @@ export interface StockProps {
   symbol?: string;
 }
 
-interface StockState {}
+interface StockState {
+  refreshing: boolean;
+}
 
 export class StockScreen extends React.Component<StockProps, StockState> {
   constructor(props: StockProps) {
     super(props);
+
+    this.state = {
+      refreshing: false,
+    };
   }
 
   componentDidMount() {
@@ -91,8 +98,8 @@ export class StockScreen extends React.Component<StockProps, StockState> {
       } else {
         const curTime_ms = curTime.getTime();
         const intraTime_ms = this.props.intraday.fetchTime.getTime();
-        // TODO: Aseta intradayn refresh-rate oikeaan. Nyt 2 h.
-        if (curTime_ms - intraTime_ms > 1000 * 60 * 60 * 2) {
+        // TODO: Aseta intradayn refresh-rate oikeaan. Nyt 5 min.
+        if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
           this.props.getIntra(this.props.symbol, curTime);
         }
       }
@@ -113,10 +120,41 @@ export class StockScreen extends React.Component<StockProps, StockState> {
     return '';
   }
 
+  fetchData(): Promise<void> {
+    if (this.props.symbol !== undefined) {
+      const curTime = new Date();
+      if (this.props.intraday !== undefined) {
+        const curTime_ms = curTime.getTime();
+        const intraTime_ms = this.props.intraday.fetchTime.getTime();
+        // 5min aikaväli
+        if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
+          this.props.getIntra(this.props.symbol, curTime);
+        }
+      } else {
+        this.props.getIntra(this.props.symbol, curTime);
+      }
+    }
+    return Promise.resolve();
+  }
+
+  refresh = () => {
+    this.setState({ refreshing: true });
+    this.fetchData().then(() => {
+      this.setState({ refreshing: false });
+    });
+  };
+
   render() {
-    const { historydata } = this.props;
     return (
-      <View>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.refresh}
+            colors={[Colors.baseColor]}
+          />
+        }
+      >
         <Card containerStyle={stockContainerStyles.basicInfo}>
           <Basicinfo revenue={this.countRevenue()} />
         </Card>
@@ -128,7 +166,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
         <Card containerStyle={stockContainerStyles.buttonContainer}>
           <Bid />
         </Card>
-      </View>
+      </ScrollView>
     );
   }
 }

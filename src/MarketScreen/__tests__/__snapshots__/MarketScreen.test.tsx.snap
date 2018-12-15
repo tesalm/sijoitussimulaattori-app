@@ -19,6 +19,17 @@ exports[`stock-list tests renders correctly 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
@@ -26,6 +37,7 @@ exports[`stock-list tests renders correctly 1`] = `
   viewabilityConfigCallbackPairs={Array []}
   windowSize={21}
 >
+  <RCTRefreshControl />
   <View>
     <View
       onLayout={[Function]}
@@ -218,8 +230,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
         "close": 14.57,
         "high": 10.28,
         "low": 9.99,
-        "high": 14.55,
-        "low": 13,
         "name": "Apple",
         "revenue": -0.035,
         "symbol": "APL",
@@ -228,8 +238,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
         "close": 14.57,
         "high": 10.28,
         "low": 9.99,
-        "high": 14.55,
-        "low": 13,
         "name": "Apple",
         "revenue": -0.035,
         "symbol": "APLL",
@@ -251,6 +259,17 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
@@ -258,6 +277,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
   viewabilityConfigCallbackPairs={Array []}
   windowSize={21}
 >
+  <RCTRefreshControl />
   <View>
     <View
       onLayout={[Function]}
@@ -499,7 +519,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                Market value
+                Last sale
               </Text>
               <Text
                 style={
@@ -651,7 +671,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                Market value
+                Last sale
               </Text>
               <Text
                 style={

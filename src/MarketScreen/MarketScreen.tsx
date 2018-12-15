@@ -1,6 +1,12 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
-import { ListItem, SearchBar } from 'react-native-elements';
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  View,
+  RefreshControl,
+} from 'react-native';
+import { ListItem, SearchBar, colors } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -10,6 +16,7 @@ import { RootState } from '../redux/reducers';
 import { getStocks, saveStockSymbol } from './actions';
 import { Stock } from './reducers';
 import { StockStyles } from './styles';
+import { Colors } from '../App/colors';
 
 export interface StockProps {
   stocks: Array<Stock>;
@@ -20,11 +27,22 @@ export interface StockProps {
   symbol?: string;
 }
 
+interface StockState {
+  refreshing: boolean;
+}
+
 type StockPropsWithNavigation = StockProps & NavigationScreenProps;
 
-export class MarketScreen extends React.Component<StockPropsWithNavigation> {
+export class MarketScreen extends React.Component<
+  StockPropsWithNavigation,
+  StockState
+> {
   constructor(props: StockPropsWithNavigation) {
     super(props);
+
+    this.state = {
+      refreshing: false,
+    };
   }
   static navigationOptions = { title: t('MarketPage.Title') };
 
@@ -72,6 +90,18 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
     return value + ' $';
   };
 
+  fetchData(): Promise<void> {
+    this.props.getAllStocks();
+    return Promise.resolve();
+  }
+
+  refresh = () => {
+    this.setState({ refreshing: true });
+    this.fetchData().then(() => {
+      this.setState({ refreshing: false });
+    });
+  };
+
   render() {
     const { stocks, loading, error } = this.props;
     if (error) {
@@ -88,6 +118,13 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
 
     return (
       <FlatList
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.refresh}
+            colors={[Colors.baseColor]}
+          />
+        }
         data={stocks}
         keyExtractor={(item) => item.symbol}
         renderItem={({ item, index }) => (

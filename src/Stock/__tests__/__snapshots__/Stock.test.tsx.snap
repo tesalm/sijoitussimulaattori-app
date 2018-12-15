@@ -1,19 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`stock tests Stockscreen renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <RefreshControlMock
+    colors={
+      Array [
+        "#004D40",
+      ]
+    }
+    onRefresh={[Function]}
+    refreshing={false}
+  />
+  <Component>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 178,
+          "margin": 0,
+        }
+      }
+    >
+      <Connect(Basicinfo)
+        revenue=""
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 200,
+          "margin": 0,
+        }
+      }
+    >
+      <Connect(Diagram) />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Bid />
+    </Themed.Card>
+  </Component>
+</_class>
 `;
 
 exports[`stock tests Stockscreen renders correctly with error 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <RefreshControlMock
+    colors={
+      Array [
+        "#004D40",
+      ]
+    }
+    onRefresh={[Function]}
+    refreshing={false}
+  />
+  <Component>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 178,
+          "margin": 0,
+        }
+      }
+    >
+      <Connect(Basicinfo)
+        revenue=""
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 200,
+          "margin": 0,
+        }
+      }
+    >
+      <Connect(Diagram) />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Bid />
+    </Themed.Card>
+  </Component>
+</_class>
 `;
 
 exports[`stock tests Stockscreen renders correctly with stock 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<_class
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <RefreshControlMock
+    colors={
+      Array [
+        "#004D40",
+      ]
+    }
+    onRefresh={[Function]}
+    refreshing={false}
+  />
+  <Component>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 178,
+          "margin": 0,
+        }
+      }
+    >
+      <Connect(Basicinfo)
+        revenue="+0.00 %"
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 200,
+          "margin": 0,
+        }
+      }
+    >
+      <Connect(Diagram) />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Bid />
+    </Themed.Card>
+  </Component>
+</_class>
 `;
