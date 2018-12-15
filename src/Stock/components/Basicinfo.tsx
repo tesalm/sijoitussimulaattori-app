@@ -1,15 +1,23 @@
 import React from 'react';
 
-import { Text, View } from 'react-native';
+import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
 
-import { Stock } from '../reducers';
+import { Intraday, Metadata } from '../reducers';
+import { RootState } from '../../redux/reducers';
+import { Dispatch, bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 interface BasicinfoProps {
-  stockInfo?: Stock;
-  error?: Error;
+  metadata?: Metadata;
+  intraday?: Intraday;
+  metaLoading?: boolean;
+  metaError?: Error;
+  intraLoading?: boolean;
+  intraError?: Error;
+  revenue: string;
 }
 
 export class Basicinfo extends React.Component<BasicinfoProps> {
@@ -23,13 +31,6 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
       : stockStyles.revenueValueRed;
   };
 
-  //format revenue to right forms. Converts number to string and add procent marker.
-  formatRevenue = (revenue: number): string => {
-    return revenue >= 0
-      ? '+' + (revenue * 100).toFixed(2) + ' %'
-      : (revenue * 100).toFixed(2) + ' %';
-  };
-
   formatValue = (value: number, currency: string): string => {
     if (currency == 'USD') {
       return value + ' $';
@@ -40,56 +41,80 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
   };
 
   render() {
-    const { stockInfo, error } = this.props;
+    const {
+      metadata,
+      intraday,
+      metaLoading,
+      metaError,
+      intraLoading,
+      intraError,
+      revenue,
+    } = this.props;
 
-    if (stockInfo == undefined) {
-      // TODO: Format error for user.
-      return <Text>Error!</Text>;
+    if (metaLoading || intraLoading) {
+      return (
+        <View style={stockStyles.loading}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    } else {
+      if (intraday === undefined || metadata === undefined) {
+        let errorMessage;
+        if (metaError) {
+          errorMessage = metaError.message + ' ';
+        }
+        if (intraError) {
+          errorMessage = errorMessage + intraError.message;
+        }
+        // TODO: Muokkaa error-teksti käyttäjälle.
+        return <Text>Error! {errorMessage} </Text>;
+      }
     }
 
     return (
       <View>
         <View style={stockStyles.basicinfo}>
+          <Text style={stockStyles.titleStyle}>
+            {metadata.name} ({metadata.symbol})
+          </Text>
+        </View>
+        <View style={stockStyles.basicinfo}>
           <View style={stockStyles.basicinfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Buy')}</Text>
-            <Text style={stockStyles.valuesStyle}>
-              {this.formatValue(stockInfo.buy, stockInfo.currency)}
+            <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
+            <Text style={stockStyles.value}>
+              {this.formatValue(intraday.low, metadata.currency)}
             </Text>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Sell')}</Text>
-            <Text style={stockStyles.valuesStyle}>
-              {this.formatValue(stockInfo.sell, stockInfo.currency)}
+            <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
+            <Text style={stockStyles.value}>
+              {this.formatValue(intraday.high, metadata.currency)}
             </Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
-            <Text style={stockStyles.valuesStyle}>
-              {this.formatValue(stockInfo.high, stockInfo.currency)}
+            <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
+            <Text style={stockStyles.value}>
+              {this.formatValue(intraday.open, metadata.currency)}
             </Text>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
-            <Text style={stockStyles.valuesStyle}>
-              {this.formatValue(stockInfo.low, stockInfo.currency)}
+            <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
+            <Text style={stockStyles.value}>
+              {this.formatValue(intraday.close, metadata.currency)}
             </Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp} />
           <View style={stockStyles.basicinfoMidComp}>
             <Text style={stockStyles.valueHeaderRightSide}>
-              {t('StockPage.MarketValue')}
+              {t('StockPage.Volume')}
             </Text>
-            <Text style={stockStyles.close}>
-              {this.formatValue(stockInfo.close, stockInfo.currency)}
-            </Text>
+            <Text style={stockStyles.valueRightSide}>{intraday.volume}</Text>
             <Text style={stockStyles.valueHeaderRightSide}>
               {t('StockPage.RevenueText')}
             </Text>
-            <Text style={this.revenueColor(stockInfo.revenue)}>
-              {this.formatRevenue(stockInfo.revenue)}
-            </Text>
+            <Text style={this.revenueColor(intraday.open)}>{revenue}</Text>
           </View>
         </View>
         <View style={stockStyles.basicinfo}>
           <View>
             <Text style={stockStyles.valueHeader}>
-              {t('StockPage.Updated')}
+              {t('StockPage.Updated')}: {intraday.fetchTime.toLocaleString()}
             </Text>
           </View>
         </View>
@@ -98,4 +123,19 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
   }
 }
 
-export default Basicinfo;
+const mapStateToProps = (state: RootState) => ({
+  metadata: state.singleStock.metadata,
+  intraday: state.singleStock.intraday,
+  metaLoading: state.singleStock.metaLoading,
+  metaError: state.singleStock.metaError,
+  intraLoading: state.singleStock.intraLoading,
+  intraError: state.singleStock.intraError,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators({}, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Basicinfo);

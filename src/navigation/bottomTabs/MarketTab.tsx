@@ -12,29 +12,13 @@ import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
-import { StockScreen } from '../../Stock/StockScreen';
-
-interface SingleStockProps {
-  navigation: NavigationScreenProp<NavigationState>;
-}
-const SingleStockScreen = (props: SingleStockProps) => {
-  if (props.navigation.state.params == undefined) {
-    return <StockScreen symbol={''} stockInfo={undefined} />;
-  }
-
-  return (
-    <StockScreen
-      symbol={props.navigation.state.params.symbol}
-      stockInfo={props.navigation.state.params.stock}
-    />
-  );
-};
+import StockScreen from '../../Stock/StockScreen';
 
 const MarketStack = createStackNavigator(
   {
     Market: { screen: MarketScreen },
     Info: { screen: InfoScreen },
-    SingleStock: { screen: SingleStockScreen },
+    SingleStock: { screen: StockScreen },
     // TODO add more pages related to this tab
   },
   {

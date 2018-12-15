@@ -1,19 +1,16 @@
 {
   "results": [
     {
-      "symbol": "AAA",
+      "symbol": "AAPL",
       "name": "Apple",
-      "currency": "EUR",
-      "date": "09-11-94",
-      "open": 10.26,
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,
       "close": 13.44
     },
     {
-      "symbol": "APEERL",
-      "name": "Apple",
+      "symbol": "AMZN",
+      "name": "Amazon",
       "high": 10.28,
       "low": 9.99,
       "revenue": -0.035,

@@ -5,7 +5,7 @@ import { Colors } from '../App/colors';
 const stockContainerStyles = StyleSheet.create({
   basicInfo: {
     margin: 0,
-    height: 147,
+    height: 178,
   },
   diagram: {
     margin: 0,
@@ -20,28 +20,19 @@ const stockContainerStyles = StyleSheet.create({
 const stockStyles = StyleSheet.create({
   titleStyle: {
     fontWeight: 'bold',
-    color: Colors.baseColor,
-    fontSize: 16,
-    marginTop: verticalScale(8),
+    fontSize: 17,
+    marginBottom: scale(8),
     marginLeft: scale(8),
-  },
-  subtitleView: {
-    flexDirection: 'column',
-    marginTop: verticalScale(12),
-    marginLeft: scale(8),
-    //marginBottom: verticalScale(4),
   },
   valueHeader: {
     fontSize: 12,
-    color: Colors.baseColor,
     textAlign: 'justify',
     marginBottom: verticalScale(0),
     marginLeft: scale(8),
   },
-  valuesStyle: {
+  value: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: Colors.baseColor,
     textAlign: 'justify',
     marginTop: verticalScale(-2),
     marginLeft: scale(8),
@@ -49,7 +40,6 @@ const stockStyles = StyleSheet.create({
   },
   valueHeaderRightSide: {
     fontSize: 12,
-    color: Colors.baseColor,
     marginBottom: verticalScale(0),
     marginLeft: scale(8),
   },
@@ -57,48 +47,55 @@ const stockStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: Colors.greenPercent,
-    textAlign: 'center',
     marginBottom: verticalScale(8),
+    marginLeft: scale(8),
   },
   revenueValueRed: {
     fontSize: 18,
     fontWeight: 'bold',
     color: Colors.redPercent,
-    textAlign: 'center',
     marginBottom: verticalScale(8),
+    marginLeft: scale(8),
   },
-  close: {
+  valueRightSide: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: Colors.baseColor,
-    textAlign: 'center',
     marginBottom: verticalScale(8),
-  },
-  bidText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: Colors.baseColor,
+    marginLeft: scale(8),
   },
   bidButton: {
     margin: 0,
-    height: 50,
+    height: 61,
   },
-  arrowImage: {
-    height: 20,
-    width: 20,
+  bidView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  bidLogoView: {
+    flexDirection: 'row',
+  },
+  bidText: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    marginLeft: scale(8),
   },
   basicinfo: {
     display: 'flex',
     flexDirection: 'row',
+    color: Colors.baseColor,
   },
   basicinfoSmallerComp: {
     flexDirection: 'column',
-    width: '25%',
+    flex: 1,
   },
   basicinfoMidComp: {
     flexDirection: 'column',
-    width: '25%',
-    alignContent: 'flex-end',
+    flex: 1.5,
+  },
+  loading: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

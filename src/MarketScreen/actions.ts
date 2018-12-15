@@ -1,18 +1,20 @@
 import { Dispatch } from 'redux';
 
 import { StockListApiRequest } from '../utils/api';
-import { Stock } from '../Stock/reducers';
+import { Stock } from './reducers';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
   RequestStocksSuccess = '[Stocks] API Success',
   RequestStocksFailure = '[Stocks] API Failure',
+  SaveSymbol = '[Stocks] Save Active Stock Symbol',
 }
 
 export type StocksAction =
   | RequestStocksBegin
   | RequestStocksSuccess
-  | RequestStocksFailure;
+  | RequestStocksFailure
+  | SaveSymbol;
 
 export class RequestStocksBegin {
   readonly type = ActionType.RequestStocksBegin;
@@ -35,6 +37,19 @@ export class RequestStocksFailure {
   }
 }
 
+export class SaveSymbol {
+  readonly type = ActionType.SaveSymbol;
+  constructor(public symbol: string) {
+    return { type: this.type, symbol };
+  }
+}
+
+const saveStockSymbol = (symbol: string) => async (
+  dispatch: Dispatch<StocksAction>
+) => {
+  dispatch(new SaveSymbol(symbol));
+};
+
 const getStocks = () => async (dispatch: Dispatch<StocksAction>) => {
   dispatch(new RequestStocksBegin());
   try {
@@ -45,4 +60,4 @@ const getStocks = () => async (dispatch: Dispatch<StocksAction>) => {
   }
 };
 
-export { getStocks };
+export { getStocks, saveStockSymbol };

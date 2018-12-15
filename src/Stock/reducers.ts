@@ -1,27 +1,61 @@
 import { StockAction, ActionType } from './actions';
 
-export interface Stock {
+export interface Metadata {
   symbol: string;
   name: string;
+  type: string;
+  region: string;
+  marketOpen: string;
+  marketClose: string;
+  timezone: string;
   currency: string;
-  buy: number;
-  sell: number;
+  fetchTime: Date;
+}
+
+export interface Intraday {
+  symbol: string;
+  date: string;
+  open: number;
   high: number;
   low: number;
   close: number;
-  revenue: number;
+  volume: number;
+  fetchTime: Date;
+}
+
+export interface Historydata {
+  symbol: string;
+  date: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  fetchTime: Date;
 }
 
 export interface SingleStock {
-  stock?: Stock;
-  loading: boolean;
-  error?: Error;
+  metadata?: Metadata;
+  intraday?: Intraday;
+  historydata?: Historydata;
+  metaLoading: boolean;
+  intraLoading: boolean;
+  historyLoading: boolean;
+  metaError?: Error;
+  intraError?: Error;
+  historyError?: Error;
 }
 
 const initialState: SingleStock = {
-  stock: undefined,
-  loading: false,
-  error: undefined,
+  metadata: undefined,
+  intraday: undefined,
+  historydata: undefined,
+  metaLoading: false,
+  intraLoading: false,
+  historyLoading: false,
+  metaError: undefined,
+  intraError: undefined,
+  historyError: undefined,
 };
 
 export const stockReducer = (
@@ -29,27 +63,71 @@ export const stockReducer = (
   action: StockAction
 ): SingleStock => {
   switch (action.type) {
-    case ActionType.GetStockBegin:
+    case ActionType.GetMetadataBegin:
       return {
         ...state,
-        loading: true,
+        metaLoading: true,
       };
 
-    case ActionType.GetStockSuccess:
+    case ActionType.GetMetadataSuccess:
       return {
         ...state,
-        stock: action.stock,
-        loading: false,
-        error: undefined,
+        metadata: action.metadata,
+        metaLoading: false,
+        metaError: undefined,
       };
 
-    case ActionType.GetStockFailure:
+    case ActionType.GetMetadataFailure:
       return {
-        stock: undefined,
-        loading: false,
-        error: action.error,
+        ...state,
+        metadata: undefined,
+        metaLoading: false,
+        metaError: action.error,
       };
 
+    case ActionType.GetIntradayBegin:
+      return {
+        ...state,
+        intraLoading: true,
+      };
+
+    case ActionType.GetIntradaySuccess:
+      return {
+        ...state,
+        intraday: action.intraday,
+        intraLoading: false,
+        intraError: undefined,
+      };
+
+    case ActionType.GetIntradayFailure:
+      return {
+        ...state,
+        intraday: undefined,
+        intraLoading: false,
+        intraError: action.error,
+      };
+
+    case ActionType.GetHistoryBegin:
+      return {
+        ...state,
+        historyLoading: true,
+      };
+
+    case ActionType.GetHistorySuccess:
+      return {
+        ...state,
+        historydata: action.history,
+        historyLoading: false,
+        historyError: undefined,
+      };
+
+    case ActionType.GetHistoryFailure:
+      return {
+        ...state,
+        historydata: undefined,
+        historyLoading: false,
+        historyError: action.error,
+      };
     default:
       return state;
   }

@@ -7,8 +7,8 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-import { getStocks } from './actions';
-import { Stock } from '../Stock/reducers';
+import { getStocks, saveStockSymbol } from './actions';
+import { Stock } from './reducers';
 import { StockStyles } from './styles';
 
 export interface StockProps {
@@ -16,6 +16,8 @@ export interface StockProps {
   loading: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;
+  saveSymbol: typeof saveStockSymbol;
+  symbol?: string;
 }
 
 type StockPropsWithNavigation = StockProps & NavigationScreenProps;
@@ -90,12 +92,10 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
         keyExtractor={(item) => item.symbol}
         renderItem={({ item, index }) => (
           <ListItem
-            onPress={() =>
-              this.props.navigation.navigate('SingleStock', {
-                symbol: item.symbol,
-                stock: item,
-              })
-            }
+            onPress={() => {
+              this.props.saveSymbol(item.symbol);
+              this.props.navigation.navigate('SingleStock');
+            }}
             containerStyle={this.listBackgroundColor(index)}
             title={item.name}
             titleStyle={StockStyles.titleStyle}
@@ -115,7 +115,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {this.formatValue(item.close, item.currency)}
+                  {this.formatValue(item.close, 'USD')}
                 </Text>
               </View>
             }
@@ -130,12 +130,14 @@ const mapStateToProps = (state: RootState) => ({
   stocks: state.stocksListing.stocks,
   loading: state.stocksListing.loading,
   error: state.stocksListing.error,
+  symbol: state.stocksListing.symbol,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllStocks: getStocks,
+      saveSymbol: saveStockSymbol,
     },
     dispatch
   );

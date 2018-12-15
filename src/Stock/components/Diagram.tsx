@@ -1,17 +1,60 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
+import { Historydata } from '../reducers';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+import { RootState } from '../../redux/reducers';
 
-const Diagram = (): JSX.Element => {
-  return (
-    <View>
-      <Text style={stockStyles.titleStyle}>
-        {t('StockPage.RevenueOverYear')}
-      </Text>
-    </View>
-  );
-};
+interface DiagramProps {
+  historydata?: Historydata;
+  historyLoading?: boolean;
+  historyError?: Error;
+}
 
-export default Diagram;
+export class Diagram extends React.Component<DiagramProps> {
+  constructor(props: DiagramProps) {
+    super(props);
+  }
+
+  render() {
+    const { historydata, historyLoading, historyError } = this.props;
+
+    if (historyLoading) {
+      return (
+        <View style={stockStyles.loading}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    } else {
+      if (historyError) {
+        // TODO: Muokkaa error-teksti käyttäjälle.
+        return <Text>Error! {historyError.message}</Text>;
+      }
+    }
+
+    return (
+      <View>
+        <Text style={stockStyles.titleStyle}>
+          {t('StockPage.RevenueOverYear')}
+        </Text>
+      </View>
+    );
+  }
+}
+
+const mapStateToProps = (state: RootState) => ({
+  historydata: state.singleStock.historydata,
+  historyLoading: state.singleStock.historyLoading,
+  historyError: state.singleStock.historyError,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators({}, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Diagram);

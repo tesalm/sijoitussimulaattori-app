@@ -8,12 +8,21 @@ import {
 
 import { MarketScreen } from '../MarketScreen/MarketScreen';
 import { StockScreen } from '../Stock/StockScreen';
+import { getMetadata, getIntraday, getHistory } from '../Stock/actions';
 
 interface SingleStockProps {
   navigation: NavigationScreenProp<NavigationState>;
+  getMeta: typeof getMetadata;
+  getIntra: typeof getIntraday;
+  getHistoryData: typeof getHistory;
 }
 const SingleStockScreen = (props: SingleStockProps) => {
-  <StockScreen symbol={props.navigation.getParam('symbol')} />;
+  <StockScreen
+    symbol={props.navigation.getParam('symbol')}
+    getMeta={props.getMeta}
+    getIntra={props.getIntra}
+    getHistoryData={props.getHistoryData}
+  />;
 };
 
 const StackNavi = createStackNavigator(

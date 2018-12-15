@@ -1,15 +1,11 @@
 import axios from 'axios';
 import { config } from '../config';
-import { Stock } from '../Stock/reducers';
+import { Stock } from '../MarketScreen/reducers';
+import { Metadata, Intraday, Historydata } from '../Stock/reducers';
 
-interface StockListResponse {
-  results: [Stock];
-}
-
-const StockListApiRequest = async (): Promise<StockListResponse> => {
+const StockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
-    const url = config.app.API_URL + '/stocks/list';
-    const res = await axios.get(url);
+    const res = await axios.get(config.app.API_URL + '/stocks');
     const data = res.data;
     return data;
   } catch (error) {
@@ -17,14 +13,39 @@ const StockListApiRequest = async (): Promise<StockListResponse> => {
   }
 };
 
-const stockApiRequest = async (symbol: string) => {
+const stockMetaApiRequest = async (symbol: string): Promise<Metadata> => {
   try {
-    const url = config.app.API_URL + '/stocks/list/' + symbol;
+    const url = config.app.API_URL + '/stocks/' + symbol;
     const res = await axios.get(url);
-    return res.data as Stock;
+    return res.data;
   } catch (error) {
     throw error;
   }
 };
 
-export { StockListApiRequest, stockApiRequest };
+const stockIntraApiRequest = async (symbol: string): Promise<Intraday> => {
+  try {
+    const url = config.app.API_URL + '/stocks/' + symbol + '/intraDay';
+    const res = await axios.get(url);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const stockHistoryApiRequest = async (symbol: string): Promise<Historydata> => {
+  try {
+    const url = config.app.API_URL + '/stocks/' + symbol + '/history';
+    const res = await axios.get(url);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export {
+  StockListApiRequest,
+  stockMetaApiRequest,
+  stockIntraApiRequest,
+  stockHistoryApiRequest,
+};

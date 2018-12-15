@@ -11,9 +11,12 @@ const Bid = (props: BidProps): JSX.Element => {
   return (
     // TODO: Make onPress for these items that go to buy or sell view.
     <TouchableHighlight style={stockStyles.bidButton}>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={stockStyles.bidText}>{t('Bid')}</Text>
-        <Icon iconName={'close'} iconHeight={24} iconWidth={24} />
+      <View style={stockStyles.bidView}>
+        <View style={stockStyles.bidLogoView}>
+          <Icon iconName={'transaction'} iconHeight={24} iconWidth={24} />
+          <Text style={stockStyles.bidText}>{t('Bid')}</Text>
+        </View>
+        <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
       </View>
     </TouchableHighlight>
   );
