@@ -53,7 +53,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
 
   //Every other listitem has gray background
   listBackgroundColor = (index: number): typeof StockStyles.greyContainer => {
-    return index % 2 ? StockStyles.whiteContainer : StockStyles.greyContainer;
+    return index % 2 ? StockStyles.greyContainer : StockStyles.whiteContainer;
   };
 
   //format revenue to right forms. Converts number to string and add procent marker.

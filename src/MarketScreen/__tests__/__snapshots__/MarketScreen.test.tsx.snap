@@ -218,6 +218,8 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
         "close": 14.57,
         "high": 10.28,
         "low": 9.99,
+        "high": 14.55,
+        "low": 13,
         "name": "Apple",
         "revenue": -0.035,
         "symbol": "APL",
@@ -226,6 +228,8 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
         "close": 14.57,
         "high": 10.28,
         "low": 9.99,
+        "high": 14.55,
+        "low": 13,
         "name": "Apple",
         "revenue": -0.035,
         "symbol": "APLL",
@@ -426,7 +430,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#F0F0F0",
+              "backgroundColor": "white",
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
@@ -495,7 +499,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                Last sale
+                Market value
               </Text>
               <Text
                 style={
@@ -578,7 +582,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "white",
+              "backgroundColor": "#F0F0F0",
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
@@ -647,7 +651,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                   }
                 }
               >
-                Last sale
+                Market value
               </Text>
               <Text
                 style={
