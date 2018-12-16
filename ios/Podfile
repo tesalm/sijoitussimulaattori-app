@@ -1,3 +1,5 @@
+install! 'cocoapods', :deterministic_uuids => false
+
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
@@ -6,18 +8,29 @@ target 'Sijoitussimulaattori' do
   # use_frameworks!
 
   # Pods for Sijoitussimulaattori
-  pod 'GoogleAppMeasurement', '= 5.2.0'
-  pod 'Firebase/Core', '~> 5.9.0'
-  pod 'Firebase/Firestore', '~> 5.9.0'
-  pod 'Firebase/Auth'
-
-  pod 'React', :path => '../node_modules/react-native'
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'DevSupport',
+    'RCTWebSocket',
+    'RCTImage'
+    # Add any other subspecs you want to use in your project
+  ]
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
   pod 'RNLanguages', :path => '../node_modules/react-native-languages'
 
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+  pod 'GoogleAppMeasurement', '~> 5.3.0'
+  pod 'Firebase/Core', '~> 5.11.0'
+  pod 'Firebase/Firestore', '~> 5.11.0'
+  pod 'Firebase/Auth'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   target 'SijoitussimulaattoriTests' do
     inherit! :search_paths
@@ -39,19 +52,11 @@ target 'Sijoitussimulaattori-tvOS' do
 
 end
 
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    if target.name == 'react-native-config'
-      phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
-      phase.shell_script = "cd ../../"\
-                           " && RNC_ROOT=./node_modules/react-native-config/"\
-                           " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
-                           " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
-                           " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"\
-                           " && cp $RNC_ROOT/ios/ReactNativeConfig/GeneratedInfoPlistDotEnv.h ./ios/build/Build/Products/GeneratedInfoPlistDotEnv.h"
-
-      target.build_phases << phase
-      target.build_phases.move(phase,0)
+    if target.name == "React"
+      target.remove_from_project
     end
   end
 end
