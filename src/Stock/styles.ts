@@ -23,12 +23,14 @@ const stockStyles = StyleSheet.create({
     fontSize: 17,
     marginBottom: scale(8),
     marginLeft: scale(8),
+    color: Colors.baseColor,
   },
   valueHeader: {
     fontSize: 12,
     textAlign: 'justify',
     marginBottom: verticalScale(0),
     marginLeft: scale(8),
+    color: Colors.baseColor,
   },
   value: {
     fontSize: 14,
@@ -37,11 +39,13 @@ const stockStyles = StyleSheet.create({
     marginTop: verticalScale(-2),
     marginLeft: scale(8),
     marginBottom: verticalScale(8),
+    color: Colors.baseColor,
   },
   valueHeaderRightSide: {
     fontSize: 12,
     marginBottom: verticalScale(0),
     marginLeft: scale(8),
+    color: Colors.baseColor,
   },
   revenueValueGreen: {
     fontSize: 18,
@@ -62,6 +66,7 @@ const stockStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: verticalScale(8),
     marginLeft: scale(8),
+    color: Colors.baseColor,
   },
   bidButton: {
     margin: 0,
@@ -78,11 +83,11 @@ const stockStyles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
     marginLeft: scale(8),
+    color: Colors.baseColor,
   },
   basicinfo: {
     display: 'flex',
     flexDirection: 'row',
-    color: Colors.baseColor,
   },
   basicinfoSmallerComp: {
     flexDirection: 'column',

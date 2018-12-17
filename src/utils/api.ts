@@ -5,7 +5,7 @@ import { Metadata, Intraday, Historydata } from '../Stock/reducers';
 
 const StockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
-    const res = await axios.get(config.app.API_URL + '/stocks');
+    const res = await axios.get(config.app.STOCK_API_URL + '/stocks');
     const data = res.data;
     return data;
   } catch (error) {
@@ -15,7 +15,7 @@ const StockListApiRequest = async (): Promise<Array<Stock>> => {
 
 const stockMetaApiRequest = async (symbol: string): Promise<Metadata> => {
   try {
-    const url = config.app.API_URL + '/stocks/' + symbol;
+    const url = config.app.STOCK_API_URL + '/stocks/' + symbol;
     const res = await axios.get(url);
     return res.data;
   } catch (error) {
@@ -25,7 +25,7 @@ const stockMetaApiRequest = async (symbol: string): Promise<Metadata> => {
 
 const stockIntraApiRequest = async (symbol: string): Promise<Intraday> => {
   try {
-    const url = config.app.API_URL + '/stocks/' + symbol + '/intraDay';
+    const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/intraDay';
     const res = await axios.get(url);
     return res.data;
   } catch (error) {
@@ -35,7 +35,7 @@ const stockIntraApiRequest = async (symbol: string): Promise<Intraday> => {
 
 const stockHistoryApiRequest = async (symbol: string): Promise<Historydata> => {
   try {
-    const url = config.app.API_URL + '/stocks/' + symbol + '/history';
+    const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/history';
     const res = await axios.get(url);
     return res.data;
   } catch (error) {
