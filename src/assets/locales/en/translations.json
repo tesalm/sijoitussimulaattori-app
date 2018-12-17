@@ -21,7 +21,7 @@
   "PortfoliosPage": {
     "Title": "Portfolios",
     "PlaceholderText": "PLACEHOLDER: Listing of portfolios",
-    "GoToProfileButtonLabel": "Go to Profile"
+    "GoToPortoflioPage": "Go to Portfolio"
   },
   "MarketPage": {
     "Title": "Stocks",

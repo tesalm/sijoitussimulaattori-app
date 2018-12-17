@@ -6,5 +6,9 @@ export enum RouteName {
   Commissions = 'Commissions',
   Community = 'Community',
   Profile = 'Profile',
+<<<<<<< HEAD
   Stock = 'Stock',
+=======
+  Portfolio = 'Portfolio',
+>>>>>>> Created PortfolioScreen. Navigation goes now to (empty) Portfoli-screen
 }

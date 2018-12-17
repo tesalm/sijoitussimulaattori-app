@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { t } from '../../assets/i18n';
+import PortfolioScreen from '../../PortfolioScreen/PortfolioScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import HomeScreen from '../screens/HomeScreen';
@@ -15,6 +16,7 @@ const HomeStack = createStackNavigator(
     Home: { screen: HomeScreen },
     Profile: { screen: ProfileScreen },
     Info: { screen: InfoScreen },
+    Portfolio: { screen: PortfolioScreen },
     // TODO add more pages related to this tab
   },
   {

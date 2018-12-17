@@ -14,8 +14,8 @@ export default class HomeScreen extends React.Component<NavigationScreenProps> {
         <Text>{t('PortfoliosPage.PlaceholderText')}</Text>
         <View style={{ padding: 10 }}>
           <Button
-            title={t('PortfoliosPage.GoToProfileButtonLabel')}
-            onPress={() => this.props.navigation.navigate(RouteName.Profile)}
+            title={t('PortfoliosPage.GoToPortoflioPage')}
+            onPress={() => this.props.navigation.navigate(RouteName.Portfolio)}
           />
         </View>
       </View>
