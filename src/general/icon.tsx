@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image, ColorPropType } from 'react-native';
-import { Colors } from '../App/colors';
+import { Image } from 'react-native';
 
 interface IconProps {
   iconName: string;
@@ -17,7 +16,6 @@ const Icon = (props: IconProps): JSX.Element => {
   }
   return (
     <Image
-      // TODO: Make this work:
       source={req}
       style={{
         height: props.iconHeight,

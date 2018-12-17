@@ -23,7 +23,7 @@ exports[`stock tests Stockscreen renders correctly 1`] = `
     onRefresh={[Function]}
     refreshing={false}
   />
-  <Component>
+  <View>
     <Themed.Card
       containerStyle={
         Object {
@@ -56,7 +56,7 @@ exports[`stock tests Stockscreen renders correctly 1`] = `
     >
       <Bid />
     </Themed.Card>
-  </Component>
+  </View>
 </_class>
 `;
 
@@ -83,7 +83,7 @@ exports[`stock tests Stockscreen renders correctly with error 1`] = `
     onRefresh={[Function]}
     refreshing={false}
   />
-  <Component>
+  <View>
     <Themed.Card
       containerStyle={
         Object {
@@ -116,7 +116,7 @@ exports[`stock tests Stockscreen renders correctly with error 1`] = `
     >
       <Bid />
     </Themed.Card>
-  </Component>
+  </View>
 </_class>
 `;
 
@@ -143,7 +143,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     onRefresh={[Function]}
     refreshing={false}
   />
-  <Component>
+  <View>
     <Themed.Card
       containerStyle={
         Object {
@@ -176,6 +176,6 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     >
       <Bid />
     </Themed.Card>
-  </Component>
+  </View>
 </_class>
 `;

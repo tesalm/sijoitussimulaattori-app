@@ -20,7 +20,7 @@ export class Diagram extends React.Component<DiagramProps> {
   }
 
   render() {
-    const { historydata, historyLoading, historyError } = this.props;
+    const { historyLoading, historyError } = this.props;
 
     if (historyLoading) {
       return (

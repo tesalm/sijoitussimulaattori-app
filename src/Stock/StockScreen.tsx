@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { View, ScrollView, RefreshControl } from 'react-native';
+import { ScrollView, RefreshControl } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
-import { stockContainerStyles, stockStyles } from './styles';
+import { stockContainerStyles } from './styles';
 
 import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
