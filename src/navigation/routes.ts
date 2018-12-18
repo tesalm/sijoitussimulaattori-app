@@ -10,6 +10,4 @@ export enum RouteName {
   SinglePortfolio = 'SinglePortfolio',
 
   Stock = 'Stock',
-
-  Portfolio = 'Portfolio',
 }
