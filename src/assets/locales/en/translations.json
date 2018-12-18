@@ -68,6 +68,7 @@
   "LoginScreen": {
     "NewUserGreeting": "Your first time the ValueTown?",
     "NewUserButton": "Continue as new user",
+<<<<<<< HEAD
     "AfterErrButton": "Try again"
   },
   "Graph": {
@@ -91,5 +92,25 @@
       "11": "nov",
       "12": "dec"
     }
+=======
+    "AfterErrButton": "Try again",
+    "LastSaleText": "Market value"
+  },
+  "PortfolioPage": {
+    "Title": "My main stocks",
+    "MarketValue": "Market value",
+    "Cash": "Cash",
+    "TotalValue": "Total Value",
+    "Revenue": "Revenue today",
+    "Holdings": "My holdings",
+    "Events": "Events & transactions",
+    "Manage": "Manage portfolio",
+
+    "StocksOwned": "Stocks Owned",
+    "TotalRevenueProcent": "Total Revenue (%)",
+    "Acquisition": "Acquisition price",
+    "TotalMarketValue": "Total market value",
+    "TotalRevenueE": "Total revenue (€)"
+>>>>>>>  Created all components and styles for Portfolio UI
   }
 }
