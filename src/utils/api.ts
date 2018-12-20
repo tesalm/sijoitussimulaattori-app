@@ -34,6 +34,17 @@ const stockIntraApiRequest = async (
     throw error;
   }
 };
+const PortfolioListApiRequest = async (): Promise<PortfolioList[]> => {
+  try {
+    //const res = await axios.get(
+    //config.app.PORTFOLIO_API_URL + '/profile/portfolio/list'
+    //);
+    const data = [{ name: 'portfolio 1' }, { name: 'portfolio 2' }];
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 const stockHistoryApiRequest = async (
   symbol: string
@@ -52,4 +63,6 @@ export {
   stockMetaApiRequest,
   stockIntraApiRequest,
   stockHistoryApiRequest,
+  PortfolioApiRequest,
+  PortfolioListApiRequest,
 };

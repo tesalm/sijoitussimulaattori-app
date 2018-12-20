@@ -6,5 +6,5 @@ export enum RouteName {
   Commissions = 'Commissions',
   Community = 'Community',
   Profile = 'Profile',
-  Portfolio = 'Portfolio',
+  SinglePortfolio = 'SinglePortfolio',
 }

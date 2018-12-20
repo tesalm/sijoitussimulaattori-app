@@ -13,7 +13,9 @@ const singleStockIntra = (symbol) =>
   JSON.parse(fs.readFileSync(__dirname + '/data/' + symbol + 'intra.json'));
 const singleStockHistory = (symbol) =>
   JSON.parse(fs.readFileSync(__dirname + '/data/' + symbol + 'history.json'));
-
+const availablePortfolio = JSON.parse(
+  fs.readFileSync(__dirname + '/data/availablePortfolio.json')
+);
 app.get('/stocks', (req, res) => {
   console.log('Connected...');
   res.json(availableStocks);
@@ -32,6 +34,10 @@ app.get('/stocks/:symbol/intraDay', (req, res) => {
 app.get('/stocks/:symbol/history', (req, res) => {
   console.log(req.params.symbol + ' history being fetched');
   res.json(singleStockHistory(req.params.symbol));
+});
+app.get('/profile/portfolio', (req, res) => {
+  console.log('Connected...');
+  res.json(availablePortfolio);
 });
 
 app.listen(port, () => {

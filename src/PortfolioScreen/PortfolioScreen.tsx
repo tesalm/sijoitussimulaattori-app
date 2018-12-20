@@ -1,22 +1,45 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { Card } from 'react-native-elements';
-import { NavigationScreenProps } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
+import { RootState } from '../redux/reducers';
 import { t } from './../assets/i18n';
+import { getPortfolioData } from './actions';
 import { Basicinfo } from './components/Basicinfo';
 import { EventsTransactions, Manage } from './components/Buttons';
 import { Holdings } from './components/Holdings';
+import { Portfolio } from './reducers';
 import { stockContainerStyles } from './styles';
 
-export default class PortfolioScreen extends React.Component<
-  NavigationScreenProps
-> {
+export interface PortfolioProps {
+  portfolio?: Portfolio;
+  getPortfolio: typeof getPortfolioData;
+  name?: string;
+}
+
+export class PortfolioScreen extends React.Component<PortfolioProps> {
   static navigationOptions = { title: t('PortfoliosPage.Title') };
+  constructor(props: PortfolioProps) {
+    super(props);
+  }
+
+  componentDidMount() {
+    //Dispatch the actions
+    this.props.getPortfolio();
+  }
 
   render() {
+    const { portfolio, name } = this.props;
+    if (name == undefined) {
+      return <Text>hups</Text>;
+    }
     return (
       <ScrollView>
+        <Card>
+          <Text>{name}</Text>
+        </Card>
         <Card containerStyle={stockContainerStyles.basicInfo}>
           <Basicinfo />
         </Card>
@@ -34,3 +57,19 @@ export default class PortfolioScreen extends React.Component<
     );
   }
 }
+
+const mapStateToProps = (state: RootState) => ({
+  portfolio: state.singlePortfolio.portfolio,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+      getPortfolio: getPortfolioData,
+    },
+    dispatch
+  );
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PortfolioScreen);
