@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { config } from '../config';
 import { Stock } from '../MarketScreen/reducers';
-import { Metadata, Intraday, Historydata } from '../Stock/reducers';
+import { Metadata, Intraday, Historydata } from '../MarketScreen/reducers';
 
 const StockListApiRequest = async (): Promise<Array<Stock>> => {
   try {

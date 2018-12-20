@@ -13,7 +13,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-import { getStocks, saveStockSymbol } from './actions';
+import { getStocks, saveStockSymbol, refreshStocks } from './actions';
 import { Stock } from './reducers';
 import { StockStyles } from './styles';
 import { Colors } from '../App/colors';
@@ -21,15 +21,14 @@ import { Colors } from '../App/colors';
 export interface StockProps {
   stocks: Array<Stock>;
   loading: boolean;
+  refreshing: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;
+  refreshAllStocks: typeof refreshStocks;
   saveSymbol: typeof saveStockSymbol;
-  symbol?: string;
 }
 
-interface StockState {
-  refreshing: boolean;
-}
+interface StockState {}
 
 type StockPropsWithNavigation = StockProps & NavigationScreenProps;
 
@@ -39,10 +38,6 @@ export class MarketScreen extends React.Component<
 > {
   constructor(props: StockPropsWithNavigation) {
     super(props);
-
-    this.state = {
-      refreshing: false,
-    };
   }
   static navigationOptions = { title: t('MarketPage.Title') };
 
@@ -90,24 +85,19 @@ export class MarketScreen extends React.Component<
     return value + ' $';
   };
 
-  fetchData(): Promise<void> {
-    this.props.getAllStocks();
-    return Promise.resolve();
-  }
-
   refresh = () => {
-    this.setState({ refreshing: true });
-    this.fetchData().then(() => {
-      this.setState({ refreshing: false });
-    });
+    this.props.refreshAllStocks();
   };
 
   render() {
-    const { stocks, loading, error } = this.props;
+    const { stocks, loading, refreshing, error } = this.props;
+    console.log(stocks);
     if (error) {
       //TODO: Format the error message to user
       return <Text>Error! {error.message} </Text>;
     }
+
+    // Loading stocks without swiping
     if (loading) {
       return (
         <View style={StockStyles.loadingView}>
@@ -120,7 +110,7 @@ export class MarketScreen extends React.Component<
       <FlatList
         refreshControl={
           <RefreshControl
-            refreshing={this.state.refreshing}
+            refreshing={refreshing}
             onRefresh={this.refresh}
             colors={[Colors.baseColor]}
           />
@@ -152,7 +142,7 @@ export class MarketScreen extends React.Component<
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {this.formatValue(item.close, 'USD')}
+                  {this.formatValue(item.close, item.currency)}
                 </Text>
               </View>
             }
@@ -166,14 +156,15 @@ export class MarketScreen extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   stocks: state.stocksListing.stocks,
   loading: state.stocksListing.loading,
+  refreshing: state.stocksListing.refreshing,
   error: state.stocksListing.error,
-  symbol: state.stocksListing.symbol,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllStocks: getStocks,
+      refreshAllStocks: refreshStocks,
       saveSymbol: saveStockSymbol,
     },
     dispatch

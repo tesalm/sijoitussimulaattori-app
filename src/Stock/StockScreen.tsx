@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ScrollView, RefreshControl } from 'react-native';
+import { ScrollView, RefreshControl, Text } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import Basicinfo from './components/Basicinfo';
@@ -11,171 +11,192 @@ import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { Metadata, Intraday, Historydata } from './reducers';
-
 import Bid from './components/Bid';
-import { getMetadata, getIntraday, getHistory } from './actions';
+import {
+  getMetadata,
+  getIntraday,
+  getHistory,
+  refreshIntraday,
+} from '../MarketScreen/actions';
 import { Colors } from '../App/colors';
+import { Stock, StocksListing } from '../MarketScreen/reducers';
+import { countRevenue } from '../util/general';
 
 export interface StockProps {
-  metadata?: Metadata;
-  intraday?: Intraday;
-  historydata?: Historydata;
+  stocks: Array<Stock>;
   getMeta: typeof getMetadata;
   getIntra: typeof getIntraday;
+  refreshIntra: typeof refreshIntraday;
   getHistoryData: typeof getHistory;
+  refreshing: boolean;
   symbol?: string;
+  stock?: Stock;
 }
 
-interface StockState {
-  refreshing: boolean;
-}
+interface StockState {}
 
 export class StockScreen extends React.Component<StockProps, StockState> {
   constructor(props: StockProps) {
     super(props);
-
-    this.state = {
-      refreshing: false,
-    };
   }
 
   componentDidMount() {
-    if (this.props.symbol != undefined) {
+    if (this.props.symbol && this.props.stock && this.props.stocks) {
       const curTime = new Date();
-      // TODO: Aseta updateTime. Nyt 00:30.00
-      const updateTimeH = 0;
-      const updateTimeM = 30;
-      const updateTimeS = 0;
-
-      // Metadatan haku (haetaan vain kerran päivässä)
-      if (this.props.metadata === undefined) {
-        this.props.getMeta(this.props.symbol, curTime);
-      } else {
-        // Jos curTime > 00:30.00
-        if (
-          curTime.getHours() >= updateTimeH &&
-          curTime.getMinutes() >= updateTimeM &&
-          curTime.getSeconds() >= updateTimeS
-        ) {
-          // Jos data on haettu edellisenä päivänä tai fetchTime < 00:30.00, päivitetään tiedot.
-          if (
-            curTime.getDate() != this.props.metadata.fetchTime.getDate() ||
-            (this.props.metadata.fetchTime.getHours() <= updateTimeH &&
-              this.props.metadata.fetchTime.getMinutes() <= updateTimeM &&
-              this.props.metadata.fetchTime.getSeconds() <= updateTimeS)
-          ) {
-            this.props.getMeta(this.props.symbol, curTime);
-          }
-        }
+      // Fetch metadata if needed
+      if (
+        this.props.stock.stockInfo === undefined ||
+        this.props.stock.stockInfo.metadata === undefined ||
+        onceADayRefreshrateDated(
+          curTime,
+          this.props.stock.stockInfo.metadata.fetchTime
+        )
+      ) {
+        this.props.getMeta(this.props.stocks, this.props.symbol, curTime);
       }
-
-      // Historiadatan haku (haetaan vain kerran päivässä)
-      if (this.props.historydata === undefined) {
-        this.props.getHistoryData(this.props.symbol, curTime);
-      } else {
-        // Jos curTime > 00:30.00
-        if (
-          curTime.getHours() >= updateTimeH &&
-          curTime.getMinutes() >= updateTimeM &&
-          curTime.getSeconds() >= updateTimeS
-        ) {
-          // Jos data on haettu edellisenä päivänä tai fetchTime < 00:30.00, päivitetään tiedot.
-          if (
-            curTime.getDate() != this.props.historydata.fetchTime.getDate() ||
-            (this.props.historydata.fetchTime.getHours() <= updateTimeH &&
-              this.props.historydata.fetchTime.getMinutes() <= updateTimeM &&
-              this.props.historydata.fetchTime.getSeconds() <= updateTimeS)
-          ) {
-            this.props.getHistoryData(this.props.symbol, curTime);
-          }
-        }
+      // Fetch historydata if needed
+      if (
+        this.props.stock.stockInfo === undefined ||
+        this.props.stock.stockInfo.historydata === undefined ||
+        onceADayRefreshrateDated(
+          curTime,
+          this.props.stock.stockInfo.historydata.fetchTime
+        )
+      ) {
+        this.props.getHistoryData(
+          this.props.stocks,
+          this.props.symbol,
+          curTime
+        );
       }
-
-      // Intraday haku
-      if (this.props.intraday == undefined) {
-        this.props.getIntra(this.props.symbol, curTime);
-      } else {
-        const curTime_ms = curTime.getTime();
-        const intraTime_ms = this.props.intraday.fetchTime.getTime();
-        // TODO: Aseta intradayn refresh-rate oikeaan. Nyt 5 min.
-        if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
-          this.props.getIntra(this.props.symbol, curTime);
-        }
+      // Fetch intraday if needed
+      if (
+        this.props.stock.stockInfo === undefined ||
+        this.props.stock.stockInfo.intraday === undefined ||
+        refreshrateDated(curTime, this.props.stock.stockInfo.intraday.fetchTime)
+      ) {
+        this.props.getIntra(this.props.stocks, this.props.symbol, curTime);
       }
     }
   }
 
-  countRevenue() {
+  countRevenuePersentage() {
     if (
-      this.props.historydata != undefined &&
-      this.props.intraday != undefined
+      this.props.stock !== undefined &&
+      this.props.stock.stockInfo !== undefined &&
+      this.props.stock.stockInfo.historydata !== undefined &&
+      this.props.stock.stockInfo.intraday !== undefined
     ) {
       const revenue =
-        this.props.historydata.close / this.props.intraday.close - 1;
-      return revenue >= 0
-        ? '+' + (revenue * 100).toFixed(2) + ' %'
-        : (revenue * 100).toFixed(2) + ' %';
+        this.props.stock.stockInfo.historydata.close /
+          this.props.stock.stockInfo.intraday.close -
+        1;
+      return countRevenue(revenue);
     }
     return '';
   }
 
-  fetchData(): Promise<void> {
-    if (this.props.symbol !== undefined) {
-      const curTime = new Date();
-      if (this.props.intraday !== undefined) {
-        const curTime_ms = curTime.getTime();
-        const intraTime_ms = this.props.intraday.fetchTime.getTime();
-        // 5min aikaväli
-        if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
-          this.props.getIntra(this.props.symbol, curTime);
-        }
-      } else {
-        this.props.getIntra(this.props.symbol, curTime);
-      }
-    }
-    return Promise.resolve();
-  }
-
   refresh = () => {
-    this.setState({ refreshing: true });
-    this.fetchData().then(() => {
-      this.setState({ refreshing: false });
-    });
+    const curTime = new Date();
+    if (
+      this.props.symbol &&
+      this.props.stock &&
+      this.props.stock.stockInfo &&
+      this.props.stock.stockInfo.intraday &&
+      refreshrateDated(curTime, this.props.stock.stockInfo.intraday.fetchTime)
+    ) {
+      this.props.refreshIntra(this.props.stocks, this.props.symbol, curTime);
+    }
   };
 
   render() {
-    return (
-      <ScrollView
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.refresh}
-            colors={[Colors.baseColor]}
-          />
-        }
-      >
-        <Card containerStyle={stockContainerStyles.basicInfo}>
-          <Basicinfo revenue={this.countRevenue()} />
-        </Card>
+    const { stock } = this.props;
+    if (stock) {
+      return (
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={stock.stockInfo.refreshing}
+              onRefresh={this.refresh}
+              colors={[Colors.baseColor]}
+            />
+          }
+        >
+          <Card containerStyle={stockContainerStyles.basicInfo}>
+            <Basicinfo
+              revenue={this.countRevenuePersentage()}
+              metadata={stock.stockInfo.metadata}
+              metaLoading={stock.stockInfo.metaLoading}
+              metaError={stock.stockInfo.metaError}
+              intraday={stock.stockInfo.intraday}
+              intraLoading={stock.stockInfo.intraLoading}
+              intraError={stock.stockInfo.intraError}
+            />
+          </Card>
 
-        <Card containerStyle={stockContainerStyles.diagram}>
-          <Diagram />
-        </Card>
+          <Card containerStyle={stockContainerStyles.diagram}>
+            <Diagram
+              historydata={stock.stockInfo.historydata}
+              historyLoading={stock.stockInfo.historyLoading}
+              historyError={stock.stockInfo.historyError}
+            />
+          </Card>
 
-        <Card containerStyle={stockContainerStyles.buttonContainer}>
-          <Bid />
-        </Card>
-      </ScrollView>
-    );
+          <Card containerStyle={stockContainerStyles.buttonContainer}>
+            <Bid />
+          </Card>
+        </ScrollView>
+      );
+    } else {
+      //TODO: Format the error message to user
+      return <Text>Error, stockinfo not found! </Text>;
+    }
   }
+}
+
+// Checks if metadata and historydata should be updated (they should be updated once a day)
+function onceADayRefreshrateDated(curTime: Date, fetchTime: Date): boolean {
+  // TODO: Set updateTime (once a day). Now 00:30.00
+  const updateTimeH = 0;
+  const updateTimeM = 30;
+  const updateTimeS = 0;
+
+  // If curTime > 00:30.00
+  if (
+    curTime.getHours() >= updateTimeH &&
+    curTime.getMinutes() >= updateTimeM &&
+    curTime.getSeconds() >= updateTimeS
+  ) {
+    // If data has been fetched the day before or fetchTime < updateTime, refresh data
+    if (
+      curTime.getDate() != fetchTime.getDate() ||
+      (fetchTime.getHours() <= updateTimeH &&
+        fetchTime.getMinutes() <= updateTimeM &&
+        fetchTime.getSeconds() <= updateTimeS)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Checks if intraday should be updated (intraday is updated many times a day)
+function refreshrateDated(curTime: Date, fetchTime: Date): boolean {
+  const curTime_ms = curTime.getTime();
+  const intraTime_ms = fetchTime.getTime();
+  // TODO: Set refreshrate. Now 5 minutes.
+  if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
+    return true;
+  }
+  return false;
 }
 
 const mapStateToProps = (state: RootState) => ({
   symbol: state.stocksListing.symbol,
-  metadata: state.singleStock.metadata,
-  intraday: state.singleStock.intraday,
-  historydata: state.singleStock.historydata,
+  stocks: state.stocksListing.stocks,
+  stock: state.stocksListing.stocks.find((stock) => {
+    return stock.symbol === state.stocksListing.symbol;
+  }),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
@@ -183,6 +204,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     {
       getMeta: getMetadata,
       getIntra: getIntraday,
+      refreshIntra: refreshIntraday,
       getHistoryData: getHistory,
     },
     dispatch

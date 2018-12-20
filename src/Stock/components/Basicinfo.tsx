@@ -4,20 +4,19 @@ import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-
-import { Intraday, Metadata } from '../reducers';
 import { RootState } from '../../redux/reducers';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Metadata, Intraday } from '../../MarketScreen/reducers';
 
 export interface BasicinfoProps {
+  revenue: string;
   metadata?: Metadata;
   intraday?: Intraday;
   metaLoading?: boolean;
   metaError?: Error;
   intraLoading?: boolean;
   intraError?: Error;
-  revenue: string;
 }
 
 export class Basicinfo extends React.Component<BasicinfoProps> {
@@ -123,14 +122,7 @@ export class Basicinfo extends React.Component<BasicinfoProps> {
   }
 }
 
-const mapStateToProps = (state: RootState) => ({
-  metadata: state.singleStock.metadata,
-  intraday: state.singleStock.intraday,
-  metaLoading: state.singleStock.metaLoading,
-  metaError: state.singleStock.metaError,
-  intraLoading: state.singleStock.intraLoading,
-  intraError: state.singleStock.intraError,
-});
+const mapStateToProps = (state: RootState) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators({}, dispatch);

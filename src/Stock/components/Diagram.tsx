@@ -3,7 +3,7 @@ import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-import { Historydata } from '../reducers';
+import { Historydata } from '../../MarketScreen/reducers';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/reducers';
@@ -45,11 +45,7 @@ export class Diagram extends React.Component<DiagramProps> {
   }
 }
 
-const mapStateToProps = (state: RootState) => ({
-  historydata: state.singleStock.historydata,
-  historyLoading: state.singleStock.historyLoading,
-  historyError: state.singleStock.historyError,
-});
+const mapStateToProps = (state: RootState) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators({}, dispatch);

@@ -1,92 +1,103 @@
 [
-    {
-      "symbol": "AAPL",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 13.44
-    },
-    {
-      "symbol": "AMZN",
-      "name": "Amazon",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 13.44
-    },
-    {
-      "symbol": "APLL",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 14.57
-    },
-    {
-      "symbol": "ASDH",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 7.65
-    },
-    {
-      "symbol": "DD",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 73.43
-    },
-    {
-      "symbol": "DDD",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 23.45
-    },
-    {
-      "symbol": "FGR",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 5.32
-    },
-    {
-      "symbol": "HWF",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 38.32
-    },
-    {
-      "symbol": "HR",
-      "name": "Apple",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": -0.035,
-      "close": 35.49
-    },
-    {
-      "symbol": "NOK",
-      "name": "Nokia",
-      "buy": 10.26,
-      "sell": 10.26,
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": 0.035,
-      "close": 21.29
-    },
-    {
-      "symbol": "FRU",
-      "name": "Ferratum Oyj",
-      "high": 10.28,
-      "low": 9.99,
-      "revenue": 2.7,
-      "close": 54.43
-    }
-  ]
+  {
+    "symbol": "AAPL",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 13.44,
+    "currency": "USD"
+  },
+  {
+    "symbol": "AMZN",
+    "name": "Amazon",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 13.44,
+    "currency": "USD"
+  },
+  {
+    "symbol": "APLL",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 14.57,
+    "currency": "USD"
+  },
+  {
+    "symbol": "ASDH",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 7.65,
+    "currency": "USD"
+  },
+  {
+    "symbol": "DD",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 73.43,
+    "currency": "USD"
+  },
+  {
+    "symbol": "DDD",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 23.45,
+    "currency": "USD"
+  },
+  {
+    "symbol": "FGR",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 5.32,
+    "currency": "USD"
+  },
+  {
+    "symbol": "HWF",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 38.32,
+    "currency": "USD"
+  },
+  {
+    "symbol": "HR",
+    "name": "Apple",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": -0.035,
+    "close": 35.49,
+    "currency": "USD"
+  },
+  {
+    "symbol": "NOK",
+    "name": "Nokia",
+    "buy": 10.26,
+    "sell": 10.26,
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": 0.035,
+    "close": 21.29,
+    "currency": "USD"
+  },
+  {
+    "symbol": "FRU",
+    "name": "Ferratum Oyj",
+    "high": 10.28,
+    "low": 9.99,
+    "revenue": 2.7,
+    "close": 54.43,
+    "currency": "USD"
+  }
+]
