@@ -68,31 +68,52 @@ export class RestoreLoginImpossible {
 const restorePreviousLogin = () => async (
   dispatch: Dispatch<AuthAction | UserAction>
 ) => {
+  // Generator, which returns true only when called at the first time.
+  // It is assumed that the generator is "thread safe".
+  function* isFirstTime() {
+    yield true;
+    while (true) {
+      yield false;
+    }
+  }
+
+  const firstAuthStateChangeEvent = isFirstTime();
+  const firstUnsubscribing = isFirstTime();
+
   // Wait the completion of the Firebase initialization and catch the logged in user
-  // after it (if exists).
-  const unsubscribe = firebase
-    .auth()
-    .onAuthStateChanged(async (userAuth: UserAuth | undefined) => {
-      if (userAuth) {
+  // after it (if exists). Note that the event listener will execute always when the
+  // state changes.
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    // Handle only one (the first) auth state changed event. Note that it is
+    // possible that more than one auth event triggers at the same time.
+    if (firstAuthStateChangeEvent.next().value) {
+      if (user) {
         // Previous user can be restored.
+        const userAuth: UserAuth = {
+          uid: user.uid,
+        };
         dispatch(new RestoreLoginSuccess(userAuth));
 
         // Try to fetch the user data.
         try {
           fetchUserData()(dispatch);
         } catch {
-          // No need to handle any further exceptions raised by 'fetchUserData' function as
-          // it should take care of handling the user data related issues. At this stage,
-          // the actual user authentication is already restored successfully.
+          // No need to handle any further exceptions raised by 'fetchUserData' function.
         }
       } else {
         // There is no previous user to restore.
         dispatch(new RestoreLoginImpossible());
       }
+    }
 
-      // Catch only the first authentication state change event.
+    // Only the first authentication state change event is wanted, so
+    // unsubscribe the event listener.
+    // Ensure that the unsubscribe function is called only once and
+    // that it is defined.
+    if (unsubscribe && firstUnsubscribing.next().value) {
       unsubscribe();
-    });
+    }
+  });
 };
 
 // This action should be called only when the user is brand new!

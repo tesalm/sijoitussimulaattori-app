@@ -27,6 +27,7 @@ export const authReducer = (
   action: AuthAction
 ): Auth => {
   switch (action.type) {
+    case ActionType.LoginSuccess:
     case ActionType.RestoreLoginSuccess:
       return {
         ...state,
@@ -44,13 +45,6 @@ export const authReducer = (
       return {
         ...state,
         loginState: LoginState.LoggingIn,
-      };
-    case ActionType.LoginSuccess:
-      return {
-        ...state,
-        userAuth: action.userAuth,
-        loginError: undefined,
-        loginState: LoginState.LoggedIn,
       };
     case ActionType.LoginFailure:
       return {

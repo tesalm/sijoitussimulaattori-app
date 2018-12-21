@@ -94,7 +94,7 @@ describe('>>> User actions - succesfull cases', () => {
     const stateAfter = store.getState();
     expect(stateAfter.login.userAuth).toBeUndefined();
     expect(stateAfter.login.loginState).toEqual(LoginState.LoggedOut);
-    expect(stateAfter.user.userAuth).toBeUndefined();
+    expect(stateAfter.user.userData).toBeUndefined();
     expect(stateAfter.user.dataDeletionError).toBeUndefined();
 
     done();
