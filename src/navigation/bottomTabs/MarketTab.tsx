@@ -1,6 +1,10 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  NavigationScreenProp,
+  NavigationState,
+} from 'react-navigation';
 
 import { t } from '../../assets/i18n';
 import MarketScreen from '../../MarketScreen/MarketScreen';
@@ -8,11 +12,13 @@ import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
+import StockScreen from '../../Stock/StockScreen';
 
 const MarketStack = createStackNavigator(
   {
     Market: { screen: MarketScreen },
     Info: { screen: InfoScreen },
+    SingleStock: { screen: StockScreen },
     // TODO add more pages related to this tab
   },
   {

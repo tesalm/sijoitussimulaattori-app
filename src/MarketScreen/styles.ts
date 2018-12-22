@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { scale, verticalScale } from 'react-native-size-matters';
+import { scale, verticalScale } from '../util/scale';
 
 import { Colors } from '../App/colors';
 
@@ -7,7 +7,7 @@ const StockStyles = StyleSheet.create({
   titleStyle: {
     fontWeight: 'bold',
     color: Colors.baseColor,
-    fontSize: 16,
+    fontSize: verticalScale(16),
     marginTop: verticalScale(8),
     marginLeft: scale(8),
   },
@@ -17,13 +17,13 @@ const StockStyles = StyleSheet.create({
     marginLeft: scale(8),
   },
   lastSaleText: {
-    fontSize: 12,
+    fontSize: verticalScale(12),
     color: Colors.baseColor,
     textAlign: 'justify',
     marginBottom: verticalScale(0),
   },
   lastSaleValue: {
-    fontSize: 14,
+    fontSize: verticalScale(14),
     fontWeight: 'bold',
     color: Colors.baseColor,
     textAlign: 'justify',
@@ -34,17 +34,17 @@ const StockStyles = StyleSheet.create({
     marginLeft: scale(8),
   },
   revenueText: {
-    fontSize: 12,
+    fontSize: verticalScale(12),
     color: Colors.baseColor,
   },
   revenueValueGreen: {
-    fontSize: 18,
+    fontSize: verticalScale(18),
     fontWeight: 'bold',
     color: Colors.greenPercent,
     textAlign: 'center',
   },
   revenueValueRed: {
-    fontSize: 18,
+    fontSize: verticalScale(18),
     fontWeight: 'bold',
     color: Colors.redPercent,
     textAlign: 'center',

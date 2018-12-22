@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hello World renders correctly 1`] = `
+exports[`stock-list tests renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   data={Array []}
@@ -19,6 +19,17 @@ exports[`Hello World renders correctly 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
@@ -26,6 +37,7 @@ exports[`Hello World renders correctly 1`] = `
   viewabilityConfigCallbackPairs={Array []}
   windowSize={21}
 >
+  <RCTRefreshControl />
   <View>
     <View
       onLayout={[Function]}
@@ -183,7 +195,7 @@ exports[`Hello World renders correctly 1`] = `
 </RCTScrollView>
 `;
 
-exports[`Hello World renders correctly with error 1`] = `
+exports[`stock-list tests renders correctly with error 1`] = `
 <Text>
   Error! 
   Network connection failed
@@ -191,7 +203,7 @@ exports[`Hello World renders correctly with error 1`] = `
 </Text>
 `;
 
-exports[`Hello World renders correctly with loading 1`] = `
+exports[`stock-list tests renders correctly with loading 1`] = `
 <View
   style={
     Object {
@@ -209,25 +221,234 @@ exports[`Hello World renders correctly with loading 1`] = `
 </View>
 `;
 
-exports[`Hello World renders correctly with stocks 1`] = `
+exports[`stock-list tests renders correctly with refreshing 1`] = `
+<RCTScrollView
+  ListHeaderComponent={[Function]}
+  data={Array []}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={true}
+    />
+  }
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e1e8ee",
+            "borderBottomColor": "#e1e1e1",
+            "borderBottomWidth": 1,
+            "borderTopColor": "#e1e1e1",
+            "borderTopWidth": 1,
+            "padding": 8,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#bdc6cf",
+                "borderBottomWidth": 0,
+                "borderColor": "#86939e",
+                "borderRadius": 15,
+                "flexDirection": "row",
+                "height": 30,
+                "overflow": "hidden",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "marginLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "justifyContent": "center",
+                    }
+                  }
+                  theme={
+                    Object {
+                      "colors": Object {
+                        "divider": "#bcbbc1",
+                        "error": "#ff190c",
+                        "grey0": "#393e42",
+                        "grey1": "#43484d",
+                        "grey2": "#5e6977",
+                        "grey3": "#86939e",
+                        "grey4": "#bdc6cf",
+                        "grey5": "#e1e8ee",
+                        "greyOutline": "#bbb",
+                        "primary": "#2089dc",
+                        "searchBg": "#303337",
+                        "secondary": "#8F0CE8",
+                      },
+                    }
+                  }
+                  underlayColor="white"
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#86939e",
+                          "fontSize": 18,
+                        },
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        Object {
+                          "fontFamily": "Material Design Icons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                    testID="iconIcon"
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              onBlur={[Function]}
+              onChangeText={[Function]}
+              onClear={[Function]}
+              onFocus={[Function]}
+              placeholder="Search for stocks"
+              placeholderTextColor="#86939e"
+              platform="default"
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "color": "#86939e",
+                  "flex": 1,
+                  "fontSize": 18,
+                  "height": 40,
+                  "marginLeft": 10,
+                }
+              }
+              testID="searchInput"
+              underlineColorAndroid="transparent"
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "marginLeft": 15,
+                  "marginRight": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`stock-list tests renders correctly with stocks 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   data={
     Array [
       Object {
-        "close": 13.44,
-        "high": 14.55,
-        "low": 13,
+        "close": 14.57,
+        "currency": "USD",
+        "high": 10.28,
+        "low": 9.99,
         "name": "Apple",
-        "revenue": 0.035,
+        "revenue": -0.035,
+        "stockInfo": Object {
+          "historyLoading": false,
+          "intraLoading": false,
+          "metaLoading": false,
+          "refreshing": false,
+        },
         "symbol": "APL",
       },
       Object {
-        "close": 13.44,
-        "high": 14.55,
-        "low": 13,
+        "close": 14.57,
+        "currency": "USD",
+        "high": 10.28,
+        "low": 9.99,
         "name": "Apple",
         "revenue": -0.035,
+        "stockInfo": Object {
+          "historyLoading": false,
+          "intraLoading": false,
+          "metaLoading": false,
+          "refreshing": false,
+        },
         "symbol": "APLL",
       },
     ]
@@ -247,6 +468,17 @@ exports[`Hello World renders correctly with stocks 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
@@ -254,6 +486,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
   viewabilityConfigCallbackPairs={Array []}
   windowSize={21}
 >
+  <RCTRefreshControl />
   <View>
     <View
       onLayout={[Function]}
@@ -430,7 +663,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
-              "height": 147.13235294117646,
+              "height": 150,
               "padding": 14,
             }
           }
@@ -448,10 +681,10 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#004D40",
-                  "fontSize": 16,
+                  "fontSize": 32,
                   "fontWeight": "bold",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 15.694117647058823,
+                  "marginLeft": 16,
+                  "marginTop": 16,
                 }
               }
               testID="listItemTitle"
@@ -480,8 +713,8 @@ exports[`Hello World renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 23.541176470588233,
+                  "marginLeft": 16,
+                  "marginTop": 24,
                 }
               }
             >
@@ -489,26 +722,26 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                     "marginBottom": 0,
                     "textAlign": "justify",
                   }
                 }
               >
-                Market value
+                Last sale
               </Text>
               <Text
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 14,
+                    "fontSize": 28,
                     "fontWeight": "bold",
-                    "marginTop": -3.9235294117647057,
+                    "marginTop": -4,
                     "textAlign": "justify",
                   }
                 }
               >
-                13.44 $
+                14.57 $
               </Text>
             </View>
           </View>
@@ -528,7 +761,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
+                  "marginLeft": 16,
                 }
               }
             >
@@ -536,7 +769,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                   }
                 }
               >
@@ -545,14 +778,14 @@ exports[`Hello World renders correctly with stocks 1`] = `
               <Text
                 style={
                   Object {
-                    "color": "#54c242",
-                    "fontSize": 18,
+                    "color": "#e20f00",
+                    "fontSize": 36,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }
                 }
               >
-                +3.50 %
+                -3.50 %
               </Text>
             </View>
           </View>
@@ -582,7 +815,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
-              "height": 147.13235294117646,
+              "height": 150,
               "padding": 14,
             }
           }
@@ -600,10 +833,10 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#004D40",
-                  "fontSize": 16,
+                  "fontSize": 32,
                   "fontWeight": "bold",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 15.694117647058823,
+                  "marginLeft": 16,
+                  "marginTop": 16,
                 }
               }
               testID="listItemTitle"
@@ -632,8 +865,8 @@ exports[`Hello World renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 23.541176470588233,
+                  "marginLeft": 16,
+                  "marginTop": 24,
                 }
               }
             >
@@ -641,26 +874,26 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                     "marginBottom": 0,
                     "textAlign": "justify",
                   }
                 }
               >
-                Market value
+                Last sale
               </Text>
               <Text
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 14,
+                    "fontSize": 28,
                     "fontWeight": "bold",
-                    "marginTop": -3.9235294117647057,
+                    "marginTop": -4,
                     "textAlign": "justify",
                   }
                 }
               >
-                13.44 $
+                14.57 $
               </Text>
             </View>
           </View>
@@ -680,7 +913,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
+                  "marginLeft": 16,
                 }
               }
             >
@@ -688,7 +921,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                   }
                 }
               >
@@ -698,7 +931,7 @@ exports[`Hello World renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#e20f00",
-                    "fontSize": 18,
+                    "fontSize": 36,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }

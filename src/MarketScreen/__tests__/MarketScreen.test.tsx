@@ -3,29 +3,48 @@ import renderer from 'react-test-renderer';
 
 import { MarketScreen, StockProps } from '../MarketScreen';
 
-describe('Hello World', () => {
+describe('stock-list tests', () => {
   //Mock for navigation.
   const navigationMock: any = {};
 
   const defaultStockProps: StockProps = {
     stocks: [],
     loading: false,
+    refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
   };
 
   const loadingStockProps: StockProps = {
     stocks: [],
     loading: true,
+    refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
+  };
+
+  const refreshingStockProps: StockProps = {
+    stocks: [],
+    loading: false,
+    refreshing: true,
+    error: undefined,
+    getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
   };
 
   const errorStockProps: StockProps = {
     stocks: [],
     loading: false,
+    refreshing: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
   };
 
   const stocksStockProps: StockProps = {
@@ -33,23 +52,40 @@ describe('Hello World', () => {
       {
         symbol: 'APL',
         name: 'Apple',
-        high: 14.55,
-        low: 13.0,
-        revenue: 0.035,
-        close: 13.44,
+        high: 10.28,
+        low: 9.99,
+        revenue: -0.035,
+        close: 14.57,
+        currency: 'USD',
+        stockInfo: {
+          metaLoading: false,
+          intraLoading: false,
+          historyLoading: false,
+          refreshing: false,
+        },
       },
       {
         symbol: 'APLL',
         name: 'Apple',
-        high: 14.55,
-        low: 13.0,
+        high: 10.28,
+        low: 9.99,
         revenue: -0.035,
-        close: 13.44,
+        close: 14.57,
+        currency: 'USD',
+        stockInfo: {
+          metaLoading: false,
+          intraLoading: false,
+          historyLoading: false,
+          refreshing: false,
+        },
       },
     ],
     loading: false,
+    refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
   };
 
   it('renders correctly', async () => {
@@ -62,6 +98,13 @@ describe('Hello World', () => {
   it('renders correctly with loading', async () => {
     const component = renderer
       .create(<MarketScreen {...loadingStockProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders correctly with refreshing', async () => {
+    const component = renderer
+      .create(<MarketScreen {...refreshingStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

@@ -1,30 +1,47 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
-import { ListItem, SearchBar } from 'react-native-elements';
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  View,
+  RefreshControl,
+  ToastAndroid,
+} from 'react-native';
+import { ListItem, SearchBar, colors } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
-import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
-import { getStocks } from './actions';
+import { getStocks, saveStockSymbol, refreshStocks } from './actions';
 import { Stock } from './reducers';
 import { StockStyles } from './styles';
+import { Colors } from '../App/colors';
+import { formatRevenue, formatCurrency, revenueColor } from '../util/general';
 
 export interface StockProps {
   stocks: Array<Stock>;
   loading: boolean;
+  refreshing: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;
+  refreshAllStocks: typeof refreshStocks;
+  saveSymbol: typeof saveStockSymbol;
 }
+
+interface StockState {}
 
 type StockPropsWithNavigation = StockProps & NavigationScreenProps;
 
-export class MarketScreen extends React.Component<StockPropsWithNavigation> {
+export class MarketScreen extends React.Component<
+  StockPropsWithNavigation,
+  StockState
+> {
   constructor(props: StockPropsWithNavigation) {
     super(props);
   }
+  static navigationOptions = { title: t('MarketPage.Title') };
 
   componentDidMount() {
     //Dispatch the actions
@@ -36,18 +53,10 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
       <SearchBar
         lightTheme
         round
-        placeholder={t('ListStockPage.SearcBarPlaceholder')}
-        //TODO: search bar functionality
+        placeholder={t('ListStockPage.SearcBarPlaceholder')} //TODO: search bar functionality
         autoCorrect={false}
       />
     );
-  };
-
-  //This checks what color revenue should be
-  revenueColor = (revenue: number): typeof StockStyles.revenueValueGreen => {
-    return revenue >= 0
-      ? StockStyles.revenueValueGreen
-      : StockStyles.revenueValueRed;
   };
 
   //Every other listitem has gray background
@@ -55,19 +64,31 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
     return index % 2 ? StockStyles.greyContainer : StockStyles.whiteContainer;
   };
 
-  //format revenue to right forms. Converts number to string and add procent marker.
-  formatRevenue = (revenue: number): string => {
-    return revenue >= 0
-      ? '+' + (revenue * 100).toFixed(2) + ' %'
-      : (revenue * 100).toFixed(2) + ' %';
+  refresh = () => {
+    this.props.refreshAllStocks();
+  };
+
+  stockPressed = (symbol: string) => {
+    if (this.props.refreshing) {
+      // TODO: Format toast message to user.
+      ToastAndroid.show(
+        'Wait, stock-list is being refreshed.',
+        ToastAndroid.SHORT
+      );
+    } else {
+      this.props.saveSymbol(symbol);
+      this.props.navigation.navigate('SingleStock');
+    }
   };
 
   render() {
-    const { stocks, loading, error } = this.props;
+    const { stocks, loading, refreshing, error } = this.props;
     if (error) {
       //TODO: Format the error message to user
       return <Text>Error! {error.message} </Text>;
     }
+
+    // Loading stocks without swiping
     if (loading) {
       return (
         <View style={StockStyles.loadingView}>
@@ -78,14 +99,18 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
 
     return (
       <FlatList
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={this.refresh}
+            colors={[Colors.baseColor]}
+          />
+        }
         data={stocks}
         keyExtractor={(item) => item.symbol}
         renderItem={({ item, index }) => (
           <ListItem
-            //TODO: navigate to to right stock page.
-            onPress={() =>
-              this.props.navigation.navigate(RouteName.Commissions)
-            }
+            onPress={() => this.stockPressed(item.symbol)}
             containerStyle={this.listBackgroundColor(index)}
             title={item.name}
             titleStyle={StockStyles.titleStyle}
@@ -94,8 +119,8 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
                 <Text style={StockStyles.revenueText}>
                   {t('ListStockPage.RevenueText')}
                 </Text>
-                <Text style={this.revenueColor(item.revenue)}>
-                  {this.formatRevenue(item.revenue)}
+                <Text style={revenueColor(item.revenue)}>
+                  {formatRevenue(item.revenue)}
                 </Text>
               </View>
             }
@@ -105,7 +130,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {item.close + ' $'}
+                  {formatCurrency(item.close, item.currency)}
                 </Text>
               </View>
             }
@@ -119,6 +144,7 @@ export class MarketScreen extends React.Component<StockPropsWithNavigation> {
 const mapStateToProps = (state: RootState) => ({
   stocks: state.stocksListing.stocks,
   loading: state.stocksListing.loading,
+  refreshing: state.stocksListing.refreshing,
   error: state.stocksListing.error,
 });
 
@@ -126,6 +152,8 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllStocks: getStocks,
+      refreshAllStocks: refreshStocks,
+      saveSymbol: saveStockSymbol,
     },
     dispatch
   );

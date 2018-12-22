@@ -11,7 +11,8 @@
   "CommissionsPage": {
     "Title": "Commissions",
     "PlaceholderText": "PLACEHOLDER: My commissions",
-    "GoToMarketsButtonLabel": "Go to Markets"
+    "GoToMarketsButtonLabel": "Go to Markets",
+    "GoToStockButtonLabel": "Go to Stock"
   },
   "CommunityPage": {
     "Title": "Community",
@@ -48,6 +49,20 @@
   "ListStockPage": {
     "SearcBarPlaceholder": "Search for stocks",
     "RevenueText": "Revenue today",
-    "LastSaleText": "Market value"
+    "LastSaleText": "Last sale"
+  },
+  "StockPage": {
+    "Title": "Stock",
+    "GoToProfilePageButton": "Profile",
+    "Open": "Open",
+    "Close": "Close",
+    "Volume": "Volume",
+    "High": "High",
+    "Low": "Low",
+    "MarketValue": "Market value",
+    "RevenueText": "Revenue today",
+    "Updated": "Updated",
+    "RevenueOverYear": "Revenue over a year",
+    "Bid": "Bid"
   }
 }
