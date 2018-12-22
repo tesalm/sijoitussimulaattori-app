@@ -5,6 +5,7 @@ import {
   Text,
   View,
   RefreshControl,
+  ToastAndroid,
 } from 'react-native';
 import { ListItem, SearchBar, colors } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
@@ -67,6 +68,18 @@ export class MarketScreen extends React.Component<
     this.props.refreshAllStocks();
   };
 
+  stockPressed = (symbol: string) => {
+    if (this.props.refreshing) {
+      ToastAndroid.show(
+        'Wait, stock-list is being refreshed.',
+        ToastAndroid.SHORT
+      );
+    } else {
+      this.props.saveSymbol(symbol);
+      this.props.navigation.navigate('SingleStock');
+    }
+  };
+
   render() {
     const { stocks, loading, refreshing, error } = this.props;
     if (error) {
@@ -96,10 +109,7 @@ export class MarketScreen extends React.Component<
         keyExtractor={(item) => item.symbol}
         renderItem={({ item, index }) => (
           <ListItem
-            onPress={() => {
-              this.props.saveSymbol(item.symbol);
-              this.props.navigation.navigate('SingleStock');
-            }}
+            onPress={() => this.stockPressed(item.symbol)}
             containerStyle={this.listBackgroundColor(index)}
             title={item.name}
             titleStyle={StockStyles.titleStyle}

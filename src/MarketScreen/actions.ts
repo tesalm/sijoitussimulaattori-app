@@ -170,6 +170,14 @@ const refreshStocks = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new RefreshStocksBegin());
   try {
     const data = await StockListApiRequest();
+    data.forEach((stock) => {
+      stock.stockInfo = {
+        metaLoading: false,
+        intraLoading: false,
+        historyLoading: false,
+        refreshing: false,
+      };
+    });
     dispatch(new RequestStocksSuccess(data));
   } catch (error) {
     dispatch(new RequestStocksFailure(error));
