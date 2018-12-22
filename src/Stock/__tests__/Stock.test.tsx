@@ -61,7 +61,7 @@ describe('stock tests', () => {
             marketClose: '2018-12-12 11:20:00',
             timeZone: 'US/Eastern',
             currency: 'USD',
-            fetchTime: new Date(),
+            fetchTime: new Date('December 17, 2018 03:24:00'),
           },
           intraday: {
             symbol: 'AAPL',
@@ -71,7 +71,7 @@ describe('stock tests', () => {
             low: 165.43,
             close: 168.63,
             volume: 12279994,
-            fetchTime: new Date(),
+            fetchTime: new Date('December 17, 2018 03:24:00'),
           },
           historydata: {
             symbol: 'AAPL',
@@ -81,7 +81,7 @@ describe('stock tests', () => {
             low: 165.43,
             close: 168.63,
             volume: 12279994,
-            fetchTime: new Date(),
+            fetchTime: new Date('December 17, 2018 03:24:00'),
           },
           metaLoading: false,
           intraLoading: false,
