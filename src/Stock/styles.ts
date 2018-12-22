@@ -85,7 +85,7 @@ const stockStyles = StyleSheet.create({
   },
   basicinfo: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   basicinfoLeft: {
     flexDirection: 'column',

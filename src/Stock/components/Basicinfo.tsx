@@ -43,50 +43,60 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
 
   return (
     <View style={stockStyles.basicinfo}>
-      <View style={stockStyles.basicinfoLeft}>
-        <View>
-          <Text style={stockStyles.titleStyle}>
-            {props.stockMetadata.name} ({props.stockMetadata.symbol})
-          </Text>
-        </View>
-        <View style={stockStyles.basicinfoMiddle}>
-          <View style={stockStyles.basicinfoMiddleContent}>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
-            <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.low, props.stockMetadata.currency)}
-            </Text>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
-            <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.high, props.stockMetadata.currency)}
-            </Text>
-          </View>
-          <View style={stockStyles.basicinfoMiddleContent}>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
-            <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.open, props.stockMetadata.currency)}
-            </Text>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
-            <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.close, props.stockMetadata.currency)}
-            </Text>
-          </View>
-        </View>
-        <View>
-          <Text style={stockStyles.valueHeader}>
-            {t('StockPage.Updated')}:{' '}
-            {props.intraday.fetchTime.toLocaleString()}
-          </Text>
-        </View>
+      <View>
+        <Text style={stockStyles.titleStyle}>
+          {props.stockMetadata.name} ({props.stockMetadata.symbol})
+        </Text>
       </View>
-      <View style={stockStyles.basicinfoRight}>
-        <Text style={stockStyles.valueHeaderRightSide}>
-          {t('StockPage.Volume')}
+      <View style={stockStyles.basicinfoMiddle}>
+        <View style={stockStyles.basicinfoLeft}>
+          <View style={stockStyles.basicinfoMiddle}>
+            <View style={stockStyles.basicinfoMiddleContent}>
+              <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
+              <Text style={stockStyles.value}>
+                {formatCurrency(props.intraday.low, props.stockMetadata.currency)}
+              </Text>
+              <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
+              <Text style={stockStyles.value}>
+                {formatCurrency(
+                  props.intraday.high,
+                  props.stockMetadata.currency
+                )}
+              </Text>
+            </View>
+            <View style={stockStyles.basicinfoMiddleContent}>
+              <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
+              <Text style={stockStyles.value}>
+                {formatCurrency(
+                  props.intraday.open,
+                  props.stockMetadata.currency
+                )}
+              </Text>
+              <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
+              <Text style={stockStyles.value}>
+                {formatCurrency(
+                  props.intraday.close,
+                  props.stockMetadata.currency
+                )}
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View style={stockStyles.basicinfoRight}>
+          <Text style={stockStyles.valueHeaderRightSide}>
+            {t('StockPage.Volume')}
+          </Text>
+          <Text style={stockStyles.valueRightSide}>{props.intraday.volume}</Text>
+          <Text style={stockStyles.valueHeaderRightSide}>
+            {t('StockPage.RevenueText')}
+          </Text>
+          <Text style={revenueColor(props.intraday.open)}>{props.revenue}</Text>
+        </View>
+        </View>
+      <View>
+        <Text style={stockStyles.valueHeader}>
+          {t('StockPage.Updated')}: {props.intraday.fetchTime.toLocaleString()}
         </Text>
-        <Text style={stockStyles.valueRightSide}>{props.intraday.volume}</Text>
-        <Text style={stockStyles.valueHeaderRightSide}>
-          {t('StockPage.RevenueText')}
-        </Text>
-        <Text style={revenueColor(props.intraday.open)}>{props.revenue}</Text>
       </View>
     </View>
   );
