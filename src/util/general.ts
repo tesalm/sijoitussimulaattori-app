@@ -4,12 +4,6 @@ const randomInt = (low: number = 0, high: number = Number.MAX_SAFE_INTEGER) => {
   return Math.floor(Math.random() * (high - low) + low);
 };
 
-const countRevenue = (revenue: number) => {
-  return revenue >= 0
-    ? '+' + (revenue * 100).toFixed(2) + ' %'
-    : (revenue * 100).toFixed(2) + ' %';
-};
-
 //format revenue to right forms. Converts number to string and add procent marker.
 const formatRevenue = (revenue: number) => {
   return revenue >= 0
@@ -36,4 +30,4 @@ const formatCurrency = (value: number, currency: string) => {
   return value + ' $';
 };
 
-export { randomInt, countRevenue, formatRevenue, revenueColor, formatCurrency };
+export { randomInt, formatRevenue, revenueColor, formatCurrency };

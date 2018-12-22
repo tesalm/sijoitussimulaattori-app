@@ -1,6 +1,6 @@
 import { ActionType, StockAction } from './actions';
 
-export interface Metadata {
+export interface StockMetadata {
   symbol: string;
   name: string;
   type: string;
@@ -23,7 +23,7 @@ export interface Intraday {
   fetchTime: Date;
 }
 
-export interface Historydata {
+export interface HistoryData {
   symbol: string;
   date: string;
   open: number;
@@ -35,9 +35,9 @@ export interface Historydata {
 }
 
 export interface SingleStock {
-  metadata?: Metadata;
+  stockMetadata?: StockMetadata;
   intraday?: Intraday;
-  historydata?: Historydata;
+  historyData?: HistoryData;
   metaLoading: boolean;
   intraLoading: boolean;
   historyLoading: boolean;
@@ -100,13 +100,13 @@ export const stocksListingReducer = (
       };
     case ActionType.SaveSymbol:
       return { ...state, symbol: action.symbol };
-    case ActionType.GetMetadataBegin:
+    case ActionType.GetStockMetadataBegin:
       return { ...state, stocks: action.stocks };
 
-    case ActionType.GetMetadataSuccess:
+    case ActionType.GetStockMetadataSuccess:
       return { ...state, stocks: action.stocks };
 
-    case ActionType.GetMetadataFailure:
+    case ActionType.GetStockMetadataFailure:
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetIntradayBegin:

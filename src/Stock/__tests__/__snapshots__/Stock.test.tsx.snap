@@ -63,7 +63,8 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
           }
         }
         metaLoading={false}
-        metadata={
+        revenue="+0.00 %"
+        stockMetadata={
           Object {
             "currency": "USD",
             "fetchTime": 2018-12-17T01:24:00.000Z,
@@ -76,7 +77,6 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
             "type": "string",
           }
         }
-        revenue="+0.00 %"
       />
     </Themed.Card>
     <Themed.Card
@@ -88,8 +88,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
       }
     >
       <Diagram
-        historyLoading={false}
-        historydata={
+        historyData={
           Object {
             "close": 168.63,
             "date": "2018-12-12",
@@ -101,6 +100,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
             "volume": 12279994,
           }
         }
+        historyLoading={false}
       />
     </Themed.Card>
     <Themed.Card

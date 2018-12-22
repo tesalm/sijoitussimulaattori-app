@@ -11,7 +11,7 @@ describe('basicinfo tests', () => {
   const mockStore = configureStore(middlewares);
 
   const defaultBasicinfoProps: BasicinfoProps = {
-    metadata: undefined,
+    stockMetadata: undefined,
     intraday: undefined,
     metaLoading: false,
     intraLoading: false,
@@ -21,17 +21,17 @@ describe('basicinfo tests', () => {
   };
 
   const errorBasicinfoProps: BasicinfoProps = {
-    metadata: undefined,
+    stockMetadata: undefined,
     intraday: undefined,
     metaLoading: false,
     intraLoading: false,
-    metaError: { name: 'Metadata error', message: 'Metadata not found' },
+    metaError: { name: 'Metadata error', message: 'Stock metadata not found' },
     intraError: undefined,
     revenue: '',
   };
 
   const successBasicinfoProps: BasicinfoProps = {
-    metadata: {
+    stockMetadata: {
       symbol: 'AAPL',
       name: 'Apple Inc.',
       type: 'string',

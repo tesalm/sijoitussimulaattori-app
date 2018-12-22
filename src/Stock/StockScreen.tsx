@@ -13,18 +13,18 @@ import { connect } from 'react-redux';
 
 import Bid from './components/Bid';
 import {
-  getMetadata,
+  getStockMetadata,
   getIntraday,
   getHistory,
   refreshIntraday,
 } from '../MarketScreen/actions';
 import { Colors } from '../App/colors';
 import { Stock } from '../MarketScreen/reducers';
-import { countRevenue } from '../util/general';
+import { formatRevenue } from '../util/general';
 
 export interface StockProps {
   stocks: Array<Stock>;
-  getMeta: typeof getMetadata;
+  getMeta: typeof getStockMetadata;
   getIntra: typeof getIntraday;
   refreshIntra: typeof refreshIntraday;
   getHistoryData: typeof getHistory;
@@ -46,10 +46,10 @@ export class StockScreen extends React.Component<StockProps, StockState> {
       // Fetch metadata if needed
       if (
         this.props.stock.stockInfo === undefined ||
-        this.props.stock.stockInfo.metadata === undefined ||
+        this.props.stock.stockInfo.stockMetadata === undefined ||
         onceADayRefreshrateDated(
           curTime,
-          this.props.stock.stockInfo.metadata.fetchTime
+          this.props.stock.stockInfo.stockMetadata.fetchTime
         )
       ) {
         this.props.getMeta(this.props.stocks, this.props.symbol, curTime);
@@ -57,10 +57,10 @@ export class StockScreen extends React.Component<StockProps, StockState> {
       // Fetch historydata if needed
       if (
         this.props.stock.stockInfo === undefined ||
-        this.props.stock.stockInfo.historydata === undefined ||
+        this.props.stock.stockInfo.historyData === undefined ||
         onceADayRefreshrateDated(
           curTime,
-          this.props.stock.stockInfo.historydata.fetchTime
+          this.props.stock.stockInfo.historyData.fetchTime
         )
       ) {
         this.props.getHistoryData(
@@ -80,18 +80,18 @@ export class StockScreen extends React.Component<StockProps, StockState> {
     }
   }
 
-  countRevenuePersentage() {
+  countRevenuePercentage() {
     if (
       this.props.stock !== undefined &&
       this.props.stock.stockInfo !== undefined &&
-      this.props.stock.stockInfo.historydata !== undefined &&
+      this.props.stock.stockInfo.historyData !== undefined &&
       this.props.stock.stockInfo.intraday !== undefined
     ) {
       const revenue =
-        this.props.stock.stockInfo.historydata.close /
+        this.props.stock.stockInfo.historyData.close /
           this.props.stock.stockInfo.intraday.close -
         1;
-      return countRevenue(revenue);
+      return formatRevenue(revenue);
     }
     return '';
   }
@@ -124,8 +124,8 @@ export class StockScreen extends React.Component<StockProps, StockState> {
         >
           <Card containerStyle={stockContainerStyles.basicInfo}>
             <Basicinfo
-              revenue={this.countRevenuePersentage()}
-              metadata={stock.stockInfo.metadata}
+              revenue={this.countRevenuePercentage()}
+              stockMetadata={stock.stockInfo.stockMetadata}
               metaLoading={stock.stockInfo.metaLoading}
               metaError={stock.stockInfo.metaError}
               intraday={stock.stockInfo.intraday}
@@ -137,7 +137,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
 
           <Card containerStyle={stockContainerStyles.diagram}>
             <Diagram
-              historydata={stock.stockInfo.historydata}
+              historyData={stock.stockInfo.historyData}
               historyLoading={stock.stockInfo.historyLoading}
               historyError={stock.stockInfo.historyError}
             />
@@ -203,7 +203,7 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      getMeta: getMetadata,
+      getMeta: getStockMetadata,
       getIntra: getIntraday,
       refreshIntra: refreshIntraday,
       getHistoryData: getHistory,

@@ -20,7 +20,7 @@ exports[`basicinfo tests Basicinfo renders correctly with error 1`] = `
   forwardedRef={null}
 >
   Error! 
-  Metadata not found 
+  Stock metadata not found 
    
 </TouchableText>
 `;

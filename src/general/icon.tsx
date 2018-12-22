@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { scale } from '../util/scale';
+import { Colors } from '../App/colors';
 
 interface IconProps {
   iconName: string;
@@ -21,6 +22,7 @@ const Icon = (props: IconProps): JSX.Element => {
       style={{
         height: scale(props.iconHeight),
         width: scale(props.iconWidth),
+        tintColor: Colors.baseColor,
       }}
     />
   );

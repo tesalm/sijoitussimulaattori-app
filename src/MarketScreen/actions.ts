@@ -15,9 +15,9 @@ export enum ActionType {
   RequestStocksFailure = '[Stocks] API Failure',
   SaveSymbol = '[Stocks] Save Active Stock Symbol',
   UpdateStockData = '[Stocks] Update Stock Data',
-  GetMetadataBegin = '[Stocks] Metadata begin',
-  GetMetadataSuccess = '[Stocks] Metadata success',
-  GetMetadataFailure = '[Stocks] Metadata failure',
+  GetStockMetadataBegin = '[Stocks] StockMetadata begin',
+  GetStockMetadataSuccess = '[Stocks] StockMetadata success',
+  GetStockMetadataFailure = '[Stocks] StockMetadata failure',
   GetIntradayBegin = '[Stocks] Intraday begin',
   RefreshIntradayBegin = '[Stocks] Intraday begin refresh',
   GetIntradaySuccess = '[Stocks] Intraday success',
@@ -33,9 +33,9 @@ export type StockAction =
   | RequestStocksSuccess
   | RequestStocksFailure
   | SaveSymbol
-  | GetMetadataBegin
-  | GetMetadataSuccess
-  | GetMetadataFailure
+  | GetStockMetadataBegin
+  | GetStockMetadataSuccess
+  | GetStockMetadataFailure
   | GetIntradayBegin
   | RefreshIntradayBegin
   | GetIntradaySuccess
@@ -79,22 +79,22 @@ export class SaveSymbol {
   }
 }
 
-export class GetMetadataBegin {
-  readonly type = ActionType.GetMetadataBegin;
+export class GetStockMetadataBegin {
+  readonly type = ActionType.GetStockMetadataBegin;
   constructor(public stocks: Array<Stock>) {
     return { type: this.type, stocks };
   }
 }
 
-export class GetMetadataSuccess {
-  readonly type = ActionType.GetMetadataSuccess;
+export class GetStockMetadataSuccess {
+  readonly type = ActionType.GetStockMetadataSuccess;
   constructor(public stocks: Array<Stock>) {
     return { type: this.type, stocks };
   }
 }
 
-export class GetMetadataFailure {
-  readonly type = ActionType.GetMetadataFailure;
+export class GetStockMetadataFailure {
+  readonly type = ActionType.GetStockMetadataFailure;
   constructor(public stocks: Array<Stock>) {
     return { type: this.type, stocks };
   }
@@ -183,7 +183,7 @@ const saveStockSymbol = (symbol: string) => async (
 };
 
 // Single stock -actions:
-const getMetadata = (
+const getStockMetadata = (
   stockList: Array<Stock>,
   symbol: string,
   curTime: Date
@@ -194,19 +194,19 @@ const getMetadata = (
   });
   if (stock) {
     stock.stockInfo.metaLoading = true;
-    dispatch(new GetMetadataBegin(stocks));
+    dispatch(new GetStockMetadataBegin(stocks));
     try {
       const meta = await stockMetaApiRequest(symbol);
       meta.fetchTime = curTime;
       stock.stockInfo.metaLoading = false;
       stock.stockInfo.metaError = undefined;
-      stock.stockInfo.metadata = meta;
-      dispatch(new GetMetadataSuccess(stocks));
+      stock.stockInfo.stockMetadata = meta;
+      dispatch(new GetStockMetadataSuccess(stocks));
     } catch (error) {
-      stock.stockInfo.metadata = undefined;
+      stock.stockInfo.stockMetadata = undefined;
       stock.stockInfo.metaLoading = false;
       stock.stockInfo.metaError = error;
-      dispatch(new GetMetadataFailure(stocks));
+      dispatch(new GetStockMetadataFailure(stocks));
     }
   }
 };
@@ -282,12 +282,12 @@ const getHistory = (
     try {
       const historyData = await stockHistoryApiRequest(symbol);
       historyData.fetchTime = curTime;
-      stock.stockInfo.historydata = historyData;
+      stock.stockInfo.historyData = historyData;
       stock.stockInfo.historyLoading = false;
       stock.stockInfo.historyError = undefined;
       dispatch(new GetHistorySuccess(stocks));
     } catch (error) {
-      stock.stockInfo.historydata = undefined;
+      stock.stockInfo.historyData = undefined;
       stock.stockInfo.historyLoading = false;
       stock.stockInfo.historyError = error;
       dispatch(new GetHistoryFailure(stocks));
@@ -299,7 +299,7 @@ export {
   getStocks,
   refreshStocks,
   saveStockSymbol,
-  getMetadata,
+  getStockMetadata,
   getIntraday,
   refreshIntraday,
   getHistory,

@@ -4,12 +4,12 @@ import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-import { Metadata, Intraday } from '../../MarketScreen/reducers';
+import { StockMetadata, Intraday } from '../../MarketScreen/reducers';
 import { revenueColor, formatCurrency } from '../../util/general';
 
 export interface BasicinfoProps {
   revenue: string;
-  metadata?: Metadata;
+  stockMetadata?: StockMetadata;
   intraday?: Intraday;
   metaLoading?: boolean;
   metaError?: Error;
@@ -28,7 +28,7 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
       </View>
     );
   } else {
-    if (props.intraday === undefined || props.metadata === undefined) {
+    if (props.intraday === undefined || props.stockMetadata === undefined) {
       let errorMessage;
       if (props.metaError) {
         errorMessage = props.metaError.message + ' ';
@@ -46,28 +46,28 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
       <View style={stockStyles.basicinfoLeft}>
         <View>
           <Text style={stockStyles.titleStyle}>
-            {props.metadata.name} ({props.metadata.symbol})
+            {props.stockMetadata.name} ({props.stockMetadata.symbol})
           </Text>
         </View>
         <View style={stockStyles.basicinfoMiddle}>
           <View style={stockStyles.basicinfoMiddleContent}>
             <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
             <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.low, props.metadata.currency)}
+              {formatCurrency(props.intraday.low, props.stockMetadata.currency)}
             </Text>
             <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
             <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.high, props.metadata.currency)}
+              {formatCurrency(props.intraday.high, props.stockMetadata.currency)}
             </Text>
           </View>
           <View style={stockStyles.basicinfoMiddleContent}>
             <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
             <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.open, props.metadata.currency)}
+              {formatCurrency(props.intraday.open, props.stockMetadata.currency)}
             </Text>
             <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
             <Text style={stockStyles.value}>
-              {formatCurrency(props.intraday.close, props.metadata.currency)}
+              {formatCurrency(props.intraday.close, props.stockMetadata.currency)}
             </Text>
           </View>
         </View>

@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 
 import { StockScreen, StockProps } from '../StockScreen';
 import {
-  getMetadata,
+  getStockMetadata,
   getIntraday,
   refreshIntraday,
 } from '../../MarketScreen/actions';
@@ -17,7 +17,7 @@ describe('stock tests', () => {
 
   const defaultStockProps: StockProps = {
     stocks: [],
-    getMeta: getMetadata,
+    getMeta: getStockMetadata,
     getIntra: getIntraday,
     refreshIntra: refreshIntraday,
     getHistoryData: jest.fn(),
@@ -52,7 +52,7 @@ describe('stock tests', () => {
         close: 168.63,
         currency: 'USD',
         stockInfo: {
-          metadata: {
+          stockMetadata: {
             symbol: 'AAPL',
             name: 'Apple Inc.',
             type: 'string',
@@ -73,7 +73,7 @@ describe('stock tests', () => {
             volume: 12279994,
             fetchTime: new Date('2018-12-17T01:24:00.000Z'),
           },
-          historydata: {
+          historyData: {
             symbol: 'AAPL',
             date: '2018-12-12',
             open: 170.4,
@@ -102,7 +102,7 @@ describe('stock tests', () => {
       close: 293.42,
       currency: 'USD',
       stockInfo: {
-        metadata: {
+        stockMetadata: {
           symbol: 'AAPL',
           name: 'Apple Inc.',
           type: 'string',
@@ -123,7 +123,7 @@ describe('stock tests', () => {
           volume: 12279994,
           fetchTime: new Date('2018-12-17T01:24:00.000Z'),
         },
-        historydata: {
+        historyData: {
           symbol: 'AAPL',
           date: '2018-12-12',
           open: 170.4,

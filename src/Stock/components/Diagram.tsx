@@ -3,10 +3,10 @@ import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-import { Historydata } from '../../MarketScreen/reducers';
+import { HistoryData } from '../../MarketScreen/reducers';
 
 interface DiagramProps {
-  historydata?: Historydata;
+  historyData?: HistoryData;
   historyLoading?: boolean;
   historyError?: Error;
 }
