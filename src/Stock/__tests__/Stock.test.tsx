@@ -45,11 +45,11 @@ describe('stock tests', () => {
       },
       {
         symbol: 'AAPL',
-        name: 'Apple',
-        high: 375.53,
-        low: 354.38,
+        name: 'Apple Inc.',
+        high: 170.43,
+        low: 165.43,
         revenue: 3894.34,
-        close: 293.42,
+        close: 168.63,
         currency: 'USD',
         stockInfo: {
           metadata: {
