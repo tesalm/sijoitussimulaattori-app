@@ -35,7 +35,7 @@ describe('stock tests', () => {
         low: 9.99,
         revenue: -0.035,
         close: 14.57,
-        currency: 'USD',
+        currency: undefined,
         stockInfo: {
           metaLoading: false,
           intraLoading: false,
@@ -50,7 +50,7 @@ describe('stock tests', () => {
         low: 165.43,
         revenue: 3894.34,
         close: 168.63,
-        currency: 'USD',
+        currency: undefined,
         stockInfo: {
           metadata: {
             symbol: 'AAPL',
@@ -100,7 +100,7 @@ describe('stock tests', () => {
       low: 354.38,
       revenue: 3894.34,
       close: 293.42,
-      currency: 'USD',
+      currency: undefined,
       stockInfo: {
         metadata: {
           symbol: 'AAPL',
