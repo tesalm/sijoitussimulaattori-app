@@ -119,7 +119,8 @@ export class MarketScreen extends React.Component<
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {formatCurrency(item.close, item.currency)}
+                  {/* TODO: Replace 'USD' with item.currency when currency is added to backend */}
+                  {formatCurrency(item.close, 'USD')}
                 </Text>
               </View>
             }

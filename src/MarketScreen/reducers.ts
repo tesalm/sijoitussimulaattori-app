@@ -54,7 +54,8 @@ export interface Stock {
   low: number;
   revenue: number;
   close: number;
-  currency: string;
+  // TODO: Add currency to backend.
+  currency?: string;
   stockInfo: SingleStock;
 }
 
