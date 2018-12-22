@@ -14,7 +14,7 @@ import {
   getHistory,
   refreshIntraday,
 } from '../MarketScreen/actions';
-import { StocksListing, Stock } from '../MarketScreen/reducers';
+import { Stock } from '../MarketScreen/reducers';
 
 interface SingleStockProps {
   navigation: NavigationScreenProp<NavigationState>;
@@ -25,6 +25,7 @@ interface SingleStockProps {
   stockList: Array<Stock>;
   refreshing: boolean;
 }
+
 const SingleStockScreen = (props: SingleStockProps) => {
   <StockScreen
     symbol={props.navigation.getParam('symbol')}

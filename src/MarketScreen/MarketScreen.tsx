@@ -17,6 +17,7 @@ import { getStocks, saveStockSymbol, refreshStocks } from './actions';
 import { Stock } from './reducers';
 import { StockStyles } from './styles';
 import { Colors } from '../App/colors';
+import { formatRevenue, formatCurrency, revenueColor } from '../util/general';
 
 export interface StockProps {
   stocks: Array<Stock>;
@@ -57,32 +58,9 @@ export class MarketScreen extends React.Component<
     );
   };
 
-  //This checks what color revenue should be
-  revenueColor = (revenue: number): typeof StockStyles.revenueValueGreen => {
-    return revenue >= 0
-      ? StockStyles.revenueValueGreen
-      : StockStyles.revenueValueRed;
-  };
-
   //Every other listitem has gray background
   listBackgroundColor = (index: number): typeof StockStyles.greyContainer => {
     return index % 2 ? StockStyles.greyContainer : StockStyles.whiteContainer;
-  };
-
-  //format revenue to right forms. Converts number to string and add procent marker.
-  formatRevenue = (revenue: number): string => {
-    return revenue >= 0
-      ? '+' + (revenue * 100).toFixed(2) + ' %'
-      : (revenue * 100).toFixed(2) + ' %';
-  };
-
-  formatValue = (value: number, currency: string): string => {
-    if (currency == 'USD') {
-      return value + ' $';
-    } else if (currency == 'EUR') {
-      return value + ' €';
-    }
-    return value + ' $';
   };
 
   refresh = () => {
@@ -91,7 +69,6 @@ export class MarketScreen extends React.Component<
 
   render() {
     const { stocks, loading, refreshing, error } = this.props;
-    console.log(stocks);
     if (error) {
       //TODO: Format the error message to user
       return <Text>Error! {error.message} </Text>;
@@ -131,8 +108,8 @@ export class MarketScreen extends React.Component<
                 <Text style={StockStyles.revenueText}>
                   {t('ListStockPage.RevenueText')}
                 </Text>
-                <Text style={this.revenueColor(item.revenue)}>
-                  {this.formatRevenue(item.revenue)}
+                <Text style={revenueColor(item.revenue)}>
+                  {formatRevenue(item.revenue)}
                 </Text>
               </View>
             }
@@ -142,7 +119,7 @@ export class MarketScreen extends React.Component<
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {this.formatValue(item.close, item.currency)}
+                  {formatCurrency(item.close, item.currency)}
                 </Text>
               </View>
             }

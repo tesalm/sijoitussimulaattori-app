@@ -14,7 +14,7 @@ const Bid = (props: BidProps): JSX.Element => {
       <View style={stockStyles.bidView}>
         <View style={stockStyles.bidLogoView}>
           <Icon iconName={'transaction'} iconHeight={24} iconWidth={24} />
-          <Text style={stockStyles.bidText}>{t('Bid')}</Text>
+          <Text style={stockStyles.bidText}>{t('StockPage.Bid')}</Text>
         </View>
         <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
       </View>

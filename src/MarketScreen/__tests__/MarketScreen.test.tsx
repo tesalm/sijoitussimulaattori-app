@@ -10,28 +10,41 @@ describe('stock-list tests', () => {
   const defaultStockProps: StockProps = {
     stocks: [],
     loading: false,
+    refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
     saveSymbol: jest.fn(),
-    symbol: ''
   };
 
   const loadingStockProps: StockProps = {
     stocks: [],
     loading: true,
+    refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
     saveSymbol: jest.fn(),
-    symbol: ''
+  };
+
+  const refreshingStockProps: StockProps = {
+    stocks: [],
+    loading: false,
+    refreshing: true,
+    error: undefined,
+    getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
+    saveSymbol: jest.fn(),
   };
 
   const errorStockProps: StockProps = {
     stocks: [],
     loading: false,
+    refreshing: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
     saveSymbol: jest.fn(),
-    symbol: ''
   };
 
   const stocksStockProps: StockProps = {
@@ -43,6 +56,13 @@ describe('stock-list tests', () => {
         low: 9.99,
         revenue: -0.035,
         close: 14.57,
+        currency: 'USD',
+        stockInfo: {
+          metaLoading: false,
+          intraLoading: false,
+          historyLoading: false,
+          refreshing: false,
+        },
       },
       {
         symbol: 'APLL',
@@ -51,13 +71,21 @@ describe('stock-list tests', () => {
         low: 9.99,
         revenue: -0.035,
         close: 14.57,
+        currency: 'USD',
+        stockInfo: {
+          metaLoading: false,
+          intraLoading: false,
+          historyLoading: false,
+          refreshing: false,
+        },
       },
     ],
     loading: false,
+    refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
+    refreshAllStocks: jest.fn(),
     saveSymbol: jest.fn(),
-    symbol: ''
   };
 
   it('renders correctly', async () => {
@@ -70,6 +98,13 @@ describe('stock-list tests', () => {
   it('renders correctly with loading', async () => {
     const component = renderer
       .create(<MarketScreen {...loadingStockProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders correctly with refreshing', async () => {
+    const component = renderer
+      .create(<MarketScreen {...refreshingStockProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

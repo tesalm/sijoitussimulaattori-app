@@ -1,123 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`stock tests Stockscreen renders correctly 1`] = `
-<_class
-  refreshControl={
-    <RefreshControlMock
-      colors={
-        Array [
-          "#004D40",
-        ]
-      }
-      onRefresh={[Function]}
-      refreshing={false}
-    />
-  }
+<TouchableText
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  forwardedRef={null}
 >
-  <RefreshControlMock
-    colors={
-      Array [
-        "#004D40",
-      ]
-    }
-    onRefresh={[Function]}
-    refreshing={false}
-  />
-  <View>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 178,
-          "margin": 0,
-        }
-      }
-    >
-      <Connect(Basicinfo)
-        revenue=""
-      />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 200,
-          "margin": 0,
-        }
-      }
-    >
-      <Connect(Diagram) />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 50,
-          "margin": 0,
-        }
-      }
-    >
-      <Bid />
-    </Themed.Card>
-  </View>
-</_class>
-`;
-
-exports[`stock tests Stockscreen renders correctly with error 1`] = `
-<_class
-  refreshControl={
-    <RefreshControlMock
-      colors={
-        Array [
-          "#004D40",
-        ]
-      }
-      onRefresh={[Function]}
-      refreshing={false}
-    />
-  }
->
-  <RefreshControlMock
-    colors={
-      Array [
-        "#004D40",
-      ]
-    }
-    onRefresh={[Function]}
-    refreshing={false}
-  />
-  <View>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 178,
-          "margin": 0,
-        }
-      }
-    >
-      <Connect(Basicinfo)
-        revenue=""
-      />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 200,
-          "margin": 0,
-        }
-      }
-    >
-      <Connect(Diagram) />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 50,
-          "margin": 0,
-        }
-      }
-    >
-      <Bid />
-    </Themed.Card>
-  </View>
-</_class>
+  Error, stockinfo not found! 
+</TouchableText>
 `;
 
 exports[`stock tests Stockscreen renders correctly with stock 1`] = `
@@ -152,7 +43,34 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
         }
       }
     >
-      <Connect(Basicinfo)
+      <Component
+        intraLoading={false}
+        intraday={
+          Object {
+            "close": 168.63,
+            "date": "2018-12-12",
+            "fetchTime": 2018-12-22T09:59:47.715Z,
+            "high": 170.43,
+            "low": 165.43,
+            "open": 170.4,
+            "symbol": "AAPL",
+            "volume": 12279994,
+          }
+        }
+        metaLoading={false}
+        metadata={
+          Object {
+            "currency": "USD",
+            "fetchTime": 2018-12-22T09:59:47.715Z,
+            "marketClose": "2018-12-12 11:20:00",
+            "marketOpen": "2018-12-12 11:20:00",
+            "name": "Apple Inc.",
+            "region": "string",
+            "symbol": "AAPL",
+            "timeZone": "US/Eastern",
+            "type": "string",
+          }
+        }
         revenue="+0.00 %"
       />
     </Themed.Card>
@@ -164,7 +82,21 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
         }
       }
     >
-      <Connect(Diagram) />
+      <Diagram
+        historyLoading={false}
+        historydata={
+          Object {
+            "close": 168.63,
+            "date": "2018-12-12",
+            "fetchTime": 2018-12-22T09:59:47.715Z,
+            "high": 170.43,
+            "low": 165.43,
+            "open": 170.4,
+            "symbol": "AAPL",
+            "volume": 12279994,
+          }
+        }
+      />
     </Themed.Card>
     <Themed.Card
       containerStyle={

@@ -4,10 +4,8 @@ import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
-import { RootState } from '../../redux/reducers';
-import { Dispatch, bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { Metadata, Intraday } from '../../MarketScreen/reducers';
+import { revenueColor, formatCurrency } from '../../util/general';
 
 export interface BasicinfoProps {
   revenue: string;
@@ -19,115 +17,79 @@ export interface BasicinfoProps {
   intraError?: Error;
 }
 
-export class Basicinfo extends React.Component<BasicinfoProps> {
-  constructor(props: BasicinfoProps) {
-    super(props);
-  }
-
-  revenueColor = (revenue: number): typeof stockStyles.revenueValueGreen => {
-    return revenue >= 0
-      ? stockStyles.revenueValueGreen
-      : stockStyles.revenueValueRed;
-  };
-
-  formatValue = (value: number, currency: string): string => {
-    if (currency == 'USD') {
-      return value + ' $';
-    } else if (currency == 'EUR') {
-      return value + ' €';
-    }
-    return value + ' $';
-  };
-
-  render() {
-    const {
-      metadata,
-      intraday,
-      metaLoading,
-      metaError,
-      intraLoading,
-      intraError,
-      revenue,
-    } = this.props;
-
-    if (metaLoading || intraLoading) {
-      return (
-        <View style={stockStyles.loading}>
-          <ActivityIndicator size="large" />
-        </View>
-      );
-    } else {
-      if (intraday === undefined || metadata === undefined) {
-        let errorMessage;
-        if (metaError) {
-          errorMessage = metaError.message + ' ';
-        }
-        if (intraError) {
-          errorMessage = errorMessage + intraError.message;
-        }
-        // TODO: Muokkaa error-teksti käyttäjälle.
-        return <Text>Error! {errorMessage} </Text>;
-      }
-    }
-
+export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
+  if (props.metaLoading || props.intraLoading) {
     return (
-      <View>
-        <View style={stockStyles.basicinfo}>
-          <Text style={stockStyles.titleStyle}>
-            {metadata.name} ({metadata.symbol})
-          </Text>
-        </View>
-        <View style={stockStyles.basicinfo}>
-          <View style={stockStyles.basicinfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
-            <Text style={stockStyles.value}>
-              {this.formatValue(intraday.low, metadata.currency)}
-            </Text>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
-            <Text style={stockStyles.value}>
-              {this.formatValue(intraday.high, metadata.currency)}
-            </Text>
-          </View>
-          <View style={stockStyles.basicinfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
-            <Text style={stockStyles.value}>
-              {this.formatValue(intraday.open, metadata.currency)}
-            </Text>
-            <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
-            <Text style={stockStyles.value}>
-              {this.formatValue(intraday.close, metadata.currency)}
-            </Text>
-          </View>
-          <View style={stockStyles.basicinfoSmallerComp} />
-          <View style={stockStyles.basicinfoMidComp}>
-            <Text style={stockStyles.valueHeaderRightSide}>
-              {t('StockPage.Volume')}
-            </Text>
-            <Text style={stockStyles.valueRightSide}>{intraday.volume}</Text>
-            <Text style={stockStyles.valueHeaderRightSide}>
-              {t('StockPage.RevenueText')}
-            </Text>
-            <Text style={this.revenueColor(intraday.open)}>{revenue}</Text>
-          </View>
-        </View>
-        <View style={stockStyles.basicinfo}>
-          <View>
-            <Text style={stockStyles.valueHeader}>
-              {t('StockPage.Updated')}: {intraday.fetchTime.toLocaleString()}
-            </Text>
-          </View>
-        </View>
+      <View style={stockStyles.loading}>
+        <ActivityIndicator size="large" />
       </View>
     );
+  } else {
+    if (props.intraday === undefined || props.metadata === undefined) {
+      let errorMessage;
+      if (props.metaError) {
+        errorMessage = props.metaError.message + ' ';
+      }
+      if (props.intraError) {
+        errorMessage = errorMessage + props.intraError.message;
+      }
+      // TODO: Muokkaa error-teksti käyttäjälle.
+      return <Text>Error! {errorMessage} </Text>;
+    }
   }
-}
 
-const mapStateToProps = (state: RootState) => ({});
+  return (
+    <View>
+      <View style={stockStyles.basicinfo}>
+        <Text style={stockStyles.titleStyle}>
+          {props.metadata.name} ({props.metadata.symbol})
+        </Text>
+      </View>
+      <View style={stockStyles.basicinfo}>
+        <View style={stockStyles.basicinfoSmallerComp}>
+          <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
+          <Text style={stockStyles.value}>
+            {formatCurrency(props.intraday.low, props.metadata.currency)}
+          </Text>
+          <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
+          <Text style={stockStyles.value}>
+            {formatCurrency(props.intraday.high, props.metadata.currency)}
+          </Text>
+        </View>
+        <View style={stockStyles.basicinfoSmallerComp}>
+          <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
+          <Text style={stockStyles.value}>
+            {formatCurrency(props.intraday.open, props.metadata.currency)}
+          </Text>
+          <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
+          <Text style={stockStyles.value}>
+            {formatCurrency(props.intraday.close, props.metadata.currency)}
+          </Text>
+        </View>
+        <View style={stockStyles.basicinfoSmallerComp} />
+        <View style={stockStyles.basicinfoMidComp}>
+          <Text style={stockStyles.valueHeaderRightSide}>
+            {t('StockPage.Volume')}
+          </Text>
+          <Text style={stockStyles.valueRightSide}>
+            {props.intraday.volume}
+          </Text>
+          <Text style={stockStyles.valueHeaderRightSide}>
+            {t('StockPage.RevenueText')}
+          </Text>
+          <Text style={revenueColor(props.intraday.open)}>{props.revenue}</Text>
+        </View>
+      </View>
+      <View style={stockStyles.basicinfo}>
+        <View>
+          <Text style={stockStyles.valueHeader}>
+            {t('StockPage.Updated')}:{' '}
+            {props.intraday.fetchTime.toLocaleString()}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+};
 
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({}, dispatch);
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Basicinfo);
+export default Basicinfo;

@@ -19,7 +19,7 @@ import {
   refreshIntraday,
 } from '../MarketScreen/actions';
 import { Colors } from '../App/colors';
-import { Stock, StocksListing } from '../MarketScreen/reducers';
+import { Stock } from '../MarketScreen/reducers';
 import { countRevenue } from '../util/general';
 
 export interface StockProps {
@@ -41,7 +41,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
   }
 
   componentDidMount() {
-    if (this.props.symbol && this.props.stock && this.props.stocks) {
+    if (this.props.symbol && this.props.stock) {
       const curTime = new Date();
       // Fetch metadata if needed
       if (
