@@ -70,6 +70,7 @@ export class MarketScreen extends React.Component<
 
   stockPressed = (symbol: string) => {
     if (this.props.refreshing) {
+      // TODO: Format toast message to user.
       ToastAndroid.show(
         'Wait, stock-list is being refreshed.',
         ToastAndroid.SHORT
