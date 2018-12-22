@@ -11,7 +11,7 @@ import { Basicinfo } from './components/Basicinfo';
 import { EventsTransactions, Manage } from './components/Buttons';
 import { Holdings } from './components/Holdings';
 import { Portfolio } from './reducers';
-import { stockContainerStyles } from './styles';
+import { stockContainerStyles, stockStyles } from './styles';
 
 export interface PortfolioProps {
   portfolio?: Portfolio;
@@ -32,6 +32,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
 
   render() {
     const { portfolio, name } = this.props;
+
     if (name == undefined) {
       return <Text>hups</Text>;
     }
@@ -59,6 +60,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
 }
 
 const mapStateToProps = (state: RootState) => ({
+  name: state.portfolioListing.name,
   portfolio: state.singlePortfolio.portfolio,
 });
 
