@@ -131,6 +131,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
               intraday={stock.stockInfo.intraday}
               intraLoading={stock.stockInfo.intraLoading}
               intraError={stock.stockInfo.intraError}
+              historyLoading={stock.stockInfo.historyLoading}
             />
           </Card>
 

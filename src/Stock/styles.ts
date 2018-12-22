@@ -1,86 +1,84 @@
 import { StyleSheet } from 'react-native';
-import { scale, verticalScale } from 'react-native-size-matters';
+import { scale, verticalScale } from '../util/scale';
 import { Colors } from '../App/colors';
 
 const stockContainerStyles = StyleSheet.create({
   basicInfo: {
     margin: 0,
-    height: 178,
+    paddingTop: verticalScale(16),
+    paddingBottom: verticalScale(16),
+    paddingLeft: scale(16),
+    paddingRight: scale(16),
+    height: verticalScale(186),
   },
   diagram: {
     margin: 0,
-    height: 200,
+    height: verticalScale(200),
   },
   buttonContainer: {
     margin: 0,
-    height: 50,
+    height: verticalScale(56),
   },
 });
 
 const stockStyles = StyleSheet.create({
   titleStyle: {
     fontWeight: 'bold',
-    fontSize: 17,
-    marginBottom: scale(8),
-    marginLeft: scale(8),
+    fontSize: verticalScale(17),
+    marginBottom: verticalScale(16),
     color: Colors.baseColor,
   },
   valueHeader: {
-    fontSize: 12,
+    fontSize: verticalScale(12),
     textAlign: 'justify',
     marginBottom: verticalScale(0),
-    marginLeft: scale(8),
     color: Colors.baseColor,
   },
   value: {
-    fontSize: 14,
+    fontSize: verticalScale(14),
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
-    marginLeft: scale(8),
-    marginBottom: verticalScale(8),
+    marginBottom: verticalScale(16),
     color: Colors.baseColor,
   },
   valueHeaderRightSide: {
-    fontSize: 12,
+    fontSize: verticalScale(12),
     marginBottom: verticalScale(0),
-    marginLeft: scale(8),
+    textAlign: 'center',
     color: Colors.baseColor,
   },
   revenueValueGreen: {
-    fontSize: 18,
+    fontSize: verticalScale(18),
     fontWeight: 'bold',
     color: Colors.greenPercent,
     marginBottom: verticalScale(8),
-    marginLeft: scale(8),
   },
   revenueValueRed: {
-    fontSize: 18,
+    fontSize: verticalScale(18),
     fontWeight: 'bold',
     color: Colors.redPercent,
-    marginBottom: verticalScale(8),
-    marginLeft: scale(8),
+    marginBottom: verticalScale(16),
   },
   valueRightSide: {
-    fontSize: 18,
+    fontSize: verticalScale(18),
     fontWeight: 'bold',
     marginBottom: verticalScale(8),
-    marginLeft: scale(8),
+    textAlign: 'center',
     color: Colors.baseColor,
   },
-  bidButton: {
-    margin: 0,
-    height: 61,
-  },
   bidView: {
+    marginTop: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   bidLogoView: {
+    marginTop: 0,
     flexDirection: 'row',
   },
   bidText: {
-    fontSize: 17,
+    fontSize: verticalScale(17),
     fontWeight: 'bold',
     marginLeft: scale(8),
     color: Colors.baseColor,
@@ -89,13 +87,21 @@ const stockStyles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
   },
-  basicinfoSmallerComp: {
+  basicinfoLeft: {
+    flexDirection: 'column',
+    flex: 2,
+  },
+  basicinfoRight: {
     flexDirection: 'column',
     flex: 1,
+    justifyContent: 'center',
   },
-  basicinfoMidComp: {
+  basicinfoMiddle: {
+    flexDirection: 'row',
+  },
+  basicinfoMiddleContent: {
     flexDirection: 'column',
-    flex: 1.5,
+    flex: 1,
   },
   loading: {
     height: '100%',

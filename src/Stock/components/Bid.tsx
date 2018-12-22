@@ -10,7 +10,7 @@ interface BidProps {}
 const Bid = (props: BidProps): JSX.Element => {
   return (
     // TODO: Make onPress for these items that go to buy or sell view.
-    <TouchableHighlight style={stockStyles.bidButton}>
+    <TouchableHighlight>
       <View style={stockStyles.bidView}>
         <View style={stockStyles.bidLogoView}>
           <Icon iconName={'transaction'} iconHeight={24} iconWidth={24} />

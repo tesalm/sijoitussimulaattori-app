@@ -38,12 +38,17 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 178,
+          "height": 372,
           "margin": 0,
+          "paddingBottom": 32,
+          "paddingLeft": 32,
+          "paddingRight": 32,
+          "paddingTop": 32,
         }
       }
     >
       <Component
+        historyLoading={false}
         intraLoading={false}
         intraday={
           Object {
@@ -77,7 +82,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 200,
+          "height": 400,
           "margin": 0,
         }
       }
@@ -101,7 +106,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 50,
+          "height": 112,
           "margin": 0,
         }
       }

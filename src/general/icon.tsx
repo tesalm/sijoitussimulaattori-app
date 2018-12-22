@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { scale } from '../util/scale';
 
 interface IconProps {
   iconName: string;
@@ -18,8 +19,8 @@ const Icon = (props: IconProps): JSX.Element => {
     <Image
       source={req}
       style={{
-        height: props.iconHeight,
-        width: props.iconWidth,
+        height: scale(props.iconHeight),
+        width: scale(props.iconWidth),
       }}
     />
   );

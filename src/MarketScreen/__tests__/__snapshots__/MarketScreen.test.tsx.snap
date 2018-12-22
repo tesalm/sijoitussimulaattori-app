@@ -663,7 +663,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
-              "height": 147.13235294117646,
+              "height": 150,
               "padding": 14,
             }
           }
@@ -681,10 +681,10 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#004D40",
-                  "fontSize": 16,
+                  "fontSize": 32,
                   "fontWeight": "bold",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 15.694117647058823,
+                  "marginLeft": 16,
+                  "marginTop": 16,
                 }
               }
               testID="listItemTitle"
@@ -713,8 +713,8 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 23.541176470588233,
+                  "marginLeft": 16,
+                  "marginTop": 24,
                 }
               }
             >
@@ -722,7 +722,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                     "marginBottom": 0,
                     "textAlign": "justify",
                   }
@@ -734,9 +734,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 14,
+                    "fontSize": 28,
                     "fontWeight": "bold",
-                    "marginTop": -3.9235294117647057,
+                    "marginTop": -4,
                     "textAlign": "justify",
                   }
                 }
@@ -761,7 +761,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
+                  "marginLeft": 16,
                 }
               }
             >
@@ -769,7 +769,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                   }
                 }
               >
@@ -779,7 +779,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#e20f00",
-                    "fontSize": 18,
+                    "fontSize": 36,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }
@@ -815,7 +815,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
               "flexDirection": "row",
-              "height": 147.13235294117646,
+              "height": 150,
               "padding": 14,
             }
           }
@@ -833,10 +833,10 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#004D40",
-                  "fontSize": 16,
+                  "fontSize": 32,
                   "fontWeight": "bold",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 15.694117647058823,
+                  "marginLeft": 16,
+                  "marginTop": 16,
                 }
               }
               testID="listItemTitle"
@@ -865,8 +865,8 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
-                  "marginTop": 23.541176470588233,
+                  "marginLeft": 16,
+                  "marginTop": 24,
                 }
               }
             >
@@ -874,7 +874,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                     "marginBottom": 0,
                     "textAlign": "justify",
                   }
@@ -886,9 +886,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 14,
+                    "fontSize": 28,
                     "fontWeight": "bold",
-                    "marginTop": -3.9235294117647057,
+                    "marginTop": -4,
                     "textAlign": "justify",
                   }
                 }
@@ -913,7 +913,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 17.142857142857142,
+                  "marginLeft": 16,
                 }
               }
             >
@@ -921,7 +921,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 12,
+                    "fontSize": 24,
                   }
                 }
               >
@@ -931,7 +931,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#e20f00",
-                    "fontSize": 18,
+                    "fontSize": 36,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }
