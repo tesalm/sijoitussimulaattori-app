@@ -43,6 +43,7 @@
   "dependencies": {
     "@types/redux-mock-store": "^1.0.0",
     "@types/sinon": "^7.0.0",
+    "@types/validator": "^10.9.0",
     "await-to-js": "^2.1.1",
     "axios": "^0.18.0",
     "i18next": "^12.1.0",
@@ -65,8 +66,9 @@
     "redux": "^4.0.1",
     "redux-axios-middleware": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "sinon": "^7.2.2",
+    "sinon": "^7.2.2"
     "victory-native": "^31.0.0"
+    "validator": "^10.10.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.15",
