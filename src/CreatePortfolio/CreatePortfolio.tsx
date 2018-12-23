@@ -48,9 +48,10 @@ class CreatePortfolio extends React.Component<
     if (trimWhitespaces === '') {
       this.setState({
         errorMessageTranslationKey: 'InputErrors.NameEmpty',
+        nameError: true,
       });
     } else {
-      this.setState({ name: input, nameError: false });
+      this.setState({ name: trimWhitespaces, nameError: false });
     }
   }
 
