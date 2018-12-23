@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 import { t } from '../../assets/i18n';
 import HomeScreen from '../../PortfolioList/PortfolioListScreen';
 import PortfolioScreen from '../../PortfolioScreen/PortfolioScreen';
+import CreatePortfolio from '../../CreatePortfolio/CreatePortfolio';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
@@ -17,6 +18,7 @@ const HomeStack = createStackNavigator(
     Profile: { screen: ProfileScreen },
     Info: { screen: InfoScreen },
     SinglePortfolio: { screen: PortfolioScreen },
+    CreatePortfolio: { screen: CreatePortfolio },
     // TODO add more pages related to this tab
   },
   {

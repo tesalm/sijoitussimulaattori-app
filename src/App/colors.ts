@@ -4,6 +4,9 @@ const Colors = {
   redPercent: '#e20f00',
   greyBackground: '#F0F0F0',
   whiteBackground: 'white',
+  textInputText: '#e8a30c',
+  textInputBottomBorder: '#000000',
+  errorText: '#ff0000',
 };
 
 export { Colors };

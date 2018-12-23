@@ -107,5 +107,15 @@
     "Acquisition": "Acquisition price",
     "TotalMarketValue": "Total market value",
     "TotalRevenue": "Total revenue"
+  },
+  "CreatePortfolio": {
+    "ConfirmButtonText": "Create Portfolio",
+    "Title": "Create Portfolio",
+    "PortfolioNameInputTitle": "Name of the portfolio",
+    "PortfolioAmountInputTitle": "Initial amount of money"
+  },
+  "InputErrors": {
+    "NameEmpty": "Name can not be empty!",
+    "NotNumber": "Amount needs to be a number!"
   }
 }

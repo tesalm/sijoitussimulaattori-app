@@ -26,6 +26,17 @@ const Styles = StyleSheet.create({
     height: 24,
     width: 24,
   },
+  createNewPortfolio: {
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+  },
 });
 
 export { Styles, Colors };

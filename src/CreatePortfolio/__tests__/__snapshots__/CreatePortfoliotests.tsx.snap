@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Portfolio renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "flex-start",
+      "marginBottom": 8,
+      "marginLeft": 16,
+      "marginRight": 16,
+      "marginTop": 8,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#004D40",
+        "fontFamily": "Roboto",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "textAlign": "left",
+      }
+    }
+  >
+    Name of the portfolio
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    style={
+      Object {
+        "borderBottomColor": "#000000",
+        "borderBottomWidth": 1,
+        "color": "#e8a30c",
+        "height": 40,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <Text
+    style={
+      Object {
+        "color": "#004D40",
+        "fontFamily": "Roboto",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "textAlign": "left",
+      }
+    }
+  >
+    Initial amount of money
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="numeric"
+    onChangeText={[Function]}
+    style={
+      Object {
+        "borderBottomColor": "#000000",
+        "borderBottomWidth": 1,
+        "color": "#e8a30c",
+        "height": 40,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <View
+    accessibilityRole="button"
+    accessibilityStates={Array []}
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#004d40",
+            },
+          ]
+        }
+      >
+        Create Portfolio
+      </Text>
+    </View>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ff0000",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;

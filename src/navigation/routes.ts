@@ -7,4 +7,5 @@ export enum RouteName {
   Community = 'Community',
   Profile = 'Profile',
   SinglePortfolio = 'SinglePortfolio',
+  CreatePortfolio = 'CreatePortfolio',
 }
