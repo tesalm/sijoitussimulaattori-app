@@ -14,49 +14,46 @@ import { loginScreenStyles } from './styles';
 
 export interface LoginViewProps {
   loginState: LoginState;
-  loginError?: Error; 
+  loginError?: Error;
   onLoginAsAnonym: typeof login;
 }
 
 type LoginViewPropsWithNavigation = LoginViewProps & NavigationScreenProps;
 
 class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
-  constructor(props: LoginViewPropsWithNavigation){
+  constructor(props: LoginViewPropsWithNavigation) {
     super(props);
   }
 
   render() {
     const { onLoginAsAnonym, loginError, loginState } = this.props;
 
-    const loginButtonText = loginError ?
-      t('LoginScreen.AfterErrButton') :
-      t('LoginScreen.NewUserButton');
-    const loginGreeting = loginError ? 
-      loginError.message :
-      t('LoginScreen.NewUserGreeting');
+    const loginButtonText = loginError
+      ? t('LoginScreen.AfterErrButton')
+      : t('LoginScreen.NewUserButton');
+    const loginGreeting = loginError
+      ? loginError.message
+      : t('LoginScreen.NewUserGreeting');
 
-    return(
-    <View style={loginScreenStyles.background}>
-      { // Show modal activity indicator on top of everything else when logging in.
-        loginState === LoginState.LoggingIn && <ModalActivityIndicator />
-      }
-      {/*Logo.*/}
-      <Image
-        style={loginScreenStyles.logo as ImageStyle}
-        source={require('../../resources/Logo.png')} 
-      />
-      {/*New user greetee and anonymous login button.*/}
-      <View style={loginScreenStyles.buttonContainer}>
-        <Text style={loginScreenStyles.text}>
-          {loginGreeting}
-        </Text>
-        <Button
-          buttonText={loginButtonText}
-          onPress={onLoginAsAnonym}
-          lightBackground={true}
+    return (
+      <View style={loginScreenStyles.background}>
+        {// Show modal activity indicator on top of everything else when logging in.
+        loginState === LoginState.LoggingIn && <ModalActivityIndicator />}
+        {/*Logo.*/}
+        <Image
+          style={loginScreenStyles.logo as ImageStyle}
+          source={require('../assets/images/Logo.png')}
         />
+        {/*New user greetee and anonymous login button.*/}
+        <View style={loginScreenStyles.buttonContainer}>
+          <Text style={loginScreenStyles.text}>{loginGreeting}</Text>
+          <Button
+            buttonText={loginButtonText}
+            onPress={onLoginAsAnonym}
+            lightBackground={true}
+          />
+        </View>
       </View>
-    </View>
     );
   }
 }
@@ -65,13 +62,17 @@ const mapStateToProps = (state: RootState) => ({
   loginState: state.login.loginState,
   loginError: state.login.loginError,
 });
-const mapDispatchToProps = (dispatch: Dispatch) => 
-  bindActionCreators({
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
       onLoginAsAnonym: login,
     },
     dispatch
-);
+  );
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginScreen);
 
 export { LoginScreen as LoginScreenTest };
