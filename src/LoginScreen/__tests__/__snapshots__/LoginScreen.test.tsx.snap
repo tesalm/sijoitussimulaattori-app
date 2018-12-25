@@ -15,7 +15,7 @@ exports[`Testing Login Screen renders correctly 1`] = `
   <Image
     source={
       Object {
-        "testUri": "../../../resources/Logo.png",
+        "testUri": "../../../src/assets/images/Logo.png",
       }
     }
     style={
@@ -46,7 +46,7 @@ exports[`Testing Login Screen renders correctly 1`] = `
         }
       }
     >
-      Your first time at the ValueTown?
+      Your first time the ValueTown?
     </Text>
     <View
       accessible={true}
@@ -107,7 +107,7 @@ exports[`Testing Login Screen renders correctly after login error 1`] = `
   <Image
     source={
       Object {
-        "testUri": "../../../resources/Logo.png",
+        "testUri": "../../../src/assets/images/Logo.png",
       }
     }
     style={
@@ -223,7 +223,7 @@ exports[`Testing Login Screen renders correctly when logging in and waiting 1`] 
   <Image
     source={
       Object {
-        "testUri": "../../../resources/Logo.png",
+        "testUri": "../../../src/assets/images/Logo.png",
       }
     }
     style={
@@ -254,7 +254,7 @@ exports[`Testing Login Screen renders correctly when logging in and waiting 1`] 
         }
       }
     >
-      Your first time at the ValueTown?
+      Your first time the ValueTown?
     </Text>
     <View
       accessible={true}
