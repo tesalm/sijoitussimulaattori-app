@@ -2,27 +2,15 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 
+import { FirebaseGeneralMock } from '../tools/mocks/firebase';
+
 import 'react-native-mock-render/mock';
 
 configure({ adapter: new Adapter() });
 
 jest.mock('react-native-firebase', () => {
   return {
-    messaging: jest.fn(() => {
-      return {
-        hasPermission: jest.fn(() => Promise.resolve(true)),
-        subscribeToTopic: jest.fn(),
-        unsubscribeFromTopic: jest.fn(),
-        requestPermission: jest.fn(() => Promise.resolve(true)),
-        getToken: jest.fn(() => Promise.resolve('myMockToken'))
-      };
-    }),
-    notifications: jest.fn(() => {
-      return {
-        onNotification: jest.fn(),
-        onNotificationDisplayed: jest.fn()
-      };
-    })
+    ...FirebaseGeneralMock,
   };
 });
 

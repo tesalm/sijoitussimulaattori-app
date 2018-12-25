@@ -1,10 +1,17 @@
 import React from 'react';
 import { createSwitchNavigator } from 'react-navigation';
 
+import LoginScreen from '../LoginScreen/LoginScreen';
 import DrawerNavigator from './MainNavigator';
 
-export default createSwitchNavigator({
-  // You could add another route here for authentication.
-  // Read more at https://reactnavigation.org/docs/en/auth-flow.html
+export const createMainSwitchNavigator = ( askForLogin: boolean ) => {
+  return createSwitchNavigator(
+  {
+  Login: LoginScreen,
   App: { screen: DrawerNavigator },
-});
+  },
+  {
+    initialRouteName: (askForLogin ? 'Login' : 'App')
+  }
+  );
+};

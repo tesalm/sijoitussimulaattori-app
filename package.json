@@ -8,6 +8,11 @@
     "test:watch": "jest --watch",
     "start:dummy": "node ./dummy-server/index.js"
   },
+  "rnpm": {
+    "assets": [
+      "./src/assets/fonts/"
+    ]
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

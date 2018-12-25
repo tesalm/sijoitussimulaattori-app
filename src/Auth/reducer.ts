@@ -1,14 +1,25 @@
-import { User } from '../models';
+import { UserAuth } from '../models';
 import { ActionType, AuthAction } from './actions';
 
+/** Indicates in which state the user login is. */
+export enum LoginState {
+  CheckingPreviousLogin,
+  LoggedOut,
+  LoggedIn,
+  LoggingIn,
+  LoggingOut,
+}
+
 export interface Auth {
-  user?: User;
-  error?: Error;
+  userAuth?: UserAuth;
+  loginError?: Error;
+  loginState: LoginState;
 }
 
 export const initialAuthState: Auth = {
-  user: undefined,
-  error: undefined,
+  userAuth: undefined,
+  loginError: undefined,
+  loginState: LoginState.CheckingPreviousLogin,
 };
 
 export const authReducer = (
@@ -16,23 +27,38 @@ export const authReducer = (
   action: AuthAction
 ): Auth => {
   switch (action.type) {
-    case ActionType.LoginRequest:
-      return state;
     case ActionType.LoginSuccess:
+    case ActionType.RestoreLoginSuccess:
       return {
         ...state,
-        user: action.user,
-        error: undefined,
+        userAuth: action.userAuth,
+        loginError: undefined,
+        loginState: LoginState.LoggedIn,
+      };
+    case ActionType.RestoreLoginImpossible:
+      return {
+        ...state,
+        userAuth: undefined,
+        loginState: LoginState.LoggedOut,
+      };
+    case ActionType.LoginRequest:
+      return {
+        ...state,
+        loginState: LoginState.LoggingIn,
       };
     case ActionType.LoginFailure:
       return {
         ...state,
-        user: undefined,
-        error: action.error,
+        userAuth: undefined,
+        loginError: action.error,
+        loginState: LoginState.LoggedOut,
       };
-    case ActionType.DeleteCurrentUserSuccess:
-    case ActionType.LogoutRequest:
-      return initialAuthState;
+    case ActionType.Logout:
+      return {
+        ...state,
+        userAuth: undefined,
+        loginState: LoginState.LoggedOut,
+      };
     default:
       return state;
   }

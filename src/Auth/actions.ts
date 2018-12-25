@@ -1,30 +1,27 @@
-import { UserData } from './../models/user.model';
 import { to } from 'await-to-js';
+import firebase from 'react-native-firebase';
 import { Dispatch } from 'redux';
-import { t } from '../assets/i18n';
 
-import { User, UserAuth } from '../models';
-import { createDefaultUser } from '../util/users';
-import { signInAnonymously, upsertUserData, getUserData, signOut, getCurrentUser } from '../firestore';
+import { signInAnonymously, signOut } from '../firestore';
+import { UserAuth } from '../models';
+import { fetchUserData, initializeNewUserData, UserAction } from '../User/actions';
 
 export enum ActionType {
+  RestoreLoginSuccess = '[Login] Restore Login Success',
+  RestoreLoginImpossible = '[Login] Restore Login Impossible',
   LoginRequest = '[Login] Login Request',
-  LogoutRequest = '[Login] Logout Request',
   LoginSuccess = '[Login] Login Success',
   LoginFailure = '[Login] Login Failure',
-  DeleteCurrentUserRequest = '[Login] Delete Current User Request',
-  DeleteCurrentUserSuccess = '[Login] Delete Current User Success',
-  DeleteCurrentUserFailure = '[Login] Delete Current User Failure'
+  Logout = '[Login] Logout',
 }
 
 export type AuthAction =
+  | RestoreLoginSuccess
+  | RestoreLoginImpossible
   | LoginRequest
   | LoginSuccess
   | LoginFailure
-  | LogoutRequest
-  | DeleteCurrentUserRequest
-  | DeleteCurrentUserSuccess
-  | DeleteCurrentUserFailure;
+  | Logout;
 
 export class LoginRequest {
   readonly type = ActionType.LoginRequest;
@@ -35,8 +32,8 @@ export class LoginRequest {
 
 export class LoginSuccess {
   readonly type = ActionType.LoginSuccess;
-  constructor(public user: User) {
-    return { type: this.type, user };
+  constructor(public userAuth: UserAuth) {
+    return { type: this.type, userAuth };
   }
 }
 
@@ -47,105 +44,108 @@ export class LoginFailure {
   }
 }
 
-export class LogoutRequest {
-  readonly type = ActionType.LogoutRequest;
+export class Logout {
+  readonly type = ActionType.Logout;
   constructor() {
     return { type: this.type };
   }
 }
 
-export class DeleteCurrentUserRequest {
-  readonly type = ActionType.DeleteCurrentUserRequest;
+export class RestoreLoginSuccess {
+  readonly type = ActionType.RestoreLoginSuccess;
+  constructor(public userAuth: UserAuth) {
+    return { type: this.type, userAuth };
+  }
+}
+
+export class RestoreLoginImpossible {
+  readonly type = ActionType.RestoreLoginImpossible;
   constructor() {
     return { type: this.type };
   }
 }
 
-export class DeleteCurrentUserSuccess {
-  readonly type = ActionType.DeleteCurrentUserSuccess;
-  constructor() {
-    return { type: this.type };
+const restorePreviousLogin = () => async (
+  dispatch: Dispatch<AuthAction | UserAction>
+) => {
+  // Generator, which returns true only when called at the first time.
+  // It is assumed that the generator is "thread safe".
+  function* isFirstTime() {
+    yield true;
+    while (true) {
+      yield false;
+    }
   }
-}
 
-export class DeleteCurrentUserFailure {
-  readonly type = ActionType.DeleteCurrentUserFailure;
-  constructor(public error: Error) {
-    return { type: this.type, error: this.error };
-  }
-}
+  const firstAuthStateChangeEvent = isFirstTime();
+  const firstUnsubscribing = isFirstTime();
 
-const login = () => async (dispatch: Dispatch<AuthAction>) => {
+  // Wait the completion of the Firebase initialization and catch the logged in user
+  // after it (if exists). Note that the event listener will execute always when the
+  // state changes.
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    // Handle only one (the first) auth state changed event. Note that it is
+    // possible that more than one auth event triggers at the same time.
+    if (firstAuthStateChangeEvent.next().value) {
+      if (user) {
+        // Previous user can be restored.
+        const userAuth: UserAuth = {
+          uid: user.uid,
+        };
+        dispatch(new RestoreLoginSuccess(userAuth));
+
+        // Try to fetch the user data.
+        try {
+          fetchUserData()(dispatch);
+        } catch {
+          // No need to handle any further exceptions raised by 'fetchUserData' function.
+        }
+      } else {
+        // There is no previous user to restore.
+        dispatch(new RestoreLoginImpossible());
+      }
+    }
+
+    // Only the first authentication state change event is wanted, so
+    // unsubscribe the event listener.
+    // Ensure that the unsubscribe function is called only once and
+    // that it is defined.
+    if (unsubscribe && firstUnsubscribing.next().value) {
+      unsubscribe();
+    }
+  });
+};
+
+// This action should be called only when the user is brand new!
+const login = () => async (dispatch: Dispatch<AuthAction | UserAction>) => {
   dispatch(new LoginRequest());
 
+  // Try to login as anonymous user.
   const [err, fsUser] = await to(signInAnonymously());
-
   if (err || !fsUser) {
-    return dispatch(new LoginFailure(err || Error('User not found.')));
+    dispatch(new LoginFailure(err || Error('User not found.')));
+    return; // <- Exit on error.
   }
-
   const userAuth: UserAuth = {
     uid: fsUser.user.uid,
   };
+  dispatch(new LoginSuccess(userAuth)); // <- Login itself was successful.
 
-  let userData: UserData = { };
-
+  // Initialize user data for the brand new user.
   if (fsUser.additionalUserInfo && fsUser.additionalUserInfo.isNewUser) {
-
-    userData = createDefaultUser();
-
-    try {
-      await upsertUserData(userAuth.uid, userData);
-    } catch (err) {
-      console.error('Error creating defaut user:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
-    }
-
-  } else {
-
-    try {
-      userData = (await getUserData(userAuth.uid)) || userData;
-    } catch (err) {
-      console.error('Error fetching user data:' + err); // TODO: Error handling needed? Maybe dispatch failure notification action
-    }
-
+    await initializeNewUserData()(dispatch);
   }
-
-  const user: User = {
-    ...userAuth,
-    ...userData
-  }
-
-  dispatch(new LoginSuccess(user));
 };
 
-const logout = () => async (dispatch: Dispatch<LogoutRequest>) => {
+// Logout should only be called if user is deleted.
+const logout = () => async (dispatch: Dispatch<Logout>) => {
   const [err] = await to(signOut());
 
   if (err) {
     console.error('Error logging out');
   } else {
-    dispatch(new LogoutRequest());
+    dispatch(new Logout());
   }
 };
 
-const deleteCurrentUser = () => async (dispatch: Dispatch<AuthAction>) => {
-  dispatch(new DeleteCurrentUserRequest());
-
-  const currentUser = getCurrentUser();
-
-  if (!currentUser) {
-    dispatch(new DeleteCurrentUserFailure(new Error(t('Auth.NoAuthenticatedUser'))));
-    return;
-  }
-
-  const [err] = await to(currentUser.delete());
-
-  if (err) {
-    dispatch(new DeleteCurrentUserFailure(err));
-  } else {
-    dispatch(new DeleteCurrentUserSuccess());
-  }
-
-}
-
-export { login, logout, deleteCurrentUser };
+export { login, logout, restorePreviousLogin };
