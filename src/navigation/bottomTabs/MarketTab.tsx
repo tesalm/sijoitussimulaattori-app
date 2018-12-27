@@ -13,12 +13,14 @@ import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
 import StockScreen from '../../Stock/StockScreen';
+import BidScreen from '../../Bid/BidScreen';
 
 const MarketStack = createStackNavigator(
   {
     Market: { screen: MarketScreen },
     Info: { screen: InfoScreen },
     SingleStock: { screen: StockScreen },
+    Bid: { screen: BidScreen },
     // TODO add more pages related to this tab
   },
   {

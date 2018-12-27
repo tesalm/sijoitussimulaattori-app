@@ -1,24 +1,42 @@
 import React from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableHighlight, View, TouchableOpacity } from 'react-native';
 import { stockStyles } from '../styles';
 import Icon from '../../general/icon';
 
 import { t } from '../../assets/i18n';
+import {
+  NavigationScreenProp,
+  NavigationState,
+  NavigationScreenProps,
+} from 'react-navigation';
+import { Colors } from '../../App/colors';
 
 interface BidProps {}
 
-const Bid = (props: BidProps): JSX.Element => {
+type BidPropsWithNavigation = BidProps & NavigationScreenProps;
+
+const Bid = (props: BidPropsWithNavigation): JSX.Element => {
   return (
     // TODO: Make onPress for these items that go to buy or sell view.
-    <TouchableHighlight>
+    <TouchableOpacity onPress={() => props.navigation.navigate('Bid')}>
       <View style={stockStyles.bidView}>
         <View style={stockStyles.bidLogoView}>
-          <Icon iconName={'transaction'} iconHeight={24} iconWidth={24} />
+          <Icon
+            iconName={'transaction'}
+            iconHeight={24}
+            iconWidth={24}
+            tintColor={Colors.baseColor}
+          />
           <Text style={stockStyles.bidText}>{t('StockPage.Bid')}</Text>
         </View>
-        <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
+        <Icon
+          iconName={'open'}
+          iconHeight={24}
+          iconWidth={24}
+          tintColor={Colors.baseColor}
+        />
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 

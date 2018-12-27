@@ -12,6 +12,13 @@ import Basicinfo from './components/Basicinfo';
 import Bid from './components/Bid';
 import Diagram from './components/Diagram';
 import { stockContainerStyles } from './styles';
+import { formatRevenue } from '../util/general';
+import {
+  NavigationScreenProp,
+  NavigationState,
+  NavigationScreenProps,
+} from 'react-navigation';
+import BackButtonWithNavigation from '../navigation/components/BackButton';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -23,12 +30,22 @@ export interface StockProps {
   stock?: Stock;
 }
 
+type StockPropsWithNavigation = StockProps & NavigationScreenProps;
+
 interface StockState {}
 
-export class StockScreen extends React.Component<StockProps, StockState> {
-  constructor(props: StockProps) {
+export class StockScreen extends React.Component<
+  StockPropsWithNavigation,
+  StockState
+> {
+  constructor(props: StockPropsWithNavigation) {
     super(props);
   }
+
+  static navigationOptions = {
+    title: 'Stock',
+    headerLeft: <BackButtonWithNavigation />,
+  };
 
   componentDidMount() {
     if (this.props.symbol && this.props.stock) {
@@ -109,7 +126,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
           </Card>
 
           <Card containerStyle={stockContainerStyles.buttonContainer}>
-            <Bid />
+            <Bid navigation={this.props.navigation} />
           </Card>
         </ScrollView>
       );

@@ -4,6 +4,14 @@ const Colors = {
   redPercent: '#e20f00',
   greyBackground: '#F0F0F0',
   whiteBackground: 'white',
+  headerIcons: 'white',
 };
 
-export { Colors };
+const WizardFormColors = {
+  backgroundColor: '#004D40',
+  buttonsUnactive: 'white',
+  buttonsActive: '#E8A30C',
+  defaultFontColor: 'white',
+};
+
+export { Colors, WizardFormColors };

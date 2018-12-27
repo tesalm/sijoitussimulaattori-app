@@ -69,5 +69,16 @@
     "NewUserGreeting": "Your first time the ValueTown?",
     "NewUserButton": "Continue as new user",
     "AfterErrButton": "Try again"
+  },
+  "BidPage": {
+    "Title": "Choose action for ",
+    "Buy": "Buy",
+    "Sell": "Sell",
+    "ChoosePortfolio": "Choose portfolio",
+    "SumOfStocksBuy": "Select sum of stocks to buy",
+    "SumOfStocksSell": "Select sum of stocks to sell",
+    "ChooseBidLevel": "Choose bid level",
+    "Cancel": "Cancel",
+    "Ok": "Ok"
   }
 }

@@ -7,6 +7,7 @@ interface IconProps {
   iconName: string;
   iconHeight: number;
   iconWidth: number;
+  tintColor?: string;
 }
 
 const Icon = (props: IconProps): JSX.Element => {
@@ -22,7 +23,7 @@ const Icon = (props: IconProps): JSX.Element => {
       style={{
         height: scale(props.iconHeight),
         width: scale(props.iconWidth),
-        tintColor: Colors.baseColor,
+        tintColor: props.tintColor,
       }}
     />
   );
