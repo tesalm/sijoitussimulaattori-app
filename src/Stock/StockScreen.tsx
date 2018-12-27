@@ -5,19 +5,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
-import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
+import {
+  getHistory,
+  getIntraday,
+  getStockMetadata,
+  refreshIntraday,
+} from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
 import Bid from './components/Bid';
 import Diagram from './components/Diagram';
 import { stockContainerStyles } from './styles';
-import { formatRevenue } from '../util/general';
-import {
-  NavigationScreenProp,
-  NavigationState,
-  NavigationScreenProps,
-} from 'react-navigation';
+import { NavigationScreenProps } from 'react-navigation';
 import BackButtonWithNavigation from '../navigation/components/BackButton';
 
 export interface StockProps {
