@@ -33,9 +33,12 @@ const bidStyles = StyleSheet.create({
     fontStyle: 'italic',
   },
   picker: {
-    color: WizardFormColors.buttonsUnactive,
+    // color: WizardFormColors.buttonsUnactive,
     alignSelf: 'center',
     fontSize: verticalScale(17),
+    // backgroundColor: WizardFormColors.buttonsUnactive,
+    color: 'white',
+    width: '50%',
   },
   textInputs: {
     color: WizardFormColors.buttonsUnactive,
