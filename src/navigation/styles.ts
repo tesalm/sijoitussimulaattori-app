@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const Colors = {
-  headerTint: '#F3EBDD',
+  headerTint: 'white',
   bottomBarBackground: '#FFFFFF',
   bottomBarBorderTop: '#004D40',
   inactive: '#004D40',

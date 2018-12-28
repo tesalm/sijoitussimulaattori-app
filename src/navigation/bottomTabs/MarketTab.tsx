@@ -11,9 +11,18 @@ import MarketScreen from '../../MarketScreen/MarketScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import InfoScreen from '../screens/InfoScreen';
-import { Colors, Styles } from '../styles';
+import { Styles } from '../styles';
 import StockScreen from '../../Stock/StockScreen';
 import BidScreen from '../../Bid/BidScreen';
+import SumUpScreen from '../../SumUp/SumUpScreen';
+import { Colors } from '../../App/colors';
+
+interface SumUpProps {
+  action: string;
+  bidLevel: string;
+  sumOfStocks: string;
+  selectedPortfolio: string;
+}
 
 const MarketStack = createStackNavigator(
   {
@@ -21,6 +30,7 @@ const MarketStack = createStackNavigator(
     Info: { screen: InfoScreen },
     SingleStock: { screen: StockScreen },
     Bid: { screen: BidScreen },
+    SumUp: { screen: SumUpScreen },
     // TODO add more pages related to this tab
   },
   {
@@ -28,8 +38,8 @@ const MarketStack = createStackNavigator(
     initialRouteName: RouteName.Market,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
-      headerTintColor: Colors.headerTint,
-      headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
+      headerTintColor: Colors.whiteBackground,
+      headerTitleStyle: { textAlign: 'left', flex: 1 },
       headerLeft: <MenuIcon navigation={navigation} />,
     }),
   }

@@ -78,7 +78,19 @@
     "SumOfStocksBuy": "Select sum of stocks to buy",
     "SumOfStocksSell": "Select sum of stocks to sell",
     "ChooseBidLevel": "Choose bid level",
-    "Cancel": "Cancel",
-    "Ok": "Ok"
+    "SumUp": "SUM UP",
+    "Cancel": "CANCEL"
+  },
+  "SumUpPage": {
+    "Cancel": "CANCEL",
+    "Confirm": "CONFIRM",
+    "YoureGoingTo": "You're going to",
+    "FollowingDetails": "with following details",
+    "Portfolio": "Portfolio",
+    "TotalValueOfPortfolio": "Total value of portfolio",
+    "AmountOfStocks": "Amount of stocks",
+    "BidLevel": "Bid level",
+    "TotalCost": "Total cost of transaction:",
+    "PortfoliosValueAfter": "Portfolios value after transaction:"
   }
 }

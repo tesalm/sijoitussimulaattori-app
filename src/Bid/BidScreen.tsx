@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { RootState } from '../redux/reducers';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Text, View, TouchableOpacity, TextInput } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+} from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { bidPageStyle, bidStyles } from './styles';
@@ -11,27 +17,52 @@ import { Stock } from '../MarketScreen/reducers';
 import Icon from '../general/icon';
 import { WizardFormColors } from '../App/colors';
 import { formatCurrency } from '../util/general';
-import { Button } from 'react-native-elements';
+import { verticalScale } from '../util/scale';
+import { NavigationScreenProps } from 'react-navigation';
+import { saveBidForm } from './actions';
 
 export interface BidProps {
   stock?: Stock;
+  saveForm: typeof saveBidForm;
 }
 
-interface BidState {
+type BidPropsWithNavigation = BidProps & NavigationScreenProps;
+
+export interface BidState {
   bidLevel: string;
   buyActive: boolean;
   sellActive: boolean;
+  bidLevelActive: boolean;
+  sumOfStocksActive: boolean;
+  portfolios: Object;
   sumOfStocks: string;
+  selectedPortfolio: string;
 }
 
-export class BidScreen extends React.Component<BidProps, BidState> {
-  constructor(props: BidProps) {
+export class BidScreen extends React.Component<
+  BidPropsWithNavigation,
+  BidState
+> {
+  private portfolioRef = createRef<Dropdown>();
+  private sumOfStocksRef = createRef<TextInput>();
+  private bidLevelRef = createRef<TextInput>();
+  private scroller = createRef<ScrollView>();
+  constructor(props: BidPropsWithNavigation) {
     super(props);
     this.state = {
       bidLevel: '0,00',
       buyActive: false,
       sellActive: false,
+      bidLevelActive: false,
+      sumOfStocksActive: false,
+      portfolios: [
+        { value: 'Portfolio 1' },
+        { value: 'Portfolio 2' },
+        { value: 'Portfolio 3' },
+        { value: 'Portfolio 4' },
+      ],
       sumOfStocks: '0',
+      selectedPortfolio: 'Portfolio 1',
     };
   }
 
@@ -39,116 +70,241 @@ export class BidScreen extends React.Component<BidProps, BidState> {
     header: null,
   };
 
-  formatBidValue() {
-    if (this.props.stock && this.props.stock.stockInfo.stockMetadata) {
-      return formatCurrency(
-        parseInt(this.state.bidLevel, 10),
-        this.props.stock.stockInfo.stockMetadata.currency
-      );
-    }
-    return '0';
+  scroll(yPos: number, callback: () => void) {
+    this.scroller.current!.scrollTo({ x: 0, y: yPos });
+    callback();
   }
 
   onBuyPress() {
     this.setState({ buyActive: true }, () =>
-      this.setState({ sellActive: false })
+      this.setState({ sellActive: false }, () =>
+        this.scroll(verticalScale(96), () => this.portfolioRef.current!.focus())
+      )
     );
   }
 
   onSellPress() {
     this.setState({ sellActive: true }, () =>
-      this.setState({ buyActive: false })
+      this.setState({ buyActive: false }, () =>
+        this.scroll(verticalScale(96), () => this.portfolioRef.current!.focus())
+      )
     );
+  }
+
+  onDropdownTextChange(value: string) {
+    this.setState({ selectedPortfolio: value }, () =>
+      this.scroll(verticalScale(228), () =>
+        this.sumOfStocksRef.current!.focus()
+      )
+    );
+  }
+
+  onSumOfStocksSubmit() {
+    () =>
+      this.scroll(verticalScale(339), () => this.bidLevelRef.current!.focus());
+  }
+
+  onBidLevelChange(value: string) {
+    if (this.props.stock && this.props.stock.stockInfo.stockMetadata) {
+      this.setState({
+        bidLevel: formatCurrency(
+          parseInt(value, 10),
+          this.props.stock.stockInfo.stockMetadata.currency
+        ),
+      });
+    }
+    this.setState({ bidLevel: '0' });
+  }
+
+  onBidLevelSubmit() {
+    () =>
+      this.scroll(verticalScale(425), () => this.bidLevelRef.current!.focus());
+  }
+
+  onSubmit() {
+    const level = parseInt(this.state.bidLevel.concat(), 10);
+    const sum = parseInt(this.state.sumOfStocks.concat(), 10);
+    this.props.saveForm(
+      this.state.buyActive ? 'buy' : 'sell',
+      level,
+      sum,
+      this.state.selectedPortfolio
+    );
+    this.props.navigation.navigate('SumUp');
   }
 
   render() {
     const { stock } = this.props;
-    const { bidLevel, buyActive, sellActive, sumOfStocks } = this.state;
+    const {
+      sumOfStocksActive,
+      bidLevelActive,
+      buyActive,
+      sellActive,
+      portfolios,
+      bidLevel,
+      sumOfStocks,
+      selectedPortfolio,
+    } = this.state;
+
     if (!stock) {
       return <Text>Error!</Text>;
     }
+
     return (
-      <View style={bidPageStyle.background}>
-        <BackButtonWithNavigation />
-        <View>
-          <Text style={bidStyles.headings}>
-            {t('BidPage.Title')}
-            {<Text style={bidStyles.stock}>{stock.name}</Text>}
-          </Text>
-          <View style={bidStyles.buttons}>
-            <TouchableOpacity onPress={() => this.onBuyPress()}>
-              <View style={bidStyles.buttonWithText}>
-                <Icon
-                  iconName={'deposit'}
-                  iconHeight={24}
-                  iconWidth={24}
-                  tintColor={
-                    buyActive
-                      ? WizardFormColors.buttonsActive
-                      : WizardFormColors.buttonsUnactive
-                  }
-                />
-                <Text
-                  style={
-                    buyActive
-                      ? bidStyles.buttonActive
-                      : bidStyles.buttonUnactive
-                  }
-                >
-                  {'Buy'}
-                </Text>
+      <View>
+        {/* <BackButtonWithNavigation /> */}
+        <ScrollView ref={this.scroller}>
+          <View style={bidPageStyle.background}>
+            <View style={bidStyles.chooseAction}>
+              <Text style={bidStyles.headings}>
+                {t('BidPage.Title')}
+                {<Text style={bidStyles.stock}>{stock.name}</Text>}
+              </Text>
+              <View style={bidStyles.buttons}>
+                <TouchableOpacity onPress={() => this.onBuyPress()}>
+                  <View style={bidStyles.buttonWithText}>
+                    <Icon
+                      iconName={'deposit'}
+                      iconHeight={24}
+                      iconWidth={24}
+                      tintColor={
+                        buyActive
+                          ? WizardFormColors.buttonsActive
+                          : WizardFormColors.buttonsUnactive
+                      }
+                    />
+                    <Text
+                      style={
+                        buyActive
+                          ? bidStyles.buttonActive
+                          : bidStyles.buttonUnactive
+                      }
+                    >
+                      {'Buy'}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.onSellPress()}>
+                  <View style={bidStyles.buttonWithText}>
+                    <Icon
+                      iconName={'withdraw'}
+                      iconHeight={24}
+                      iconWidth={24}
+                      tintColor={
+                        sellActive
+                          ? WizardFormColors.buttonsActive
+                          : WizardFormColors.buttonsUnactive
+                      }
+                    />
+                    <Text
+                      style={
+                        sellActive
+                          ? bidStyles.buttonActive
+                          : bidStyles.buttonUnactive
+                      }
+                    >
+                      {'Sell'}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.onSellPress()}>
-              <View style={bidStyles.buttonWithText}>
-                <Icon
-                  iconName={'withdraw'}
-                  iconHeight={24}
-                  iconWidth={24}
-                  tintColor={
-                    sellActive
-                      ? WizardFormColors.buttonsActive
-                      : WizardFormColors.buttonsUnactive
-                  }
-                />
-                <Text
-                  style={
-                    sellActive
-                      ? bidStyles.buttonActive
-                      : bidStyles.buttonUnactive
-                  }
-                >
-                  {'Sell'}
-                </Text>
+            </View>
+            {(buyActive || sellActive) && (
+              <View>
+                <View>
+                  <Text style={bidStyles.headings}>
+                    {t('BidPage.ChoosePortfolio')}
+                  </Text>
+                  <Dropdown
+                    textColor={WizardFormColors.buttonsUnactive}
+                    fontSize={verticalScale(17)}
+                    itemColor={WizardFormColors.backgroundColor}
+                    baseColor={WizardFormColors.buttonsUnactive}
+                    selectedItemColor={WizardFormColors.buttonsActive}
+                    data={portfolios}
+                    containerStyle={bidStyles.dropdown}
+                    value={selectedPortfolio}
+                    overlayStyle={bidStyles.dropdownOverlay}
+                    pickerStyle={bidStyles.dropdownPicker}
+                    ref={this.portfolioRef}
+                    onChangeText={(value: string) =>
+                      this.onDropdownTextChange(value)
+                    }
+                  />
+                </View>
+                <View>
+                  {buyActive && (
+                    <Text style={bidStyles.headings}>
+                      {t('BidPage.SumOfStocksBuy')}
+                    </Text>
+                  )}
+                  {sellActive && (
+                    <Text style={bidStyles.headings}>
+                      {t('BidPage.SumOfStocksSell')}
+                    </Text>
+                  )}
+                  <TextInput
+                    ref={this.sumOfStocksRef}
+                    keyboardType={'numeric'}
+                    selectionColor={WizardFormColors.buttonsActive}
+                    underlineColorAndroid={
+                      sumOfStocksActive
+                        ? WizardFormColors.buttonsActive
+                        : WizardFormColors.buttonsUnactive
+                    }
+                    style={bidStyles.textInputs}
+                    value={sumOfStocks}
+                    onSubmitEditing={this.onSumOfStocksSubmit}
+                    onChangeText={(value: string) =>
+                      this.setState({ sumOfStocks: value })
+                    }
+                    onFocus={() => this.setState({ sumOfStocksActive: true })}
+                    onBlur={() => this.setState({ sumOfStocksActive: false })}
+                  />
+                </View>
+                <View>
+                  <Text style={bidStyles.headings}>
+                    {t('BidPage.ChooseBidLevel')}
+                  </Text>
+                  <TextInput
+                    ref={this.bidLevelRef}
+                    keyboardType={'numeric'}
+                    selectionColor={WizardFormColors.buttonsActive}
+                    underlineColorAndroid={
+                      bidLevelActive
+                        ? WizardFormColors.buttonsActive
+                        : WizardFormColors.buttonsUnactive
+                    }
+                    style={bidStyles.textInputs}
+                    value={bidLevel}
+                    onSubmitEditing={this.onBidLevelSubmit}
+                    onChangeText={(value: string) =>
+                      this.onBidLevelChange(value)
+                    }
+                    onFocus={() => this.setState({ bidLevelActive: true })}
+                    onBlur={() => this.setState({ bidLevelActive: false })}
+                  />
+                </View>
               </View>
-            </TouchableOpacity>
+            )}
+            <View style={bidStyles.sumUpCancelButtonContainer}>
+              <TouchableOpacity
+                style={bidStyles.cancelButton}
+                onPress={() => this.props.navigation.goBack()}
+              >
+                <Text style={bidStyles.cancelText}>{t('BidPage.Cancel')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={bidStyles.sumUpButton}
+                onPress={() => this.onSubmit()}
+              >
+                <Text style={bidStyles.sumUpButtonText}>
+                  {t('BidPage.SumUp')}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-        <View>
-          <Text style={bidStyles.headings}>{t('BidPage.ChoosePortfolio')}</Text>
-          <Dropdown style={bidStyles.picker}>
-            {/* TODO: Change portfolios to real ones. */}
-          </Dropdown>
-        </View>
-        <View>
-          {/* {buyActive
-            ? () => {
-                return <Text>{t('BidPage.SumOfStocksBuy')}</Text>;
-              }
-            : () => {
-                return <Text>{t('BidPage.SumOfStocksSell')}</Text>;
-              }}
-          ; */}
-          <TextInput keyboardType={'numeric'} value={sumOfStocks} />
-        </View>
-        <View>
-          <Text style={bidStyles.headings}>{t('BidPage.ChooseBidLevel')}</Text>
-          <TextInput keyboardType={'numeric'} value={this.formatBidValue()} />
-        </View>
-        <View style={bidStyles.okCancelButtons}>
-          <Button title={t('BidPage.Cancel')} />
-          <Button title={t('BidPage.Ok')} />
-        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -161,7 +317,12 @@ const mapStateToProps = (state: RootState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({}, dispatch);
+  bindActionCreators(
+    {
+      saveForm: saveBidForm,
+    },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,

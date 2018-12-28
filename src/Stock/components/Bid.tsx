@@ -1,14 +1,10 @@
 import React from 'react';
-import { Text, TouchableHighlight, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { stockStyles } from '../styles';
 import Icon from '../../general/icon';
 
 import { t } from '../../assets/i18n';
-import {
-  NavigationScreenProp,
-  NavigationState,
-  NavigationScreenProps,
-} from 'react-navigation';
+import { NavigationScreenProps } from 'react-navigation';
 import { Colors } from '../../App/colors';
 
 interface BidProps {}

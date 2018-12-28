@@ -8,4 +8,5 @@ export enum RouteName {
   Profile = 'Profile',
   Stock = 'Stock',
   Bid = 'Bid',
+  SumUp = 'SumUp',
 }

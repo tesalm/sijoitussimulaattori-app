@@ -1,5 +1,12 @@
 declare module 'react-native-material-dropdown' {
-  class Dropdown extends React.Component<DropdownProps, any> {}
+  class Dropdown extends React.Component<DropdownProps, any> {
+    focus(): void;
+    blur(): void;
+    value(): string;
+    selectedIndex(): number;
+    selectedItem(): Object;
+    isFocused(): boolean;
+  }
   interface DropdownProps {
     label?: string;
     error?: string;
@@ -18,10 +25,15 @@ declare module 'react-native-material-dropdown' {
     shadeOpacity?: number;
     rippleOpacity?: number;
     rippleInsets?: number;
+    rippleCentered?: boolean;
     renderBase?: Function;
     renderAccessory?: Function;
     onChangeText?: Function;
-    style?: any;
+    style?: Object;
+    overlayStyle?: Object;
+    pickerStyle?: Object;
+    ref?: any;
   }
+
   export { Dropdown };
 }
