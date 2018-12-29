@@ -6,7 +6,7 @@ import {
   stockIntraApiRequest,
   stockHistoryApiRequest,
 } from '../utils/api';
-import { Stock } from './reducers';
+import { Stock, Intraday, StockMetadata, HistoryData } from './reducers';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
@@ -19,9 +19,11 @@ export enum ActionType {
   GetStockMetadataSuccess = '[Stocks] StockMetadata success',
   GetStockMetadataFailure = '[Stocks] StockMetadata failure',
   GetIntradayBegin = '[Stocks] Intraday begin',
-  RefreshIntradayBegin = '[Stocks] Intraday begin refresh',
   GetIntradaySuccess = '[Stocks] Intraday success',
   GetIntradayFailure = '[Stocks] Intraday failure',
+  RefreshIntradayBegin = '[Stocks] Intraday begin refresh',
+  RefreshIntradaySuccess = '[Stocks] Intraday refresh success',
+  RefreshIntradayFailure = '[Stocks] Intraday refresh failure',
   GetHistoryBegin = '[Stocks] History begin',
   GetHistorySuccess = '[Stocks] History success',
   GetHistoryFailure = '[Stocks] History failure',
@@ -37,9 +39,11 @@ export type StockAction =
   | GetStockMetadataSuccess
   | GetStockMetadataFailure
   | GetIntradayBegin
-  | RefreshIntradayBegin
   | GetIntradaySuccess
   | GetIntradayFailure
+  | RefreshIntradayBegin
+  | RefreshIntradaySuccess
+  | RefreshIntradayFailure
   | GetHistoryBegin
   | GetHistorySuccess
   | GetHistoryFailure;
@@ -81,73 +85,120 @@ export class SaveSymbol {
 
 export class GetStockMetadataBegin {
   readonly type = ActionType.GetStockMetadataBegin;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(public stocks: Array<Stock>, public currentStock: Stock) {
+    return { type: this.type, stocks, currentStock };
   }
 }
 
 export class GetStockMetadataSuccess {
   readonly type = ActionType.GetStockMetadataSuccess;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public metaData: StockMetadata
+  ) {
+    return { type: this.type, stocks, currentStock, metaData };
   }
 }
 
 export class GetStockMetadataFailure {
   readonly type = ActionType.GetStockMetadataFailure;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public error: Error
+  ) {
+    return { type: this.type, stocks, currentStock, error };
   }
 }
 
 export class GetIntradayBegin {
   readonly type = ActionType.GetIntradayBegin;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
-  }
-}
-
-export class RefreshIntradayBegin {
-  readonly type = ActionType.RefreshIntradayBegin;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(public stocks: Array<Stock>, public currentStock: Stock) {
+    return { type: this.type, stocks, currentStock };
   }
 }
 
 export class GetIntradaySuccess {
   readonly type = ActionType.GetIntradaySuccess;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public intraData: Intraday
+  ) {
+    return { type: this.type, stocks, currentStock, intraData };
   }
 }
 
 export class GetIntradayFailure {
   readonly type = ActionType.GetIntradayFailure;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public error: Error
+  ) {
+    return { type: this.type, stocks, currentStock, error };
+  }
+}
+
+export class RefreshIntradayBegin {
+  readonly type = ActionType.RefreshIntradayBegin;
+  constructor(public stocks: Stock[], public currentStock: Stock) {
+    return { type: this.type, stocks, currentStock };
+  }
+}
+
+export class RefreshIntradaySuccess {
+  readonly type = ActionType.RefreshIntradaySuccess;
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public intraData: Intraday
+  ) {
+    return { type: this.type, stocks, currentStock, intraData };
+  }
+}
+
+export class RefreshIntradayFailure {
+  readonly type = ActionType.RefreshIntradayFailure;
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public error: Error
+  ) {
+    return { type: this.type, stocks, currentStock, error };
   }
 }
 
 export class GetHistoryBegin {
   readonly type = ActionType.GetHistoryBegin;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(public stocks: Array<Stock>, public currentStock: Stock) {
+    return { type: this.type, stocks, currentStock };
   }
 }
 
 export class GetHistorySuccess {
   readonly type = ActionType.GetHistorySuccess;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(
+    public stocks: Stock[],
+    public currentStock: Stock,
+    public historyData: HistoryData
+  ) {
+    return { type: this.type, stocks, currentStock, historyData };
   }
 }
 export class GetHistoryFailure {
   readonly type = ActionType.GetHistoryFailure;
-  constructor(public stocks: Array<Stock>) {
-    return { type: this.type, stocks };
+  constructor(
+    public stocks: Array<Stock>,
+    public currentStock: Stock,
+    public error: Error
+  ) {
+    return { type: this.type, stocks, currentStock, error };
   }
 }
 
+// API-request for getting stocks.
 const getStocks = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new RequestStocksBegin());
   try {
@@ -166,6 +217,8 @@ const getStocks = () => async (dispatch: Dispatch<StockAction>) => {
   }
 };
 
+// Called when user manually refreshes the MarketScreen
+// (for example by swiping down)
 const refreshStocks = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new RefreshStocksBegin());
   try {
@@ -184,123 +237,101 @@ const refreshStocks = () => async (dispatch: Dispatch<StockAction>) => {
   }
 };
 
+// Saves the symbol of a stock that is shown to the user.
 const saveStockSymbol = (symbol: string) => async (
   dispatch: Dispatch<StockAction>
 ) => {
   dispatch(new SaveSymbol(symbol));
 };
 
-// Single stock -actions:
+// API-request for getting metadata for single stock.
 const getStockMetadata = (
   stockList: Array<Stock>,
   symbol: string,
   curTime: Date
 ) => async (dispatch: Dispatch<StockAction>) => {
   var stocks = stockList.slice(0);
-  var stock = stocks.find((stock) => {
-    return stock.symbol === symbol;
-  });
+  var stock = getStock(stocks, symbol);
   if (stock) {
-    stock.stockInfo.metaLoading = true;
-    dispatch(new GetStockMetadataBegin(stocks));
+    dispatch(new GetStockMetadataBegin(stocks, stock));
     try {
       const meta = await stockMetaApiRequest(symbol);
       meta.fetchTime = curTime;
-      stock.stockInfo.metaLoading = false;
-      stock.stockInfo.metaError = undefined;
-      stock.stockInfo.stockMetadata = meta;
-      dispatch(new GetStockMetadataSuccess(stocks));
+      dispatch(new GetStockMetadataSuccess(stocks, stock, meta));
     } catch (error) {
-      stock.stockInfo.stockMetadata = undefined;
-      stock.stockInfo.metaLoading = false;
-      stock.stockInfo.metaError = error;
-      dispatch(new GetStockMetadataFailure(stocks));
+      dispatch(new GetStockMetadataFailure(stocks, stock, error));
     }
   }
 };
 
+// API-request for getting intraday-data.
 const getIntraday = (
   stockList: Array<Stock>,
   symbol: string,
   curTime: Date
 ) => async (dispatch: Dispatch<StockAction>) => {
   var stocks = stockList.slice(0);
-  var stock = stocks.find((stock) => {
-    return stock.symbol === symbol;
-  });
+  var stock = getStock(stocks, symbol);
   if (stock) {
-    stock.stockInfo.intraLoading = true;
-    dispatch(new GetIntradayBegin(stocks));
+    dispatch(new GetIntradayBegin(stocks, stock));
     try {
       const intraData = await stockIntraApiRequest(symbol);
       intraData.fetchTime = curTime;
-      stock.stockInfo.intraday = intraData;
-      stock.stockInfo.intraLoading = false;
-      stock.stockInfo.intraError = undefined;
-      dispatch(new GetIntradaySuccess(stocks));
+      dispatch(new GetIntradaySuccess(stocks, stock, intraData));
     } catch (error) {
-      stock.stockInfo.intraday = undefined;
-      stock.stockInfo.intraLoading = false;
-      stock.stockInfo.intraError = error;
-      dispatch(new GetIntradayFailure(stocks));
+      dispatch(new GetIntradayFailure(stocks, stock, error));
     }
   }
 };
 
+// API-request for getting intraday-data. Called only when user refreshes
+// the screen manually (for example swiping down).
 const refreshIntraday = (
   stockList: Array<Stock>,
   symbol: string,
   curTime: Date
 ) => async (dispatch: Dispatch<StockAction>) => {
   var stocks = stockList.slice(0);
-  var stock = stocks.find((stock) => {
-    return stock.symbol === symbol;
-  });
+  var stock = getStock(stocks, symbol);
   if (stock) {
-    stock.stockInfo.refreshing = true;
-    dispatch(new RefreshIntradayBegin(stocks));
+    dispatch(new RefreshIntradayBegin(stocks, stock));
     try {
       const intraData = await stockIntraApiRequest(symbol);
       intraData.fetchTime = curTime;
-      stock.stockInfo.intraday = intraData;
-      stock.stockInfo.refreshing = false;
-      stock.stockInfo.intraError = undefined;
-      dispatch(new GetIntradaySuccess(stocks));
+      dispatch(new RefreshIntradaySuccess(stocks, stock, intraData));
     } catch (error) {
-      stock.stockInfo.intraday = undefined;
-      stock.stockInfo.refreshing = false;
-      stock.stockInfo.intraError = error;
-      dispatch(new GetIntradayFailure(error));
+      dispatch(new RefreshIntradayFailure(stocks, stock, error));
     }
   }
 };
 
+// API-request for getting historydata
 const getHistory = (
   stockList: Array<Stock>,
   symbol: string,
   curTime: Date
 ) => async (dispatch: Dispatch<StockAction>) => {
   var stocks = stockList.slice(0);
-  var stock = stocks.find((stock) => {
-    return stock.symbol === symbol;
-  });
+  var stock = getStock(stocks, symbol);
   if (stock) {
-    stock.stockInfo.historyLoading = true;
-    dispatch(new GetHistoryBegin(stocks));
+    dispatch(new GetHistoryBegin(stocks, stock));
     try {
-      const historyData = await stockHistoryApiRequest(symbol);
-      historyData.fetchTime = curTime;
-      stock.stockInfo.historyData = historyData;
-      stock.stockInfo.historyLoading = false;
-      stock.stockInfo.historyError = undefined;
-      dispatch(new GetHistorySuccess(stocks));
+      const historyData = {
+        historyDataArray: await stockHistoryApiRequest(symbol),
+        fetchTime: curTime,
+      };
+      dispatch(new GetHistorySuccess(stocks, stock, historyData));
     } catch (error) {
-      stock.stockInfo.historyData = undefined;
-      stock.stockInfo.historyLoading = false;
-      stock.stockInfo.historyError = error;
-      dispatch(new GetHistoryFailure(stocks));
+      dispatch(new GetHistoryFailure(stocks, stock, error));
     }
   }
+};
+
+// Helper functions:
+const getStock = (stockList: Stock[], symbol: string) => {
+  return stockList.find((stock) => {
+    return stock.symbol === symbol;
+  });
 };
 
 export {

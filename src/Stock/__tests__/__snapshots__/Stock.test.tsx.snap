@@ -63,7 +63,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
           }
         }
         metaLoading={false}
-        revenue="+0.00 %"
+        revenue="-3.56 %"
         stockMetadata={
           Object {
             "currency": "USD",
@@ -89,16 +89,26 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     >
       <Diagram
         historyData={
-          Object {
-            "close": 168.63,
-            "date": "2018-12-12",
-            "fetchTime": 2018-12-17T01:24:00.000Z,
-            "high": 170.43,
-            "low": 165.43,
-            "open": 170.4,
-            "symbol": "AAPL",
-            "volume": 12279994,
-          }
+          Array [
+            Object {
+              "close": 162.63,
+              "date": "2018-12-12",
+              "high": 170.43,
+              "low": 165.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+            Object {
+              "close": 168.63,
+              "date": "2017-12-12",
+              "high": 170.43,
+              "low": 161.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+          ]
         }
         historyLoading={false}
       />

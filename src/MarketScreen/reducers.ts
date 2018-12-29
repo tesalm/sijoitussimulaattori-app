@@ -1,4 +1,5 @@
 import { ActionType, StockAction } from './actions';
+import { symbol } from 'prop-types';
 
 export interface StockMetadata {
   symbol: string;
@@ -23,7 +24,7 @@ export interface Intraday {
   fetchTime: Date;
 }
 
-export interface HistoryData {
+export interface HistoryDataArray {
   symbol: string;
   date: string;
   open: number;
@@ -31,6 +32,10 @@ export interface HistoryData {
   low: number;
   close: number;
   volume: number;
+}
+
+export interface HistoryData {
+  historyDataArray: HistoryDataArray[];
   fetchTime: Date;
 }
 
@@ -101,33 +106,67 @@ export const stocksListingReducer = (
     case ActionType.SaveSymbol:
       return { ...state, symbol: action.symbol };
     case ActionType.GetStockMetadataBegin:
+      action.currentStock.stockInfo.metaLoading = true;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetStockMetadataSuccess:
+      action.currentStock.stockInfo.stockMetadata = action.metaData;
+      action.currentStock.stockInfo.metaLoading = false;
+      action.currentStock.stockInfo.metaError = undefined;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetStockMetadataFailure:
+      action.currentStock.stockInfo.stockMetadata = undefined;
+      action.currentStock.stockInfo.metaLoading = false;
+      action.currentStock.stockInfo.metaError = action.error;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetIntradayBegin:
-      return { ...state, stocks: action.stocks };
-
-    case ActionType.RefreshIntradayBegin:
+      action.currentStock.stockInfo.intraLoading = true;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetIntradaySuccess:
+      action.currentStock.stockInfo.intraday = action.intraData;
+      action.currentStock.stockInfo.intraLoading = false;
+      action.currentStock.stockInfo.intraError = undefined;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetIntradayFailure:
+      action.currentStock.stockInfo.intraday = undefined;
+      action.currentStock.stockInfo.intraLoading = false;
+      action.currentStock.stockInfo.intraError = action.error;
+      return { ...state, stocks: action.stocks };
+
+    case ActionType.RefreshIntradayBegin:
+      action.currentStock.stockInfo.refreshing = true;
+      return { ...state, stocks: action.stocks };
+
+    case ActionType.RefreshIntradaySuccess:
+      action.currentStock.stockInfo.intraday = action.intraData;
+      action.currentStock.stockInfo.refreshing = false;
+      action.currentStock.stockInfo.intraError = undefined;
+      return { ...state, stocks: action.stocks };
+
+    case ActionType.RefreshIntradayFailure:
+      action.currentStock.stockInfo.intraday = undefined;
+      action.currentStock.stockInfo.refreshing = false;
+      action.currentStock.stockInfo.intraError = action.error;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetHistoryBegin:
+      action.currentStock.stockInfo.historyLoading = true;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetHistorySuccess:
+      action.currentStock.stockInfo.historyData = action.historyData;
+      action.currentStock.stockInfo.historyLoading = false;
+      action.currentStock.stockInfo.historyError = undefined;
       return { ...state, stocks: action.stocks };
 
     case ActionType.GetHistoryFailure:
+      action.currentStock.stockInfo.historyData = undefined;
+      action.currentStock.stockInfo.historyLoading = false;
+      action.currentStock.stockInfo.historyError = action.error;
       return { ...state, stocks: action.stocks };
     default:
       return state;
