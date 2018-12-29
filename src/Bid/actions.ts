@@ -1,4 +1,6 @@
 import { Dispatch } from 'redux';
+import { BidInfo } from './reducers';
+import { bidApiRequest } from '../utils/api';
 
 export enum ActionType {
   UpdateAction = '[Bid] Update action',
@@ -77,10 +79,17 @@ const saveBidForm = (
   dispatch(new UpdateSelectedPortfolio(selectedPortfolio));
 };
 
+const confirmBidForm = (bidInfo: BidInfo) => async (
+  dispatch: Dispatch<BidAction>
+) => {
+  await bidApiRequest(bidInfo);
+};
+
 export {
   updateAction,
   updateBidLevel,
   updateSumOfStocks,
   updateSelectedPortfolio,
   saveBidForm,
+  confirmBidForm,
 };

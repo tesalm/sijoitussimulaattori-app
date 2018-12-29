@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { config } from '../config';
 import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
+import { BidInfo } from '../Bid/reducers';
 
 const StockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
@@ -47,9 +48,19 @@ const stockHistoryApiRequest = async (
   }
 };
 
+const bidApiRequest = async (bidInfo: BidInfo): Promise<void> => {
+  try {
+    const url = config.app.STOCK_API_URL + '/bid';
+    await axios.post(url, bidInfo);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export {
   StockListApiRequest,
   stockMetaApiRequest,
   stockIntraApiRequest,
   stockHistoryApiRequest,
+  bidApiRequest,
 };
