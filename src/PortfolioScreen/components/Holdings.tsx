@@ -1,76 +1,44 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
 import { t } from '../../assets/i18n';
+import { Portfolio } from '../reducers';
 import { stockStyles } from '../styles';
 
-const SECTIONS = [
-  {
-    title: 'Kemira',
-    stocks: 17,
-    marketValue: 13.49,
-    totalRevenue: '+15,73',
-    acquisitionPrice: 12.33,
-    totalMarketValue: 229.33,
-    totalRevenueE: '+73.59',
-    todayRevenue: '+4.75',
-  },
-  {
-    title: 'DNA Oy',
-    stocks: 17,
-    marketValue: 13.49,
-    totalRevenue: '+15,73',
-    acquisitionPrice: 12.33,
-    totalMarketValue: 229.33,
-    totalRevenueE: 73.59,
-    todayRevenue: '+4.75',
-  },
-  {
-    title: 'DNA Oy',
-    stocks: 17,
-    marketValue: 13.49,
-    totalRevenue: '+15,73',
-    acquisitionPrice: 12.33,
-    totalMarketValue: 229.33,
-    totalRevenueE: 73.59,
-    todayRevenue: '+4.75',
-  },
-];
-
-interface Section {
-  title: 'string';
-  stocks: number;
-  marketValue: number;
-  totalRevenue: string;
-  acquisitionPrice: number;
-  totalMarketValue: number;
-  totalRevenueE: string;
-  todayRevenue: string;
+export interface Sections {
+  symbol: string;
+  amount: number;
+  avgPrice: number;
+}
+interface HoldingsProps {
+  portfolio?: Portfolio;
+  loading?: boolean;
+  error?: Error;
 }
 
-export class Holdings extends React.Component {
+export class Holdings extends React.Component<HoldingsProps> {
   state = {
     activeSections: [],
   };
 
-  _renderSectionTitle = (section: Section) => {
+  _renderSectionTitle = (section: Sections) => {
     return (
       <View>
-        <Text>{section.title}</Text>
+        <Text>{section.symbol}</Text>
       </View>
     );
   };
 
-  _renderHeader = (section: Section) => {
+  _renderHeader = (section: Sections) => {
     return (
       <View>
-        <Text style={stockStyles.holdingsSubTitle}>{section.title}</Text>
+        <Text style={stockStyles.holdingsSubTitle}>{section.symbol}</Text>
       </View>
     );
   };
 
-  _renderContent = (section: Section) => {
+  _renderContent = (section: Sections) => {
     return (
       <View>
         <View style={stockStyles.basicinfo}>
@@ -78,7 +46,7 @@ export class Holdings extends React.Component {
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.StocksOwned')}
             </Text>
-            <Text style={stockStyles.value}>10 000</Text>
+            <Text style={stockStyles.value}>{section.amount}</Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.MarketValue')}
             </Text>
@@ -119,12 +87,30 @@ export class Holdings extends React.Component {
   };
 
   render() {
+    const { portfolio, error, loading } = this.props;
+    if (loading) {
+      return (
+        <View style={stockStyles.loading}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    } else {
+      if (portfolio === undefined) {
+        let errorMessage;
+        if (error) {
+          errorMessage = error.message + ' ';
+        }
+
+        // TODO: Muokkaa error-teksti käyttäjälle.
+        return <Text>Error! {errorMessage} </Text>;
+      }
+    }
     return (
       <View>
         <Text style={stockStyles.titleText}>{t('PortfolioPage.Holdings')}</Text>
         <Accordion
           expandMultiple={true}
-          sections={SECTIONS}
+          sections={portfolio.stocks}
           activeSections={this.state.activeSections}
           renderHeader={this._renderHeader}
           renderContent={this._renderContent}

@@ -1,10 +1,15 @@
 import { ActionType, PortfolioAction } from './actions';
 
+export interface Stocks {
+  symbol: string;
+  amount: number;
+  avgPrice: number;
+}
 export interface Portfolio {
+  ownerId: string;
+  balance: number;
+  stocks: Stocks[];
   name: string;
-  marketValue: number;
-  cash: number;
-  revenue: number;
 }
 
 export interface SinglePortfolio {

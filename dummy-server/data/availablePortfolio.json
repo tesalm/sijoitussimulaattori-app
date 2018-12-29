@@ -1,6 +1,17 @@
 {
   "name": "Portfolion nimi",
-  "marketValue": 10000,
-  "cash": 500,
-  "revenue": 4.75
+  "ownerID": "klsdjfs",
+  "balance": 500,
+  "stocks": [
+    {
+      "symbol": "AAMZ",
+      "amount": 245,
+      "avgPrice": 153.3
+    },
+    {
+      "symbol": "AAPL",
+      "amount": 340,
+      "avgPrice": 132
+    }
+  ]
 }

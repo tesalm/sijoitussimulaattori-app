@@ -4,15 +4,15 @@ import { PortfolioApiRequest } from '../utils/api';
 import { Portfolio } from './reducers';
 
 export enum ActionType {
-  RequestPortfolioBegin = '[Portfolio] API Request',
-  RequestPortfolioSuccess = '[Portfolio] API Success',
-  RequestPortfolioFailure = '[Portfolio] API Failure',
+  RequestPortfolioBegin = '[Portfolio] Balance Request',
+  RequestPortfolioSuccess = '[Portfolio] Balance Success',
+  RequestPortfolioFailure = '[Portfolio] Balance Failure',
 }
 
 export type PortfolioAction =
   | RequestPortfolioBegin
   | RequestPortfolioSuccess
-  | RequestPorftolioFailure;
+  | RequestPortfolioFailure;
 
 export class RequestPortfolioBegin {
   readonly type = ActionType.RequestPortfolioBegin;
@@ -28,7 +28,7 @@ export class RequestPortfolioSuccess {
   }
 }
 
-export class RequestPorftolioFailure {
+export class RequestPortfolioFailure {
   readonly type = ActionType.RequestPortfolioFailure;
   constructor(public error: Error) {
     return { type: this.type, error };
@@ -41,7 +41,7 @@ const getPortfolioData = () => async (dispatch: Dispatch<PortfolioAction>) => {
     const data = await PortfolioApiRequest();
     dispatch(new RequestPortfolioSuccess(data));
   } catch (error) {
-    dispatch(new RequestPorftolioFailure(error));
+    dispatch(new RequestPortfolioFailure(error));
   }
 };
 

@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import { config } from '../config';
 import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
+import { PortfolioList } from '../PortfolioList/reducers';
+import { Portfolio } from '../PortfolioScreen/reducers';
 
 const StockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
@@ -23,9 +25,17 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
   }
 };
 
-const stockIntraApiRequest = async (
-  symbol: string
-): Promise<IntradayQuote[]> => {
+const PortfolioApiRequest = async (): Promise<Portfolio> => {
+  try {
+    const res = await axios.get('http://192.168.1.7:3000/profile/portfolio/');
+    const data = res.data;
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const stockIntraApiRequest = async (symbol: string): Promise<IntradayQuote> => {
   try {
     const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/intraDay';
     const res = await axios.get(url);

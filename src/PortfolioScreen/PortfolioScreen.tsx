@@ -11,12 +11,14 @@ import { Basicinfo } from './components/Basicinfo';
 import { EventsTransactions, Manage } from './components/Buttons';
 import { Holdings } from './components/Holdings';
 import { Portfolio } from './reducers';
-import { stockContainerStyles, stockStyles } from './styles';
+import { stockContainerStyles } from './styles';
 
 export interface PortfolioProps {
   portfolio?: Portfolio;
   getPortfolio: typeof getPortfolioData;
   name?: string;
+  loading: boolean;
+  error?: Error;
 }
 
 export class PortfolioScreen extends React.Component<PortfolioProps> {
@@ -31,7 +33,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
   }
 
   render() {
-    const { portfolio, name } = this.props;
+    const { portfolio, name, error, loading } = this.props;
 
     if (name == undefined) {
       return <Text>hups</Text>;
@@ -42,11 +44,11 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
           <Text>{name}</Text>
         </Card>
         <Card containerStyle={stockContainerStyles.basicInfo}>
-          <Basicinfo />
+          <Basicinfo portfolio={portfolio} loading={loading} error={error} />
         </Card>
         <Card containerStyle={stockContainerStyles.diagram} />
         <Card containerStyle={stockContainerStyles.holdings}>
-          <Holdings />
+          <Holdings portfolio={portfolio} loading={loading} error={error} />
         </Card>
         <Card containerStyle={stockContainerStyles.buttonContainer}>
           <EventsTransactions />
@@ -62,6 +64,8 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
 const mapStateToProps = (state: RootState) => ({
   name: state.portfolioListing.name,
   portfolio: state.singlePortfolio.portfolio,
+  error: state.singlePortfolio.error,
+  loading: state.singlePortfolio.loading,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
