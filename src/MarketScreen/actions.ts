@@ -253,13 +253,20 @@ const getStockMetadata = (
   var stocks = stockList.slice(0);
   var stock = getStock(stocks, symbol);
   if (stock) {
-    dispatch(new GetStockMetadataBegin(stocks, stock));
-    try {
-      const meta = await stockMetaApiRequest(symbol);
-      meta.fetchTime = curTime;
-      dispatch(new GetStockMetadataSuccess(stocks, stock, meta));
-    } catch (error) {
-      dispatch(new GetStockMetadataFailure(stocks, stock, error));
+    // Metadata is being fetched once a day, if not undefined.
+    if (
+      stock.stockInfo === undefined ||
+      stock.stockInfo.stockMetadata === undefined ||
+      onceADayRefreshrateDated(curTime, stock.stockInfo.stockMetadata.fetchTime)
+    ) {
+      dispatch(new GetStockMetadataBegin(stocks, stock));
+      try {
+        const meta = await stockMetaApiRequest(symbol);
+        meta.fetchTime = curTime;
+        dispatch(new GetStockMetadataSuccess(stocks, stock, meta));
+      } catch (error) {
+        dispatch(new GetStockMetadataFailure(stocks, stock, error));
+      }
     }
   }
 };
@@ -273,13 +280,20 @@ const getIntraday = (
   var stocks = stockList.slice(0);
   var stock = getStock(stocks, symbol);
   if (stock) {
-    dispatch(new GetIntradayBegin(stocks, stock));
-    try {
-      const intraData = await stockIntraApiRequest(symbol);
-      intraData.fetchTime = curTime;
-      dispatch(new GetIntradaySuccess(stocks, stock, intraData));
-    } catch (error) {
-      dispatch(new GetIntradayFailure(stocks, stock, error));
+    // Intraday is fetched several times a day.
+    if (
+      stock.stockInfo === undefined ||
+      stock.stockInfo.intraday === undefined ||
+      refreshrateDated(curTime, stock.stockInfo.intraday.fetchTime)
+    ) {
+      dispatch(new GetIntradayBegin(stocks, stock));
+      try {
+        const intraData = await stockIntraApiRequest(symbol);
+        intraData.fetchTime = curTime;
+        dispatch(new GetIntradaySuccess(stocks, stock, intraData));
+      } catch (error) {
+        dispatch(new GetIntradayFailure(stocks, stock, error));
+      }
     }
   }
 };
@@ -294,13 +308,17 @@ const refreshIntraday = (
   var stocks = stockList.slice(0);
   var stock = getStock(stocks, symbol);
   if (stock) {
-    dispatch(new RefreshIntradayBegin(stocks, stock));
-    try {
-      const intraData = await stockIntraApiRequest(symbol);
-      intraData.fetchTime = curTime;
-      dispatch(new RefreshIntradaySuccess(stocks, stock, intraData));
-    } catch (error) {
-      dispatch(new RefreshIntradayFailure(stocks, stock, error));
+    if (stock.stockInfo === undefined || stock.stockInfo.intraday === undefined ||
+      refreshrateDated(curTime, stock.stockInfo.intraday.fetchTime)
+      ) {
+      dispatch(new RefreshIntradayBegin(stocks, stock));
+      try {
+        const intraData = await stockIntraApiRequest(symbol);
+        intraData.fetchTime = curTime;
+        dispatch(new RefreshIntradaySuccess(stocks, stock, intraData));
+      } catch (error) {
+        dispatch(new RefreshIntradayFailure(stocks, stock, error));
+      }
     }
   }
 };
@@ -314,15 +332,22 @@ const getHistory = (
   var stocks = stockList.slice(0);
   var stock = getStock(stocks, symbol);
   if (stock) {
-    dispatch(new GetHistoryBegin(stocks, stock));
-    try {
-      const historyData = {
-        historyDataArray: await stockHistoryApiRequest(symbol),
-        fetchTime: curTime,
-      };
-      dispatch(new GetHistorySuccess(stocks, stock, historyData));
-    } catch (error) {
-      dispatch(new GetHistoryFailure(stocks, stock, error));
+    // Historydata is being refreshed once a day, if not undefined.
+    if (
+      stock.stockInfo === undefined ||
+      stock.stockInfo.historyData === undefined ||
+      onceADayRefreshrateDated(curTime, stock.stockInfo.historyData.fetchTime)
+    ) {
+      dispatch(new GetHistoryBegin(stocks, stock));
+      try {
+        const historyData = {
+          historyDataArray: await stockHistoryApiRequest(symbol),
+          fetchTime: curTime,
+        };
+        dispatch(new GetHistorySuccess(stocks, stock, historyData));
+      } catch (error) {
+        dispatch(new GetHistoryFailure(stocks, stock, error));
+      }
     }
   }
 };
@@ -333,6 +358,43 @@ const getStock = (stockList: Stock[], symbol: string) => {
     return stock.symbol === symbol;
   });
 };
+
+// Checks if metadata and historydata should be updated (they should be updated once a day)
+function onceADayRefreshrateDated(curTime: Date, fetchTime: Date): boolean {
+  // TODO: Set updateTime (once a day). Now 00:30.00
+  const updateTimeH = 0;
+  const updateTimeM = 30;
+  const updateTimeS = 0;
+
+  // If curTime > 00:30.00
+  if (
+    curTime.getHours() >= updateTimeH &&
+    curTime.getMinutes() >= updateTimeM &&
+    curTime.getSeconds() >= updateTimeS
+  ) {
+    // If data has been fetched the day before or fetchTime < updateTime, refresh data
+    if (
+      curTime.getDate() != fetchTime.getDate() ||
+      (fetchTime.getHours() <= updateTimeH &&
+        fetchTime.getMinutes() <= updateTimeM &&
+        fetchTime.getSeconds() <= updateTimeS)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Checks if intraday should be updated (intraday is updated many times a day)
+function refreshrateDated(curTime: Date, fetchTime: Date): boolean {
+  const curTime_ms = curTime.getTime();
+  const intraTime_ms = fetchTime.getTime();
+  // TODO: Set refreshrate. Now 5 minutes.
+  if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
+    return true;
+  }
+  return false;
+}
 
 export {
   getStocks,

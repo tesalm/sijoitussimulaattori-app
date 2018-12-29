@@ -44,39 +44,11 @@ export class StockScreen extends React.Component<StockProps, StockState> {
     if (this.props.symbol && this.props.stock) {
       const curTime = new Date();
       // Fetch metadata if needed
-      if (
-        this.props.stock.stockInfo === undefined ||
-        this.props.stock.stockInfo.stockMetadata === undefined ||
-        onceADayRefreshrateDated(
-          curTime,
-          this.props.stock.stockInfo.stockMetadata.fetchTime
-        )
-      ) {
-        this.props.getMeta(this.props.stocks, this.props.symbol, curTime);
-      }
+      this.props.getMeta(this.props.stocks, this.props.symbol, curTime);
       // Fetch historydata if needed
-      if (
-        this.props.stock.stockInfo === undefined ||
-        this.props.stock.stockInfo.historyData === undefined ||
-        onceADayRefreshrateDated(
-          curTime,
-          this.props.stock.stockInfo.historyData.fetchTime
-        )
-      ) {
-        this.props.getHistoryData(
-          this.props.stocks,
-          this.props.symbol,
-          curTime
-        );
-      }
+      this.props.getHistoryData(this.props.stocks, this.props.symbol, curTime);
       // Fetch intraday if needed
-      if (
-        this.props.stock.stockInfo === undefined ||
-        this.props.stock.stockInfo.intraday === undefined ||
-        refreshrateDated(curTime, this.props.stock.stockInfo.intraday.fetchTime)
-      ) {
-        this.props.getIntra(this.props.stocks, this.props.symbol, curTime);
-      }
+      this.props.getIntra(this.props.stocks, this.props.symbol, curTime);
     }
   }
 
@@ -98,13 +70,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
 
   refresh = () => {
     const curTime = new Date();
-    if (
-      this.props.symbol &&
-      this.props.stock &&
-      this.props.stock.stockInfo &&
-      this.props.stock.stockInfo.intraday &&
-      refreshrateDated(curTime, this.props.stock.stockInfo.intraday.fetchTime)
-    ) {
+    if (this.props.symbol) {
       this.props.refreshIntra(this.props.stocks, this.props.symbol, curTime);
     }
   };
@@ -157,43 +123,6 @@ export class StockScreen extends React.Component<StockProps, StockState> {
       return <Text>Error, stockinfo not found! </Text>;
     }
   }
-}
-
-// Checks if metadata and historydata should be updated (they should be updated once a day)
-function onceADayRefreshrateDated(curTime: Date, fetchTime: Date): boolean {
-  // TODO: Set updateTime (once a day). Now 00:30.00
-  const updateTimeH = 0;
-  const updateTimeM = 30;
-  const updateTimeS = 0;
-
-  // If curTime > 00:30.00
-  if (
-    curTime.getHours() >= updateTimeH &&
-    curTime.getMinutes() >= updateTimeM &&
-    curTime.getSeconds() >= updateTimeS
-  ) {
-    // If data has been fetched the day before or fetchTime < updateTime, refresh data
-    if (
-      curTime.getDate() != fetchTime.getDate() ||
-      (fetchTime.getHours() <= updateTimeH &&
-        fetchTime.getMinutes() <= updateTimeM &&
-        fetchTime.getSeconds() <= updateTimeS)
-    ) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// Checks if intraday should be updated (intraday is updated many times a day)
-function refreshrateDated(curTime: Date, fetchTime: Date): boolean {
-  const curTime_ms = curTime.getTime();
-  const intraTime_ms = fetchTime.getTime();
-  // TODO: Set refreshrate. Now 5 minutes.
-  if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
-    return true;
-  }
-  return false;
 }
 
 const mapStateToProps = (state: RootState) => ({
