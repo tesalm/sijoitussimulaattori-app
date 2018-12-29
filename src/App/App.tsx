@@ -1,4 +1,5 @@
 import React from 'react';
+import SplashScreen from 'react-native-splash-screen';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -18,9 +19,12 @@ class App extends React.Component<AppProps> {
     super(props);
   }
 
-  componentDidMount(){ 
+  componentDidMount = async () => {
     this.props.restoreLogin();
-  }
+    // hold the splash screen a bit longer than the default behavior to avoid white screen flash.
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    SplashScreen.hide();
+  };
 
   render(){
     const { loginStatus } = this.props;
@@ -28,7 +32,7 @@ class App extends React.Component<AppProps> {
     {/*Temporary fix before splash / loading screen implementation*/}
     if(loginStatus === LoginState.CheckingPreviousLogin){
       {/*Render empty view before the previous session (if exists) is restored*/}
-      return <View />;
+      //return <View />;
     }
 
     const showLoginScreen: boolean = loginStatus !== LoginState.LoggedIn;
