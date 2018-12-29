@@ -6,7 +6,7 @@ import {
   stockIntraApiRequest,
   stockHistoryApiRequest,
 } from '../utils/api';
-import { Stock, Intraday, StockMetadata, HistoryData } from './reducers';
+import { Stock, StockMetadata, HistoryData, Intraday } from './reducers';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
@@ -153,7 +153,7 @@ export class RefreshIntradaySuccess {
   constructor(
     public stocks: Array<Stock>,
     public currentStock: Stock,
-    public intraData: Intraday
+    public intraData: Intraday,
   ) {
     return { type: this.type, stocks, currentStock, intraData };
   }
@@ -288,8 +288,10 @@ const getIntraday = (
     ) {
       dispatch(new GetIntradayBegin(stocks, stock));
       try {
-        const intraData = await stockIntraApiRequest(symbol);
-        intraData.fetchTime = curTime;
+        const intraData = {
+          intradayElement: await stockIntraApiRequest(symbol),
+          fetchTime: curTime,
+        };
         dispatch(new GetIntradaySuccess(stocks, stock, intraData));
       } catch (error) {
         dispatch(new GetIntradayFailure(stocks, stock, error));
@@ -313,8 +315,10 @@ const refreshIntraday = (
       ) {
       dispatch(new RefreshIntradayBegin(stocks, stock));
       try {
-        const intraData = await stockIntraApiRequest(symbol);
-        intraData.fetchTime = curTime;
+        const intraData = {
+          intradayElement: await stockIntraApiRequest(symbol),
+          fetchTime: curTime,
+        };
         dispatch(new RefreshIntradaySuccess(stocks, stock, intraData));
       } catch (error) {
         dispatch(new RefreshIntradayFailure(stocks, stock, error));
@@ -341,7 +345,7 @@ const getHistory = (
       dispatch(new GetHistoryBegin(stocks, stock));
       try {
         const historyData = {
-          historyDataArray: await stockHistoryApiRequest(symbol),
+          historyDataElement: await stockHistoryApiRequest(symbol),
           fetchTime: curTime,
         };
         dispatch(new GetHistorySuccess(stocks, stock, historyData));

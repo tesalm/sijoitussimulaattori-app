@@ -64,17 +64,30 @@ describe('stock tests', () => {
             fetchTime: new Date('2018-12-17T01:24:00.000Z'),
           },
           intraday: {
-            symbol: 'AAPL',
-            date: '2018-12-12',
-            open: 170.4,
-            high: 170.43,
-            low: 165.43,
-            close: 168.63,
-            volume: 12279994,
+            intradayElement: [
+              {
+                symbol: 'AAPL',
+                date: '2018-12-12',
+                open: 170.4,
+                high: 170.43,
+                low: 165.43,
+                close: 168.63,
+                volume: 12279994,
+              },
+              {
+                symbol: 'AAPL',
+                date: '2018-12-12',
+                open: 170.4,
+                high: 170.43,
+                low: 165.43,
+                close: 168.63,
+                volume: 12279994,
+              },
+            ],
             fetchTime: new Date('2018-12-17T01:24:00.000Z'),
           },
           historyData: {
-            historyDataArray: [
+            historyDataElement: [
               {
                 symbol: 'AAPL',
                 date: '2018-12-12',
@@ -127,17 +140,30 @@ describe('stock tests', () => {
           fetchTime: new Date('2018-12-17T01:24:00.000Z'),
         },
         intraday: {
-          symbol: 'AAPL',
-          date: '2018-12-12',
-          open: 170.4,
-          high: 170.43,
-          low: 165.43,
-          close: 168.63,
-          volume: 12279994,
+          intradayElement: [
+            {
+              symbol: 'AAPL',
+              date: '2018-12-12',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+            {
+              symbol: 'AAPL',
+              date: '2018-12-12',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+          ],
           fetchTime: new Date('2018-12-17T01:24:00.000Z'),
         },
         historyData: {
-          historyDataArray: [
+          historyDataElement: [
             {
               symbol: 'AAPL',
               date: '2018-12-12',

@@ -5,18 +5,22 @@ import { Text, View, ActivityIndicator } from 'react-native';
 import { t } from '../../assets/i18n';
 import { stockStyles } from '../styles';
 import { StockMetadata, Intraday } from '../../MarketScreen/reducers';
-import { revenueColor, formatCurrency } from '../../util/general';
+import {
+  revenueColor,
+  formatCurrency,
+  formatRevenue,
+} from '../../util/general';
 
 export interface BasicinfoProps {
-  revenue: string;
+  revenue: number;
   stockMetadata?: StockMetadata;
   intraday?: Intraday;
   metaLoading?: boolean;
   metaError?: Error;
   intraLoading?: boolean;
   intraError?: Error;
-  // Revenue is counted from intraday-data and historydata,
-  // so we also need to know if hisotrydata is still loading.
+  // Revenue is count from intraday-data and historydata,
+  // so we also need to know if historydata is still loading.
   historyLoading?: boolean;
 }
 
@@ -54,12 +58,15 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
             <View style={stockStyles.basicinfoMiddleContent}>
               <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
               <Text style={stockStyles.value}>
-                {formatCurrency(props.intraday.low, props.stockMetadata.currency)}
+                {formatCurrency(
+                  props.intraday.intradayElement[0].low,
+                  props.stockMetadata.currency
+                )}
               </Text>
               <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
               <Text style={stockStyles.value}>
                 {formatCurrency(
-                  props.intraday.high,
+                  props.intraday.intradayElement[0].high,
                   props.stockMetadata.currency
                 )}
               </Text>
@@ -68,14 +75,16 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
               <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
               <Text style={stockStyles.value}>
                 {formatCurrency(
-                  props.intraday.open,
+                  props.intraday.intradayElement[0].open,
                   props.stockMetadata.currency
                 )}
               </Text>
-              <Text style={stockStyles.valueHeader}>{t('StockPage.Close')}</Text>
+              <Text style={stockStyles.valueHeader}>
+                {t('StockPage.Close')}
+              </Text>
               <Text style={stockStyles.value}>
                 {formatCurrency(
-                  props.intraday.close,
+                  props.intraday.intradayElement[0].close,
                   props.stockMetadata.currency
                 )}
               </Text>
@@ -86,13 +95,17 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
           <Text style={stockStyles.valueHeaderRightSide}>
             {t('StockPage.Volume')}
           </Text>
-          <Text style={stockStyles.valueRightSide}>{props.intraday.volume}</Text>
+          <Text style={stockStyles.valueRightSide}>
+            {props.intraday.intradayElement[0].volume}
+          </Text>
           <Text style={stockStyles.valueHeaderRightSide}>
             {t('StockPage.RevenueText')}
           </Text>
-          <Text style={revenueColor(props.intraday.open)}>{props.revenue}</Text>
+          <Text style={revenueColor(props.revenue)}>
+            {formatRevenue(props.revenue)}
+          </Text>
         </View>
-        </View>
+      </View>
       <View>
         <Text style={stockStyles.valueHeader}>
           {t('StockPage.Updated')}: {props.intraday.fetchTime.toLocaleString()}

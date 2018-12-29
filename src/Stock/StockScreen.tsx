@@ -19,7 +19,7 @@ import {
   refreshIntraday,
 } from '../MarketScreen/actions';
 import { Colors } from '../App/colors';
-import { Stock, HistoryDataArray } from '../MarketScreen/reducers';
+import { Stock } from '../MarketScreen/reducers';
 import { formatRevenue } from '../util/general';
 
 export interface StockProps {
@@ -59,13 +59,14 @@ export class StockScreen extends React.Component<StockProps, StockState> {
       this.props.stock.stockInfo.historyData !== undefined &&
       this.props.stock.stockInfo.intraday !== undefined
     ) {
-      const revenue =
-        this.props.stock.stockInfo.historyData.historyDataArray[0].close /
-          this.props.stock.stockInfo.intraday.close -
-        1;
-      return formatRevenue(revenue);
+      const yesterday = this.props.stock.stockInfo.historyData
+        .historyDataElement[0].close;
+      const today = this.props.stock.stockInfo.intraday.intradayElement[0]
+        .close;
+      const revenue = (today - yesterday) / yesterday;
+      return revenue;
     }
-    return '';
+    return 0;
   }
 
   refresh = () => {
@@ -105,7 +106,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
             <Diagram
               historyData={
                 stock.stockInfo.historyData
-                  ? stock.stockInfo.historyData.historyDataArray
+                  ? stock.stockInfo.historyData.historyDataElement
                   : []
               }
               historyLoading={stock.stockInfo.historyLoading}

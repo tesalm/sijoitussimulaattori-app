@@ -7,7 +7,7 @@ import {
   RefreshControl,
   ToastAndroid,
 } from 'react-native';
-import { ListItem, SearchBar, colors } from 'react-native-elements';
+import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';

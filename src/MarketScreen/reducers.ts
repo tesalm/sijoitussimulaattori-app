@@ -13,7 +13,7 @@ export interface StockMetadata {
   fetchTime: Date;
 }
 
-export interface Intraday {
+export interface IntradayElement {
   symbol: string;
   date: string;
   open: number;
@@ -21,10 +21,14 @@ export interface Intraday {
   low: number;
   close: number;
   volume: number;
+}
+
+export interface Intraday {
+  intradayElement: IntradayElement[];
   fetchTime: Date;
 }
 
-export interface HistoryDataArray {
+export interface HistoryDataElement {
   symbol: string;
   date: string;
   open: number;
@@ -35,7 +39,7 @@ export interface HistoryDataArray {
 }
 
 export interface HistoryData {
-  historyDataArray: HistoryDataArray[];
+  historyDataElement: HistoryDataElement[];
   fetchTime: Date;
 }
 
