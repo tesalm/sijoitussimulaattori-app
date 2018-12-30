@@ -1,13 +1,9 @@
-import * as React from 'react';
 import { shallow } from 'enzyme';
+import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { StockScreen, StockProps } from '../StockScreen';
-import {
-  getStockMetadata,
-  getIntraday,
-  refreshIntraday,
-} from '../../MarketScreen/actions';
+import { getIntraday, getStockMetadata, refreshIntraday } from '../../MarketScreen/actions';
+import { StockProps, StockScreen } from '../StockScreen';
 
 describe('stock tests', () => {
   // Mock for navigation.
@@ -73,7 +69,7 @@ describe('stock tests', () => {
           historyDataQuote: [
             {
               symbol: 'AAPL',
-              date: '2018-12-14T00:00:00.000Z',
+              date: '2018-12-15T00:00:00.000Z',
               open: 170.4,
               high: 170.43,
               low: 165.43,
@@ -82,7 +78,7 @@ describe('stock tests', () => {
             },
             {
               symbol: 'AAPL',
-              date: '2018-12-15T00:00:00.000Z',
+              date: '2018-12-14T00:00:00.000Z',
               open: 170.4,
               high: 170.43,
               low: 161.43,
