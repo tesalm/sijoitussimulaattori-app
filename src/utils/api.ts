@@ -1,7 +1,7 @@
 import axios from 'axios';
+
 import { config } from '../config';
-import { Stock } from '../MarketScreen/reducers';
-import { StockMetadata, Intraday, HistoryData } from '../MarketScreen/reducers';
+import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
 
 const StockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
@@ -23,7 +23,9 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
   }
 };
 
-const stockIntraApiRequest = async (symbol: string): Promise<Intraday> => {
+const stockIntraApiRequest = async (
+  symbol: string
+): Promise<IntradayQuote[]> => {
   try {
     const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/intraDay';
     const res = await axios.get(url);
@@ -33,7 +35,9 @@ const stockIntraApiRequest = async (symbol: string): Promise<Intraday> => {
   }
 };
 
-const stockHistoryApiRequest = async (symbol: string): Promise<HistoryData> => {
+const stockHistoryApiRequest = async (
+  symbol: string
+): Promise<HistoryDataQuote[]> => {
   try {
     const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/history';
     const res = await axios.get(url);

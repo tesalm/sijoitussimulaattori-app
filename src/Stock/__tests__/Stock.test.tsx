@@ -1,13 +1,9 @@
-import * as React from 'react';
 import { shallow } from 'enzyme';
+import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { StockScreen, StockProps } from '../StockScreen';
-import {
-  getStockMetadata,
-  getIntraday,
-  refreshIntraday,
-} from '../../MarketScreen/actions';
+import { getIntraday, getStockMetadata, refreshIntraday } from '../../MarketScreen/actions';
+import { StockProps, StockScreen } from '../StockScreen';
 
 describe('stock tests', () => {
   // Mock for navigation.
@@ -16,7 +12,6 @@ describe('stock tests', () => {
   const mockStore = configureStore(middlewares);
 
   const defaultStockProps: StockProps = {
-    stocks: [],
     getMeta: getStockMetadata,
     getIntra: getIntraday,
     refreshIntra: refreshIntraday,
@@ -27,72 +22,6 @@ describe('stock tests', () => {
   };
 
   const successStockProps: StockProps = {
-    stocks: [
-      {
-        symbol: 'APL',
-        name: 'Apple',
-        high: 10.28,
-        low: 9.99,
-        revenue: -0.035,
-        close: 14.57,
-        currency: 'USD',
-        stockInfo: {
-          metaLoading: false,
-          intraLoading: false,
-          historyLoading: false,
-          refreshing: false,
-        },
-      },
-      {
-        symbol: 'AAPL',
-        name: 'Apple Inc.',
-        high: 170.43,
-        low: 165.43,
-        revenue: 3894.34,
-        close: 168.63,
-        currency: 'USD',
-        stockInfo: {
-          stockMetadata: {
-            symbol: 'AAPL',
-            name: 'Apple Inc.',
-            type: 'string',
-            region: 'string',
-            marketOpen: '2018-12-12 11:20:00',
-            marketClose: '2018-12-12 11:20:00',
-            timeZone: 'US/Eastern',
-            currency: 'USD',
-            fetchTime: new Date('2018-12-17T01:24:00.000Z'),
-          },
-          intraday: {
-            symbol: 'AAPL',
-            date: '2018-12-12',
-            open: 170.4,
-            high: 170.43,
-            low: 165.43,
-            close: 168.63,
-            volume: 12279994,
-            fetchTime: new Date('2018-12-17T01:24:00.000Z'),
-          },
-          historyData: {
-            symbol: 'AAPL',
-            date: '2018-12-12',
-            open: 170.4,
-            high: 170.43,
-            low: 165.43,
-            close: 168.63,
-            volume: 12279994,
-            fetchTime: new Date('2018-12-17T01:24:00.000Z'),
-          },
-          metaLoading: false,
-          intraLoading: false,
-          historyLoading: false,
-          refreshing: false,
-          metaError: undefined,
-          intraError: undefined,
-          historyError: undefined,
-        },
-      },
-    ],
     stock: {
       symbol: 'AAPL',
       name: 'Apple',
@@ -114,23 +43,49 @@ describe('stock tests', () => {
           fetchTime: new Date('2018-12-17T01:24:00.000Z'),
         },
         intraday: {
-          symbol: 'AAPL',
-          date: '2018-12-12',
-          open: 170.4,
-          high: 170.43,
-          low: 165.43,
-          close: 168.63,
-          volume: 12279994,
+          intradayQuote: [
+            {
+              symbol: 'AAPL',
+              date: '2018-12-12T00:20:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+            {
+              symbol: 'AAPL',
+              date: '2018-12-12T00:10:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+          ],
           fetchTime: new Date('2018-12-17T01:24:00.000Z'),
         },
         historyData: {
-          symbol: 'AAPL',
-          date: '2018-12-12',
-          open: 170.4,
-          high: 170.43,
-          low: 165.43,
-          close: 168.63,
-          volume: 12279994,
+          historyDataQuote: [
+            {
+              symbol: 'AAPL',
+              date: '2018-12-15T00:00:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 162.63,
+              volume: 12279994,
+            },
+            {
+              symbol: 'AAPL',
+              date: '2018-12-14T00:00:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 161.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+          ],
           fetchTime: new Date('2018-12-17T01:24:00.000Z'),
         },
         metaLoading: false,

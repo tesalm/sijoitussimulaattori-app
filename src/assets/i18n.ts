@@ -3,8 +3,6 @@ import RNLanguages from 'react-native-languages';
 
 import translations_en from './locales/en/translations.json';
 
-console.log('######', RNLanguages);
-
 const i18nInstance = i18next.init({
   fallbackLng: 'en',
   debug: true,

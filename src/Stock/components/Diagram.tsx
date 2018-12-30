@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
+import { HistoryDataQuote } from '../../MarketScreen/reducer';
 import { stockStyles } from '../styles';
-import { HistoryData } from '../../MarketScreen/reducers';
 
 interface DiagramProps {
-  historyData?: HistoryData;
+  historyData: HistoryDataQuote[];
   historyLoading?: boolean;
   historyError?: Error;
 }

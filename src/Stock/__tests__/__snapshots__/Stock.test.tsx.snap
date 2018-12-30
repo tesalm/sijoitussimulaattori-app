@@ -48,13 +48,13 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
       }
     >
       <Component
+        fetchTime={2018-12-17T01:24:00.000Z}
         historyLoading={false}
         intraLoading={false}
-        intraday={
+        intradayQuote={
           Object {
             "close": 168.63,
-            "date": "2018-12-12",
-            "fetchTime": 2018-12-17T01:24:00.000Z,
+            "date": "2018-12-12T00:20:00.000Z",
             "high": 170.43,
             "low": 165.43,
             "open": 170.4,
@@ -63,7 +63,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
           }
         }
         metaLoading={false}
-        revenue="+0.00 %"
+        revenue={0.03689356207341819}
         stockMetadata={
           Object {
             "currency": "USD",
@@ -89,16 +89,26 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     >
       <Diagram
         historyData={
-          Object {
-            "close": 168.63,
-            "date": "2018-12-12",
-            "fetchTime": 2018-12-17T01:24:00.000Z,
-            "high": 170.43,
-            "low": 165.43,
-            "open": 170.4,
-            "symbol": "AAPL",
-            "volume": 12279994,
-          }
+          Array [
+            Object {
+              "close": 162.63,
+              "date": "2018-12-15T00:00:00.000Z",
+              "high": 170.43,
+              "low": 165.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+            Object {
+              "close": 168.63,
+              "date": "2018-12-14T00:00:00.000Z",
+              "high": 170.43,
+              "low": 161.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+          ]
         }
         historyLoading={false}
       />
