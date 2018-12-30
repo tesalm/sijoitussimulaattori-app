@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { counterReducer, Counter } from '../HelloFeature/reducer';
-import { StocksListing, stocksListingReducer } from '../MarketScreen/reducers';
-import { Auth, authReducer } from './../Auth/reducer';
+
+import { Counter, counterReducer } from '../HelloFeature/reducer';
+import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
 import { User, userReducer } from '../User/reducer';
+import { Auth, authReducer } from './../Auth/reducer';
 
 export interface RootState {
   counter: Counter;

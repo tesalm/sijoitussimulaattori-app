@@ -1,5 +1,4 @@
 import { ActionType, StockAction } from './actions';
-import { symbol } from 'prop-types';
 
 export interface StockMetadata {
   symbol: string;
@@ -72,7 +71,7 @@ export interface StocksListing {
   loading: boolean;
   refreshing: boolean;
   error?: Error;
-  symbol?: string;
+  currentSymbol?: string;
 }
 
 const initialState: StocksListing = {
@@ -80,7 +79,7 @@ const initialState: StocksListing = {
   loading: false,
   refreshing: false,
   error: undefined,
-  symbol: undefined,
+  currentSymbol: undefined,
 };
 
 export const stocksListingReducer = (
@@ -107,8 +106,8 @@ export const stocksListingReducer = (
         refreshing: false,
         error: action.error,
       };
-    case ActionType.SaveSymbol:
-      return { ...state, symbol: action.symbol };
+    case ActionType.SaveAsCurrentSymbol:
+      return { ...state, currentSymbol: action.symbol };
     case ActionType.GetStockMetadataBegin:
       let stockList = JSON.parse(JSON.stringify(state.stocks));
       let stockIndex = getStockIndex(stockList, action.symbol);

@@ -1,26 +1,17 @@
 import React from 'react';
-
-import { ScrollView, RefreshControl, Text } from 'react-native';
+import { RefreshControl, ScrollView, Text } from 'react-native';
 import { Card } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
+import { Colors } from '../App/colors';
+import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
+import { Stock } from '../MarketScreen/reducer';
+import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
+import Bid from './components/Bid';
 import Diagram from './components/Diagram';
 import { stockContainerStyles } from './styles';
-
-import { RootState } from '../redux/reducers';
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
-
-import Bid from './components/Bid';
-import {
-  getStockMetadata,
-  getIntraday,
-  getHistory,
-  refreshIntraday,
-} from '../MarketScreen/actions';
-import { Colors } from '../App/colors';
-import { Stock } from '../MarketScreen/reducers';
-import { formatRevenue } from '../util/general';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -134,9 +125,9 @@ export class StockScreen extends React.Component<StockProps, StockState> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  symbol: state.stocksListing.symbol,
+  symbol: state.stocksListing.currentSymbol,
   stock: state.stocksListing.stocks.find((stock) => {
-    return stock.symbol === state.stocksListing.symbol;
+    return stock.symbol === state.stocksListing.currentSymbol;
   }),
 });
 

@@ -1,19 +1,10 @@
 import React from 'react';
-
-import { Text, View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
+import { IntradayQuote, StockMetadata } from '../../MarketScreen/reducer';
+import { formatCurrency, formatRevenue, revenueColor } from '../../util/general';
 import { stockStyles } from '../styles';
-import {
-  StockMetadata,
-  Intraday,
-  IntradayQuote,
-} from '../../MarketScreen/reducers';
-import {
-  revenueColor,
-  formatCurrency,
-  formatRevenue,
-} from '../../util/general';
 
 export interface BasicinfoProps {
   revenue: number;

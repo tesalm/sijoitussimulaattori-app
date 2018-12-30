@@ -1,26 +1,14 @@
 import { Dispatch } from 'redux';
 
-import {
-  StockListApiRequest,
-  stockMetaApiRequest,
-  stockIntraApiRequest,
-  stockHistoryApiRequest,
-} from '../utils/api';
-import {
-  Stock,
-  StockMetadata,
-  HistoryData,
-  Intraday,
-  IntradayQuote,
-  HistoryDataQuote,
-} from './reducers';
+import { stockHistoryApiRequest, stockIntraApiRequest, StockListApiRequest, stockMetaApiRequest } from '../utils/api';
+import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from './reducer';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
   RefreshStocksBegin = '[Stocks] Refresh API Request',
   RequestStocksSuccess = '[Stocks] API Success',
   RequestStocksFailure = '[Stocks] API Failure',
-  SaveSymbol = '[Stocks] Save Active Stock Symbol',
+  SaveAsCurrentSymbol = '[Stocks] Save Active Stock Symbol',
   UpdateStockData = '[Stocks] Update Stock Data',
   GetStockMetadataBegin = '[Stocks] StockMetadata begin',
   GetStockMetadataSuccess = '[Stocks] StockMetadata success',
@@ -41,7 +29,7 @@ export type StockAction =
   | RefreshStocksBegin
   | RequestStocksSuccess
   | RequestStocksFailure
-  | SaveSymbol
+  | SaveAsCurrentSymbol
   | GetStockMetadataBegin
   | GetStockMetadataSuccess
   | GetStockMetadataFailure
@@ -83,8 +71,8 @@ export class RefreshStocksBegin {
   }
 }
 
-export class SaveSymbol {
-  readonly type = ActionType.SaveSymbol;
+export class SaveAsCurrentSymbol {
+  readonly type = ActionType.SaveAsCurrentSymbol;
   constructor(public symbol: string) {
     return { type: this.type, symbol };
   }
@@ -229,10 +217,10 @@ const refreshStocks = () => async (dispatch: Dispatch<StockAction>) => {
 };
 
 // Saves the symbol of a stock that is shown to the user.
-const saveStockSymbol = (symbol: string) => async (
+const saveAsCurrentStockSymbol = (symbol: string) => async (
   dispatch: Dispatch<StockAction>
 ) => {
-  dispatch(new SaveSymbol(symbol));
+  dispatch(new SaveAsCurrentSymbol(symbol));
 };
 
 // API-request for getting metadata for single stock.
@@ -366,7 +354,7 @@ function refreshrateDated(curTime: Date, fetchTime: Date): boolean {
 export {
   getStocks,
   refreshStocks,
-  saveStockSymbol,
+  saveAsCurrentStockSymbol,
   getStockMetadata,
   getIntraday,
   refreshIntraday,

@@ -1,24 +1,17 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  Text,
-  View,
-  RefreshControl,
-  ToastAndroid,
-} from 'react-native';
+import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
+import { Colors } from '../App/colors';
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-import { getStocks, saveStockSymbol, refreshStocks } from './actions';
-import { Stock } from './reducers';
+import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
+import { getStocks, refreshStocks, saveAsCurrentStockSymbol } from './actions';
+import { Stock } from './reducer';
 import { StockStyles } from './styles';
-import { Colors } from '../App/colors';
-import { formatRevenue, formatCurrency, revenueColor } from '../util/general';
 
 export interface StockProps {
   stocks: Array<Stock>;
@@ -27,7 +20,7 @@ export interface StockProps {
   error?: Error;
   getAllStocks: typeof getStocks;
   refreshAllStocks: typeof refreshStocks;
-  saveSymbol: typeof saveStockSymbol;
+  saveAsCurrentSymbol: typeof saveAsCurrentStockSymbol;
 }
 
 interface StockState {}
@@ -76,7 +69,7 @@ export class MarketScreen extends React.Component<
         ToastAndroid.SHORT
       );
     } else {
-      this.props.saveSymbol(symbol);
+      this.props.saveAsCurrentSymbol(symbol);
       this.props.navigation.navigate('SingleStock');
     }
   };
@@ -153,7 +146,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     {
       getAllStocks: getStocks,
       refreshAllStocks: refreshStocks,
-      saveSymbol: saveStockSymbol,
+      saveAsCurrentSymbol: saveAsCurrentStockSymbol,
     },
     dispatch
   );
