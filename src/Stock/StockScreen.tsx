@@ -23,7 +23,6 @@ import { Stock } from '../MarketScreen/reducers';
 import { formatRevenue } from '../util/general';
 
 export interface StockProps {
-  stocks: Array<Stock>;
   getMeta: typeof getStockMetadata;
   getIntra: typeof getIntraday;
   refreshIntra: typeof refreshIntraday;
@@ -44,11 +43,11 @@ export class StockScreen extends React.Component<StockProps, StockState> {
     if (this.props.symbol && this.props.stock) {
       const curTime = new Date();
       // Fetch metadata if needed
-      this.props.getMeta(this.props.stocks, this.props.symbol, curTime);
+      this.props.getMeta(this.props.stock, this.props.symbol, curTime);
       // Fetch historydata if needed
-      this.props.getHistoryData(this.props.stocks, this.props.symbol, curTime);
+      this.props.getHistoryData(this.props.stock, this.props.symbol, curTime);
       // Fetch intraday if needed
-      this.props.getIntra(this.props.stocks, this.props.symbol, curTime);
+      this.props.getIntra(this.props.stock, this.props.symbol, curTime);
     }
   }
 
@@ -60,9 +59,8 @@ export class StockScreen extends React.Component<StockProps, StockState> {
       this.props.stock.stockInfo.intraday !== undefined
     ) {
       const yesterday = this.props.stock.stockInfo.historyData
-        .historyDataElement[0].close;
-      const today = this.props.stock.stockInfo.intraday.intradayElement[0]
-        .close;
+        .historyDataQuote[0].close;
+      const today = this.props.stock.stockInfo.intraday.intradayQuote[0].close;
       const revenue = (today - yesterday) / yesterday;
       return revenue;
     }
@@ -71,8 +69,8 @@ export class StockScreen extends React.Component<StockProps, StockState> {
 
   refresh = () => {
     const curTime = new Date();
-    if (this.props.symbol) {
-      this.props.refreshIntra(this.props.stocks, this.props.symbol, curTime);
+    if (this.props.symbol && this.props.stock) {
+      this.props.refreshIntra(this.props.stock, this.props.symbol, curTime);
     }
   };
 
@@ -95,7 +93,16 @@ export class StockScreen extends React.Component<StockProps, StockState> {
               stockMetadata={stock.stockInfo.stockMetadata}
               metaLoading={stock.stockInfo.metaLoading}
               metaError={stock.stockInfo.metaError}
-              intraday={stock.stockInfo.intraday}
+              intradayQuote={
+                stock.stockInfo.intraday
+                  ? stock.stockInfo.intraday.intradayQuote[0]
+                  : undefined
+              }
+              fetchTime={
+                stock.stockInfo.intraday
+                  ? stock.stockInfo.intraday.fetchTime
+                  : undefined
+              }
               intraLoading={stock.stockInfo.intraLoading}
               intraError={stock.stockInfo.intraError}
               historyLoading={stock.stockInfo.historyLoading}
@@ -106,7 +113,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
             <Diagram
               historyData={
                 stock.stockInfo.historyData
-                  ? stock.stockInfo.historyData.historyDataElement
+                  ? stock.stockInfo.historyData.historyDataQuote
                   : []
               }
               historyLoading={stock.stockInfo.historyLoading}
@@ -128,7 +135,6 @@ export class StockScreen extends React.Component<StockProps, StockState> {
 
 const mapStateToProps = (state: RootState) => ({
   symbol: state.stocksListing.symbol,
-  stocks: state.stocksListing.stocks,
   stock: state.stocksListing.stocks.find((stock) => {
     return stock.symbol === state.stocksListing.symbol;
   }),

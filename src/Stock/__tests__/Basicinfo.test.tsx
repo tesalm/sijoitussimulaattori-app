@@ -12,7 +12,7 @@ describe('basicinfo tests', () => {
 
   const defaultBasicinfoProps: BasicinfoProps = {
     stockMetadata: undefined,
-    intraday: undefined,
+    intradayQuote: undefined,
     metaLoading: false,
     intraLoading: false,
     metaError: undefined,
@@ -22,7 +22,7 @@ describe('basicinfo tests', () => {
 
   const errorBasicinfoProps: BasicinfoProps = {
     stockMetadata: undefined,
-    intraday: undefined,
+    intradayQuote: undefined,
     metaLoading: false,
     intraLoading: false,
     metaError: { name: 'Metadata error', message: 'Stock metadata not found' },
@@ -42,30 +42,16 @@ describe('basicinfo tests', () => {
       currency: 'USD',
       fetchTime: new Date(),
     },
-    intraday: {
-      intradayElement: [
-        {
-          symbol: 'AAPL',
-          date: '2018-12-12',
-          open: 170.4,
-          high: 170.43,
-          low: 165.43,
-          close: 168.63,
-          volume: 12279994,
-        },
-        {
-          symbol: 'AAPL',
-          date: '2018-12-12',
-          open: 170.4,
-          high: 170.43,
-          low: 165.43,
-          close: 168.63,
-          volume: 12279994,
-        },
-      ],
-
-      fetchTime: new Date(),
+    intradayQuote: {
+      symbol: 'AAPL',
+      date: '2018-12-12T00:20:00.000Z',
+      open: 170.4,
+      high: 170.43,
+      low: 165.43,
+      close: 168.63,
+      volume: 12279994,
     },
+    fetchTime: new Date(),
     metaLoading: false,
     intraLoading: false,
     metaError: undefined,
