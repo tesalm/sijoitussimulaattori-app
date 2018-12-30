@@ -27,7 +27,9 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
 
 const PortfolioApiRequest = async (): Promise<Portfolio> => {
   try {
-    const res = await axios.get('http://192.168.1.7:3000/profile/portfolio/');
+    const res = await axios.get(
+      config.app.PORTFOLIO_API_URL + '/profile/portfolio/'
+    );
     const data = res.data;
     return data;
   } catch (error) {

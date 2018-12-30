@@ -1,6 +1,5 @@
 [
   {
-<<<<<<< HEAD
     "symbol": "AAPL",
     "name": "Apple",
     "high": 10.28,
@@ -19,7 +18,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "APL",
+=======
+    "symbol": "AA",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -28,7 +31,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "AAP",
+=======
+    "symbol": "DD",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -37,7 +44,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "AAL",
+=======
+    "symbol": "FF",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -46,7 +57,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "AAAPL",
+=======
+    "symbol": "SS",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -55,7 +70,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "AAPLA",
+=======
+    "symbol": "DD",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -64,7 +83,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "AAAAPL",
+=======
+    "symbol": "FF",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -73,7 +96,11 @@
     "currency": "USD"
   },
   {
+<<<<<<< HEAD
     "symbol": "AAPAEL",
+=======
+    "symbol": "GG",
+>>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -100,101 +127,5 @@
     "revenue": 2.7,
     "close": 54.43,
     "currency": "USD"
-=======
-    "symbol": "NOK",
-    "name": "Nokia",
-    "revenue": 0.035,
-    "close": 13.44
-  },
-  {
-    "symbol": "APLL",
-    "name": "Apple",
-    "revenue": -0.035,
-    "close": 13.44
-  },
-  {
-    "symbol": "SS",
-    "name": "Apple",
-    "revenue": -0.035,
-    "close": 13.44
-  },
-  {
-    "symbol": "DDD",
-    "name": "Apple",
-    "revenue": 0.035,
-    "close": 13.44
-  },
-  {
-    "symbol": "DD",
-    "name": "Apple",
-    "revenue": 0.035,
-    "close": 13.44
-  },
-  {
-    "symbol": "AAA",
-    "name": "Apple",
-    "revenue": 0.035,
-    "close": 13.44
-  },
-  {
-    "symbol": "OKS",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "SDPW",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "ASDH",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "FGR",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "QQQ",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "WWW",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "APEERL",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "RED",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "HFV",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
-  },
-  {
-    "symbol": "HR",
-    "name": "Apple",
-    "revenue": 3.5,
-    "close": 13.44
->>>>>>> made lot of modifications, redux is still not working
   }
 ]

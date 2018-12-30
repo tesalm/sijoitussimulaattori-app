@@ -4,7 +4,7 @@
   "balance": 500,
   "stocks": [
     {
-      "symbol": "AAMZ",
+      "symbol": "AMZN",
       "amount": 245,
       "avgPrice": 153.3
     },

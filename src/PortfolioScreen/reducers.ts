@@ -1,6 +1,6 @@
 import { ActionType, PortfolioAction } from './actions';
 
-export interface Stocks {
+export interface PortfolioStock {
   symbol: string;
   amount: number;
   avgPrice: number;
@@ -8,7 +8,7 @@ export interface Stocks {
 export interface Portfolio {
   ownerId: string;
   balance: number;
-  stocks: Stocks[];
+  stocks: PortfolioStock[];
   name: string;
 }
 

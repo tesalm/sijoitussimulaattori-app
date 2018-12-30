@@ -17,7 +17,7 @@ const availablePortfolio = JSON.parse(
   fs.readFileSync(__dirname + '/data/availablePortfolio.json')
 );
 app.get('/stocks', (req, res) => {
-  console.log('Connected...');
+  console.log('all stocks being fethced');
   res.json(availableStocks);
 });
 
@@ -36,7 +36,7 @@ app.get('/stocks/:symbol/history', (req, res) => {
   res.json(singleStockHistory(req.params.symbol));
 });
 app.get('/profile/portfolio', (req, res) => {
-  console.log('Connected...');
+  console.log('Portfolio is being fetched');
   res.json(availablePortfolio);
 });
 

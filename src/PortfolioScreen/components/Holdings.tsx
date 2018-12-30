@@ -3,18 +3,15 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
 import { t } from '../../assets/i18n';
-import { Portfolio } from '../reducers';
+import { Stock } from '../../MarketScreen/reducers';
+import { Portfolio, PortfolioStock } from '../reducers';
 import { stockStyles } from '../styles';
 
-export interface Sections {
-  symbol: string;
-  amount: number;
-  avgPrice: number;
-}
 interface HoldingsProps {
   portfolio?: Portfolio;
   loading?: boolean;
   error?: Error;
+  stocks?: Array<Stock>;
 }
 
 export class Holdings extends React.Component<HoldingsProps> {
@@ -22,7 +19,7 @@ export class Holdings extends React.Component<HoldingsProps> {
     activeSections: [],
   };
 
-  _renderSectionTitle = (section: Sections) => {
+  _renderSectionTitle = (section: PortfolioStock) => {
     return (
       <View>
         <Text>{section.symbol}</Text>
@@ -30,7 +27,7 @@ export class Holdings extends React.Component<HoldingsProps> {
     );
   };
 
-  _renderHeader = (section: Sections) => {
+  _renderHeader = (section: PortfolioStock) => {
     return (
       <View>
         <Text style={stockStyles.holdingsSubTitle}>{section.symbol}</Text>
@@ -38,7 +35,46 @@ export class Holdings extends React.Component<HoldingsProps> {
     );
   };
 
-  _renderContent = (section: Sections) => {
+  _renderContent = (section: PortfolioStock) => {
+    const { error, stocks } = this.props;
+    if (stocks == undefined) {
+      let errorMessage;
+      if (error) {
+        errorMessage = error.message + ' ';
+      }
+      // TODO: Muokkaa error-teksti käyttäjälle.
+      return <Text>Error! {errorMessage} </Text>;
+    }
+
+    //find right stock from the array.
+    const rightStock = stocks.find((stock) => stock.symbol == section.symbol);
+    if (rightStock == undefined) {
+      let errorMessage;
+      if (error) {
+        errorMessage = error.message + ' ';
+      }
+      // TODO: Muokkaa error-teksti käyttäjälle.
+      return <Text>Error! {errorMessage} </Text>;
+    }
+    if (
+      rightStock.stockInfo.intraday === undefined ||
+      rightStock.stockInfo.stockMetadata === undefined ||
+      rightStock.stockInfo.historyData == undefined
+    ) {
+      let errorMessage;
+      if (rightStock.stockInfo.metaError) {
+        errorMessage = rightStock.stockInfo.metaError.message + ' ';
+      }
+      if (rightStock.stockInfo.intraError) {
+        errorMessage = errorMessage + rightStock.stockInfo.intraError.message;
+      }
+      if (rightStock.stockInfo.historyError) {
+        errorMessage = errorMessage + rightStock.stockInfo.historyError.message;
+      }
+      // TODO: Muokkaa error-teksti käyttäjälle.
+      return <Text>Error! {errorMessage} </Text>;
+    }
+
     return (
       <View>
         <View style={stockStyles.basicinfo}>
@@ -50,25 +86,37 @@ export class Holdings extends React.Component<HoldingsProps> {
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.MarketValue')}
             </Text>
-            <Text style={stockStyles.value}>500 </Text>
+            <Text style={stockStyles.value}>
+              {rightStock.stockInfo.intraday.close}{' '}
+            </Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueProcent')}
             </Text>
-            <Text style={stockStyles.value}>500 </Text>
+            <Text style={stockStyles.value}>
+              {(rightStock.stockInfo.intraday.close * section.amount -
+                section.avgPrice) /
+                (rightStock.stockInfo.intraday.close * section.amount)}{' '}
+            </Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp}>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.Acquisition')}
             </Text>
-            <Text style={stockStyles.value}>10 000</Text>
+            <Text style={stockStyles.value}>
+              {rightStock.stockInfo.stockMetadata.name}
+            </Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.TotalMarketValue')}
             </Text>
-            <Text style={stockStyles.value}>500 </Text>
+            <Text style={stockStyles.value}>
+              {rightStock.stockInfo.intraday.close * section.amount}{' '}
+            </Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueE')}
             </Text>
-            <Text style={stockStyles.value}>500 </Text>
+            <Text style={stockStyles.value}>
+              {rightStock.stockInfo.stockMetadata.name}{' '}
+            </Text>
           </View>
 
           <View style={stockStyles.basicinfoMidComp}>
@@ -87,7 +135,7 @@ export class Holdings extends React.Component<HoldingsProps> {
   };
 
   render() {
-    const { portfolio, error, loading } = this.props;
+    const { portfolio, error, loading, stocks } = this.props;
     if (loading) {
       return (
         <View style={stockStyles.loading}>
@@ -95,16 +143,20 @@ export class Holdings extends React.Component<HoldingsProps> {
         </View>
       );
     } else {
-      if (portfolio === undefined) {
+      if (
+        portfolio === undefined ||
+        stocks == undefined ||
+        portfolio == undefined
+      ) {
         let errorMessage;
         if (error) {
           errorMessage = error.message + ' ';
         }
-
         // TODO: Muokkaa error-teksti käyttäjälle.
         return <Text>Error! {errorMessage} </Text>;
       }
     }
+
     return (
       <View>
         <Text style={stockStyles.titleText}>{t('PortfolioPage.Holdings')}</Text>
