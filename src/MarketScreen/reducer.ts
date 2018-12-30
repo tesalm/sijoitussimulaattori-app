@@ -1,3 +1,5 @@
+import cloneDeep from 'lodash/cloneDeep';
+
 import { ActionType, StockAction } from './actions';
 
 export interface StockMetadata {
@@ -88,7 +90,12 @@ export const stocksListingReducer = (
 ): StocksListing => {
   switch (action.type) {
     case ActionType.RequestStocksBegin:
-      return { ...state, loading: true, refreshing: true, error: undefined };
+      return {
+        ...cloneDeep(state),
+        loading: true,
+        refreshing: true,
+        error: undefined,
+      };
     case ActionType.RequestStocksSuccess:
       return {
         ...state,
@@ -99,120 +106,196 @@ export const stocksListingReducer = (
       };
     case ActionType.RequestStocksFailure:
       return {
-        ...state,
+        ...cloneDeep(state),
         loading: false,
         refreshing: false,
         error: action.error,
       };
+
     case ActionType.SaveAsCurrentSymbol:
-      return { ...state, currentSymbol: action.symbol };
-    case ActionType.GetStockMetadataBegin:
-      let stockList = JSON.parse(JSON.stringify(state.stocks));
-      let stockIndex = getStockIndex(stockList, action.symbol);
+      return { ...cloneDeep(state), currentSymbol: action.symbol };
+
+    case ActionType.GetStockMetadataBegin: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
+
       stockList[stockIndex].stockInfo.metaLoading = true;
-      console.log(stockList[stockIndex]);
       return { ...state, stocks: stockList };
+    }
+    case ActionType.GetStockMetadataSuccess: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetStockMetadataSuccess:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.stockMetadata = action.metaData;
-      stockList[stockIndex].stockInfo.stockMetadata!.fetchTime =
-        action.fetchTime;
-      stockList[stockIndex].stockInfo.metaLoading = false;
-      stockList[stockIndex].stockInfo.metaError = undefined;
-      console.log(stockList[stockIndex]);
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        stockMetadata: { ...action.metaData, fetchTime: action.fetchTime },
+        metaLoading: false,
+        metaError: undefined,
+      };
       return { ...state, stocks: stockList };
+    }
+    case ActionType.GetStockMetadataFailure: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetStockMetadataFailure:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.stockMetadata = undefined;
-      stockList[stockIndex].stockInfo.metaLoading = false;
-      stockList[stockIndex].stockInfo.metaError = action.error;
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        stockMetadata: undefined,
+        metaLoading: false,
+        metaError: action.error,
+      };
       return { ...state, stocks: stockList };
+    }
 
-    case ActionType.GetIntradayBegin:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
+    case ActionType.GetIntradayBegin: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
+
       stockList[stockIndex].stockInfo.intraLoading = true;
       return { ...state, stocks: stockList };
+    }
+    case ActionType.GetIntradaySuccess: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetIntradaySuccess:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.intraday = {
-        intradayQuote: action.intraData,
-        fetchTime: action.fetchTime,
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        intraday: {
+          intradayQuote: action.intraData,
+          fetchTime: action.fetchTime,
+        },
+        intraLoading: false,
+        intraError: undefined,
       };
-      stockList[stockIndex].stockInfo.intraLoading = false;
-      stockList[stockIndex].stockInfo.intraError = undefined;
       return { ...state, stocks: stockList };
+    }
+    case ActionType.GetIntradayFailure: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetIntradayFailure:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.intraday = undefined;
-      stockList[stockIndex].stockInfo.intraLoading = false;
-      stockList[stockIndex].stockInfo.intraError = action.error;
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        intraday: undefined,
+        intraLoading: false,
+        intraError: action.error,
+      };
+
       return { ...state, stocks: stockList };
+    }
 
-    case ActionType.RefreshIntradayBegin:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
+    case ActionType.RefreshIntradayBegin: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
+
       stockList[stockIndex].stockInfo.refreshing = true;
       return { ...state, stocks: stockList };
+    }
+    case ActionType.RefreshIntradaySuccess: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.RefreshIntradaySuccess:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.intraday = {
-        intradayQuote: action.intraData,
-        fetchTime: action.fetchTime,
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        intraday: {
+          intradayQuote: action.intraData,
+          fetchTime: action.fetchTime,
+        },
+        refreshing: false,
+        intraError: undefined,
       };
-      stockList[stockIndex].stockInfo.refreshing = false;
-      stockList[stockIndex].stockInfo.intraError = undefined;
-      return { ...state, stocks: stockList };
 
-    case ActionType.RefreshIntradayFailure:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.intraday = undefined;
-      stockList[stockIndex].stockInfo.refreshing = false;
-      stockList[stockIndex].stockInfo.intraError = action.error;
       return { ...state, stocks: stockList };
+    }
+    case ActionType.RefreshIntradayFailure: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetHistoryBegin:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        intraday: undefined,
+        refreshing: false,
+        intraError: action.error,
+      };
+      return { ...state, stocks: stockList };
+    }
+
+    case ActionType.GetHistoryBegin: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
+
       stockList[stockIndex].stockInfo.historyLoading = true;
       return { ...state, stocks: stockList };
+    }
+    case ActionType.GetHistorySuccess: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetHistorySuccess:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.historyData = {
-        historyDataQuote: action.historyData,
-        fetchTime: action.fetchTime,
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        historyData: {
+          historyDataQuote: action.historyData,
+          fetchTime: action.fetchTime,
+        },
+        historyLoading: false,
+        historyError: undefined,
       };
-      stockList[stockIndex].stockInfo.historyLoading = false;
-      stockList[stockIndex].stockInfo.historyError = undefined;
       return { ...state, stocks: stockList };
+    }
+    case ActionType.GetHistoryFailure: {
+      const stockList = cloneDeep(state.stocks);
+      const stockIndex = getStockIndex(stockList, action.symbol);
+      if (stockIndex < 0) {
+        return { ...state };
+      }
 
-    case ActionType.GetHistoryFailure:
-      stockList = JSON.parse(JSON.stringify(state.stocks));
-      stockIndex = getStockIndex(stockList, action.symbol);
-      stockList[stockIndex].stockInfo.historyData = undefined;
-      stockList[stockIndex].stockInfo.historyLoading = false;
-      stockList[stockIndex].stockInfo.historyError = action.error;
+      stockList[stockIndex].stockInfo = {
+        ...stockList[stockIndex].stockInfo,
+        historyData: undefined,
+        historyLoading: false,
+        historyError: action.error,
+      };
       return { ...state, stocks: stockList };
+    }
+
     default:
       return state;
   }
 };
 
-const getStockIndex = (stockList: Stock[], symbol: string) => {
-  return stockList.findIndex((stock) => {
+const getStockIndex = (stockList: Stock[], symbol: string) =>
+  stockList.findIndex((stock) => {
     return stock.symbol === symbol;
   });
-};
