@@ -109,7 +109,9 @@ export class SumUpScreen extends React.Component<
               <Text style={sumUpStyles.valueHeaderSmall}>
                 {t('SumUpPage.BidLevel')}
               </Text>
-              <Text style={sumUpStyles.valueSmall}>{currentBidLevel}</Text>
+              <Text style={sumUpStyles.valueSmall}>
+                {formatCurrency(currentBidLevel, stock.currency)}
+              </Text>
             </View>
           </View>
         </View>

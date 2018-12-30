@@ -10,7 +10,6 @@ import {
   ScrollView,
 } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
-import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { bidPageStyle, bidStyles } from './styles';
 import { t } from '../assets/i18n';
 import { Stock } from '../MarketScreen/reducers';
@@ -70,50 +69,33 @@ export class BidScreen extends React.Component<
     header: null,
   };
 
-  scroll(yPos: number, callback: () => void) {
+  scroll(yPos: number, callback?: () => void) {
     this.scroller.current!.scrollTo({ x: 0, y: yPos });
-    callback();
+    if (callback) {
+      callback();
+    }
   }
 
   onBuyPress() {
     this.setState({ buyActive: true }, () =>
-      this.setState({ sellActive: false }, () =>
-        this.scroll(verticalScale(96), () => this.portfolioRef.current!.focus())
-      )
+      this.setState({ sellActive: false }, () => this.scroll(verticalScale(96)))
     );
   }
 
   onSellPress() {
     this.setState({ sellActive: true }, () =>
-      this.setState({ buyActive: false }, () =>
-        this.scroll(verticalScale(96), () => this.portfolioRef.current!.focus())
-      )
+      this.setState({ buyActive: false }, () => this.scroll(verticalScale(96)))
     );
   }
 
   onDropdownTextChange(value: string) {
     this.setState({ selectedPortfolio: value }, () =>
-      this.scroll(verticalScale(228), () =>
         this.sumOfStocksRef.current!.focus()
-      )
     );
   }
 
   onSumOfStocksSubmit() {
-    () =>
-      this.scroll(verticalScale(339), () => this.bidLevelRef.current!.focus());
-  }
-
-  onBidLevelChange(value: string) {
-    if (this.props.stock && this.props.stock.stockInfo.stockMetadata) {
-      this.setState({
-        bidLevel: formatCurrency(
-          parseInt(value, 10),
-          this.props.stock.stockInfo.stockMetadata.currency
-        ),
-      });
-    }
-    this.setState({ bidLevel: '0' });
+     () => this.bidLevelRef.current!.focus();
   }
 
   onBidLevelSubmit() {
@@ -258,13 +240,21 @@ export class BidScreen extends React.Component<
                     onChangeText={(value: string) =>
                       this.setState({ sumOfStocks: value })
                     }
-                    onFocus={() => this.setState({ sumOfStocksActive: true })}
-                    onBlur={() => this.setState({ sumOfStocksActive: false })}
+                    onFocus={() =>
+                      this.setState({ sumOfStocksActive: true }, () =>
+                        this.scroll(verticalScale(228))
+                      )
+                    }
+                    onBlur={() =>
+                      this.setState({
+                        sumOfStocksActive: false,
+                      })
+                    }
                   />
                 </View>
                 <View>
                   <Text style={bidStyles.headings}>
-                    {t('BidPage.ChooseBidLevel')}
+                    {t('BidPage.ChooseBidLevel')} ({stock.currency})
                   </Text>
                   <TextInput
                     ref={this.bidLevelRef}
@@ -279,10 +269,18 @@ export class BidScreen extends React.Component<
                     value={bidLevel}
                     onSubmitEditing={this.onBidLevelSubmit}
                     onChangeText={(value: string) =>
-                      this.onBidLevelChange(value)
+                      this.setState({ bidLevel: value })
                     }
-                    onFocus={() => this.setState({ bidLevelActive: true })}
-                    onBlur={() => this.setState({ bidLevelActive: false })}
+                    onFocus={() =>
+                      this.setState({ bidLevelActive: true }, () =>
+                        this.scroll(verticalScale(228))
+                      )
+                    }
+                    onBlur={() =>
+                      this.setState({
+                        bidLevelActive: false,
+                      })
+                    }
                   />
                 </View>
               </View>
