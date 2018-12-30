@@ -32,13 +32,10 @@ export class StockScreen extends React.Component<StockProps, StockState> {
 
   componentDidMount() {
     if (this.props.symbol && this.props.stock) {
-      const curTime = new Date();
-      // Fetch metadata if needed
-      this.props.getMeta(this.props.stock, this.props.symbol, curTime);
-      // Fetch historydata if needed
-      this.props.getHistoryData(this.props.stock, this.props.symbol, curTime);
-      // Fetch intraday if needed
-      this.props.getIntra(this.props.stock, this.props.symbol, curTime);
+      // Attempt to get or refresh necessary data:
+      this.props.getMeta(this.props.stock, this.props.symbol);
+      this.props.getHistoryData(this.props.stock, this.props.symbol);
+      this.props.getIntra(this.props.stock, this.props.symbol);
     }
   }
 
@@ -59,9 +56,8 @@ export class StockScreen extends React.Component<StockProps, StockState> {
   }
 
   refresh = () => {
-    const curTime = new Date();
     if (this.props.symbol && this.props.stock) {
-      this.props.refreshIntra(this.props.stock, this.props.symbol, curTime);
+      this.props.refreshIntra(this.props.stock, this.props.symbol);
     }
   };
 

@@ -195,91 +195,89 @@ const saveAsCurrentStockSymbol = (symbol: string) => async (
 };
 
 // API-request for getting metadata for single stock.
-const getStockMetadata = (
-  stock: Stock,
-  symbol: string,
-  curTime: Date
-) => async (dispatch: Dispatch<StockAction>) => {
-  if (stock) {
-    // Metadata is being fetched once a day, if not undefined.
-    if (
-      stock.stockInfo === undefined ||
-      stock.stockInfo.stockMetadata === undefined ||
-      onceADayRefreshrateDated(curTime, stock.stockInfo.stockMetadata.fetchTime)
-    ) {
-      dispatch(new GetStockMetadataBegin(symbol));
-      try {
-        const meta = await stockMetaApiRequest(symbol);
-        dispatch(new GetStockMetadataSuccess(symbol, meta, curTime));
-      } catch (error) {
-        dispatch(new GetStockMetadataFailure(symbol, error));
-      }
+const getStockMetadata = (stock: Stock, symbol: string) => async (
+  dispatch: Dispatch<StockAction>
+) => {
+  // Metadata is being fetched once a day, if not undefined.
+  const currentTime = new Date();
+  if (
+    stock.stockInfo === undefined ||
+    stock.stockInfo.stockMetadata === undefined ||
+    onceADayRefreshrateDated(
+      currentTime,
+      stock.stockInfo.stockMetadata.fetchTime
+    )
+  ) {
+    dispatch(new GetStockMetadataBegin(symbol));
+    try {
+      const meta = await stockMetaApiRequest(symbol);
+      dispatch(new GetStockMetadataSuccess(symbol, meta, currentTime));
+    } catch (error) {
+      dispatch(new GetStockMetadataFailure(symbol, error));
     }
   }
 };
 
 // API-request for getting intraday-data.
-const getIntraday = (stock: Stock, symbol: string, curTime: Date) => async (
+const getIntraday = (stock: Stock, symbol: string) => async (
   dispatch: Dispatch<StockAction>
 ) => {
-  if (stock) {
-    // Intraday is fetched several times a day.
-    if (
-      stock.stockInfo === undefined ||
-      stock.stockInfo.intraday === undefined ||
-      refreshrateDated(curTime, stock.stockInfo.intraday.fetchTime)
-    ) {
-      dispatch(new GetIntradayBegin(symbol));
-      try {
-        const intraData = await stockIntraApiRequest(symbol);
-        dispatch(new GetIntradaySuccess(symbol, intraData, curTime));
-      } catch (error) {
-        dispatch(new GetIntradayFailure(symbol, error));
-      }
+  // Intraday is fetched several times a day.
+  const currentTime = new Date();
+  if (
+    stock.stockInfo === undefined ||
+    stock.stockInfo.intraday === undefined ||
+    refreshrateDated(currentTime, stock.stockInfo.intraday.fetchTime)
+  ) {
+    dispatch(new GetIntradayBegin(symbol));
+    try {
+      const intraData = await stockIntraApiRequest(symbol);
+      dispatch(new GetIntradaySuccess(symbol, intraData, currentTime));
+    } catch (error) {
+      dispatch(new GetIntradayFailure(symbol, error));
     }
   }
 };
 
 // API-request for getting intraday-data. Called only when user refreshes
 // the screen manually (for example swiping down).
-const refreshIntraday = (stock: Stock, symbol: string, curTime: Date) => async (
+const refreshIntraday = (stock: Stock, symbol: string) => async (
   dispatch: Dispatch<StockAction>
 ) => {
-  if (stock) {
-    if (
-      stock.stockInfo === undefined ||
-      stock.stockInfo.intraday === undefined ||
-      refreshrateDated(curTime, stock.stockInfo.intraday.fetchTime)
-    ) {
-      dispatch(new RefreshIntradayBegin(symbol));
-      try {
-        const intraData = await stockIntraApiRequest(symbol);
-        dispatch(new RefreshIntradaySuccess(symbol, intraData, curTime));
-      } catch (error) {
-        dispatch(new RefreshIntradayFailure(symbol, error));
-      }
+  const currentTime = new Date();
+  if (
+    stock.stockInfo === undefined ||
+    stock.stockInfo.intraday === undefined ||
+    refreshrateDated(currentTime, stock.stockInfo.intraday.fetchTime)
+  ) {
+    dispatch(new RefreshIntradayBegin(symbol));
+    try {
+      const intraData = await stockIntraApiRequest(symbol);
+      dispatch(new RefreshIntradaySuccess(symbol, intraData, currentTime));
+    } catch (error) {
+      dispatch(new RefreshIntradayFailure(symbol, error));
     }
   }
 };
 
 // API-request for getting historydata
-const getHistory = (stock: Stock, symbol: string, curTime: Date) => async (
+const getHistory = (stock: Stock, symbol: string) => async (
   dispatch: Dispatch<StockAction>
 ) => {
-  if (stock) {
-    // Historydata is being refreshed once a day, if not undefined.
-    if (
-      stock.stockInfo === undefined ||
-      stock.stockInfo.historyData === undefined ||
-      onceADayRefreshrateDated(curTime, stock.stockInfo.historyData.fetchTime)
-    ) {
-      dispatch(new GetHistoryBegin(symbol));
-      try {
-        const historyData = await stockHistoryApiRequest(symbol);
-        dispatch(new GetHistorySuccess(symbol, historyData, curTime));
-      } catch (error) {
-        dispatch(new GetHistoryFailure(symbol, error));
-      }
+  const currentTime = new Date();
+
+  // Historydata is being refreshed once a day, if not undefined.
+  if (
+    stock.stockInfo === undefined ||
+    stock.stockInfo.historyData === undefined ||
+    onceADayRefreshrateDated(currentTime, stock.stockInfo.historyData.fetchTime)
+  ) {
+    dispatch(new GetHistoryBegin(symbol));
+    try {
+      const historyData = await stockHistoryApiRequest(symbol);
+      dispatch(new GetHistorySuccess(symbol, historyData, currentTime));
+    } catch (error) {
+      dispatch(new GetHistoryFailure(symbol, error));
     }
   }
 };
