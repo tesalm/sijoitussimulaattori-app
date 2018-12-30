@@ -13,8 +13,7 @@ describe('stock-list tests', () => {
     refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
-    refreshAllStocks: jest.fn(),
-    saveSymbol: jest.fn(),
+    saveAsCurrentSymbol: jest.fn(),
   };
 
   const loadingStockProps: StockProps = {
@@ -23,8 +22,7 @@ describe('stock-list tests', () => {
     refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
-    refreshAllStocks: jest.fn(),
-    saveSymbol: jest.fn(),
+    saveAsCurrentSymbol: jest.fn(),
   };
 
   const refreshingStockProps: StockProps = {
@@ -33,8 +31,7 @@ describe('stock-list tests', () => {
     refreshing: true,
     error: undefined,
     getAllStocks: jest.fn(),
-    refreshAllStocks: jest.fn(),
-    saveSymbol: jest.fn(),
+    saveAsCurrentSymbol: jest.fn(),
   };
 
   const errorStockProps: StockProps = {
@@ -43,8 +40,7 @@ describe('stock-list tests', () => {
     refreshing: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
     getAllStocks: jest.fn(),
-    refreshAllStocks: jest.fn(),
-    saveSymbol: jest.fn(),
+    saveAsCurrentSymbol: jest.fn(),
   };
 
   const stocksStockProps: StockProps = {
@@ -84,8 +80,7 @@ describe('stock-list tests', () => {
     refreshing: false,
     error: undefined,
     getAllStocks: jest.fn(),
-    refreshAllStocks: jest.fn(),
-    saveSymbol: jest.fn(),
+    saveAsCurrentSymbol: jest.fn(),
   };
 
   it('renders correctly', async () => {
