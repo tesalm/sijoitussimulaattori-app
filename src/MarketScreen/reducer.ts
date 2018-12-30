@@ -88,9 +88,7 @@ export const stocksListingReducer = (
 ): StocksListing => {
   switch (action.type) {
     case ActionType.RequestStocksBegin:
-      return { ...state, loading: true, refreshing: false, error: undefined };
-    case ActionType.RefreshStocksBegin:
-      return { ...state, loading: false, refreshing: true, error: undefined };
+      return { ...state, loading: true, refreshing: true, error: undefined };
     case ActionType.RequestStocksSuccess:
       return {
         ...state,

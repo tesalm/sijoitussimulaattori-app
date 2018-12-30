@@ -5,7 +5,6 @@ import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from './reducer
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
-  RefreshStocksBegin = '[Stocks] Refresh API Request',
   RequestStocksSuccess = '[Stocks] API Success',
   RequestStocksFailure = '[Stocks] API Failure',
   SaveAsCurrentSymbol = '[Stocks] Save Active Stock Symbol',
@@ -26,7 +25,6 @@ export enum ActionType {
 
 export type StockAction =
   | RequestStocksBegin
-  | RefreshStocksBegin
   | RequestStocksSuccess
   | RequestStocksFailure
   | SaveAsCurrentSymbol
@@ -61,13 +59,6 @@ export class RequestStocksFailure {
   readonly type = ActionType.RequestStocksFailure;
   constructor(public error: Error) {
     return { type: this.type, error };
-  }
-}
-
-export class RefreshStocksBegin {
-  readonly type = ActionType.RefreshStocksBegin;
-  constructor() {
-    return { type: this.type };
   }
 }
 
@@ -180,26 +171,6 @@ export class GetHistoryFailure {
 // API-request for getting stocks.
 const getStocks = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new RequestStocksBegin());
-  try {
-    const data = await StockListApiRequest();
-    data.forEach((stock) => {
-      stock.stockInfo = {
-        metaLoading: false,
-        intraLoading: false,
-        historyLoading: false,
-        refreshing: false,
-      };
-    });
-    dispatch(new RequestStocksSuccess(data));
-  } catch (error) {
-    dispatch(new RequestStocksFailure(error));
-  }
-};
-
-// Called when user manually refreshes the MarketScreen
-// (for example by swiping down)
-const refreshStocks = () => async (dispatch: Dispatch<StockAction>) => {
-  dispatch(new RefreshStocksBegin());
   try {
     const data = await StockListApiRequest();
     data.forEach((stock) => {
@@ -353,7 +324,6 @@ function refreshrateDated(curTime: Date, fetchTime: Date): boolean {
 
 export {
   getStocks,
-  refreshStocks,
   saveAsCurrentStockSymbol,
   getStockMetadata,
   getIntraday,

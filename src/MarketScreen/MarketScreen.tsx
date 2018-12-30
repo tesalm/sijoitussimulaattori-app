@@ -9,7 +9,7 @@ import { Colors } from '../App/colors';
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
 import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
-import { getStocks, refreshStocks, saveAsCurrentStockSymbol } from './actions';
+import { getStocks, saveAsCurrentStockSymbol } from './actions';
 import { Stock } from './reducer';
 import { StockStyles } from './styles';
 
@@ -19,7 +19,6 @@ export interface StockProps {
   refreshing: boolean;
   error?: Error;
   getAllStocks: typeof getStocks;
-  refreshAllStocks: typeof refreshStocks;
   saveAsCurrentSymbol: typeof saveAsCurrentStockSymbol;
 }
 
@@ -58,7 +57,7 @@ export class MarketScreen extends React.Component<
   };
 
   refresh = () => {
-    this.props.refreshAllStocks();
+    this.props.getAllStocks();
   };
 
   stockPressed = (symbol: string) => {
@@ -145,7 +144,6 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllStocks: getStocks,
-      refreshAllStocks: refreshStocks,
       saveAsCurrentSymbol: saveAsCurrentStockSymbol,
     },
     dispatch
