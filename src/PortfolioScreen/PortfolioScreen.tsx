@@ -99,6 +99,7 @@ export class PortfolioScreen extends React.Component<
   };
 
   render() {
+<<<<<<< HEAD
     const { portfolio, stocks, stocksLoading } = this.props;
     if (portfolio) {
       return (
@@ -151,6 +152,46 @@ export class PortfolioScreen extends React.Component<
       // TODO: Format the error message to user
       return <Text>Error, portfolio not found! </Text>;
     }
+=======
+    const { portfolio, error, loading, stocks } = this.props;
+
+    return (
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            //TODO: what is this
+            refreshing={this.checkRefresh()}
+            onRefresh={this.refresh}
+            colors={[Colors.baseColor]}
+          />
+        }
+      >
+        <Card containerStyle={stockContainerStyles.basicInfo}>
+          <Basicinfo
+            portfolio={portfolio}
+            loading={loading}
+            error={error}
+            stocks={stocks}
+          />
+        </Card>
+        <Card containerStyle={stockContainerStyles.diagram} />
+        <Card containerStyle={stockContainerStyles.holdings}>
+          <Holdings
+            portfolio={portfolio}
+            loading={loading}
+            error={error}
+            stocks={stocks}
+          />
+        </Card>
+        <Card containerStyle={stockContainerStyles.buttonContainer}>
+          <EventsTransactions />
+        </Card>
+        <Card containerStyle={stockContainerStyles.buttonContainer}>
+          <Manage />
+        </Card>
+      </ScrollView>
+    );
+>>>>>>> All stock related attributes are presented correctly
   }
 }
 
