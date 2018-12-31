@@ -37,7 +37,9 @@ const PortfolioApiRequest = async (): Promise<Portfolio> => {
   }
 };
 
-const stockIntraApiRequest = async (symbol: string): Promise<IntradayQuote> => {
+const stockIntraApiRequest = async (
+  symbol: string
+): Promise<IntradayQuote[]> => {
   try {
     const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/intraDay';
     const res = await axios.get(url);

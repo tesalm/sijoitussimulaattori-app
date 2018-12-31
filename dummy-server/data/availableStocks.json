@@ -18,11 +18,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "APL",
-=======
     "symbol": "AA",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -31,11 +27,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "AAP",
-=======
     "symbol": "DD",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -44,11 +36,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "AAL",
-=======
     "symbol": "FF",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -57,11 +45,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "AAAPL",
-=======
     "symbol": "SS",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -70,11 +54,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "AAPLA",
-=======
     "symbol": "DD",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -83,11 +63,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "AAAAPL",
-=======
     "symbol": "FF",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -96,11 +72,7 @@
     "currency": "USD"
   },
   {
-<<<<<<< HEAD
-    "symbol": "AAPAEL",
-=======
     "symbol": "GG",
->>>>>>> Imporved redux, now all stock data is fetched when necessary. Still wip
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
