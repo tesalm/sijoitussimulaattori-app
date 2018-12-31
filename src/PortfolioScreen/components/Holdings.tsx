@@ -3,7 +3,18 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
 import { t } from '../../assets/i18n';
-import { Stock } from '../../MarketScreen/reducers';
+import { Stock } from '../../MarketScreen/reducer';
+import {
+  calculateTotalMarketValue,
+  calculateTotalRevenue,
+  calculateTotalRevenueProcent,
+  countRevenuePercentage,
+  formatCurrency,
+  formatRevenue,
+  formatRevenueCurrency,
+  revenueColor,
+  valueColor,
+} from '../../util/general';
 import { Portfolio, PortfolioStock } from '../reducers';
 import { stockStyles } from '../styles';
 
@@ -75,6 +86,17 @@ export class Holdings extends React.Component<HoldingsProps> {
       return <Text>Error! {errorMessage} </Text>;
     }
 
+    //calculate all necessary values needed.
+    const currency = rightStock.stockInfo.stockMetadata.currency;
+    const close = rightStock.stockInfo.intraday.intradayQuote[0].close;
+    const totalRevenueProcent = calculateTotalRevenueProcent(
+      rightStock,
+      section
+    );
+    const totalMarketValue = calculateTotalMarketValue(rightStock, section);
+    const totalRevenue = calculateTotalRevenue(rightStock, section);
+    const revenueProcent = countRevenuePercentage(rightStock);
+
     return (
       <View>
         <View style={stockStyles.basicinfo}>
@@ -87,15 +109,13 @@ export class Holdings extends React.Component<HoldingsProps> {
               {t('PortfolioPage.MarketValue')}
             </Text>
             <Text style={stockStyles.value}>
-              {rightStock.stockInfo.intraday.close}{' '}
+              {formatCurrency(close, currency)}{' '}
             </Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueProcent')}
             </Text>
-            <Text style={stockStyles.value}>
-              {(rightStock.stockInfo.intraday.close * section.amount -
-                section.avgPrice) /
-                (rightStock.stockInfo.intraday.close * section.amount)}{' '}
+            <Text style={valueColor(totalRevenueProcent)}>
+              {formatRevenue(totalRevenueProcent)}{' '}
             </Text>
           </View>
           <View style={stockStyles.basicinfoSmallerComp}>
@@ -103,19 +123,19 @@ export class Holdings extends React.Component<HoldingsProps> {
               {t('PortfolioPage.Acquisition')}
             </Text>
             <Text style={stockStyles.value}>
-              {rightStock.stockInfo.stockMetadata.name}
+              {formatCurrency(section.avgPrice, currency)}
             </Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.TotalMarketValue')}
             </Text>
             <Text style={stockStyles.value}>
-              {rightStock.stockInfo.intraday.close * section.amount}{' '}
+              {formatCurrency(totalMarketValue, currency)}{' '}
             </Text>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueE')}
             </Text>
-            <Text style={stockStyles.value}>
-              {rightStock.stockInfo.stockMetadata.name}{' '}
+            <Text style={valueColor(totalRevenue)}>
+              {formatRevenueCurrency(totalRevenue, currency)}{' '}
             </Text>
           </View>
 
@@ -123,7 +143,9 @@ export class Holdings extends React.Component<HoldingsProps> {
             <Text style={stockStyles.valueHeaderRightSide}>
               {t('PortfolioPage.Revenue')}
             </Text>
-            <Text style={stockStyles.revenueValueGreen}>+4,56%</Text>
+            <Text style={revenueColor(revenueProcent)}>
+              {formatRevenue(revenueProcent)}
+            </Text>
           </View>
         </View>
       </View>

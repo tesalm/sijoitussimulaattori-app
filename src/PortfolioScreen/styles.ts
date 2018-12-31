@@ -54,6 +54,24 @@ const stockStyles = StyleSheet.create({
     marginBottom: verticalScale(4),
     color: Colors.baseColor,
   },
+  valueGreen: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'justify',
+    marginTop: verticalScale(-2),
+    marginLeft: scale(8),
+    marginBottom: verticalScale(4),
+    color: Colors.greenPercent,
+  },
+  valueRed: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'justify',
+    marginTop: verticalScale(-2),
+    marginLeft: scale(8),
+    marginBottom: verticalScale(4),
+    color: Colors.redPercent,
+  },
   valueMiddle: {
     fontSize: 14,
     fontWeight: 'bold',
@@ -65,7 +83,7 @@ const stockStyles = StyleSheet.create({
   },
   valueHeaderRightSide: {
     fontSize: 12,
-    marginTop: verticalScale(16),
+    marginTop: verticalScale(24),
     marginLeft: scale(30),
     color: Colors.baseColor,
   },

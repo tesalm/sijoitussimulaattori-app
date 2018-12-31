@@ -92,7 +92,12 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
         }
       >
         <Card containerStyle={stockContainerStyles.basicInfo}>
-          <Basicinfo portfolio={portfolio} loading={loading} error={error} />
+          <Basicinfo
+            portfolio={portfolio}
+            loading={loading}
+            error={error}
+            stocks={stocks}
+          />
         </Card>
         <Card containerStyle={stockContainerStyles.diagram} />
         <Card containerStyle={stockContainerStyles.holdings}>

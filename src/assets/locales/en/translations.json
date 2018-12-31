@@ -68,8 +68,8 @@
   "LoginScreen": {
     "NewUserGreeting": "Your first time the ValueTown?",
     "NewUserButton": "Continue as new user",
-<<<<<<< HEAD
-    "AfterErrButton": "Try again"
+    "AfterErrButton": "Try again",
+    "LastSaleText": "Market value"
   },
   "Graph": {
     "NoData": "No data, choose another timespan",
@@ -92,9 +92,6 @@
       "11": "nov",
       "12": "dec"
     }
-=======
-    "AfterErrButton": "Try again",
-    "LastSaleText": "Market value"
   },
   "PortfolioPage": {
     "Title": "My main stocks",
@@ -111,6 +108,5 @@
     "Acquisition": "Acquisition price",
     "TotalMarketValue": "Total market value",
     "TotalRevenueE": "Total revenue (€)"
->>>>>>>  Created all components and styles for Portfolio UI
   }
 }
