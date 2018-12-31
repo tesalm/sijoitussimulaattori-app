@@ -125,7 +125,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
   };
 
   render() {
-    const { portfolio, name, error, loading, stocks } = this.props;
+    const { portfolio, error, loading, stocks } = this.props;
 
     return (
       <ScrollView
