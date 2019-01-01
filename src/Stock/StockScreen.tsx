@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshControl, ScrollView, Text } from 'react-native';
+import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -14,6 +14,7 @@ import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
+import { stockStyles } from './styles';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -104,15 +105,25 @@ export class StockScreen extends React.Component<
           </Card>
 
           <Card containerStyle={cardStyles.container}>
-            <Diagram
-              historyData={
-                stock.stockInfo.historyData
-                  ? stock.stockInfo.historyData.historyDataQuote
-                  : []
-              }
-              historyLoading={stock.stockInfo.historyLoading}
-              historyError={stock.stockInfo.historyError}
-            />
+            {stock.stockInfo.historyLoading || stock.stockInfo.intraLoading ? (
+              <View style={stockStyles.loading}>
+                <ActivityIndicator size="large" />
+              </View>
+            ) : (
+              <Diagram
+                historyData={
+                  stock.stockInfo.historyData
+                    ? stock.stockInfo.historyData.historyDataQuote
+                    : []
+                }
+                intraDay={
+                  stock.stockInfo.intraday
+                    ? stock.stockInfo.intraday.intradayQuote
+                    : []
+                }
+                historyError={stock.stockInfo.historyError}
+              />
+            )}
           </Card>
 
           <Card containerStyle={cardStyles.container}>

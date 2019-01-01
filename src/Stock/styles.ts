@@ -1,8 +1,24 @@
 import { StyleSheet } from 'react-native';
-import { scale, verticalScale } from '../util/scale';
+
 import { Colors } from '../App/colors';
+import { scale, verticalScale } from '../util/scale';
 
 const stockStyles = StyleSheet.create({
+  buttonGrpContainer: {
+    margin: 0,
+    height: verticalScale(30),
+  },
+  graphPadding: {
+    top: verticalScale(10),
+    bottom: verticalScale(14),
+    left: scale(10),
+    right: scale(38),
+  },
+  graphContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: verticalScale(180),
+  },
   valueHeaderRightSide: {
     fontSize: verticalScale(12),
     marginBottom: verticalScale(0),
@@ -40,6 +56,9 @@ const stockStyles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttonGrpText: {
+    fontSize: verticalScale(10),
   },
 });
 
