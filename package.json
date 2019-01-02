@@ -35,7 +35,7 @@
       "<rootDir>/ios/Pods/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|react-navigation)|!(react-runtime)/)"
+      "node_modules/(?!(react-native|react-navigation|victory-*)|!(react-runtime)/)"
     ],
     "testEnvironment": "jsdom",
     "cacheDirectory": ".jest/cache"
