@@ -27,20 +27,18 @@ const stockStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     marginBottom: scale(8),
-    marginLeft: scale(8),
     color: Colors.baseColor,
   },
   valueHeader: {
     fontSize: 12,
     textAlign: 'justify',
     marginBottom: verticalScale(0),
-    marginLeft: scale(8),
     color: Colors.baseColor,
   },
   valueHeaderMiddle: {
     fontSize: 12,
     textAlign: 'justify',
-    marginTop: verticalScale(16),
+    marginTop: verticalScale(20),
     marginLeft: scale(16),
     color: Colors.baseColor,
   },
@@ -50,7 +48,6 @@ const stockStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
-    marginLeft: scale(8),
     marginBottom: verticalScale(4),
     color: Colors.baseColor,
   },
@@ -59,7 +56,7 @@ const stockStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
-    marginLeft: scale(8),
+
     marginBottom: verticalScale(4),
     color: Colors.greenPercent,
   },
@@ -68,7 +65,7 @@ const stockStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
-    marginLeft: scale(8),
+
     marginBottom: verticalScale(4),
     color: Colors.redPercent,
   },
@@ -83,7 +80,13 @@ const stockStyles = StyleSheet.create({
   },
   valueHeaderRightSide: {
     fontSize: 12,
-    marginTop: verticalScale(24),
+    marginTop: verticalScale(20),
+    marginLeft: scale(30),
+    color: Colors.baseColor,
+  },
+  valueHeaderRightSideHoldings: {
+    fontSize: 12,
+    marginTop: verticalScale(30),
     marginLeft: scale(30),
     color: Colors.baseColor,
   },
@@ -103,13 +106,7 @@ const stockStyles = StyleSheet.create({
     marginBottom: verticalScale(8),
     marginLeft: scale(30),
   },
-  valueRightSide: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: verticalScale(8),
-    marginLeft: scale(8),
-    color: Colors.baseColor,
-  },
+
   button: {
     margin: 0,
     height: 61,
@@ -125,17 +122,19 @@ const stockStyles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
     marginLeft: scale(8),
+
     color: Colors.baseColor,
   },
-  basicinfo: {
+  holdingsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: 8,
+  },
+  portfolioinfo: {
     display: 'flex',
     flexDirection: 'row',
   },
-  basicinfoSmallerComp: {
-    flexDirection: 'column',
-    flex: 1,
-  },
-  basicinfoMidComp: {
+  portfolioInfoSmallerComp: {
     flexDirection: 'column',
     flex: 1,
   },
@@ -149,8 +148,27 @@ const stockStyles = StyleSheet.create({
   },
   holdingsSubTitle: {
     fontSize: 15,
-    marginLeft: scale(8),
+    marginBottom: scale(8),
+    marginTop: scale(8),
     color: Colors.baseColor,
+    fontWeight: 'bold',
+  },
+  holdingsLogoView: {
+    marginTop: 0,
+    flexDirection: 'row',
+    marginBottom: scale(12),
+  },
+  holdingsSubLogoView: {
+    marginTop: 0,
+    flexDirection: 'row',
+    marginBottom: scale(12),
+  },
+  holdingsSubTitleView: {
+    flex: 0.9,
+  },
+  holdingsArrowView: {
+    flex: 0.1,
+    marginTop: scale(5),
   },
 });
 

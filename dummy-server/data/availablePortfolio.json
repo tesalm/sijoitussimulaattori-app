@@ -2,14 +2,17 @@
   "name": "Portfolion nimi",
   "ownerID": "klsdjfs",
   "balance": 500,
+  "revenue": -2.4,
   "stocks": [
     {
       "symbol": "AMZN",
+      "name": "Amazon",
       "amount": 245,
       "avgPrice": 153.3
     },
     {
       "symbol": "AAPL",
+      "name": "Apple",
       "amount": 340,
       "avgPrice": 132
     }

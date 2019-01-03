@@ -3,6 +3,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
 import { t } from '../../assets/i18n';
+import Icon from '../../general/icon';
 import { Stock } from '../../MarketScreen/reducer';
 import {
   calculateTotalMarketValue,
@@ -30,18 +31,21 @@ export class Holdings extends React.Component<HoldingsProps> {
     activeSections: [],
   };
 
-  _renderSectionTitle = (section: PortfolioStock) => {
-    return (
-      <View>
-        <Text>{section.symbol}</Text>
-      </View>
-    );
-  };
+  _renderHeader = (
+    section: PortfolioStock,
+    index: number,
+    isActive: boolean
+  ) => {
+    const iconName = isActive ? 'arrowUp' : 'arrowDown';
 
-  _renderHeader = (section: PortfolioStock) => {
     return (
-      <View>
-        <Text style={stockStyles.holdingsSubTitle}>{section.symbol}</Text>
+      <View style={stockStyles.holdingsSubLogoView}>
+        <View style={stockStyles.holdingsSubTitleView}>
+          <Text style={stockStyles.holdingsSubTitle}>{section.name}</Text>
+        </View>
+        <View style={stockStyles.holdingsArrowView}>
+          <Icon iconName={iconName} iconHeight={24} iconWidth={24} />
+        </View>
       </View>
     );
   };
@@ -99,8 +103,8 @@ export class Holdings extends React.Component<HoldingsProps> {
 
     return (
       <View>
-        <View style={stockStyles.basicinfo}>
-          <View style={stockStyles.basicinfoSmallerComp}>
+        <View style={stockStyles.holdingsContainer}>
+          <View style={stockStyles.portfolioInfoSmallerComp}>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.StocksOwned')}
             </Text>
@@ -118,7 +122,7 @@ export class Holdings extends React.Component<HoldingsProps> {
               {formatRevenue(totalRevenueProcent)}{' '}
             </Text>
           </View>
-          <View style={stockStyles.basicinfoSmallerComp}>
+          <View style={stockStyles.portfolioInfoSmallerComp}>
             <Text style={stockStyles.valueHeader}>
               {t('PortfolioPage.Acquisition')}
             </Text>
@@ -139,8 +143,8 @@ export class Holdings extends React.Component<HoldingsProps> {
             </Text>
           </View>
 
-          <View style={stockStyles.basicinfoMidComp}>
-            <Text style={stockStyles.valueHeaderRightSide}>
+          <View style={stockStyles.portfolioInfoSmallerComp}>
+            <Text style={stockStyles.valueHeaderRightSideHoldings}>
               {t('PortfolioPage.Revenue')}
             </Text>
             <Text style={revenueColor(revenueProcent)}>
@@ -181,7 +185,12 @@ export class Holdings extends React.Component<HoldingsProps> {
 
     return (
       <View>
-        <Text style={stockStyles.titleText}>{t('PortfolioPage.Holdings')}</Text>
+        <View style={stockStyles.holdingsLogoView}>
+          <Icon iconName={'holdings'} iconHeight={24} iconWidth={24} />
+          <Text style={stockStyles.titleText}>
+            {t('PortfolioPage.Holdings')}
+          </Text>
+        </View>
         <Accordion
           expandMultiple={true}
           sections={portfolio.stocks}

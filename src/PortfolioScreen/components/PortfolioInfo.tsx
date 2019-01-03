@@ -3,6 +3,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { Stock } from '../../MarketScreen/reducer';
+import { formatRevenue, revenueColor } from '../../util/general';
 import { Portfolio, PortfolioStock } from '../reducers';
 import { stockStyles } from '../styles';
 
@@ -13,7 +14,7 @@ export interface BasicinfoProps {
   stocks?: Stock[];
 }
 
-export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
+export const PortfolioInfo = (props: BasicinfoProps): JSX.Element => {
   if (props.loading) {
     return (
       <View style={stockStyles.loading}>
@@ -30,37 +31,43 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
       return <Text>Error! {errorMessage} </Text>;
     }
   }
+  const portfolioValue = calculatePortfolioValue(
+    props.portfolio.stocks,
+    props.stocks
+  );
 
   return (
     <View>
-      <View style={stockStyles.basicinfo}>
+      <View style={stockStyles.portfolioinfo}>
         <Text style={stockStyles.titleStyle}>{t('PortfolioPage.Title')}</Text>
       </View>
-      <View style={stockStyles.basicinfo}>
-        <View style={stockStyles.basicinfoSmallerComp}>
+      <View style={stockStyles.portfolioinfo}>
+        <View style={stockStyles.portfolioInfoSmallerComp}>
           <Text style={stockStyles.valueHeader}>
             {t('PortfolioPage.MarketValue')}
           </Text>
-          <Text style={stockStyles.value}>
-            {calculatePortfolioValue(props.portfolio.stocks, props.stocks)}
-          </Text>
+          <Text style={stockStyles.value}>{portfolioValue + ' $'}</Text>
           <Text style={stockStyles.valueHeader}>{t('PortfolioPage.Cash')}</Text>
-          <Text style={stockStyles.value}>{props.portfolio.balance} </Text>
+          <Text style={stockStyles.value}>
+            {props.portfolio.balance + ' $'}{' '}
+          </Text>
         </View>
-        <View style={stockStyles.basicinfoSmallerComp}>
+        <View style={stockStyles.portfolioInfoSmallerComp}>
           <Text style={stockStyles.valueHeaderMiddle}>
             {t('PortfolioPage.TotalValue')}
           </Text>
           <Text style={stockStyles.valueMiddle}>
-            {props.portfolio.balance + props.portfolio.balance}
+            {props.portfolio.balance + portfolioValue + ' $'}
           </Text>
         </View>
 
-        <View style={stockStyles.basicinfoMidComp}>
+        <View style={stockStyles.portfolioInfoSmallerComp}>
           <Text style={stockStyles.valueHeaderRightSide}>
             {t('PortfolioPage.Revenue')}
           </Text>
-          <Text>{'23'}</Text>
+          <Text style={revenueColor(props.portfolio.revenue)}>
+            {formatRevenue(props.portfolio.revenue)}
+          </Text>
         </View>
       </View>
     </View>
@@ -93,4 +100,4 @@ const calculatePortfolioValue = (
   return portoflioValue;
 };
 
-export default Basicinfo;
+export default PortfolioInfo;

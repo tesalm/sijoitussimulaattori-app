@@ -10,9 +10,9 @@ import { Stock } from '../MarketScreen/reducer';
 import { RootState } from '../redux/reducers';
 import { t } from './../assets/i18n';
 import { getPortfolioData } from './actions';
-import { Basicinfo } from './components/Basicinfo';
 import { EventsTransactions, Manage } from './components/Buttons';
 import { Holdings } from './components/Holdings';
+import { PortfolioInfo } from './components/PortfolioInfo';
 import { Portfolio } from './reducers';
 import { stockContainerStyles } from './styles';
 
@@ -22,6 +22,7 @@ export interface PortfolioProps {
   name?: string;
   loading: boolean;
   error?: Error;
+  refreshing: boolean;
   stocks: Array<Stock>;
   getAllStocks: typeof getStocks;
   getMeta: typeof getStockMetadata;
@@ -55,44 +56,24 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
   }
 
   refresh = () => {
-    const curTime = new Date();
-    if (this.props.portfolio) {
-      this.props.portfolio.stocks.forEach((portfolioStock) => {
-        var findStock = this.props.stocks.find((stock) => {
-          return stock.symbol === portfolioStock.symbol;
-        });
-        if (findStock) {
-          this.props.refreshIntra(findStock, findStock.symbol);
-        }
-      });
-    }
-  };
-
-  checkRefresh = (): boolean => {
-    this.props.stocks.forEach((stock) => {
-      if (stock.stockInfo.refreshing) {
-        return true;
-      }
-    });
-    return false;
+    this.props.getPortfolio();
   };
 
   render() {
-    const { portfolio, error, loading, stocks } = this.props;
+    const { portfolio, error, loading, stocks, refreshing } = this.props;
 
     return (
       <ScrollView
         refreshControl={
           <RefreshControl
-            //TODO: what is this
-            refreshing={this.checkRefresh()}
+            refreshing={refreshing}
             onRefresh={this.refresh}
             colors={[Colors.baseColor]}
           />
         }
       >
         <Card containerStyle={stockContainerStyles.basicInfo}>
-          <Basicinfo
+          <PortfolioInfo
             portfolio={portfolio}
             loading={loading}
             error={error}
@@ -125,6 +106,7 @@ const mapStateToProps = (state: RootState) => ({
   error: state.singlePortfolio.error,
   loading: state.singlePortfolio.loading,
   stocks: state.stocksListing.stocks,
+  refreshing: state.singlePortfolio.refreshing,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

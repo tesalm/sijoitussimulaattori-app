@@ -2,6 +2,7 @@ import { ActionType, PortfolioAction } from './actions';
 
 export interface PortfolioStock {
   symbol: string;
+  name: string;
   amount: number;
   avgPrice: number;
 }
@@ -10,18 +11,21 @@ export interface Portfolio {
   balance: number;
   stocks: PortfolioStock[];
   name: string;
+  revenue: number;
 }
 
 export interface SinglePortfolio {
   portfolio?: Portfolio;
   loading: boolean;
   error?: Error;
+  refreshing: boolean;
 }
 
 const initialState: SinglePortfolio = {
   portfolio: undefined,
   loading: false,
   error: undefined,
+  refreshing: false,
 };
 
 export const portfolioReducer = (
@@ -30,16 +34,22 @@ export const portfolioReducer = (
 ): SinglePortfolio => {
   switch (action.type) {
     case ActionType.RequestPortfolioBegin:
-      return { ...state, loading: true, error: undefined };
+      return { ...state, loading: true, error: undefined, refreshing: true };
     case ActionType.RequestPortfolioSuccess:
       return {
         ...state,
         portfolio: action.portfolio,
         loading: false,
         error: undefined,
+        refreshing: false,
       };
     case ActionType.RequestPortfolioFailure:
-      return { ...state, loading: false, error: action.error };
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+        refreshing: false,
+      };
     default:
       return state;
   }
