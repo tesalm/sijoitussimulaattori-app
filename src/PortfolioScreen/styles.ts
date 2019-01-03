@@ -113,7 +113,6 @@ const portfolioStyles = StyleSheet.create({
     color: Colors.baseColor,
     fontWeight: 'bold',
   },
-
   holdingsLogoView: {
     marginTop: 0,
     flexDirection: 'row',

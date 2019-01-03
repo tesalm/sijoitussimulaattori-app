@@ -25,6 +25,7 @@ export enum IconNames {
 }
 const Icon = (props: IconProps): JSX.Element => {
   let req;
+<<<<<<< HEAD
 
   switch (props.iconName) {
     case IconNames.open:
@@ -66,6 +67,22 @@ const Icon = (props: IconProps): JSX.Element => {
     default:
       //TODO: Add better icon for default case.
       req = require('../navigation/assets/delete.png');
+=======
+  if (props.iconName === 'open') {
+    req = require(`../navigation/assets/open.png`);
+  } else if (props.iconName === 'transaction') {
+    req = require(`../navigation/assets/transaction.png`);
+  } else if (props.iconName === 'holdings') {
+    req = require('../navigation/assets/briefcase2.png');
+  } else if (props.iconName == 'manage') {
+    req = require('../navigation/assets/manage.png');
+  } else if (props.iconName == 'eventsTransactions') {
+    req = require('../navigation/assets/manage.png');
+  } else if (props.iconName == 'arrowDown') {
+    req = require('../navigation/assets/arrowDown.png');
+  } else if (props.iconName == 'arrowUp') {
+    req = require('../navigation/assets/arrowUp.png');
+>>>>>>> Modified styles of all components. Added more icons.
   }
 
   return (
