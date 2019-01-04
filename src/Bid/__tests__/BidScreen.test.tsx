@@ -1,0 +1,99 @@
+import * as React from 'react';
+import renderer from 'react-test-renderer';
+import { BidProps, BidScreen } from '../BidScreen';
+
+describe('bid tests', () => {
+  //Mock for navigation.
+  const navigationMock: any = {};
+
+  const defaultBidProps: BidProps = {
+    stock: undefined,
+    saveForm: jest.fn(),
+  };
+
+  const bidProps: BidProps = {
+    stock: {
+      symbol: 'AAPL',
+      name: 'Apple',
+      high: 375.53,
+      low: 354.38,
+      revenue: 3894.34,
+      close: 293.42,
+      currency: 'USD',
+      stockInfo: {
+        stockMetadata: {
+          symbol: 'AAPL',
+          name: 'Apple Inc.',
+          type: 'string',
+          region: 'string',
+          marketOpen: '2018-12-12 11:20:00',
+          marketClose: '2018-12-12 11:20:00',
+          timeZone: 'US/Eastern',
+          currency: 'USD',
+          fetchTime: new Date('2018-12-17T01:24:00.000Z'),
+        },
+        intraday: {
+          intradayQuote: [
+            {
+              symbol: 'AAPL',
+              date: '2018-12-12T00:20:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+            {
+              symbol: 'AAPL',
+              date: '2018-12-12T00:10:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+          ],
+          fetchTime: new Date('2018-12-17T01:24:00.000Z'),
+        },
+        historyData: {
+          historyDataQuote: [
+            {
+              symbol: 'AAPL',
+              date: '2018-12-15T00:00:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 165.43,
+              close: 162.63,
+              volume: 12279994,
+            },
+            {
+              symbol: 'AAPL',
+              date: '2018-12-14T00:00:00.000Z',
+              open: 170.4,
+              high: 170.43,
+              low: 161.43,
+              close: 168.63,
+              volume: 12279994,
+            },
+          ],
+          fetchTime: new Date('2018-12-17T01:24:00.000Z'),
+        },
+        metaLoading: false,
+        intraLoading: false,
+        historyLoading: false,
+        refreshing: false,
+        metaError: undefined,
+        intraError: undefined,
+        historyError: undefined,
+      },
+    },
+    saveForm: jest.fn(),
+  };
+
+  it('BidScreen renders correctly', async () => {
+    const component = renderer
+      .create(<BidScreen {...defaultBidProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
+  });
+});
