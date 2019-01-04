@@ -5,115 +5,169 @@ exports[`Create Portfolio renders correctly 1`] = `
   style={
     Object {
       "alignItems": "stretch",
+      "backgroundColor": "#004D40",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "flex-start",
-      "marginBottom": 8,
-      "marginLeft": 16,
-      "marginRight": 16,
-      "marginTop": 8,
     }
   }
 >
-  <Text
-    style={
-      Object {
-        "color": "#004D40",
-        "fontFamily": "Roboto",
-        "fontSize": 16,
-        "fontWeight": "bold",
-        "textAlign": "left",
-      }
-    }
-  >
-    Name of the portfolio
-  </Text>
-  <TextInput
-    allowFontScaling={true}
-    onChangeText={[Function]}
-    style={
-      Object {
-        "borderBottomColor": "#000000",
-        "borderBottomWidth": 1,
-        "color": "#e8a30c",
-        "height": 40,
-        "marginBottom": 8,
-        "marginTop": 8,
-      }
-    }
-    underlineColorAndroid="transparent"
-    value=""
-  />
-  <Text
-    style={
-      Object {
-        "color": "#004D40",
-        "fontFamily": "Roboto",
-        "fontSize": 16,
-        "fontWeight": "bold",
-        "textAlign": "left",
-      }
-    }
-  >
-    Initial amount of money
-  </Text>
-  <TextInput
-    allowFontScaling={true}
-    keyboardType="numeric"
-    onChangeText={[Function]}
-    style={
-      Object {
-        "borderBottomColor": "#000000",
-        "borderBottomWidth": 1,
-        "color": "#e8a30c",
-        "height": 40,
-        "marginBottom": 8,
-        "marginTop": 8,
-      }
-    }
-    underlineColorAndroid="transparent"
-    value=""
-  />
   <View
-    accessibilityRole="button"
-    accessibilityStates={Array []}
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "paddingBottom": 32,
+        "paddingHorizontal": 84,
+        "paddingTop": 346,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 34,
+          "fontWeight": "bold",
+          "paddingBottom": 16,
+          "paddingTop": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      Name your portfolio
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      selectionColor="#e8a30c"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 32,
+          "paddingHorizontal": 32,
+          "textAlign": "center",
+        }
+      }
+      underlineColorAndroid="white"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 84,
+        "paddingVertical": 32,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 34,
+          "fontWeight": "bold",
+          "paddingBottom": 16,
+          "paddingTop": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      Give initial capital to your portfolio
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="numeric"
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      selectionColor="#e8a30c"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 32,
+          "paddingHorizontal": 32,
+          "textAlign": "center",
+        }
+      }
+      underlineColorAndroid="white"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingTop": 64,
       }
     }
   >
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {},
-        ]
+        Object {
+          "alignItems": "center",
+          "height": 72,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 224,
+        }
       }
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-            Object {
-              "color": "#004d40",
-            },
-          ]
+          Object {
+            "color": "white",
+            "fontSize": 28,
+            "fontWeight": "bold",
+          }
         }
       >
-        Create Portfolio
+        CANCEL
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e8a30c",
+          "height": 72,
+          "justifyContent": "center",
+          "opacity": 1,
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 1,
+          },
+          "width": 224,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 28,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        SAVE
       </Text>
     </View>
   </View>
