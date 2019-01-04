@@ -5,7 +5,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
 import { t } from '../assets/i18n';
-import { Stock } from '../MarketScreen/reducers';
+import { Stock } from '../MarketScreen/reducer';
 import { sumUpStyles } from './styles';
 import { formatCurrency } from '../util/general';
 import { NavigationScreenProps } from 'react-navigation';
@@ -151,7 +151,7 @@ const mapStateToProps = (state: RootState) => ({
   stocks: state.bid.sumOfStocks,
   portfolio: state.bid.selectedPortfolio,
   stock: state.stocksListing.stocks.find((stock) => {
-    return stock.symbol === state.stocksListing.symbol;
+    return stock.symbol === state.stocksListing.currentSymbol;
   }),
 });
 
