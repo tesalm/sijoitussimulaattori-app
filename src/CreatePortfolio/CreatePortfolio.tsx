@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -10,6 +10,8 @@ import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { CreateNewPortfolio } from './actions';
 import { CreatePortfolioStyles as styles } from './styles';
+import { FormColors } from '../App/colors';
+import { buttonStyles, textInputStyles } from '../App/styles';
 
 export interface CreatePortfolioProps {
   onCreatePortfolio: typeof CreateNewPortfolio;
@@ -25,6 +27,8 @@ interface CreatePortfolioState {
   nameError: boolean;
   amountError: boolean;
   errorMessageTranslationKey: string;
+  nameActive: boolean;
+  sumActive: boolean;
 }
 
 class CreatePortfolio extends React.Component<
@@ -40,8 +44,14 @@ class CreatePortfolio extends React.Component<
       nameError: true,
       amountError: true,
       errorMessageTranslationKey: '',
+      nameActive: false,
+      sumActive: false,
     };
   }
+
+  static navigationOptions = {
+    header: null,
+  };
 
   sanitize(input: string) {
     const trimWhitespaces = validator.trim(input);
@@ -92,43 +102,74 @@ class CreatePortfolio extends React.Component<
     ) : null;
   }
 
-  static navigationOptions = { title: t('CreatePortfolio.Title') };
   render() {
+    const { nameActive, sumActive, name, inputNumber } = this.state;
     return (
       <View style={styles.container}>
-        <Text style={styles.main}>
-          {t('CreatePortfolio.PortfolioNameInputTitle')}
-        </Text>
-        <TextInput
-          style={styles.textinput}
-          ref="name"
-          onChangeText={(name) => this.setState({ name })}
-          value={this.state.name}
-        />
-        <Text style={styles.main}>
-          {t('CreatePortfolio.PortfolioAmountInputTitle')}
-        </Text>
-        <TextInput
-          style={styles.textinput}
-          keyboardType="numeric"
-          ref="amount"
-          onChangeText={(inputNumber) => this.setState({ inputNumber })}
-          value={this.state.inputNumber}
-        />
-        <Button
-          color="#004d40"
-          title={t('CreatePortfolio.ConfirmButtonText')}
-          onPress={() => this.validate()}
-        />
+        <View style={styles.nameContainer}>
+          <Text style={styles.headings}>
+            {t('CreatePortfolio.PortfolioNameInputTitle')}
+          </Text>
+          <TextInput
+            selectionColor={FormColors.activeColor}
+            underlineColorAndroid={
+              nameActive ? FormColors.activeColor : FormColors.unactiveColor
+            }
+            style={textInputStyles.item}
+            ref="name"
+            onChangeText={(name) => this.setState({ name })}
+            value={name}
+            onFocus={() =>
+              this.setState({
+                nameActive: true,
+              })
+            }
+            onBlur={() => this.setState({ nameActive: false })}
+          />
+        </View>
+        <View style={styles.amountContainer}>
+          <Text style={styles.headings}>
+            {t('CreatePortfolio.PortfolioAmountInputTitle')}
+          </Text>
+          <TextInput
+            selectionColor={FormColors.activeColor}
+            underlineColorAndroid={
+              sumActive ? FormColors.activeColor : FormColors.unactiveColor
+            }
+            style={textInputStyles.item}
+            keyboardType="numeric"
+            ref="amount"
+            onChangeText={(inputNumber) => this.setState({ inputNumber })}
+            value={inputNumber}
+            onFocus={() => this.setState({ sumActive: true })}
+            onBlur={() => this.setState({ sumActive: false })}
+          />
+        </View>
+        <View style={buttonStyles.container}>
+          <TouchableOpacity
+            style={buttonStyles.cancelButton}
+            onPress={() => this.props.navigation.goBack()}
+          >
+            <Text style={buttonStyles.cancelText}>
+              {t('CreatePortfolio.Cancel').toUpperCase()}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={buttonStyles.okButton}
+            onPress={() => this.validate()}
+          >
+            <Text style={buttonStyles.okText}>
+              {t('CreatePortfolio.Save').toUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </View>
         <View>{this.showErrors()}</View>
       </View>
     );
   }
 }
 
-const mapStateToProps = (state: RootState) => ({
-  counterValue: state.counter.counterValue,
-});
+const mapStateToProps = (state: RootState) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(

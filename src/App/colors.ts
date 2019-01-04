@@ -9,4 +9,11 @@ const Colors = {
   errorText: '#ff0000',
 };
 
-export { Colors };
+const FormColors = {
+  backgroundColor: '#004D40',
+  fontColor: 'white',
+  activeColor: '#e8a30c',
+  unactiveColor: 'white',
+};
+
+export { Colors, FormColors };

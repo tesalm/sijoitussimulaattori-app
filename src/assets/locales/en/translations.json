@@ -111,8 +111,10 @@
   "CreatePortfolio": {
     "ConfirmButtonText": "Create Portfolio",
     "Title": "Create Portfolio",
-    "PortfolioNameInputTitle": "Name of the portfolio",
-    "PortfolioAmountInputTitle": "Initial amount of money"
+    "PortfolioNameInputTitle": "Name your portfolio",
+    "PortfolioAmountInputTitle": "Give initial capital to your portfolio",
+    "Cancel": "Cancel",
+    "Save": "Save"
   },
   "InputErrors": {
     "NameEmpty": "Name can not be empty!",

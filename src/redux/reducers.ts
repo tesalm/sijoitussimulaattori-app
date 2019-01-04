@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import { StocksListing, stocksListingReducer } from '../MarketScreen/reducers';
-import { createPortfolioReducer, CreatingPortfolio } from '../CreatePortfolio/reducer';
+import { counterReducer, Counter } from '../HelloFeature/reducer';
+import {
+  createPortfolioReducer,
+  CreatingPortfolio,
+} from '../CreatePortfolio/reducer';
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
 import { PortfolioListing, portfolioListingReducer } from '../PortfolioList/reducers';
 import { User, userReducer } from '../User/reducer';

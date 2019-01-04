@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '../App/colors';
+import { Colors, FormColors } from '../App/colors';
+import { scale, verticalScale } from '../util/scale';
 
 const CreatePortfolioStyles = StyleSheet.create({
   container: {
@@ -8,25 +9,25 @@ const CreatePortfolioStyles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'stretch',
-    marginTop: 8,
-    marginBottom: 8,
-    marginLeft: 16,
-    marginRight: 16,
+    backgroundColor: FormColors.backgroundColor,
   },
-  main: {
-    fontFamily: 'Roboto',
-    fontSize: 16,
+  nameContainer: {
+    paddingTop: verticalScale(173),
+    paddingBottom: verticalScale(16),
+    paddingHorizontal: scale(42),
+  },
+  amountContainer: {
+    paddingVertical: verticalScale(16),
+    paddingHorizontal: scale(42),
+  },
+
+  headings: {
+    fontSize: verticalScale(17),
     fontWeight: 'bold',
-    textAlign: 'left',
-    color: Colors.baseColor,
-  },
-  textinput: {
-    marginTop: 8,
-    marginBottom: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.textInputBottomBorder,
-    height: 40,
-    color: Colors.textInputText,
+    textAlign: 'center',
+    color: FormColors.fontColor,
+    paddingTop: verticalScale(16),
+    paddingBottom: verticalScale(8),
   },
   error: {
     color: Colors.errorText,
