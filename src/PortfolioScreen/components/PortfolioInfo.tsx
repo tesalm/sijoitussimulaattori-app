@@ -89,7 +89,6 @@ const calculatePortfolioValue = (
         return 0;
       }
       if (rightStock.stockInfo.intraday === undefined) {
-        // TODO: Muokkaa error-teksti käyttäjälle.
         return 0;
       }
       portoflioValue =

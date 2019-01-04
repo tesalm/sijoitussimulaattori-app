@@ -25,11 +25,10 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
   }
 };
 
-const PortfolioApiRequest = async (): Promise<Portfolio> => {
+const PortfolioApiRequest = async (symbol: string): Promise<Portfolio> => {
   try {
-    const res = await axios.get(
-      config.app.PORTFOLIO_API_URL + '/profile/portfolio/'
-    );
+    const url = config.app.PORTFOLIO_API_URL + '/profile/portfolio/' + symbol;
+    const res = await axios.get(url);
     const data = res.data;
     return data;
   } catch (error) {
@@ -53,7 +52,7 @@ const PortfolioListApiRequest = async (): Promise<PortfolioList[]> => {
     //const res = await axios.get(
     //config.app.PORTFOLIO_API_URL + '/profile/portfolio/list'
     //);
-    const data = [{ name: 'portfolio 1' }, { name: 'portfolio 2' }];
+    const data = [{ name: 'Portfolio1' }, { name: 'Portfolio2' }];
     return data;
   } catch (error) {
     throw error;

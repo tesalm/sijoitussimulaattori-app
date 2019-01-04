@@ -1,3 +1,5 @@
+import cloneDeep from 'lodash/cloneDeep';
+
 import { ActionType, PortfolioAction } from './actions';
 
 export interface PortfolioStock {
@@ -34,7 +36,12 @@ export const portfolioReducer = (
 ): SinglePortfolio => {
   switch (action.type) {
     case ActionType.RequestPortfolioBegin:
-      return { ...state, loading: true, error: undefined, refreshing: true };
+      return {
+        ...cloneDeep(state),
+        loading: true,
+        error: undefined,
+        refreshing: true,
+      };
     case ActionType.RequestPortfolioSuccess:
       return {
         ...state,
@@ -45,11 +52,12 @@ export const portfolioReducer = (
       };
     case ActionType.RequestPortfolioFailure:
       return {
-        ...state,
+        ...cloneDeep(state),
         loading: false,
         error: action.error,
         refreshing: false,
       };
+
     default:
       return state;
   }

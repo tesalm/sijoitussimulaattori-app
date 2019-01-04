@@ -38,25 +38,30 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
   }
 
   async componentDidMount() {
-    await this.props.getPortfolio();
+    if (this.props.name) {
+      await this.props.getPortfolio(this.props.name);
+    }
+
     await this.props.getAllStocks();
 
     if (this.props.portfolio) {
-      this.props.portfolio.stocks.forEach((portfolioStock) => {
+      await this.props.portfolio.stocks.forEach(async (portfolioStock) => {
         var findStock = this.props.stocks.find((stock) => {
           return stock.symbol === portfolioStock.symbol;
         });
         if (findStock) {
-          this.props.getMeta(findStock, findStock.symbol);
-          this.props.getHistoryData(findStock, findStock.symbol);
-          this.props.getIntra(findStock, findStock.symbol);
+          await this.props.getMeta(findStock, findStock.symbol);
+          await this.props.getHistoryData(findStock, findStock.symbol);
+          await this.props.getIntra(findStock, findStock.symbol);
         }
       });
     }
   }
 
   refresh = () => {
-    this.props.getPortfolio();
+    if (this.props.name) {
+      this.props.getPortfolio(this.props.name);
+    }
   };
 
   render() {
