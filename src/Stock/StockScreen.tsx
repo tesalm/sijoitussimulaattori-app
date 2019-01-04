@@ -19,6 +19,7 @@ import Diagram from './components/Diagram';
 import { stockContainerStyles } from './styles';
 import { NavigationScreenProps } from 'react-navigation';
 import BackButtonWithNavigation from '../navigation/components/BackButton';
+import { countRevenue } from '../util/general';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -58,16 +59,15 @@ export class StockScreen extends React.Component<
 
   countRevenuePercentage() {
     if (
-      this.props.stock !== undefined &&
-      this.props.stock.stockInfo !== undefined &&
-      this.props.stock.stockInfo.historyData !== undefined &&
-      this.props.stock.stockInfo.intraday !== undefined
+      this.props.stock &&
+      this.props.stock.stockInfo &&
+      this.props.stock.stockInfo.historyData &&
+      this.props.stock.stockInfo.intraday
     ) {
       const yesterday = this.props.stock.stockInfo.historyData
         .historyDataQuote[0].close;
       const today = this.props.stock.stockInfo.intraday.intradayQuote[0].close;
-      const revenue = (today - yesterday) / yesterday;
-      return revenue;
+      return countRevenue(yesterday, today);
     }
     return 0;
   }

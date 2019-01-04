@@ -62,6 +62,16 @@ export class SumUpScreen extends React.Component<
     }
   }
 
+  countTotalCost() {
+    if (this.props.stock && this.props.stock.stockInfo.stockMetadata) {
+      return formatCurrency(
+        this.props.currentBidLevel * this.props.stocks,
+        this.props.stock.currency
+      );
+    }
+    return 0;
+  }
+
   render() {
     const { action, currentBidLevel, portfolio, stock, stocks } = this.props;
     const { totalCost, portfolioValueAfter } = this.state;

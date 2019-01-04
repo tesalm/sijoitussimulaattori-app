@@ -17,13 +17,6 @@ import BidScreen from '../../Bid/BidScreen';
 import SumUpScreen from '../../SumUp/SumUpScreen';
 import { Colors } from '../../App/colors';
 
-interface SumUpProps {
-  action: string;
-  bidLevel: string;
-  sumOfStocks: string;
-  selectedPortfolio: string;
-}
-
 const MarketStack = createStackNavigator(
   {
     Market: { screen: MarketScreen },

@@ -1,0 +1,39 @@
+import React from 'react';
+
+import { Text, View } from 'react-native';
+import { bidStyles, actionButtons } from '../styles';
+import Icon from '../../general/icon';
+import { WizardFormColors } from '../../App/colors';
+import { t } from '../../assets/i18n';
+
+export interface ActionButtonProps {
+  action: string;
+  active: boolean;
+}
+
+export const ActionButton = (props: ActionButtonProps): JSX.Element => {
+  return (
+    <View style={actionButtons.buttonWithText}>
+      <Icon
+        iconName={props.action}
+        iconHeight={24}
+        iconWidth={24}
+        tintColor={
+          props.active
+            ? WizardFormColors.buttonsActive
+            : WizardFormColors.buttonsUnactive
+        }
+      />
+      <Text
+        style={
+          props.active
+            ? actionButtons.buttonActive
+            : actionButtons.buttonUnactive
+        }
+      >
+        {props.action === 'buy' && t('BidPage.Buy')}
+        {props.action === 'sell' && t('BidPage.Sell')}
+      </Text>
+    </View>
+  );
+};

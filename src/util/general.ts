@@ -22,12 +22,29 @@ const revenueColor = (revenue: number) => {
 const formatCurrency = (value: number, currency: string) => {
   if (currency) {
     if (currency == 'USD') {
-      return value + ' $';
+      return value.toFixed(2) + ' $';
     } else if (currency == 'EUR') {
-      return value + ' €';
+      return value.toFixed(2) + ' €';
     }
   }
-  return value + ' $';
+  return value.toFixed(2) + ' $';
 };
 
-export { randomInt, formatRevenue, revenueColor, formatCurrency };
+// counts revenue change from current close value compared to yesterdays value.
+const countRevenue = (closeYesterday: number, closeToday: number) => {
+  return (closeToday - closeYesterday) / closeYesterday;
+};
+
+// Parses string to float. Changes , -> .
+const parseStringDecimalToFloat = (value: string) => {
+  return parseFloat(value.concat().replace(',', '.'));
+};
+
+export {
+  randomInt,
+  formatRevenue,
+  revenueColor,
+  formatCurrency,
+  countRevenue,
+  parseStringDecimalToFloat,
+};

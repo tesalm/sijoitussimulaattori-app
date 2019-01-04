@@ -12,6 +12,7 @@ const WizardFormColors = {
   buttonsUnactive: 'white',
   buttonsActive: '#E8A30C',
   defaultFontColor: 'white',
+  hightlightFontColor: '#E8A30C',
 };
 
 export { Colors, WizardFormColors };

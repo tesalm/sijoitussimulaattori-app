@@ -3,14 +3,18 @@ import React from 'react';
 import { Text, View, ActivityIndicator } from 'react-native';
 
 import { t } from '../../assets/i18n';
-import { StockMetadata, Intraday } from '../../MarketScreen/reducers';
-import { revenueColor, formatCurrency } from '../../util/general';
+import { StockMetadata, Intraday } from '../../MarketScreen/reducer';
+import {
+  revenueColor,
+  formatCurrency,
+  formatRevenue,
+} from '../../util/general';
 import { bidStyles, stockinfo } from '../styles';
 import { stockContainerStyles } from '../../Stock/styles';
 
 export interface StockinfoProps {
   name: string;
-  marketValue: number;
+  revenue: number;
   updated: Date;
 }
 
@@ -23,12 +27,14 @@ export const StockInfo = (props: StockinfoProps): JSX.Element => {
       <View style={stockinfo.stockinfoMiddle}>
         <View style={stockinfo.stockinfoMiddleContent}>
           <Text style={stockinfo.valueHeaderSmall}>
-            {t('StockPage.MarketValue')}
+            {t('StockPage.RevenueText')}
           </Text>
-          <Text style={stockinfo.valueSmall}>{props.marketValue}</Text>
+          <Text style={stockinfo.valueSmall}>
+            {formatRevenue(props.revenue)}
+          </Text>
         </View>
         <View style={stockinfo.stockinfoMiddleContent}>
-          <Text>HALOO</Text>
+          {/* TODO: Here comes the graph */}
         </View>
       </View>
       <View>

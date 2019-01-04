@@ -91,6 +91,10 @@
     "AmountOfStocks": "Amount of stocks",
     "BidLevel": "Bid level",
     "TotalCost": "Total cost of transaction:",
-    "PortfoliosValueAfter": "Portfolios value after transaction:"
+    "PortfoliosValueAfter": "Portfolios value after transaction:",
+    "YouOwn": "You own",
+    "StocksOf": "stocks of",
+    "YourPortfoliosTotVal": "Your portfolios total value is",
+    "TotalSumOfTransaction": "Total sum of transaction is"
   }
 }
