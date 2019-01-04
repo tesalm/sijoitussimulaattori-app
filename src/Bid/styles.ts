@@ -11,26 +11,26 @@ const bidPageStyle = StyleSheet.create({
 
 const bidStyles = StyleSheet.create({
   chooseAction: {
-    marginTop: verticalScale(287),
+    paddingTop: verticalScale(287),
   },
   buttonUnactive: {
     color: WizardFormColors.buttonsUnactive,
     fontWeight: 'bold',
     fontSize: verticalScale(20),
-    marginLeft: scale(8),
+    paddingLeft: scale(8),
   },
   buttonActive: {
     color: WizardFormColors.buttonsActive,
     fontWeight: 'bold',
     fontSize: verticalScale(20),
-    marginLeft: scale(8),
+    paddingLeft: scale(8),
   },
   headings: {
     color: WizardFormColors.defaultFontColor,
     fontWeight: 'bold',
     fontSize: verticalScale(17),
     textAlign: 'center',
-    marginBottom: verticalScale(16),
+    paddingBottom: verticalScale(16),
   },
   stock: {
     fontStyle: 'italic',
@@ -38,9 +38,9 @@ const bidStyles = StyleSheet.create({
   dropdown: {
     alignContent: 'center',
     borderBottomColor: 'white',
-    marginHorizontal: scale(16),
+    paddingHorizontal: scale(16),
     alignSelf: 'stretch',
-    marginBottom: verticalScale(16),
+    paddingBottom: verticalScale(16),
     //justifyContent: 'center',
     // backgroundColor: WizardFormColors.buttonsUnactive,
   },
@@ -57,8 +57,8 @@ const bidStyles = StyleSheet.create({
   textInputs: {
     color: WizardFormColors.buttonsUnactive,
     fontSize: verticalScale(17),
-    marginHorizontal: scale(16),
-    marginBottom: verticalScale(16),
+    paddingHorizontal: scale(16),
+    paddingBottom: verticalScale(16),
     //height: 40,
     //paddingLeft: 6,
   },
@@ -77,7 +77,7 @@ const bidStyles = StyleSheet.create({
   sumUpCancelButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: verticalScale(16),
+    paddingTop: verticalScale(16),
   },
   cancelButton: {
     height: verticalScale(36),
@@ -105,4 +105,40 @@ const bidStyles = StyleSheet.create({
   },
 });
 
-export { bidPageStyle, bidStyles };
+const stockinfo = StyleSheet.create({
+  stockText: {
+    color: WizardFormColors.defaultFontColor,
+    fontWeight: 'bold',
+    fontSize: verticalScale(17),
+  },
+  valueHeaderSmall: {
+    color: WizardFormColors.defaultFontColor,
+    fontSize: verticalScale(12),
+  },
+  valueSmall: {
+    color: WizardFormColors.defaultFontColor,
+    fontSize: verticalScale(17),
+    fontWeight: 'bold',
+  },
+  updatedText: {
+    color: WizardFormColors.defaultFontColor,
+    fontSize: verticalScale(11),
+  },
+  container: {
+    paddingVertical: verticalScale(16),
+    paddingHorizontal: scale(16),
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: WizardFormColors.backgroundColor,
+  },
+  stockinfoMiddle: {
+    flexDirection: 'row',
+    paddingVertical: verticalScale(16),
+  },
+  stockinfoMiddleContent: {
+    flexDirection: 'column',
+    flex: 1,
+  },
+});
+
+export { bidPageStyle, bidStyles, stockinfo };

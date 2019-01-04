@@ -72,6 +72,7 @@ const sumUpStyles = StyleSheet.create({
   },
   detailContainer: {
     marginVertical: verticalScale(16),
+    marginHorizontal: scale(16),
     display: 'flex',
     flexDirection: 'row',
   },

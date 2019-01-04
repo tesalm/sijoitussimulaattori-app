@@ -19,6 +19,7 @@ import { formatCurrency } from '../util/general';
 import { verticalScale } from '../util/scale';
 import { NavigationScreenProps } from 'react-navigation';
 import { saveBidForm } from './actions';
+import { StockInfo } from './components/Stockinfo';
 
 export interface BidProps {
   stock?: Stock;
@@ -128,13 +129,14 @@ export class BidScreen extends React.Component<
       selectedPortfolio,
     } = this.state;
 
-    if (!stock) {
+    if (!stock || !stock.stockInfo || !stock.stockInfo.stockMetadata) {
       return <Text>Error!</Text>;
     }
 
     return (
       <View>
         {/* <BackButtonWithNavigation /> */}
+        <StockInfo name={stock.name} marketValue={15.43} updated={stock.stockInfo.stockMetadata.fetchTime}></StockInfo>
         <ScrollView ref={this.scroller}>
           <View style={bidPageStyle.background}>
             <View style={bidStyles.chooseAction}>
