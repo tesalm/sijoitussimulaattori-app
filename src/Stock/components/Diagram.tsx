@@ -8,7 +8,7 @@ import { stockStyles } from '../styles';
 import Graph from './Graph';
 
 interface GraphState {
-  toolBarIndex: number;
+  buttonBarIndex: number;
   historyInterval: Array<HistoryDataQuote>;
   graphLoading?: boolean;
 }
@@ -22,7 +22,7 @@ interface GraphProps {
 class Diagram extends React.Component<GraphProps, GraphState> {
   constructor(props: GraphProps) {
     super(props);
-    this.state = { toolBarIndex: NaN, historyInterval: [] };
+    this.state = { buttonBarIndex: NaN, historyInterval: [] };
     this.updateGraph = this.updateGraph.bind(this);
   }
   _schedule = 0;
@@ -40,12 +40,12 @@ class Diagram extends React.Component<GraphProps, GraphState> {
     clearTimeout(this._schedule);
   }
 
-  updateGraph(toolBarIndex: number) {
-    if (this.state.toolBarIndex != toolBarIndex) {
-      this.setState({ toolBarIndex, graphLoading: true });
+  updateGraph(buttonBarIndex: number) {
+    if (this.state.buttonBarIndex != buttonBarIndex) {
+      this.setState({ buttonBarIndex, graphLoading: true });
       // schedule the execution of setHistoryInterval() right after the state is updated
       this._schedule = setTimeout(
-        () => this.setHistoryInterval(toolBarIndex),
+        () => this.setHistoryInterval(buttonBarIndex),
         0
       );
     }
@@ -104,7 +104,7 @@ class Diagram extends React.Component<GraphProps, GraphState> {
   };
 
   render() {
-    const { toolBarIndex, historyInterval, graphLoading } = this.state;
+    const { buttonBarIndex, historyInterval, graphLoading } = this.state;
 
     if (this.props.historyError) {
       return <Text>Error! {this.props.historyError.message}</Text>;
@@ -128,7 +128,7 @@ class Diagram extends React.Component<GraphProps, GraphState> {
         </View>
         <ButtonGroup
           onPress={this.updateGraph}
-          selectedIndex={toolBarIndex}
+          selectedIndex={buttonBarIndex}
           buttons={[
             t('Graph.1D'),
             t('Graph.1W'),
@@ -137,6 +137,8 @@ class Diagram extends React.Component<GraphProps, GraphState> {
             t('Graph.1Y'),
           ]}
           containerStyle={stockContainerStyles.buttonGrpContainer}
+          selectedButtonStyle={{ backgroundColor: '#E8E8E8' }}
+          selectedTextStyle={{ color: 'black' }}
           textStyle={stockStyles.buttonGrpText}
         />
       </View>
