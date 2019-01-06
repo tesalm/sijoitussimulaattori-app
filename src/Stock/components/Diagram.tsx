@@ -147,3 +147,5 @@ class Diagram extends React.Component<GraphProps, GraphState> {
 }
 
 export default Diagram;
+
+export { Diagram as DiagramTest, GraphProps as GraphTestProps };
