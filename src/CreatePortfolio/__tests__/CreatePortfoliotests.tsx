@@ -8,7 +8,21 @@ describe('Create Portfolio', () => {
   const navigationMock: any = {};
 
   const defaultCreatePortfolioProps: CreatePortfolioProps = {
-    onCreatePortfolio: jest.fn(),
+    loading: false,
+    error: undefined,
+    sendData: jest.fn(),
+  };
+
+  const loadingCreatePortfolioProps: CreatePortfolioProps = {
+    loading: true,
+    error: undefined,
+    sendData: jest.fn(),
+  };
+
+  const errorCreatePortfolioProps: CreatePortfolioProps = {
+    loading: false,
+    error: { name: 'Network Error', message: 'Network connection failed' },
+    sendData: jest.fn(),
   };
 
   it('renders correctly', async () => {
@@ -68,5 +82,27 @@ describe('Create Portfolio', () => {
       expect(component.instance.state.nameError).toEqual(true);
       expect(component.instance.state.name).toEqual('');
     }
+  });
+  it('renders correctly with loading', async () => {
+    const component = renderer
+      .create(
+        <CreatePortfolioTest
+          {...loadingCreatePortfolioProps}
+          {...navigationMock}
+        />
+      )
+      .toJSON();
+    expect(component).toMatchSnapshot();
+  });
+  it('renders correctly with error', async () => {
+    const component = renderer
+      .create(
+        <CreatePortfolioTest
+          {...errorCreatePortfolioProps}
+          {...navigationMock}
+        />
+      )
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 });

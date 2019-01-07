@@ -183,3 +183,310 @@ exports[`Create Portfolio renders correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`Create Portfolio renders correctly with error 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#004D40",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "paddingBottom": 32,
+        "paddingHorizontal": 84,
+        "paddingTop": 346,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 34,
+          "fontWeight": "bold",
+          "paddingBottom": 16,
+          "paddingTop": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      Name your portfolio
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      selectionColor="#e8a30c"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 32,
+          "paddingHorizontal": 32,
+          "textAlign": "center",
+        }
+      }
+      underlineColorAndroid="white"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 84,
+        "paddingVertical": 32,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 34,
+          "fontWeight": "bold",
+          "paddingBottom": 16,
+          "paddingTop": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      Give initial capital to your portfolio
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="numeric"
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      selectionColor="#e8a30c"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 32,
+          "paddingHorizontal": 32,
+          "textAlign": "center",
+        }
+      }
+      underlineColorAndroid="white"
+      value=""
+    />
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ff0000",
+          "marginTop": -16,
+          "textAlign": "center",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 72,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 224,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 28,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        CANCEL
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e8a30c",
+          "height": 72,
+          "justifyContent": "center",
+          "opacity": 1,
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 1,
+          },
+          "width": 224,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 28,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        SAVE
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Create Portfolio renders correctly with loading 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#004D40",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "paddingBottom": 32,
+        "paddingHorizontal": 84,
+        "paddingTop": 346,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 34,
+          "fontWeight": "bold",
+          "paddingBottom": 16,
+          "paddingTop": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      Name your portfolio
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      selectionColor="#e8a30c"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 32,
+          "paddingHorizontal": 32,
+          "textAlign": "center",
+        }
+      }
+      underlineColorAndroid="white"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 84,
+        "paddingVertical": 32,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 34,
+          "fontWeight": "bold",
+          "paddingBottom": 16,
+          "paddingTop": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      Give initial capital to your portfolio
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="numeric"
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      selectionColor="#e8a30c"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 32,
+          "paddingHorizontal": 32,
+          "textAlign": "center",
+        }
+      }
+      underlineColorAndroid="white"
+      value=""
+    />
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ff0000",
+          "marginTop": -16,
+          "textAlign": "center",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingTop": 32,
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#999999"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;
