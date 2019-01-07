@@ -13,7 +13,7 @@ interface GraphState {
   graphLoading?: boolean;
 }
 
-interface GraphProps {
+export interface GraphProps {
   historyData: Array<HistoryDataQuote>;
   intraDay: Array<IntradayQuote>;
   historyError?: Error;
@@ -137,9 +137,9 @@ class Diagram extends React.Component<GraphProps, GraphState> {
             t('Graph.1Y'),
           ]}
           containerStyle={stockContainerStyles.buttonGrpContainer}
-          selectedButtonStyle={{ backgroundColor: '#E8E8E8' }}
-          selectedTextStyle={{ color: 'black' }}
           textStyle={stockStyles.buttonGrpText}
+          selectedButtonStyle={{ backgroundColor: '#F0F0F0' }}
+          selectedTextStyle={{ color: '#004D40' }}
         />
       </View>
     );
@@ -148,4 +148,4 @@ class Diagram extends React.Component<GraphProps, GraphState> {
 
 export default Diagram;
 
-export { Diagram as DiagramTest, GraphProps as GraphTestProps };
+export { Diagram as DiagramTest };

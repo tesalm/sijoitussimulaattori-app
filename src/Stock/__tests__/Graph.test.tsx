@@ -3,19 +3,19 @@ import * as React from 'react';
 import { TouchableOpacity } from 'react-native';
 import renderer from 'react-test-renderer';
 
-import { DiagramTest, GraphTestProps } from '../components/Diagram';
+import { DiagramTest, GraphProps } from '../components/Diagram';
 import Graph from '../components/Graph';
 
 jest.useFakeTimers();
 
 describe('stockpage graph tests', () => {
-  const defaultGraphProps: GraphTestProps = {
+  const defaultGraphProps: GraphProps = {
     historyData: [],
     intraDay: [],
     historyError: undefined,
   };
 
-  const historyGraphProps: GraphTestProps = {
+  const historyGraphProps: GraphProps = {
     historyData: [
       {
         symbol: 'AMZN',
@@ -77,7 +77,7 @@ describe('stockpage graph tests', () => {
     historyError: undefined,
   };
 
-  const errorGraphProps: GraphTestProps = {
+  const errorGraphProps: GraphProps = {
     historyData: [],
     intraDay: [],
     historyError: {

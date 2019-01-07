@@ -187,13 +187,13 @@ exports[`stockpage graph tests renders correctly with intradata 2`] = `
     onPress={[Function]}
     selectedButtonStyle={
       Object {
-        "backgroundColor": "#E8E8E8",
+        "backgroundColor": "#F0F0F0",
       }
     }
     selectedIndex={0}
     selectedTextStyle={
       Object {
-        "color": "black",
+        "color": "#004D40",
       }
     }
     textStyle={
@@ -265,13 +265,13 @@ exports[`stockpage graph tests renders loading 1`] = `
     onPress={[Function]}
     selectedButtonStyle={
       Object {
-        "backgroundColor": "#E8E8E8",
+        "backgroundColor": "#F0F0F0",
       }
     }
     selectedIndex={1}
     selectedTextStyle={
       Object {
-        "color": "black",
+        "color": "#004D40",
       }
     }
     textStyle={
