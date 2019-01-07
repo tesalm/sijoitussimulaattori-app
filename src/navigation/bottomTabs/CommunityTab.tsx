@@ -10,8 +10,7 @@ import { Colors, Styles } from '../styles';
 
 const CommunityStack = createStackNavigator(
   {
-    Community: { screen: CommunityScreen },
-    // TODO add more pages related to this tab
+    Community: CommunityScreen,
   },
   {
     headerMode: 'float',
@@ -39,10 +38,6 @@ CommunityStack.navigationOptions = {
         style={Styles.iconInactive}
       />
     ),
-  tabBarOnPress: ({ navigation, defaultHandler }: any) => {
-    navigation.popToTop();
-    defaultHandler();
-  },
 };
 
 export default CommunityStack;

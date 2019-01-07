@@ -3,16 +3,16 @@ import { Image, TouchableOpacity } from 'react-native';
 import { createDrawerNavigator, DrawerItems, NavigationScreenProps, SafeAreaView } from 'react-navigation';
 
 import { t } from '../assets/i18n';
-import BottomNav from './BottomNavigator';
+import MainTabNavigator from './MainTabNavigator';
 import { RouteName } from './routes';
 import ProfileScreen from './screens/ProfileScreen';
 import { Styles } from './styles';
 
-const DrawerNavigator = createDrawerNavigator(
+const MainNavigator = createDrawerNavigator(
   {
     Main: {
-      screen: BottomNav,
-      navigationOptions: { drawerLabel: () => null },
+      screen: MainTabNavigator,
+      navigationOptions: { drawerLabel: null },
     },
     Profile: {
       screen: ProfileScreen,
@@ -26,7 +26,6 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    // TODO add more drawer items
   },
   {
     initialRouteName: RouteName.Main,
@@ -49,4 +48,4 @@ const DrawerNavigator = createDrawerNavigator(
   }
 );
 
-export default DrawerNavigator;
+export default MainNavigator;

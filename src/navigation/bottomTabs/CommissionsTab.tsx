@@ -6,16 +6,11 @@ import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import CommissionsScreen from '../screens/CommissionsScreen';
-import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
-import StockScreen from '../../Stock/StockScreen';
 
 const CommissionsStack = createStackNavigator(
   {
-    Commissions: { screen: CommissionsScreen },
-    Info: { screen: InfoScreen },
-    Stock: { screen: StockScreen },
-    // TODO add more pages related to this tab
+    Commissions: CommissionsScreen,
   },
   {
     headerMode: 'float',
@@ -43,10 +38,6 @@ CommissionsStack.navigationOptions = {
         style={Styles.iconInactive}
       />
     ),
-  tabBarOnPress: ({ navigation, defaultHandler }: any) => {
-    navigation.popToTop();
-    defaultHandler();
-  },
 };
 
 export default CommissionsStack;

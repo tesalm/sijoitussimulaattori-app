@@ -14,6 +14,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
 import { t } from '../assets/i18n';
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
 import { getStocks, saveAsCurrentStockSymbol } from './actions';
@@ -77,7 +78,7 @@ export class MarketScreen extends React.Component<
       );
     } else {
       this.props.saveAsCurrentSymbol(symbol);
-      this.props.navigation.navigate('SingleStock');
+      this.props.navigation.navigate(RouteName.Stock);
     }
   };
 

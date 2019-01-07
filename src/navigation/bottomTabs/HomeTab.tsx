@@ -6,16 +6,11 @@ import { t } from '../../assets/i18n';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import HomeScreen from '../screens/HomeScreen';
-import InfoScreen from '../screens/InfoScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 import { Colors, Styles } from '../styles';
 
 const HomeStack = createStackNavigator(
   {
-    Home: { screen: HomeScreen },
-    Profile: { screen: ProfileScreen },
-    Info: { screen: InfoScreen },
-    // TODO add more pages related to this tab
+    Home: HomeScreen,
   },
   {
     // Shared options

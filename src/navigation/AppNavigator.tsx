@@ -1,17 +1,29 @@
 import React from 'react';
-import { createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 
 import LoginScreen from '../LoginScreen/LoginScreen';
-import DrawerNavigator from './MainNavigator';
+import MainNavigator from './MainNavigator';
+import { RouteName } from './routes';
+import InfoScreen from './screens/InfoScreen';
+import StockModalNavigator from './StockModalNavigator';
 
-export const createMainSwitchNavigator = ( askForLogin: boolean ) => {
-  return createSwitchNavigator(
+const AppNavigator = createStackNavigator(
   {
-  Login: LoginScreen,
-  App: { screen: DrawerNavigator },
+    App: MainNavigator,
+    StockModal: StockModalNavigator,
+    Info: InfoScreen,
   },
-  {
-    initialRouteName: (askForLogin ? 'Login' : 'App')
-  }
+  { navigationOptions: { header: null } }
+);
+
+export const createMainSwitchNavigator = (askForLogin: boolean) => {
+  return createSwitchNavigator(
+    {
+      Login: LoginScreen,
+      App: AppNavigator,
+    },
+    {
+      initialRouteName: askForLogin ? RouteName.Login : RouteName.App,
+    }
   );
 };

@@ -1,29 +1,29 @@
 import React from 'react';
 import { Image } from 'react-native';
-import {
-  createStackNavigator,
-  NavigationScreenProp,
-  NavigationState,
-} from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 import { t } from '../../assets/i18n';
 import MarketScreen from '../../MarketScreen/MarketScreen';
+import StockScreen from '../../Stock/StockScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
-import InfoScreen from '../screens/InfoScreen';
 import { Colors, Styles } from '../styles';
-import StockScreen from '../../Stock/StockScreen';
 
 const MarketStack = createStackNavigator(
   {
-    Market: { screen: MarketScreen },
-    Info: { screen: InfoScreen },
-    SingleStock: { screen: StockScreen },
-    // TODO add more pages related to this tab
+    StockList: {
+      screen: MarketScreen,
+    },
+    Stock: {
+      screen: StockScreen,
+      navigationOptions: () => ({
+        headerBackTitleVisible: true,
+      }),
+    },
   },
   {
     headerMode: 'float',
-    initialRouteName: RouteName.Market,
+    initialRouteName: RouteName.StockList,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
@@ -47,10 +47,6 @@ MarketStack.navigationOptions = {
         style={Styles.iconInactive}
       />
     ),
-  tabBarOnPress: ({ navigation, defaultHandler }: any) => {
-    navigation.popToTop();
-    defaultHandler();
-  },
 };
 
 export default MarketStack;
