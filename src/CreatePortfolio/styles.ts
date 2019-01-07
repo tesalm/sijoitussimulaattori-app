@@ -6,9 +6,6 @@ import { scale, verticalScale } from '../util/scale';
 const CreatePortfolioStyles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
     backgroundColor: FormColors.backgroundColor,
   },
   nameContainer: {
@@ -20,7 +17,6 @@ const CreatePortfolioStyles = StyleSheet.create({
     paddingVertical: verticalScale(16),
     paddingHorizontal: scale(42),
   },
-
   headings: {
     fontSize: verticalScale(17),
     fontWeight: 'bold',
@@ -31,6 +27,8 @@ const CreatePortfolioStyles = StyleSheet.create({
   },
   error: {
     color: Colors.errorText,
+    textAlign: 'center',
+    marginTop: verticalScale(-8),
   },
 });
 

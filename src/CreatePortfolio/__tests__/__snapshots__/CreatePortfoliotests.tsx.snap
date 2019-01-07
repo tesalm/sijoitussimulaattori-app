@@ -4,11 +4,8 @@ exports[`Create Portfolio renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "stretch",
       "backgroundColor": "#004D40",
       "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "flex-start",
     }
   }
 >
@@ -94,12 +91,25 @@ exports[`Create Portfolio renders correctly 1`] = `
       value=""
     />
   </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ff0000",
+          "marginTop": -16,
+          "textAlign": "center",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Object {
         "flexDirection": "row",
         "justifyContent": "center",
-        "paddingTop": 64,
+        "paddingTop": 32,
       }
     }
   >
@@ -170,17 +180,6 @@ exports[`Create Portfolio renders correctly 1`] = `
         SAVE
       </Text>
     </View>
-  </View>
-  <View>
-    <Text
-      style={
-        Object {
-          "color": "#ff0000",
-        }
-      }
-    >
-      
-    </Text>
   </View>
 </View>
 `;

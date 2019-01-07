@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text, TextInput, View, TouchableOpacity } from 'react-native';
+import {
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -55,6 +61,8 @@ class CreatePortfolio extends React.Component<
     header: null,
   };
 
+  // Sanitizes input. Trims whitespaces and checks if the name is empty.
+  // TODO: Check if there is already a portfolio with the same name.
   sanitize(input: string) {
     const trimWhitespaces = validator.trim(input);
     if (trimWhitespaces === '') {
@@ -67,6 +75,9 @@ class CreatePortfolio extends React.Component<
     }
   }
 
+  // Trims whitespaces from the amount, replaces . -> ,
+  // Checks that the amount is not empty and that it's numeric.
+  // TODO: Check that amount is > 0.
   validateAmount(input: string) {
     const trimWhitespaces = validator.trim(input);
     const commaToPoint: string = trimWhitespaces.replace(/,/g, '.');
@@ -91,7 +102,7 @@ class CreatePortfolio extends React.Component<
     this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
       this.props.sendData(this.state.name, this.state.amount);
-      this.props.navigation.navigate(RouteName.Home);
+      () => this.props.navigation.goBack();
     }
   }
 
@@ -104,7 +115,14 @@ class CreatePortfolio extends React.Component<
   }
 
   render() {
+    const { loading, error } = this.props;
     const { nameActive, sumActive, name, inputNumber } = this.state;
+
+    if (error) {
+      // TODO: Format error-message for user. Use showErrors-function.
+      <Text>Error! From the API-request</Text>;
+    }
+
     return (
       <View style={styles.container}>
         <View style={styles.nameContainer}>
@@ -142,29 +160,39 @@ class CreatePortfolio extends React.Component<
             ref="amount"
             onChangeText={(inputNumber) => this.setState({ inputNumber })}
             value={inputNumber}
-            onFocus={() => this.setState({ sumActive: true })}
+            onFocus={() =>
+              this.setState({
+                sumActive: true,
+              })
+            }
             onBlur={() => this.setState({ sumActive: false })}
           />
         </View>
-        <View style={buttonStyles.container}>
-          <TouchableOpacity
-            style={buttonStyles.cancelButton}
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Text style={buttonStyles.cancelText}>
-              {t('CreatePortfolio.Cancel').toUpperCase()}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={buttonStyles.okButton}
-            onPress={() => this.validate()}
-          >
-            <Text style={buttonStyles.okText}>
-              {t('CreatePortfolio.Save').toUpperCase()}
-            </Text>
-          </TouchableOpacity>
-        </View>
         <View>{this.showErrors()}</View>
+        {!loading ? (
+          <View style={buttonStyles.container}>
+            <TouchableOpacity
+              style={buttonStyles.cancelButton}
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Text style={buttonStyles.cancelText}>
+                {t('CreatePortfolio.Cancel').toUpperCase()}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={buttonStyles.okButton}
+              onPress={() => this.validate()}
+            >
+              <Text style={buttonStyles.okText}>
+                {t('CreatePortfolio.Save').toUpperCase()}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={buttonStyles.container}>
+            <ActivityIndicator size="large" />
+          </View>
+        )}
       </View>
     );
   }

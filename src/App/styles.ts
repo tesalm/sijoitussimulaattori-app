@@ -75,7 +75,7 @@ const buttonStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingTop: verticalScale(32),
+    paddingTop: verticalScale(16),
   },
   cancelButton: {
     height: verticalScale(36),
