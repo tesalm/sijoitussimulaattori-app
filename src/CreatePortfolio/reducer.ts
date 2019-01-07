@@ -1,13 +1,13 @@
 import { ActionType, CreatePortfolioAction } from './actions';
 
 export interface CreatingPortfolio {
-  amount: number;
-  name: string;
+  loading: boolean;
+  error?: Error;
 }
 
 const initialState: CreatingPortfolio = {
-  amount: NaN,
-  name: '',
+  loading: false,
+  error: undefined,
 };
 
 export const createPortfolioReducer = (
@@ -15,8 +15,12 @@ export const createPortfolioReducer = (
   action: CreatePortfolioAction
 ): CreatingPortfolio => {
   switch (action.type) {
-    case ActionType.CreateNewPortfolio:
-      return { ...state, name: action.name, amount: action.amount };
+    case ActionType.CreatePortfolioBegin:
+      return { ...state, loading: true, error: undefined };
+    case ActionType.CreatePortfolioSuccess:
+      return { ...state, loading: false, error: undefined };
+    case ActionType.CreatePortfolioFailure:
+      return { ...state, loading: false, error: action.error };
     default:
       return state;
   }

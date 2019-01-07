@@ -8,22 +8,24 @@ import validator from 'validator';
 import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
-import { CreateNewPortfolio } from './actions';
 import { CreatePortfolioStyles as styles } from './styles';
 import { FormColors } from '../App/colors';
 import { buttonStyles, textInputStyles } from '../App/styles';
+import { sendPortfolioInfo } from './actions';
 
 export interface CreatePortfolioProps {
-  onCreatePortfolio: typeof CreateNewPortfolio;
+  loading: boolean;
+  error?: Error;
+  sendData: typeof sendPortfolioInfo;
 }
 
 type CreatePortfolioPropsWithNavigation = CreatePortfolioProps &
   NavigationScreenProps;
 
 interface CreatePortfolioState {
-  inputNumber: string;
   amount: number;
   name: string;
+  inputNumber: string;
   nameError: boolean;
   amountError: boolean;
   errorMessageTranslationKey: string;
@@ -85,11 +87,10 @@ class CreatePortfolio extends React.Component<
   }
 
   validate() {
-    const { onCreatePortfolio } = this.props;
     this.sanitize(this.state.name);
     this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
-      onCreatePortfolio(this.state.name, this.state.amount);
+      this.props.sendData(this.state.name, this.state.amount);
       this.props.navigation.navigate(RouteName.Home);
     }
   }
@@ -169,12 +170,15 @@ class CreatePortfolio extends React.Component<
   }
 }
 
-const mapStateToProps = (state: RootState) => ({});
+const mapStateToProps = (state: RootState) => ({
+  loading: state.creatingPortfolio.loading,
+  error: state.creatingPortfolio.error,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      onCreatePortfolio: CreateNewPortfolio,
+      sendData: sendPortfolioInfo,
     },
     dispatch
   );

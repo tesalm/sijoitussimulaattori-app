@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 import { config } from '../config';
-import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
+import {
+  HistoryDataQuote,
+  IntradayQuote,
+  Stock,
+  StockMetadata,
+} from '../MarketScreen/reducer';
 import { Portfolio, SinglePortfolio } from '../PortfolioList/reducers';
 import { getIdToken } from '../util/general';
 
@@ -80,6 +85,21 @@ const stockHistoryApiRequest = async (
   }
 };
 
+const CreatePortfolioApiRequest = async (
+  portfolioName: string,
+  porftolioAmount: number
+): Promise<void> => {
+  try {
+    const url = config.app.STOCK_API_URL + 'profile/portfolio';
+    const res = await axios.post(url, {
+      name: portfolioName,
+      balance: porftolioAmount,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 export {
   stockListApiRequest,
   stockMetaApiRequest,
@@ -87,4 +107,5 @@ export {
   stockHistoryApiRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
+  CreatePortfolioApiRequest,
 };

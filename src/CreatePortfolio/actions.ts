@@ -1,28 +1,48 @@
 import { Dispatch } from 'redux';
+import { CreatePortfolioApiRequest } from '../utils/api';
 
 export enum ActionType {
-  CreateNewPortfolio = '[CreatingPortfolio] Create new portfolio',
+  CreatePortfolioBegin = '[CreatingPortfolio] Creating portfolio begin',
+  CreatePortfolioSuccess = '[CreatingPortfolio] Creating portfolio success',
+  CreatePortfolioFailure = '[CreatingPortfolio] Creating portfolio failure',
 }
 
-export type CreatePortfolioAction = CreateNewPortfolio;
+export type CreatePortfolioAction =
+  | CreatePortfolioBegin
+  | CreatePortfolioSuccess
+  | CreatePortfolioFailure;
 
-interface CreateNewPortfolio {
-  type: ActionType.CreateNewPortfolio;
-  name: string;
-  amount: number;
+export class CreatePortfolioBegin {
+  readonly type = ActionType.CreatePortfolioBegin;
+  constructor() {
+    return { type: this.type };
+  }
 }
 
-const createNewPortfolioAction = (
-  name: string,
-  amount: number
-): CreateNewPortfolio => ({
-  type: ActionType.CreateNewPortfolio,
-  name: name,
-  amount: amount,
-});
+export class CreatePortfolioSuccess {
+  readonly type = ActionType.CreatePortfolioSuccess;
+  constructor() {
+    return { type: this.type };
+  }
+}
 
-const CreateNewPortfolio = (name: string, amount: number) => async (
-  dispatch: Dispatch<CreateNewPortfolio>
-) => dispatch(createNewPortfolioAction(name, amount));
+export class CreatePortfolioFailure {
+  readonly type = ActionType.CreatePortfolioFailure;
+  constructor(public error: Error) {
+    return { type: this.type, error };
+  }
+}
 
-export { CreateNewPortfolio };
+const sendPortfolioInfo = (name: string, amount: number) => async (
+  dispatch: Dispatch<CreatePortfolioAction>
+) => {
+  dispatch(new CreatePortfolioBegin());
+  try {
+    await CreatePortfolioApiRequest(name, amount);
+    dispatch(new CreatePortfolioSuccess());
+  } catch (error) {
+    dispatch(new CreatePortfolioFailure(error));
+  }
+};
+
+export { sendPortfolioInfo };
