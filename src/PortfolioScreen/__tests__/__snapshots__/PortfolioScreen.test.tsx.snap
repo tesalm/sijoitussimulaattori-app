@@ -19,9 +19,13 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
     <View
       style={
         Object {
+<<<<<<< HEAD
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
+=======
+<<<<<<< HEAD
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "flex": 1,
           "margin": 0,
           "marginBottom": 0,
@@ -30,6 +34,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+<<<<<<< HEAD
           "shadowColor": "rgba(0,0,0, .2)",
           "shadowOffset": Object {
             "height": 0,
@@ -37,13 +42,62 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           },
           "shadowOpacity": 1,
           "shadowRadius": 1,
+=======
+=======
+          "height": 130,
+          "margin": 0,
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
         }
       }
     >
       <View
         style={
           Object {
+<<<<<<< HEAD
             "backgroundColor": "transparent",
+=======
+            "balance": 500,
+<<<<<<< HEAD
+            "lastDayRevenue": 0,
+            "name": "Portfolio1",
+            "ownerId": "Joooni",
+            "stocks": Array [
+              Object {
+                "amount": 245,
+                "avgPrice": 153.3,
+                "lastDayRevenue": 0.52,
+                "totalMarketValue": 2084,
+                "totalRevenue": 0.54,
+                "uid": "AMZN",
+              },
+              Object {
+                "amount": 340,
+                "avgPrice": 132,
+                "lastDayRevenue": 0.52,
+                "totalMarketValue": 2084,
+                "totalRevenue": 0.54,
+                "uid": "AAPL",
+              },
+            ],
+            "totalMarketValue": 5000,
+            "totalRevenue": -0.02,
+            "uid": "Portfolio1",
+=======
+            "name": "Portfolio1",
+            "ownerId": "klsdjfs",
+            "revenue": -2.4,
+            "stocks": Array [
+              Object {
+                "amount": 340,
+                "avgPrice": 132,
+                "name": "Apple",
+                "symbol": "AAPL",
+              },
+            ],
+            "totalMarketValue": 5000,
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           }
         }
       >
@@ -242,9 +296,13 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
     <View
       style={
         Object {
+<<<<<<< HEAD
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
+=======
+<<<<<<< HEAD
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "flex": 1,
           "margin": 0,
           "marginBottom": 0,
@@ -253,6 +311,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+<<<<<<< HEAD
           "shadowColor": "rgba(0,0,0, .2)",
           "shadowOffset": Object {
             "height": 0,
@@ -260,6 +319,12 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           },
           "shadowOpacity": 1,
           "shadowRadius": 1,
+=======
+=======
+          "height": 200,
+          "margin": 0,
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
         }
       }
     >
@@ -279,12 +344,17 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "borderWidth": 1,
           "flex": 1,
           "margin": 0,
+<<<<<<< HEAD
           "marginBottom": 0,
           "padding": 15,
+=======
+<<<<<<< HEAD
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "paddingBottom": 31.388235294117646,
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+<<<<<<< HEAD
           "shadowColor": "rgba(0,0,0, .2)",
           "shadowOffset": Object {
             "height": 0,
@@ -297,10 +367,21 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
     >
       <View
         style={
+=======
+=======
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+        }
+      }
+    >
+      <Holdings
+<<<<<<< HEAD
+        portfolio={
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           Object {
             "backgroundColor": "transparent",
           }
         }
+<<<<<<< HEAD
       >
         <View>
           <View
@@ -368,6 +449,51 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               >
                 <Image
                   source={
+=======
+        portfolioLoading={false}
+=======
+        loading={false}
+        portfolio={
+          Object {
+            "balance": 500,
+            "name": "Portfolio1",
+            "ownerId": "klsdjfs",
+            "revenue": -2.4,
+            "stocks": Array [
+              Object {
+                "amount": 340,
+                "avgPrice": 132,
+                "name": "Apple",
+                "symbol": "AAPL",
+              },
+            ],
+            "totalMarketValue": 5000,
+          }
+        }
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+        stocks={
+          Array [
+            Object {
+              "close": 293.42,
+              "currency": "USD",
+              "high": 375.53,
+              "low": 354.38,
+              "name": "Apple",
+              "revenue": 3894.34,
+              "stockInfo": Object {
+                "historyData": Object {
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "historyDataQuote": Array [
+                    Object {
+                      "close": 162.63,
+                      "date": "2018-12-15T00:00:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
                     Object {
                       "testUri": "../../../src/navigation/assets/twoArrowOpen.png",
                     }
@@ -449,6 +575,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 <View
                   style={
                     Object {
+<<<<<<< HEAD
                       "flexDirection": "row",
                       "marginBottom": 25.714285714285715,
                       "marginTop": 0,
@@ -753,7 +880,51 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
+=======
+                      "close": 168.63,
+                      "date": "2018-12-12T00:10:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                  ],
+                },
+                "metaError": undefined,
+                "metaLoading": false,
+                "refreshing": false,
+                "stockMetadata": Object {
+                  "currency": "USD",
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "marketClose": "2018-12-12 11:20:00",
+                  "marketOpen": "2018-12-12 11:20:00",
+                  "name": "Apple Inc.",
+                  "region": "string",
+                  "symbol": "AAPL",
+                  "timeZone": "US/Eastern",
+                  "type": "string",
+                },
+              },
+              "symbol": "AAPL",
+            },
+          ]
+        }
+<<<<<<< HEAD
+        stocksLoading={false}
+=======
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+<<<<<<< HEAD
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "height": 109.85882352941177,
+=======
+          "height": 50,
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -767,6 +938,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
         }
       }
     >
+<<<<<<< HEAD
       <View
         style={
           Object {
@@ -851,7 +1023,26 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
+=======
+<<<<<<< HEAD
+      <CardButton
+        iconName="events"
+        onPress={[Function]}
+        translationTitle="PortfolioPage.Events"
+      />
+=======
+      <Component />
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+<<<<<<< HEAD
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "height": 109.85882352941177,
+=======
+          "height": 50,
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -865,6 +1056,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
         }
       }
     >
+<<<<<<< HEAD
       <View
         style={
           Object {
@@ -943,12 +1135,121 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
         </View>
       </View>
     </View>
+=======
+<<<<<<< HEAD
+      <CardButton
+        iconName="manage"
+        onPress={[Function]}
+        translationTitle="PortfolioPage.Manage"
+      />
+=======
+      <Component />
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+    </Themed.Card>
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
   </View>
 </RCTScrollView>
 `;
 
+<<<<<<< HEAD
 exports[`portfolio-screen tests Portfolioscreen renders correctly 1`] = `
+<<<<<<< HEAD
 <Text>
   Error, portfolio not found! 
 </Text>
+=======
+=======
+exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
+<<<<<<< HEAD
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+<TouchableText
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  forwardedRef={null}
+>
+  Error, portfolio not found! 
+</TouchableText>
+=======
+<_class
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <RefreshControlMock
+    colors={
+      Array [
+        "#004D40",
+      ]
+    }
+    onRefresh={[Function]}
+    refreshing={false}
+  />
+  <View>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 130,
+          "margin": 0,
+        }
+      }
+    >
+      <Component
+        loading={false}
+        stocks={Array []}
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 200,
+          "margin": 0,
+        }
+      }
+    />
+    <Themed.Card
+      containerStyle={
+        Object {
+          "flex": 1,
+          "margin": 0,
+        }
+      }
+    >
+      <Holdings
+        loading={false}
+        stocks={Array []}
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Component />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Component />
+    </Themed.Card>
+  </View>
+</_class>
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 `;

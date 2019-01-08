@@ -2,11 +2,16 @@
   "uid": "Portfolio2",
   "name": "Portfolio2",
   "balance": 500,
+<<<<<<< HEAD
   "revenue": 0.2,
   "totalMarketValue": 5000,
   "totalRevenue": 59,
   "lastDayRevenue": 0,
   "ownerId": "Joooni",
+=======
+  "revenue": 0.43,
+  "totalMarketValue": 5000,
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
   "stocks": [
     {
       "uid": "AMZN",
