@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { PortfolioApiRequest } from '../utils/api';
+import { portfolioApiRequest } from '../utils/api';
 import { Portfolio } from './reducers';
 
 export enum ActionType {
@@ -40,7 +40,7 @@ const getPortfolioData = (name: string) => async (
 ) => {
   dispatch(new RequestPortfolioBegin());
   try {
-    const data = await PortfolioApiRequest(name);
+    const data = await portfolioApiRequest(name);
     dispatch(new RequestPortfolioSuccess(data));
   } catch (error) {
     dispatch(new RequestPortfolioFailure(error));

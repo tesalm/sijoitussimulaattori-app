@@ -21,7 +21,7 @@
   "PortfoliosPage": {
     "Title": "Portfolios",
     "PlaceholderText": "PLACEHOLDER: Listing of portfolios",
-    "GoToPortoflioPage": "Go to Portfolio"
+    "GoToPortfolioPage": "Go to Portfolio"
   },
   "MarketPage": {
     "Title": "Stocks",
@@ -68,8 +68,7 @@
   "LoginScreen": {
     "NewUserGreeting": "Your first time the ValueTown?",
     "NewUserButton": "Continue as new user",
-    "AfterErrButton": "Try again",
-    "LastSaleText": "Market value"
+    "AfterErrButton": "Try again"
   },
   "Graph": {
     "NoData": "No data, choose another timespan",
@@ -107,6 +106,10 @@
     "TotalRevenueProcent": "Total Revenue (%)",
     "Acquisition": "Acquisition price",
     "TotalMarketValue": "Total market value",
+<<<<<<< HEAD
     "TotalRevenueE": "Total revenue (€)"
+=======
+    "TotalRevenue": "Total revenue"
+>>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
   }
 }

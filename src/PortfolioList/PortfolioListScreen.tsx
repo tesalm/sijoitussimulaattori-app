@@ -7,7 +7,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-import { getPortfolios, savePortfolioName } from './actions';
+import { getPortfolios, SaveAsCurrentPortfolio } from './actions';
 import { PortfolioList } from './reducers';
 
 export interface PortfolioListProps {
@@ -15,7 +15,7 @@ export interface PortfolioListProps {
   loading: boolean;
   error?: Error;
   getAllPortfolios: typeof getPortfolios;
-  saveName: typeof savePortfolioName;
+  saveName: typeof SaveAsCurrentPortfolio;
   name?: string;
 }
 
@@ -88,7 +88,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllPortfolios: getPortfolios,
-      saveName: savePortfolioName,
+      saveName: SaveAsCurrentPortfolio,
     },
     dispatch
   );

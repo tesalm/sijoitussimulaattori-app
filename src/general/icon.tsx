@@ -17,6 +17,8 @@ enum IconNames {
   manage = 'manage',
   eventsTransactions = 'eventsTransactions',
   bid = 'bid',
+  arrowDown = 'arrowDown',
+  arrowUp = 'arrowUp',
 }
 const Icon = (props: IconProps): JSX.Element => {
   let req;
@@ -43,6 +45,11 @@ const Icon = (props: IconProps): JSX.Element => {
     default:
       //TODO: Add better icon for default case.
       req = require('../navigation/assets/delete.png');
+    case IconNames.arrowDown:
+      req = require('../navigation/assets/arrowDown.png');
+      break;
+    case IconNames.arrowUp:
+      req = require('../navigation/assets/arrowUp.png');
       break;
   }
 

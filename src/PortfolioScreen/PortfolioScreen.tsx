@@ -14,7 +14,7 @@ import { EventsTransactions, Manage } from './components/Buttons';
 import { Holdings } from './components/Holdings';
 import { PortfolioInfo } from './components/PortfolioInfo';
 import { Portfolio } from './reducers';
-import { stockContainerStyles } from './styles';
+import { portfolioContainerStyles } from './styles';
 
 export interface PortfolioProps {
   portfolio?: Portfolio;
@@ -77,7 +77,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
           />
         }
       >
-        <Card containerStyle={stockContainerStyles.basicInfo}>
+        <Card containerStyle={portfolioContainerStyles.basicInfo}>
           <PortfolioInfo
             portfolio={portfolio}
             loading={loading}
@@ -85,8 +85,8 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
             stocks={stocks}
           />
         </Card>
-        <Card containerStyle={stockContainerStyles.diagram} />
-        <Card containerStyle={stockContainerStyles.holdings}>
+        <Card containerStyle={portfolioContainerStyles.diagram} />
+        <Card containerStyle={portfolioContainerStyles.holdings}>
           <Holdings
             portfolio={portfolio}
             loading={loading}
@@ -94,10 +94,10 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
             stocks={stocks}
           />
         </Card>
-        <Card containerStyle={stockContainerStyles.buttonContainer}>
+        <Card containerStyle={portfolioContainerStyles.buttonContainer}>
           <EventsTransactions />
         </Card>
-        <Card containerStyle={stockContainerStyles.buttonContainer}>
+        <Card containerStyle={portfolioContainerStyles.buttonContainer}>
           <Manage />
         </Card>
       </ScrollView>

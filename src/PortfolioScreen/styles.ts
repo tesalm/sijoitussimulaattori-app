@@ -3,7 +3,7 @@ import { scale, verticalScale } from 'react-native-size-matters';
 
 import { Colors } from '../App/colors';
 
-const stockContainerStyles = StyleSheet.create({
+const portfolioContainerStyles = StyleSheet.create({
   basicInfo: {
     margin: 0,
     height: 130,
@@ -22,7 +22,7 @@ const stockContainerStyles = StyleSheet.create({
   },
 });
 
-const stockStyles = StyleSheet.create({
+const portfolioStyles = StyleSheet.create({
   titleStyle: {
     fontWeight: 'bold',
     fontSize: 17,
@@ -90,34 +90,7 @@ const stockStyles = StyleSheet.create({
     marginLeft: scale(30),
     color: Colors.baseColor,
   },
-  revenueValueGreen: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: Colors.greenPercent,
-    marginTop: verticalScale(-2),
-    marginBottom: verticalScale(8),
-    marginLeft: scale(30),
-  },
-  revenueValueRed: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: Colors.redPercent,
-    marginTop: verticalScale(-2),
-    marginBottom: verticalScale(8),
-    marginLeft: scale(30),
-  },
 
-  button: {
-    margin: 0,
-    height: 61,
-  },
-  buttonView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  buttonLogoView: {
-    flexDirection: 'row',
-  },
   titleText: {
     fontSize: 17,
     fontWeight: 'bold',
@@ -172,4 +145,4 @@ const stockStyles = StyleSheet.create({
   },
 });
 
-export { stockContainerStyles, stockStyles };
+export { portfolioContainerStyles, portfolioStyles };

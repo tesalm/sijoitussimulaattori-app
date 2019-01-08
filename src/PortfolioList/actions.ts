@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { PortfolioListApiRequest } from '../utils/api';
+import { portfolioListApiRequest } from '../utils/api';
 import { PortfolioList } from './reducers';
 
 export enum ActionType {
@@ -44,7 +44,7 @@ export class SaveName {
   }
 }
 
-const savePortfolioName = (symbol: string) => async (
+const SaveAsCurrentPortfolio = (symbol: string) => async (
   dispatch: Dispatch<PortfoliossAction>
 ) => {
   dispatch(new SaveName(symbol));
@@ -53,11 +53,11 @@ const savePortfolioName = (symbol: string) => async (
 const getPortfolios = () => async (dispatch: Dispatch<PortfoliossAction>) => {
   dispatch(new RequestPortfoliosBegin());
   try {
-    const data = await PortfolioListApiRequest();
+    const data = await portfolioListApiRequest();
     dispatch(new RequestPortfoliosSuccess(data));
   } catch (error) {
     dispatch(new RequestPortfoliosFailure(error));
   }
 };
 
-export { getPortfolios, savePortfolioName };
+export { getPortfolios, SaveAsCurrentPortfolio };

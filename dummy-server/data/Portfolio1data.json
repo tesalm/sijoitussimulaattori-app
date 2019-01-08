@@ -3,6 +3,7 @@
   "ownerID": "klsdjfs",
   "balance": 500,
   "revenue": -2.4,
+  "totalMarketValue": 5000,
   "stocks": [
     {
       "symbol": "AMZN",

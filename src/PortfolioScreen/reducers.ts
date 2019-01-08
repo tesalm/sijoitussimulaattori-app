@@ -14,6 +14,7 @@ export interface Portfolio {
   stocks: PortfolioStock[];
   name: string;
   revenue: number;
+  totalMarketValue: number;
 }
 
 export interface SinglePortfolio {

@@ -5,7 +5,7 @@ import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../Market
 import { PortfolioList } from '../PortfolioList/reducers';
 import { Portfolio } from '../PortfolioScreen/reducers';
 
-const StockListApiRequest = async (): Promise<Array<Stock>> => {
+const stockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
     const res = await axios.get(config.app.STOCK_API_URL + '/stocks');
     const data = res.data;
@@ -25,12 +25,11 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
   }
 };
 
-const PortfolioApiRequest = async (symbol: string): Promise<Portfolio> => {
+const portfolioApiRequest = async (symbol: string): Promise<Portfolio> => {
   try {
     const url = config.app.PORTFOLIO_API_URL + '/profile/portfolio/' + symbol;
     const res = await axios.get(url);
-    const data = res.data;
-    return data;
+    return res.data;
   } catch (error) {
     throw error;
   }
@@ -47,7 +46,7 @@ const stockIntraApiRequest = async (
     throw error;
   }
 };
-const PortfolioListApiRequest = async (): Promise<PortfolioList[]> => {
+const portfolioListApiRequest = async (): Promise<PortfolioList[]> => {
   try {
     //const res = await axios.get(
     //config.app.PORTFOLIO_API_URL + '/profile/portfolio/list'
@@ -72,10 +71,10 @@ const stockHistoryApiRequest = async (
 };
 
 export {
-  StockListApiRequest,
+  stockListApiRequest,
   stockMetaApiRequest,
   stockIntraApiRequest,
   stockHistoryApiRequest,
-  PortfolioApiRequest,
-  PortfolioListApiRequest,
+  portfolioApiRequest,
+  portfolioListApiRequest,
 };

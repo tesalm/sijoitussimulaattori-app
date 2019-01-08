@@ -15,9 +15,9 @@ import {
   formatRevenueCurrency,
   revenueColor,
   valueColor,
-} from '../../util/general';
+} from '../../util/stock';
 import { Portfolio, PortfolioStock } from '../reducers';
-import { stockStyles } from '../styles';
+import { portfolioStyles } from '../styles';
 
 interface HoldingsProps {
   portfolio?: Portfolio;
@@ -26,12 +26,17 @@ interface HoldingsProps {
   stocks?: Array<Stock>;
 }
 
-export class Holdings extends React.Component<HoldingsProps> {
-  state = {
-    activeSections: [],
-  };
+interface HoldingsState {
+  activeSections: Array<number>;
+}
 
-  _renderHeader = (
+export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
+  constructor(props: HoldingsProps, state: HoldingsState) {
+    super(props);
+    this.state = { activeSections: [] };
+  }
+
+  renderHeader = (
     section: PortfolioStock,
     index: number,
     isActive: boolean
@@ -39,18 +44,18 @@ export class Holdings extends React.Component<HoldingsProps> {
     const iconName = isActive ? 'arrowUp' : 'arrowDown';
 
     return (
-      <View style={stockStyles.holdingsSubLogoView}>
-        <View style={stockStyles.holdingsSubTitleView}>
-          <Text style={stockStyles.holdingsSubTitle}>{section.name}</Text>
+      <View style={portfolioStyles.holdingsSubLogoView}>
+        <View style={portfolioStyles.holdingsSubTitleView}>
+          <Text style={portfolioStyles.holdingsSubTitle}>{section.name}</Text>
         </View>
-        <View style={stockStyles.holdingsArrowView}>
+        <View style={portfolioStyles.holdingsArrowView}>
           <Icon iconName={iconName} iconHeight={24} iconWidth={24} />
         </View>
       </View>
     );
   };
 
-  _renderContent = (section: PortfolioStock) => {
+  renderContent = (section: PortfolioStock) => {
     const { error, stocks } = this.props;
     if (stocks == undefined) {
       let errorMessage;
@@ -103,48 +108,48 @@ export class Holdings extends React.Component<HoldingsProps> {
 
     return (
       <View>
-        <View style={stockStyles.holdingsContainer}>
-          <View style={stockStyles.portfolioInfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>
+        <View style={portfolioStyles.holdingsContainer}>
+          <View style={portfolioStyles.portfolioInfoSmallerComp}>
+            <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.StocksOwned')}
             </Text>
-            <Text style={stockStyles.value}>{section.amount}</Text>
-            <Text style={stockStyles.valueHeader}>
+            <Text style={portfolioStyles.value}>{section.amount}</Text>
+            <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.MarketValue')}
             </Text>
-            <Text style={stockStyles.value}>
+            <Text style={portfolioStyles.value}>
               {formatCurrency(close, currency)}{' '}
             </Text>
-            <Text style={stockStyles.valueHeader}>
+            <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueProcent')}
             </Text>
             <Text style={valueColor(totalRevenueProcent)}>
               {formatRevenue(totalRevenueProcent)}{' '}
             </Text>
           </View>
-          <View style={stockStyles.portfolioInfoSmallerComp}>
-            <Text style={stockStyles.valueHeader}>
+          <View style={portfolioStyles.portfolioInfoSmallerComp}>
+            <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.Acquisition')}
             </Text>
-            <Text style={stockStyles.value}>
+            <Text style={portfolioStyles.value}>
               {formatCurrency(section.avgPrice, currency)}
             </Text>
-            <Text style={stockStyles.valueHeader}>
+            <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.TotalMarketValue')}
             </Text>
-            <Text style={stockStyles.value}>
+            <Text style={portfolioStyles.value}>
               {formatCurrency(totalMarketValue, currency)}{' '}
             </Text>
-            <Text style={stockStyles.valueHeader}>
-              {t('PortfolioPage.TotalRevenueE')}
+            <Text style={portfolioStyles.valueHeader}>
+              {t('PortfolioPage.TotalRevenue')}
             </Text>
             <Text style={valueColor(totalRevenue)}>
               {formatRevenueCurrency(totalRevenue, currency)}{' '}
             </Text>
           </View>
 
-          <View style={stockStyles.portfolioInfoSmallerComp}>
-            <Text style={stockStyles.valueHeaderRightSideHoldings}>
+          <View style={portfolioStyles.portfolioInfoSmallerComp}>
+            <Text style={portfolioStyles.valueHeaderRightSideHoldings}>
               {t('PortfolioPage.Revenue')}
             </Text>
             <Text style={revenueColor(revenueProcent)}>
@@ -156,7 +161,7 @@ export class Holdings extends React.Component<HoldingsProps> {
     );
   };
 
-  _updateSections = (activeSections: number[]) => {
+  updateSections = (activeSections: number[]) => {
     this.setState({ activeSections });
   };
 
@@ -164,7 +169,7 @@ export class Holdings extends React.Component<HoldingsProps> {
     const { portfolio, error, loading, stocks } = this.props;
     if (loading) {
       return (
-        <View style={stockStyles.loading}>
+        <View style={portfolioStyles.loading}>
           <ActivityIndicator size="large" />
         </View>
       );
@@ -185,9 +190,9 @@ export class Holdings extends React.Component<HoldingsProps> {
 
     return (
       <View>
-        <View style={stockStyles.holdingsLogoView}>
+        <View style={portfolioStyles.holdingsLogoView}>
           <Icon iconName={'holdings'} iconHeight={24} iconWidth={24} />
-          <Text style={stockStyles.titleText}>
+          <Text style={portfolioStyles.titleText}>
             {t('PortfolioPage.Holdings')}
           </Text>
         </View>
@@ -195,10 +200,10 @@ export class Holdings extends React.Component<HoldingsProps> {
           expandMultiple={true}
           sections={portfolio.stocks}
           activeSections={this.state.activeSections}
-          renderHeader={this._renderHeader}
-          renderContent={this._renderContent}
-          onChange={this._updateSections}
-          sectionContainerStyle={stockStyles.accordionContainer}
+          renderHeader={this.renderHeader}
+          renderContent={this.renderContent}
+          onChange={this.updateSections}
+          sectionContainerStyle={portfolioStyles.accordionContainer}
         />
       </View>
     );

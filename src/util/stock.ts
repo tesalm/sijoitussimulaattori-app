@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { textStyles } from '../App/styles';
-=======
+import { generalStyles } from '../App/generalStyles';
 import { Stock } from '../MarketScreen/reducer';
+import { StockStyles } from '../MarketScreen/styles';
 import { PortfolioStock } from '../PortfolioScreen/reducers';
-import { stockStyles } from '../PortfolioScreen/styles';
->>>>>>> All stock related attributes are presented correctly
+import { portfolioStyles } from '../PortfolioScreen/styles';
 
-=======
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
-const randomInt = (low: number = 0, high: number = Number.MAX_SAFE_INTEGER) => {
-  return Math.floor(Math.random() * (high - low) + low);
-};
-
-<<<<<<< HEAD
 //format revenue to right forms. Converts number to string and add procent marker.
 const formatRevenue = (revenue: number) => {
   return revenue >= 0
@@ -31,17 +21,19 @@ const formatRevenueCurrency = (revenue: number, currency: string) => {
 // Returns the color revenue should be. Green > 0, red < 0
 const revenueColor = (revenue: number) => {
   return revenue >= 0
-<<<<<<< HEAD
-    ? textStyles.revenueValueGreen
-    : textStyles.revenueValueRed;
-=======
-    ? stockStyles.revenueValueGreen
-    : stockStyles.revenueValueRed;
+    ? generalStyles.revenueValueGreen
+    : generalStyles.revenueValueRed;
 };
 
+const revenueColorMarketScreen = (revenue: number) => {
+  return revenue >= 0
+    ? StockStyles.revenueValueGreen
+    : StockStyles.revenueValueRed;
+};
+
+// Returns the color certain items in PorftoflioScreen should be. Green >0, red < 0
 const valueColor = (value: number) => {
-  return value >= 0 ? stockStyles.valueGreen : stockStyles.valueRed;
->>>>>>> All stock related attributes are presented correctly
+  return value >= 0 ? portfolioStyles.valueGreen : portfolioStyles.valueRed;
 };
 
 // format currency from 'USD' to $ or 'EUR' to €
@@ -112,7 +104,6 @@ const countRevenuePercentage = (stock: Stock) => {
 };
 
 export {
-  randomInt,
   formatRevenue,
   revenueColor,
   formatCurrency,
@@ -122,7 +113,5 @@ export {
   calculateTotalRevenue,
   calculateTotalRevenueProcent,
   countRevenuePercentage,
+  revenueColorMarketScreen,
 };
-=======
-export { randomInt };
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also

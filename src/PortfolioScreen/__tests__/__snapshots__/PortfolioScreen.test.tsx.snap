@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`portfolio tests PortfolioScreen renders correctly with portfolio and stocks 1`] = `
+<_class
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <RefreshControlMock
+    colors={
+      Array [
+        "#004D40",
+      ]
+    }
+    onRefresh={[Function]}
+    refreshing={false}
+  />
+  <View>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 130,
+          "margin": 0,
+        }
+      }
+    >
+      <Component
+        loading={false}
+        portfolio={
+          Object {
+            "balance": 500,
+            "name": "Portfolio1",
+            "ownerId": "klsdjfs",
+            "revenue": -2.4,
+            "stocks": Array [
+              Object {
+                "amount": 340,
+                "avgPrice": 132,
+                "name": "Apple",
+                "symbol": "AAPL",
+              },
+            ],
+            "totalMarketValue": 5000,
+          }
+        }
+        stocks={
+          Array [
+            Object {
+              "close": 293.42,
+              "currency": "USD",
+              "high": 375.53,
+              "low": 354.38,
+              "name": "Apple",
+              "revenue": 3894.34,
+              "stockInfo": Object {
+                "historyData": Object {
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "historyDataQuote": Array [
+                    Object {
+                      "close": 162.63,
+                      "date": "2018-12-15T00:00:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                    Object {
+                      "close": 168.63,
+                      "date": "2018-12-14T00:00:00.000Z",
+                      "high": 170.43,
+                      "low": 161.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                  ],
+                },
+                "historyError": undefined,
+                "historyLoading": false,
+                "intraError": undefined,
+                "intraLoading": false,
+                "intraday": Object {
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "intradayQuote": Array [
+                    Object {
+                      "close": 168.63,
+                      "date": "2018-12-12T00:20:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                    Object {
+                      "close": 168.63,
+                      "date": "2018-12-12T00:10:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                  ],
+                },
+                "metaError": undefined,
+                "metaLoading": false,
+                "refreshing": false,
+                "stockMetadata": Object {
+                  "currency": "USD",
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "marketClose": "2018-12-12 11:20:00",
+                  "marketOpen": "2018-12-12 11:20:00",
+                  "name": "Apple Inc.",
+                  "region": "string",
+                  "symbol": "AAPL",
+                  "timeZone": "US/Eastern",
+                  "type": "string",
+                },
+              },
+              "symbol": "AAPL",
+            },
+          ]
+        }
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 200,
+          "margin": 0,
+        }
+      }
+    />
+    <Themed.Card
+      containerStyle={
+        Object {
+          "flex": 1,
+          "margin": 0,
+        }
+      }
+    >
+      <Holdings
+        loading={false}
+        portfolio={
+          Object {
+            "balance": 500,
+            "name": "Portfolio1",
+            "ownerId": "klsdjfs",
+            "revenue": -2.4,
+            "stocks": Array [
+              Object {
+                "amount": 340,
+                "avgPrice": 132,
+                "name": "Apple",
+                "symbol": "AAPL",
+              },
+            ],
+            "totalMarketValue": 5000,
+          }
+        }
+        stocks={
+          Array [
+            Object {
+              "close": 293.42,
+              "currency": "USD",
+              "high": 375.53,
+              "low": 354.38,
+              "name": "Apple",
+              "revenue": 3894.34,
+              "stockInfo": Object {
+                "historyData": Object {
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "historyDataQuote": Array [
+                    Object {
+                      "close": 162.63,
+                      "date": "2018-12-15T00:00:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                    Object {
+                      "close": 168.63,
+                      "date": "2018-12-14T00:00:00.000Z",
+                      "high": 170.43,
+                      "low": 161.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                  ],
+                },
+                "historyError": undefined,
+                "historyLoading": false,
+                "intraError": undefined,
+                "intraLoading": false,
+                "intraday": Object {
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "intradayQuote": Array [
+                    Object {
+                      "close": 168.63,
+                      "date": "2018-12-12T00:20:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                    Object {
+                      "close": 168.63,
+                      "date": "2018-12-12T00:10:00.000Z",
+                      "high": 170.43,
+                      "low": 165.43,
+                      "open": 170.4,
+                      "symbol": "AAPL",
+                      "volume": 12279994,
+                    },
+                  ],
+                },
+                "metaError": undefined,
+                "metaLoading": false,
+                "refreshing": false,
+                "stockMetadata": Object {
+                  "currency": "USD",
+                  "fetchTime": 2018-12-17T01:24:00.000Z,
+                  "marketClose": "2018-12-12 11:20:00",
+                  "marketOpen": "2018-12-12 11:20:00",
+                  "name": "Apple Inc.",
+                  "region": "string",
+                  "symbol": "AAPL",
+                  "timeZone": "US/Eastern",
+                  "type": "string",
+                },
+              },
+              "symbol": "AAPL",
+            },
+          ]
+        }
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Component />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Component />
+    </Themed.Card>
+  </View>
+</_class>
+`;
+
+exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
+<_class
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <RefreshControlMock
+    colors={
+      Array [
+        "#004D40",
+      ]
+    }
+    onRefresh={[Function]}
+    refreshing={false}
+  />
+  <View>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 130,
+          "margin": 0,
+        }
+      }
+    >
+      <Component
+        loading={false}
+        stocks={Array []}
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 200,
+          "margin": 0,
+        }
+      }
+    />
+    <Themed.Card
+      containerStyle={
+        Object {
+          "flex": 1,
+          "margin": 0,
+        }
+      }
+    >
+      <Holdings
+        loading={false}
+        stocks={Array []}
+      />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Component />
+    </Themed.Card>
+    <Themed.Card
+      containerStyle={
+        Object {
+          "height": 50,
+          "margin": 0,
+        }
+      }
+    >
+      <Component />
+    </Themed.Card>
+  </View>
+</_class>
+`;
