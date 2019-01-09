@@ -74,7 +74,7 @@ class CreatePortfolio extends React.Component<
       });
     } else {
       this.setState({ name: trimWhitespaces, nameError: false }, () => {
-        if (this.state.amountError) {
+        if (!this.state.amountError) {
           this.setState({ createActive: true });
         }
       });
@@ -105,7 +105,7 @@ class CreatePortfolio extends React.Component<
           amountError: false,
         },
         () => {
-          if (this.state.nameError) {
+          if (!this.state.nameError) {
             this.setState({ createActive: true });
           }
         }
@@ -182,9 +182,12 @@ class CreatePortfolio extends React.Component<
               })
             }
             onBlur={() =>
-              this.setState({
-                nameActive: false,
-              })
+              this.setState(
+                {
+                  nameActive: false,
+                },
+                () => this.sanitize(name)
+              )
             }
             onSubmitEditing={() => this.sanitize(name)}
           />
@@ -210,9 +213,12 @@ class CreatePortfolio extends React.Component<
               })
             }
             onBlur={() =>
-              this.setState({
-                sumActive: false,
-              })
+              this.setState(
+                {
+                  sumActive: false,
+                },
+                () => this.validateAmount(inputNumber)
+              )
             }
             onSubmitEditing={() => this.validateAmount(inputNumber)}
           />
@@ -235,6 +241,7 @@ class CreatePortfolio extends React.Component<
                   : buttonStyles.buttonDisabled
               }
               onPress={() => this.validate()}
+              disabled={!createActive}
             >
               <Text style={buttonStyles.okText}>
                 {t('CreatePortfolio.Save').toUpperCase()}
