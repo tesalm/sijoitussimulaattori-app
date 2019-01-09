@@ -34,13 +34,13 @@ type BidPropsWithNavigation = BidProps & NavigationScreenProps;
 
 export interface BidState {
   bidLevel: string;
-  buyActive: boolean;
-  sellActive: boolean;
+  action: string;
   bidLevelActive: boolean;
   sumOfStocksActive: boolean;
   portfolios: Object;
   sumOfStocks: string;
   selectedPortfolio: string;
+  sumUpActive: boolean;
 }
 
 export class BidScreen extends React.Component<
@@ -55,8 +55,7 @@ export class BidScreen extends React.Component<
     super(props);
     this.state = {
       bidLevel: '0,00',
-      buyActive: false,
-      sellActive: false,
+      action: '',
       bidLevelActive: false,
       sumOfStocksActive: false,
       portfolios: [
@@ -67,6 +66,7 @@ export class BidScreen extends React.Component<
       ],
       sumOfStocks: '0',
       selectedPortfolio: 'Portfolio 1',
+      sumUpActive: false,
     };
   }
 
@@ -76,18 +76,15 @@ export class BidScreen extends React.Component<
 
   scroll(yPos: number) {
     this.scroller.current!.scrollTo({ x: 0, y: yPos });
+    this.isSumUpActive();
   }
 
   onBuyPress() {
-    this.setState({ buyActive: true }, () =>
-      this.setState({ sellActive: false }, () => this.scroll(verticalScale(96)))
-    );
+    this.setState({ action: 'buy' }, () => this.scroll(verticalScale(96)));
   }
 
   onSellPress() {
-    this.setState({ sellActive: true }, () =>
-      this.setState({ buyActive: false }, () => this.scroll(verticalScale(96)))
-    );
+    this.setState({ action: 'sell' }, () => this.scroll(verticalScale(96)));
   }
 
   onDropdownTextChange(value: string) {
@@ -117,13 +114,18 @@ export class BidScreen extends React.Component<
   }
 
   onSubmit() {
+    // TODO: Format error message to user.
+    if (!this.props.stock) {
+      return <Text>Error!</Text>;
+    }
     const level = parseStringDecimalToFloat(this.state.bidLevel);
     const sum = parseStringDecimalToFloat(this.state.sumOfStocks);
     this.props.saveForm(
-      this.state.buyActive ? 'buy' : 'sell',
+      this.state.action,
       level,
       sum,
-      this.state.selectedPortfolio
+      this.state.selectedPortfolio,
+      this.props.stock.symbol
     );
     this.props.navigation.navigate('SumUp');
   }
@@ -159,17 +161,26 @@ export class BidScreen extends React.Component<
     return 0;
   }
 
+  isSumUpActive() {
+    const { bidLevel, sumOfStocks, action } = this.state;
+    if (action !== '' && bidLevel !== '0,00' && sumOfStocks !== '0') {
+      this.setState({ sumUpActive: true });
+    } else {
+      this.setState({ sumUpActive: false });
+    }
+  }
+
   render() {
     const { stock } = this.props;
     const {
       sumOfStocksActive,
       bidLevelActive,
-      buyActive,
-      sellActive,
+      action,
       portfolios,
       bidLevel,
       sumOfStocks,
       selectedPortfolio,
+      sumUpActive,
     } = this.state;
 
     if (!stock || !stock.stockInfo || !stock.stockInfo.stockMetadata) {
@@ -192,14 +203,20 @@ export class BidScreen extends React.Component<
               </Text>
               <View style={actionButtons.buttonContainer}>
                 <TouchableOpacity onPress={() => this.onBuyPress()}>
-                  <ActionButton action={'buy'} active={buyActive} />
+                  <ActionButton
+                    action={'buy'}
+                    active={action === 'buy' ? true : false}
+                  />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => this.onSellPress()}>
-                  <ActionButton action={'sell'} active={sellActive} />
+                  <ActionButton
+                    action={'sell'}
+                    active={action === 'sell' ? true : false}
+                  />
                 </TouchableOpacity>
               </View>
             </View>
-            {(buyActive || sellActive) && (
+            {action !== '' && (
               <View>
                 <View>
                   <Text style={bidStyles.headings}>
@@ -234,12 +251,12 @@ export class BidScreen extends React.Component<
                   </View>
                 </View>
                 <View style={bidStyles.textInputContainer}>
-                  {buyActive && (
+                  {action === 'buy' && (
                     <Text style={bidStyles.headings}>
                       {t('BidPage.SumOfStocksBuy')}
                     </Text>
                   )}
-                  {sellActive && (
+                  {action === 'sell' && (
                     <Text style={bidStyles.headings}>
                       {t('BidPage.SumOfStocksSell')}
                     </Text>
@@ -312,8 +329,13 @@ export class BidScreen extends React.Component<
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={sumUpCancel.sumUpButton}
+                style={
+                  sumUpActive
+                    ? sumUpCancel.sumUpButton
+                    : sumUpCancel.buttonDisabled
+                }
                 onPress={() => this.onSubmit()}
+                disabled={!sumUpActive}
               >
                 <Text style={sumUpCancel.sumUpText}>{t('BidPage.SumUp')}</Text>
               </TouchableOpacity>

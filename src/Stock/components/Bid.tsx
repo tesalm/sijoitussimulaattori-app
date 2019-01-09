@@ -13,7 +13,6 @@ type BidPropsWithNavigation = BidProps & NavigationScreenProps;
 
 const Bid = (props: BidPropsWithNavigation): JSX.Element => {
   return (
-    // TODO: Make onPress for these items that go to buy or sell view.
     <TouchableOpacity onPress={() => props.navigation.navigate('Bid')}>
       <View style={stockStyles.bidView}>
         <View style={stockStyles.bidLogoView}>

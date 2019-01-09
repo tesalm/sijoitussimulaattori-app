@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 import { config } from '../config';
-import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
+import {
+  HistoryDataQuote,
+  IntradayQuote,
+  Stock,
+  StockMetadata,
+} from '../MarketScreen/reducer';
 import { BidInfo } from '../Bid/reducers';
 
 const StockListApiRequest = async (): Promise<Array<Stock>> => {
@@ -50,8 +55,19 @@ const stockHistoryApiRequest = async (
 
 const bidApiRequest = async (bidInfo: BidInfo): Promise<void> => {
   try {
-    const url = config.app.STOCK_API_URL + '/bid';
-    await axios.post(url, bidInfo);
+    // TODO: Check that selectedPortfolio matches with the backends values.
+    const portfolioId = bidInfo.selectedPortfolio;
+    const url =
+      config.app.STOCK_API_URL +
+      '/profile/portfolio/' +
+      portfolioId +
+      '/transaction';
+    await axios.post(url, {
+      type: bidInfo.action.toUpperCase,
+      symbol: bidInfo.symbol,
+      amount: bidInfo.sumOfStocks,
+      price: bidInfo.bidLevel,
+    });
   } catch (error) {
     throw error;
   }

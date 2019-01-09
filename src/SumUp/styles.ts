@@ -86,6 +86,11 @@ const sumUpStyles = StyleSheet.create({
   bottomContainers: {
     marginBottom: verticalScale(16),
   },
+  errorMessage: {
+    color: Colors.redPercent,
+    fontSize: verticalScale(14),
+    textAlign: 'center',
+  },
 });
 
 export { sumUpStyles };

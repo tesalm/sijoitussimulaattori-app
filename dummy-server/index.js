@@ -34,6 +34,11 @@ app.get('/stocks/:symbol/history', (req, res) => {
   res.json(singleStockHistory(req.params.symbol));
 });
 
+app.post('/profile/portfolio/:portfolioId/transaction', (req, res) => {
+  console.log('Create portfolio -test.');
+  res.end();
+});
+
 app.listen(port, () => {
   console.log(`Dummy server listening on http://localhost:${port}`);
 });

@@ -7,13 +7,21 @@ export enum ActionType {
   UpdateBidLevel = '[Bid] Update bid level',
   UpdateSumOfStocks = '[Bid] Update sum of stocks',
   UpdateSelectedPortfolio = '[Bid] Update selected portfolio',
+  SetSymbol = '[Bid] Set symbol',
+  ConfirmBidBegin = '[Bid] Confirm bid begin',
+  ConfirmBidSuccess = '[Bid] Confirm bid success',
+  ConfirmBidFailure = '[Bid] Confirm bid failure',
 }
 
 export type BidAction =
   | UpdateAction
   | UpdateBidLevel
   | UpdateSumOfStocks
-  | UpdateSelectedPortfolio;
+  | UpdateSelectedPortfolio
+  | SetSymbol
+  | ConfirmBidBegin
+  | ConfirmBidSuccess
+  | ConfirmBidFailure;
 
 export class UpdateAction {
   readonly type = ActionType.UpdateAction;
@@ -40,6 +48,34 @@ export class UpdateSelectedPortfolio {
   readonly type = ActionType.UpdateSelectedPortfolio;
   constructor(public selectedPortfolio: string) {
     return { type: this.type, selectedPortfolio };
+  }
+}
+
+export class SetSymbol {
+  readonly type = ActionType.SetSymbol;
+  constructor(public symbol: string) {
+    return { type: this.type, symbol };
+  }
+}
+
+export class ConfirmBidBegin {
+  readonly type = ActionType.ConfirmBidBegin;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class ConfirmBidSuccess {
+  readonly type = ActionType.ConfirmBidSuccess;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class ConfirmBidFailure {
+  readonly type = ActionType.ConfirmBidFailure;
+  constructor(public error: Error) {
+    return { type: this.type, error };
   }
 }
 
@@ -71,18 +107,26 @@ const saveBidForm = (
   action: string,
   bidLevel: number,
   sumOfStocks: number,
-  selectedPortfolio: string
+  selectedPortfolio: string,
+  symbol: string
 ) => async (dispatch: Dispatch<BidAction>) => {
   dispatch(new UpdateAction(action));
   dispatch(new UpdateBidLevel(bidLevel));
   dispatch(new UpdateSumOfStocks(sumOfStocks));
   dispatch(new UpdateSelectedPortfolio(selectedPortfolio));
+  dispatch(new SetSymbol(symbol));
 };
 
 const confirmBidForm = (bidInfo: BidInfo) => async (
   dispatch: Dispatch<BidAction>
 ) => {
-  await bidApiRequest(bidInfo);
+  dispatch(new ConfirmBidBegin());
+  try {
+    await bidApiRequest(bidInfo);
+    dispatch(new ConfirmBidSuccess());
+  } catch (error) {
+    dispatch(new ConfirmBidFailure(error));
+  }
 };
 
 export {

@@ -103,6 +103,13 @@ const sumUpCancel = StyleSheet.create({
     fontSize: verticalScale(14),
     fontWeight: 'bold',
   },
+  buttonDisabled: {
+    height: verticalScale(36),
+    width: verticalScale(112),
+    backgroundColor: WizardFormColors.disabled,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 const stockinfo = StyleSheet.create({

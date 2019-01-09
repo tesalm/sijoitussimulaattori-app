@@ -3,19 +3,25 @@ import { Text } from 'react-native-elements';
 import { RootState } from '../redux/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { View, TouchableOpacity, ScrollView } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  ScrollView,
+  ToastAndroid,
+  ActivityIndicator,
+} from 'react-native';
 import { t } from '../assets/i18n';
 import { Stock } from '../MarketScreen/reducer';
 import { sumUpStyles } from './styles';
 import { formatCurrency } from '../util/general';
 import { NavigationScreenProps } from 'react-navigation';
+import { confirmBidForm } from '../Bid/actions';
+import { BidInfo } from '../Bid/reducers';
 
 interface SumUpProps {
-  action: string;
-  currentBidLevel: number;
-  stocks: number;
-  portfolio: string;
   stock?: Stock;
+  confirmBid: typeof confirmBidForm;
+  bidInfo: BidInfo;
 }
 
 type SumUpPropsWithNavigation = SumUpProps & NavigationScreenProps;
@@ -47,14 +53,15 @@ export class SumUpScreen extends React.Component<
       this.setState(
         {
           totalCost: formatCurrency(
-            this.props.stocks * this.props.currentBidLevel,
+            this.props.bidInfo.sumOfStocks * this.props.bidInfo.bidLevel,
             this.props.stock.stockInfo.stockMetadata.currency
           ),
         },
         () =>
           this.setState({
             portfolioValueAfter: formatCurrency(
-              portfolioValue - this.props.stocks * this.props.currentBidLevel,
+              portfolioValue -
+                this.props.bidInfo.sumOfStocks * this.props.bidInfo.bidLevel,
               'USD'
             ),
           })
@@ -65,17 +72,35 @@ export class SumUpScreen extends React.Component<
   countTotalCost() {
     if (this.props.stock && this.props.stock.stockInfo.stockMetadata) {
       return formatCurrency(
-        this.props.currentBidLevel * this.props.stocks,
+        this.props.bidInfo.bidLevel * this.props.bidInfo.sumOfStocks,
         this.props.stock.currency
       );
     }
     return 0;
   }
 
+  // Saves form-data to backend and if that succees, goes back to StockScreen and
+  // shows user a short toast-message.
+  async confirmForm() {
+    await this.props.confirmBid(this.props.bidInfo);
+    if (this.props.bidInfo.error) {
+      return;
+    }
+    this.props.navigation.navigate('SingleStock');
+    // TODO: Format toast-message for user.
+    ToastAndroid.show('Bid was successfull.', ToastAndroid.SHORT);
+  }
+
+  errorMessage() {
+    return <Text>{this.props.bidInfo.error}</Text>;
+  }
+
   render() {
-    const { action, currentBidLevel, portfolio, stock, stocks } = this.props;
+    const { bidInfo, stock } = this.props;
     const { totalCost, portfolioValueAfter } = this.state;
+    
     if (!stock) {
+      // TODO: Format error for user.
       return <Text>Error!</Text>;
     }
 
@@ -84,7 +109,7 @@ export class SumUpScreen extends React.Component<
         <View style={sumUpStyles.headerContainer}>
           <Text style={sumUpStyles.header}>
             {t('SumUpPage.YoureGoingTo')}{' '}
-            {<Text style={sumUpStyles.headerHighlight}>{action} </Text>}
+            {<Text style={sumUpStyles.headerHighlight}>{bidInfo.action} </Text>}
             {stock.name}
           </Text>
           <Text style={sumUpStyles.header}>
@@ -97,14 +122,16 @@ export class SumUpScreen extends React.Component<
               <Text style={sumUpStyles.valueHeaderSmall}>
                 {t('SumUpPage.Portfolio')}
               </Text>
-              <Text style={sumUpStyles.valueSmall}>{portfolio}</Text>
+              <Text style={sumUpStyles.valueSmall}>
+                {bidInfo.selectedPortfolio}
+              </Text>
             </View>
             <View />
             <View style={sumUpStyles.detailColumnContainer}>
               <Text style={sumUpStyles.valueHeaderSmall}>
                 {t('SumUpPage.AmountOfStocks')}
               </Text>
-              <Text style={sumUpStyles.valueSmall}>{stocks}</Text>
+              <Text style={sumUpStyles.valueSmall}>{bidInfo.sumOfStocks}</Text>
             </View>
           </View>
           <View style={sumUpStyles.detailRowContainer}>
@@ -120,7 +147,7 @@ export class SumUpScreen extends React.Component<
                 {t('SumUpPage.BidLevel')}
               </Text>
               <Text style={sumUpStyles.valueSmall}>
-                {formatCurrency(currentBidLevel, stock.currency)}
+                {formatCurrency(bidInfo.bidLevel, stock.currency)}
               </Text>
             </View>
           </View>
@@ -137,36 +164,54 @@ export class SumUpScreen extends React.Component<
           </Text>
           <Text style={sumUpStyles.valueLarge}>{portfolioValueAfter}</Text>
         </View>
-        <View style={sumUpStyles.confirmCancelButtonContainer}>
-          <TouchableOpacity
-            style={sumUpStyles.cancelButton}
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Text style={sumUpStyles.cancelText}>{t('SumUpPage.Cancel')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={sumUpStyles.confirmButton}>
-            <Text style={sumUpStyles.confirmButtonText}>
-              {t('SumUpPage.Confirm')}
-            </Text>
-          </TouchableOpacity>
-        </View>
+
+        {bidInfo.error && (
+          <Text style={sumUpStyles.errorMessage}>{this.errorMessage()}</Text>
+        )}
+
+        {!bidInfo.loading ? (
+          <View style={sumUpStyles.confirmCancelButtonContainer}>
+            <TouchableOpacity
+              style={sumUpStyles.cancelButton}
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Text style={sumUpStyles.cancelText}>
+                {t('SumUpPage.Cancel')}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={sumUpStyles.confirmButton}
+              onPress={() => this.confirmForm()}
+            >
+              <Text style={sumUpStyles.confirmButtonText}>
+                {t('SumUpPage.Confirm')}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View>
+            <ActivityIndicator size={'large'} />
+          </View>
+        )}
       </ScrollView>
     );
   }
 }
 
 const mapStateToProps = (state: RootState) => ({
-  action: state.bid.action,
-  currentBidLevel: state.bid.bidLevel,
-  stocks: state.bid.sumOfStocks,
-  portfolio: state.bid.selectedPortfolio,
   stock: state.stocksListing.stocks.find((stock) => {
     return stock.symbol === state.stocksListing.currentSymbol;
   }),
+  bidInfo: state.bid,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({}, dispatch);
+  bindActionCreators(
+    {
+      confirmBid: confirmBidForm,
+    },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,
