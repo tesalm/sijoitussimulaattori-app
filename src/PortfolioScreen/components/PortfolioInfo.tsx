@@ -4,7 +4,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { t } from '../../assets/i18n';
 import { Stock } from '../../MarketScreen/reducer';
 import { formatRevenue, revenueColor } from '../../util/stock';
-import { Portfolio, PortfolioStock } from '../reducers';
+import { Portfolio } from '../reducers';
 import { portfolioStyles } from '../styles';
 
 export interface PortfolioInfoProps {
@@ -74,31 +74,6 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
       </View>
     </View>
   );
-};
-
-const calculatePortfolioValue = (
-  portfolioStocks: PortfolioStock[],
-  stocks?: Stock[]
-) => {
-  //find right stock from the array.
-  let portoflioValue = 0;
-  portfolioStocks.forEach((stock) => {
-    if (stocks) {
-      const rightStock = stocks.find(
-        (findStock) => findStock.symbol == stock.symbol
-      );
-      if (rightStock == undefined) {
-        return 0;
-      }
-      if (rightStock.stockInfo.intraday === undefined) {
-        return 0;
-      }
-      portoflioValue =
-        portoflioValue +
-        rightStock.stockInfo.intraday.intradayQuote[0].close * stock.amount;
-    }
-  });
-  return portoflioValue;
 };
 
 export default PortfolioInfo;

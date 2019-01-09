@@ -58,9 +58,19 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
     }
   }
 
-  refresh = () => {
+  refreshPortfolioAndStock = () => {
     if (this.props.name) {
       this.props.getPortfolio(this.props.name);
+    }
+    if (this.props.portfolio) {
+      this.props.portfolio.stocks.forEach(async (portfolioStock) => {
+        var findStock = this.props.stocks.find((stock) => {
+          return stock.symbol === portfolioStock.symbol;
+        });
+        if (findStock) {
+          await this.props.refreshIntra(findStock, findStock.symbol);
+        }
+      });
     }
   };
 
@@ -72,7 +82,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
-            onRefresh={this.refresh}
+            onRefresh={this.refreshPortfolioAndStock}
             colors={[Colors.baseColor]}
           />
         }
