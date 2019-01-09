@@ -101,6 +101,13 @@ const buttonStyles = StyleSheet.create({
     fontSize: verticalScale(14),
     fontWeight: 'bold',
   },
+  buttonDisabled: {
+    height: verticalScale(36),
+    width: verticalScale(112),
+    backgroundColor: FormColors.disabled,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 const textInputStyles = StyleSheet.create({

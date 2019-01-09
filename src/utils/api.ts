@@ -85,13 +85,13 @@ const stockHistoryApiRequest = async (
   }
 };
 
-const CreatePortfolioApiRequest = async (
+const createPortfolioApiRequest = async (
   portfolioName: string,
   porftolioAmount: number
 ): Promise<void> => {
   try {
-    const url = config.app.STOCK_API_URL + 'profile/portfolio';
-    const res = await axios.post(url, {
+    const url = config.app.STOCK_API_URL + '/profile/portfolio';
+    await axios.post(url, {
       name: portfolioName,
       balance: porftolioAmount,
     });
@@ -107,5 +107,5 @@ export {
   stockHistoryApiRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
-  CreatePortfolioApiRequest,
+  createPortfolioApiRequest,
 };

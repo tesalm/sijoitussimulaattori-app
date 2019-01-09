@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { CreatePortfolioApiRequest } from '../utils/api';
+import { createPortfolioApiRequest } from '../utils/api';
 
 export enum ActionType {
   CreatePortfolioBegin = '[CreatingPortfolio] Creating portfolio begin',
@@ -38,7 +38,7 @@ const sendPortfolioInfo = (name: string, amount: number) => async (
 ) => {
   dispatch(new CreatePortfolioBegin());
   try {
-    await CreatePortfolioApiRequest(name, amount);
+    await createPortfolioApiRequest(name, amount);
     dispatch(new CreatePortfolioSuccess());
   } catch (error) {
     dispatch(new CreatePortfolioFailure(error));

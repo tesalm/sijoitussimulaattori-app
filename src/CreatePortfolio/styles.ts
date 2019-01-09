@@ -14,7 +14,7 @@ const CreatePortfolioStyles = StyleSheet.create({
     paddingHorizontal: scale(42),
   },
   amountContainer: {
-    paddingVertical: verticalScale(16),
+    paddingBottom: verticalScale(16),
     paddingHorizontal: scale(42),
   },
   headings: {
@@ -28,7 +28,7 @@ const CreatePortfolioStyles = StyleSheet.create({
   error: {
     color: Colors.errorText,
     textAlign: 'center',
-    marginTop: verticalScale(-8),
+    marginTop: verticalScale(-16),
   },
 });
 

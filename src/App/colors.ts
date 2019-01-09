@@ -14,6 +14,7 @@ const FormColors = {
   fontColor: 'white',
   activeColor: '#e8a30c',
   unactiveColor: 'white',
+  disabled: '#8d8d8d',
 };
 
 export { Colors, FormColors };

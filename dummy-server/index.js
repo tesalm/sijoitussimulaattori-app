@@ -46,9 +46,10 @@ app.get('/profile/portfolio/:portfolioID', (req, res) => {
   res.json(availablePortfolio(req.params.portfolioID));
 });
 
-app.post('profile/portfolio', (req, res) => {
+app.post('/profile/portfolio', (req, res) => {
   console.log('Dummy POST');
   console.log(req.params);
+  res.end();
 });
 
 app.listen(port, () => {

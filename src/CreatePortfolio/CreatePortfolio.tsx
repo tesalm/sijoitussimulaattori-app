@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ActivityIndicator,
+  ToastAndroid,
 } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -12,7 +13,6 @@ import { bindActionCreators, Dispatch } from 'redux';
 import validator from 'validator';
 
 import { t } from '../assets/i18n';
-import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { CreatePortfolioStyles as styles } from './styles';
 import { FormColors } from '../App/colors';
@@ -34,9 +34,10 @@ interface CreatePortfolioState {
   inputNumber: string;
   nameError: boolean;
   amountError: boolean;
-  errorMessageTranslationKey: string;
   nameActive: boolean;
+  amountErrorMessage: string;
   sumActive: boolean;
+  createActive: boolean;
 }
 
 class CreatePortfolio extends React.Component<
@@ -49,11 +50,12 @@ class CreatePortfolio extends React.Component<
       inputNumber: '',
       amount: NaN,
       name: '',
-      nameError: true,
-      amountError: true,
-      errorMessageTranslationKey: '',
+      nameError: false,
+      amountError: false,
       nameActive: false,
+      amountErrorMessage: '',
       sumActive: false,
+      createActive: false,
     };
   }
 
@@ -67,56 +69,92 @@ class CreatePortfolio extends React.Component<
     const trimWhitespaces = validator.trim(input);
     if (trimWhitespaces === '') {
       this.setState({
-        errorMessageTranslationKey: 'InputErrors.NameEmpty',
         nameError: true,
+        createActive: false,
       });
     } else {
-      this.setState({ name: trimWhitespaces, nameError: false });
+      this.setState({ name: trimWhitespaces, nameError: false }, () => {
+        if (this.state.amountError) {
+          this.setState({ createActive: true });
+        }
+      });
     }
   }
 
   // Trims whitespaces from the amount, replaces . -> ,
-  // Checks that the amount is not empty and that it's numeric.
-  // TODO: Check that amount is > 0.
+  // Checks that the amount is not empty, negative and that it's numeric.
   validateAmount(input: string) {
     const trimWhitespaces = validator.trim(input);
     const commaToPoint: string = trimWhitespaces.replace(/,/g, '.');
-    if (commaToPoint === '') {
+    if (commaToPoint.charAt(0) === '-') {
       this.setState({
-        errorMessageTranslationKey: 'InputErrors.NotNumber',
+        amountError: true,
+        amountErrorMessage: 'InputErrors.NotPositiveNumber',
+        createActive: false,
+      });
+    } else if (commaToPoint === '') {
+      this.setState({
+        amountError: true,
+        amountErrorMessage: 'InputErrors.NotNumber',
+        createActive: false,
       });
     } else if (validator.isNumeric(commaToPoint)) {
-      this.setState({
-        amount: validator.toFloat(commaToPoint),
-        amountError: false,
-      });
+      this.setState(
+        {
+          amount: validator.toFloat(commaToPoint),
+          amountError: false,
+        },
+        () => {
+          if (this.state.nameError) {
+            this.setState({ createActive: true });
+          }
+        }
+      );
     } else {
       this.setState({
-        errorMessageTranslationKey: 'InputErrors.NotNumber',
+        amountError: true,
+        amountErrorMessage: 'InputErrors.NotNumber',
+        createActive: false,
       });
     }
   }
 
-  validate() {
-    this.sanitize(this.state.name);
-    this.validateAmount(this.state.inputNumber);
+  async validate() {
+    await this.sanitize(this.state.name);
+    await this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
-      this.props.sendData(this.state.name, this.state.amount);
-      () => this.props.navigation.goBack();
+      await this.props.sendData(this.state.name, this.state.amount);
+      if (!this.props.error) {
+        this.props.navigation.goBack();
+        ToastAndroid.show(
+          'Portfolio created successfully!',
+          ToastAndroid.SHORT
+        );
+      }
     }
   }
 
-  showErrors() {
-    return this.state.nameError || this.state.amountError ? (
-      <Text style={styles.error}>
-        {t(this.state.errorMessageTranslationKey)}
-      </Text>
+  showNameErrors() {
+    return this.state.nameError ? (
+      <Text style={styles.error}>{t('InputErrors.NameEmpty')}</Text>
+    ) : null;
+  }
+
+  showAmountErrors() {
+    return this.state.amountError ? (
+      <Text style={styles.error}>{t(this.state.amountErrorMessage)}</Text>
     ) : null;
   }
 
   render() {
     const { loading, error } = this.props;
-    const { nameActive, sumActive, name, inputNumber } = this.state;
+    const {
+      nameActive,
+      sumActive,
+      name,
+      inputNumber,
+      createActive,
+    } = this.state;
 
     if (error) {
       // TODO: Format error-message for user. Use showErrors-function.
@@ -143,9 +181,15 @@ class CreatePortfolio extends React.Component<
                 nameActive: true,
               })
             }
-            onBlur={() => this.setState({ nameActive: false })}
+            onBlur={() =>
+              this.setState({
+                nameActive: false,
+              })
+            }
+            onSubmitEditing={() => this.sanitize(name)}
           />
         </View>
+        <View>{this.showNameErrors()}</View>
         <View style={styles.amountContainer}>
           <Text style={styles.headings}>
             {t('CreatePortfolio.PortfolioAmountInputTitle')}
@@ -165,10 +209,15 @@ class CreatePortfolio extends React.Component<
                 sumActive: true,
               })
             }
-            onBlur={() => this.setState({ sumActive: false })}
+            onBlur={() =>
+              this.setState({
+                sumActive: false,
+              })
+            }
+            onSubmitEditing={() => this.validateAmount(inputNumber)}
           />
         </View>
-        <View>{this.showErrors()}</View>
+        <View>{this.showAmountErrors()}</View>
         {!loading ? (
           <View style={buttonStyles.container}>
             <TouchableOpacity
@@ -180,7 +229,11 @@ class CreatePortfolio extends React.Component<
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={buttonStyles.okButton}
+              style={
+                createActive
+                  ? buttonStyles.okButton
+                  : buttonStyles.buttonDisabled
+              }
               onPress={() => this.validate()}
             >
               <Text style={buttonStyles.okText}>
