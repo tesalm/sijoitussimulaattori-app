@@ -19,7 +19,7 @@ import {
 import { Portfolio, PortfolioStock } from '../reducers';
 import { portfolioStyles } from '../styles';
 
-interface HoldingsProps {
+export interface HoldingsProps {
   portfolio?: Portfolio;
   loading?: boolean;
   error?: Error;

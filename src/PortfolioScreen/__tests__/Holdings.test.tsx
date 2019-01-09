@@ -2,32 +2,30 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../../MarketScreen/actions';
-import { getPortfolioData } from '../actions';
-import { PortfolioProps, PortfolioScreen } from '../PortfolioScreen';
 
-describe('portfolio tests', () => {
+import { Holdings, HoldingsProps } from '../components/Holdings';
+
+describe('Holdings tests', () => {
   // Mock for navigation.
   const navigationMock: any = {};
   const middlewares: any = [];
   const mockStore = configureStore(middlewares);
 
-  const defaultPortfolioProps: PortfolioProps = {
+  const defaultHoldingsProps: HoldingsProps = {
     portfolio: undefined,
-    getPortfolio: getPortfolioData,
-    name: undefined,
-    loading: false,
+    loading: undefined,
     error: undefined,
-    refreshing: false,
-    stocks: [],
-    getAllStocks: getStocks,
-    getMeta: getStockMetadata,
-    getHistoryData: jest.fn(),
-    getIntra: getIntraday,
-    refreshIntra: refreshIntraday,
+    stocks: undefined,
   };
 
-  const successPortfolioProps: PortfolioProps = {
+  const errorHoldingsProps: HoldingsProps = {
+    portfolio: undefined,
+    loading: undefined,
+    error: { name: 'Network Error', message: 'Network connection failed' },
+    stocks: undefined,
+  };
+
+  const successHoldingsProps: HoldingsProps = {
     portfolio: {
       name: 'Portfolio1',
       ownerId: 'klsdjfs',
@@ -120,28 +118,30 @@ describe('portfolio tests', () => {
         },
       },
     ],
-    getMeta: jest.fn(),
-    getIntra: jest.fn(),
-    refreshIntra: jest.fn(),
-    getHistoryData: jest.fn(),
-    refreshing: false,
-    name: 'Portfolio1',
-    getAllStocks: jest.fn(),
-    getPortfolio: jest.fn(),
+    error: undefined,
     loading: false,
   };
 
-  it('Portfolioscreen renders correctly', async () => {
+  it('Holdings renders correctly', async () => {
     const wrapper = shallow(
-      <PortfolioScreen {...defaultPortfolioProps} {...navigationMock} />,
+      <Holdings {...defaultHoldingsProps} {...navigationMock} />,
       { context: { store: mockStore() } }
     );
     expect(wrapper.dive()).toMatchSnapshot();
   });
 
-  it('PortfolioScreen renders correctly with portfolio and stocks', async () => {
+  
+  it('Holdings renders correctly with error', async () => {
     const wrapper = shallow(
-      <PortfolioScreen {...successPortfolioProps} {...navigationMock} />,
+      <Holdings {...errorHoldingsProps} {...navigationMock} />,
+      { context: { store: mockStore() } }
+    );
+    expect(wrapper.dive()).toMatchSnapshot();
+  });
+
+  it('Holdings renders correctly with portfolio and stocks', async () => {
+    const wrapper = shallow(
+      <Holdings {...successHoldingsProps} {...navigationMock} />,
       { context: { store: mockStore() } }
     );
     expect(wrapper.dive()).toMatchSnapshot();

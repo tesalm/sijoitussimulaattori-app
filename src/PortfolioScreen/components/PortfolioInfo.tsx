@@ -7,14 +7,14 @@ import { formatRevenue, revenueColor } from '../../util/stock';
 import { Portfolio, PortfolioStock } from '../reducers';
 import { portfolioStyles } from '../styles';
 
-export interface BasicinfoProps {
+export interface PortfolioInfoProps {
   portfolio?: Portfolio;
   loading?: boolean;
   error?: Error;
   stocks?: Stock[];
 }
 
-export const PortfolioInfo = (props: BasicinfoProps): JSX.Element => {
+export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
   if (props.loading) {
     return (
       <View style={portfolioStyles.loading}>
