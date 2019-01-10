@@ -662,9 +662,11 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               "backgroundColor": "white",
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
+              "flex": 1,
               "flexDirection": "row",
-              "height": 150,
               "padding": 14,
+              "paddingLeft": 32,
+              "paddingVertical": 16,
             }
           }
         >
@@ -681,10 +683,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#004D40",
-                  "fontSize": 32,
+                  "fontSize": 34,
                   "fontWeight": "bold",
-                  "marginLeft": 16,
-                  "marginTop": 16,
+                  "marginBottom": 16,
                 }
               }
               testID="listItemTitle"
@@ -713,8 +714,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 16,
-                  "marginTop": 24,
                 }
               }
             >
@@ -722,7 +721,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 24,
+                    "fontSize": 23.541176470588233,
                     "marginBottom": 0,
                     "textAlign": "justify",
                   }
@@ -761,7 +760,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 16,
+                  "marginLeft": 32,
                 }
               }
             >
@@ -769,7 +768,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 24,
+                    "fontSize": 23.541176470588233,
+                    "marginBottom": 0,
+                    "textAlign": "justify",
                   }
                 }
               >
@@ -814,9 +815,11 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               "backgroundColor": "#F0F0F0",
               "borderBottomWidth": 0,
               "borderColor": "#bcbbc1",
+              "flex": 1,
               "flexDirection": "row",
-              "height": 150,
               "padding": 14,
+              "paddingLeft": 32,
+              "paddingVertical": 16,
             }
           }
         >
@@ -833,10 +836,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 Object {
                   "backgroundColor": "transparent",
                   "color": "#004D40",
-                  "fontSize": 32,
+                  "fontSize": 34,
                   "fontWeight": "bold",
-                  "marginLeft": 16,
-                  "marginTop": 16,
+                  "marginBottom": 16,
                 }
               }
               testID="listItemTitle"
@@ -865,8 +867,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 16,
-                  "marginTop": 24,
                 }
               }
             >
@@ -874,7 +874,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 24,
+                    "fontSize": 23.541176470588233,
                     "marginBottom": 0,
                     "textAlign": "justify",
                   }
@@ -913,7 +913,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               style={
                 Object {
                   "flexDirection": "column",
-                  "marginLeft": 16,
+                  "marginLeft": 32,
                 }
               }
             >
@@ -921,7 +921,9 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 24,
+                    "fontSize": 23.541176470588233,
+                    "marginBottom": 0,
+                    "textAlign": "justify",
                   }
                 }
               >
