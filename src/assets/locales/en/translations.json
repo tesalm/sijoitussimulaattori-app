@@ -107,5 +107,9 @@
     "Acquisition": "Acquisition price",
     "TotalMarketValue": "Total market value",
     "TotalRevenue": "Total revenue"
+  },
+  "PortfolioListing": {
+    "TotalRevenue": "Total revenue (%)",
+    "RevenueToday": "Revenue today"
   }
 }

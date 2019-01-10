@@ -3,12 +3,6 @@ import { Dispatch } from 'redux';
 import { portfolioApiRequest, portfolioListApiRequest } from '../utils/api';
 import { Portfolio, SinglePortfolio } from './reducers';
 
-<<<<<<< HEAD
-=======
-import { portfolioListApiRequest } from '../utils/api';
-import { PortfolioList } from './reducers';
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
-
 export enum ActionType {
   RequestPortfolioListingBegin = '[Portfolios] API Request',
   RequestPortfoliosListingSuccess = '[Portfolios] API Success',

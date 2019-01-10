@@ -9,11 +9,7 @@ import { Colors } from '../App/colors';
 import { textStyles } from '../App/styles';
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-<<<<<<< HEAD
 import { formatCurrency, formatRevenue, revenueColor } from '../util/stock';
-=======
-import { formatCurrency, formatRevenue, revenueColorMarketScreen } from '../util/stock';
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 import { getStocks, saveAsCurrentStockSymbol } from './actions';
 import { Stock } from './reducer';
 import { StockStyles } from './styles';
@@ -116,7 +112,7 @@ export class MarketScreen extends React.Component<
                 <Text style={textStyles.valueHeader}>
                   {t('ListStockPage.RevenueText')}
                 </Text>
-                <Text style={revenueColorMarketScreen(item.revenue)}>
+                <Text style={revenueColor(item.revenue)}>
                   {formatRevenue(item.revenue)}
                 </Text>
               </View>

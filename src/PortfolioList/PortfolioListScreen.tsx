@@ -1,14 +1,18 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
+import { Colors } from '../App/colors';
+import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
+import { formatRevenue, revenueColor, valueColor } from '../util/stock';
 import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducers';
+import { PortfolioListingStyles } from './styles';
 
 export interface PortfolioListProps {
   portfolioListing: Array<SinglePortfolio>;
@@ -16,6 +20,7 @@ export interface PortfolioListProps {
   portfolioListingLoadingError?: Error;
   getAllPortfolios: typeof getPortfolios;
   saveAsCurrentPortfolio: typeof saveAsCurrentPortfolioId;
+  refreshing: boolean;
 }
 
 type PortfolioPropsWithNavigation = PortfolioListProps & NavigationScreenProps;
@@ -32,11 +37,29 @@ export class PortfolioListScreen extends React.Component<
     this.props.getAllPortfolios();
   }
 
+  portfolioPressed = (name: string) => {
+    if (this.props.refreshing) {
+      // TODO: Format toast message to user.
+      ToastAndroid.show(
+        'Wait, stock-list is being refreshed.',
+        ToastAndroid.SHORT
+      );
+    } else {
+      this.props.saveAsCurrentPortfolio(name);
+      this.props.navigation.navigate(RouteName.SinglePortfolio);
+    }
+  };
+
+  refresh = () => {
+    this.props.getAllPortfolios();
+  };
+
   render() {
     const {
       portfolioListing,
       loading,
       portfolioListingLoadingError,
+      refreshing,
     } = this.props;
     if (portfolioListingLoadingError) {
       //TODO: Format the error message to user
@@ -53,15 +76,49 @@ export class PortfolioListScreen extends React.Component<
     return (
       //TODO: Modify this list to match design for portfolio-list.
       <FlatList
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={this.refresh}
+            colors={[Colors.baseColor]}
+          />
+        }
         data={portfolioListing}
+        ItemSeparatorComponent={() => (
+          <View style={PortfolioListingStyles.itemSeparatorStyle} />
+        )}
         keyExtractor={(item) => item.name}
         renderItem={({ item, index }) => (
           <ListItem
-            onPress={() => {
-              this.props.saveAsCurrentPortfolio(item.uid);
-              this.props.navigation.navigate(RouteName.SinglePortfolio);
-            }}
-            title={item.name}
+            onPress={() => this.portfolioPressed(item.name)}
+            containerStyle={PortfolioListingStyles.listContainer}
+            title={
+              <View style={PortfolioListingStyles.titleView}>
+                <Text style={PortfolioListingStyles.titleStyle}>
+                  {item.name}
+                </Text>
+              </View>
+            }
+            rightTitle={
+              <View style={PortfolioListingStyles.rightTitleView}>
+                <Text style={PortfolioListingStyles.revenueText}>
+                  {t('PortfolioListing.TotalRevenue')}
+                </Text>
+                <Text style={revenueColor(item.lastDayRevenue)}>
+                  {formatRevenue(item.lastDayRevenue)}
+                </Text>
+              </View>
+            }
+            subtitle={
+              <View style={PortfolioListingStyles.subtitleView}>
+                <Text style={PortfolioListingStyles.subtitleText}>
+                  {t('PortfolioListing.RevenueToday')}
+                </Text>
+                <Text style={valueColor(item.totalRevenue)}>
+                  {formatRevenue(item.totalRevenue)}
+                </Text>
+              </View>
+            }
           />
         )}
       />
@@ -70,8 +127,9 @@ export class PortfolioListScreen extends React.Component<
 }
 const mapStateToProps = (state: RootState) => ({
   portfolioListing: state.portfolioListing.portfolioListing,
-  loading: state.portfolioListing.loading,
   portfolioListingLoadingError: state.portfolioListing.error,
+  error: state.portfolioListing.error,
+  refreshing: state.portfolioListing.refreshing,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
