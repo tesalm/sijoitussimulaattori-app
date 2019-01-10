@@ -5,13 +5,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
-import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
+import {
+  getHistory,
+  getIntraday,
+  getStockMetadata,
+  refreshIntraday,
+} from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
 import Bid from './components/Bid';
 import Diagram from './components/Diagram';
 import { stockContainerStyles } from './styles';
+import CardButton from '../general/cardButton';
+import { RouteName } from '../navigation/routes';
+import { NavigationScreenProps } from 'react-navigation';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -23,10 +31,15 @@ export interface StockProps {
   stock?: Stock;
 }
 
+type StockPropsWithNavigation = StockProps & NavigationScreenProps;
+
 interface StockState {}
 
-export class StockScreen extends React.Component<StockProps, StockState> {
-  constructor(props: StockProps) {
+export class StockScreen extends React.Component<
+  StockPropsWithNavigation,
+  StockState
+> {
+  constructor(props: StockPropsWithNavigation) {
     super(props);
   }
 
@@ -109,7 +122,12 @@ export class StockScreen extends React.Component<StockProps, StockState> {
           </Card>
 
           <Card containerStyle={stockContainerStyles.buttonContainer}>
-            <Bid />
+            <CardButton
+              iconName={'bid'}
+              translationTitle={'StockPage.Bid'}
+              route={RouteName.Home}
+              navigation={this.props.navigation}
+            />
           </Card>
         </ScrollView>
       );

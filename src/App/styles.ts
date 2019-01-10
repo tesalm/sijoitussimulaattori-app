@@ -4,23 +4,6 @@ import { scale, verticalScale } from 'react-native-size-matters';
 import { Colors } from './colors';
 
 const generalStyles = StyleSheet.create({
-  button: {
-    margin: 0,
-    height: 61,
-  },
-  buttonView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  buttonLogoView: {
-    flexDirection: 'row',
-  },
-  buttonTitle: {
-    fontSize: verticalScale(17),
-    fontWeight: 'bold',
-    marginLeft: scale(8),
-    color: Colors.baseColor,
-  },
   revenueValueGreen: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -39,4 +22,24 @@ const generalStyles = StyleSheet.create({
   },
 });
 
-export { generalStyles };
+const cardButtonStyles = StyleSheet.create({
+  cardButton: {
+    margin: 0,
+    height: verticalScale(56),
+  },
+  cardButtonView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cardButtonLogoView: {
+    flexDirection: 'row',
+  },
+  cardButtonTitle: {
+    fontSize: verticalScale(17),
+    fontWeight: 'bold',
+    marginLeft: scale(8),
+    color: Colors.baseColor,
+  },
+});
+
+export { generalStyles, cardButtonStyles };
