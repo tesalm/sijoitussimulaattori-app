@@ -119,6 +119,6 @@
   "InputErrors": {
     "NameEmpty": "Name can not be empty!",
     "NotNumber": "Amount needs to be a number!",
-    "NotPositiveNumber": "Amount needs to be postivie number!"
+    "NotPositiveNumber": "Amount needs to be postive number!"
   }
 }

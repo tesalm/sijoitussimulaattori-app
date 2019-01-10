@@ -86,27 +86,40 @@ class CreatePortfolio extends React.Component<
   validateAmount(input: string) {
     const trimWhitespaces = validator.trim(input);
     const commaToPoint: string = trimWhitespaces.replace(/,/g, '.');
-    if (commaToPoint.charAt(0) === '-') {
-      this.setState({
-        amountError: true,
-        amountErrorMessage: 'InputErrors.NotPositiveNumber',
-        createActive: false,
-      });
-    } else if (commaToPoint === '') {
+    console.log(commaToPoint);
+    // If the string is empty, returns error message.
+    if (commaToPoint === '') {
       this.setState({
         amountError: true,
         amountErrorMessage: 'InputErrors.NotNumber',
         createActive: false,
       });
-    } else if (validator.isNumeric(commaToPoint)) {
+      // If the first char is '-', returns error message.
+    } else if (commaToPoint[0] === '-') {
+      this.setState({
+        amountError: true,
+        amountErrorMessage: 'InputErrors.NotPositiveNumber',
+        createActive: false,
+      });
+      // Checks that the commaToPoint is numeric.
+      // Also checks, that if the last char is '.' that othet chars are numbers.
+    } else if (
+      validator.isNumeric(commaToPoint) ||
+      (commaToPoint[commaToPoint.length - 1] === '.' &&
+        validator.isNumeric(commaToPoint.substring(0, commaToPoint.length - 2)))
+    ) {
+      // Sets inputNumber to be the same as the amount that will be sent to the back end.
       this.setState(
         {
           amount: validator.toFloat(commaToPoint),
           amountError: false,
+          inputNumber: validator.toFloat(commaToPoint).toString(),
         },
         () => {
           if (!this.state.nameError) {
-            this.setState({ createActive: true });
+            this.setState({
+              createActive: true,
+            });
           }
         }
       );

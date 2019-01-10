@@ -37,6 +37,7 @@ exports[`Create Portfolio renders correctly 1`] = `
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onSubmitEditing={[Function]}
       selectionColor="#e8a30c"
       style={
         Object {
@@ -50,11 +51,12 @@ exports[`Create Portfolio renders correctly 1`] = `
       value=""
     />
   </View>
+  <View />
   <View
     style={
       Object {
+        "paddingBottom": 32,
         "paddingHorizontal": 84,
-        "paddingVertical": 32,
       }
     }
   >
@@ -78,6 +80,7 @@ exports[`Create Portfolio renders correctly 1`] = `
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onSubmitEditing={[Function]}
       selectionColor="#e8a30c"
       style={
         Object {
@@ -91,19 +94,7 @@ exports[`Create Portfolio renders correctly 1`] = `
       value=""
     />
   </View>
-  <View>
-    <Text
-      style={
-        Object {
-          "color": "#ff0000",
-          "marginTop": -16,
-          "textAlign": "center",
-        }
-      }
-    >
-      
-    </Text>
-  </View>
+  <View />
   <View
     style={
       Object {
@@ -156,14 +147,10 @@ exports[`Create Portfolio renders correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#e8a30c",
+          "backgroundColor": "#8d8d8d",
           "height": 72,
           "justifyContent": "center",
           "opacity": 1,
-          "shadowOffset": Object {
-            "height": 1,
-            "width": 1,
-          },
           "width": 224,
         }
       }
@@ -221,6 +208,7 @@ exports[`Create Portfolio renders correctly with error 1`] = `
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onSubmitEditing={[Function]}
       selectionColor="#e8a30c"
       style={
         Object {
@@ -234,11 +222,12 @@ exports[`Create Portfolio renders correctly with error 1`] = `
       value=""
     />
   </View>
+  <View />
   <View
     style={
       Object {
+        "paddingBottom": 32,
         "paddingHorizontal": 84,
-        "paddingVertical": 32,
       }
     }
   >
@@ -262,6 +251,7 @@ exports[`Create Portfolio renders correctly with error 1`] = `
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onSubmitEditing={[Function]}
       selectionColor="#e8a30c"
       style={
         Object {
@@ -275,19 +265,7 @@ exports[`Create Portfolio renders correctly with error 1`] = `
       value=""
     />
   </View>
-  <View>
-    <Text
-      style={
-        Object {
-          "color": "#ff0000",
-          "marginTop": -16,
-          "textAlign": "center",
-        }
-      }
-    >
-      
-    </Text>
-  </View>
+  <View />
   <View
     style={
       Object {
@@ -340,14 +318,10 @@ exports[`Create Portfolio renders correctly with error 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#e8a30c",
+          "backgroundColor": "#8d8d8d",
           "height": 72,
           "justifyContent": "center",
           "opacity": 1,
-          "shadowOffset": Object {
-            "height": 1,
-            "width": 1,
-          },
           "width": 224,
         }
       }
@@ -405,6 +379,7 @@ exports[`Create Portfolio renders correctly with loading 1`] = `
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onSubmitEditing={[Function]}
       selectionColor="#e8a30c"
       style={
         Object {
@@ -418,11 +393,12 @@ exports[`Create Portfolio renders correctly with loading 1`] = `
       value=""
     />
   </View>
+  <View />
   <View
     style={
       Object {
+        "paddingBottom": 32,
         "paddingHorizontal": 84,
-        "paddingVertical": 32,
       }
     }
   >
@@ -446,6 +422,7 @@ exports[`Create Portfolio renders correctly with loading 1`] = `
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onSubmitEditing={[Function]}
       selectionColor="#e8a30c"
       style={
         Object {
@@ -459,19 +436,7 @@ exports[`Create Portfolio renders correctly with loading 1`] = `
       value=""
     />
   </View>
-  <View>
-    <Text
-      style={
-        Object {
-          "color": "#ff0000",
-          "marginTop": -16,
-          "textAlign": "center",
-        }
-      }
-    >
-      
-    </Text>
-  </View>
+  <View />
   <View
     style={
       Object {
