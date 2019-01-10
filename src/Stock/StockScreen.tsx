@@ -14,12 +14,11 @@ import {
 import { Stock } from '../MarketScreen/reducer';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
-import Bid from './components/Bid';
 import Diagram from './components/Diagram';
-import { stockContainerStyles } from './styles';
 import CardButton from '../general/cardButton';
 import { RouteName } from '../navigation/routes';
 import { NavigationScreenProps } from 'react-navigation';
+import { cardStyles } from '../App/styles';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -87,7 +86,7 @@ export class StockScreen extends React.Component<
             />
           }
         >
-          <Card containerStyle={stockContainerStyles.basicInfo}>
+          <Card containerStyle={cardStyles.container}>
             <Basicinfo
               revenue={this.countRevenuePercentage()}
               stockMetadata={stock.stockInfo.stockMetadata}
@@ -109,7 +108,7 @@ export class StockScreen extends React.Component<
             />
           </Card>
 
-          <Card containerStyle={stockContainerStyles.diagram}>
+          <Card containerStyle={cardStyles.container}>
             <Diagram
               historyData={
                 stock.stockInfo.historyData
@@ -121,7 +120,7 @@ export class StockScreen extends React.Component<
             />
           </Card>
 
-          <Card containerStyle={stockContainerStyles.buttonContainer}>
+          <Card containerStyle={cardStyles.container}>
             <CardButton
               iconName={'bid'}
               translationTitle={'StockPage.Bid'}

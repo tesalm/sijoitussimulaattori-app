@@ -4,6 +4,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { t } from '../../assets/i18n';
 import { HistoryDataQuote } from '../../MarketScreen/reducer';
 import { stockStyles } from '../styles';
+import { textStyles } from '../../App/styles';
 
 interface DiagramProps {
   historyData: HistoryDataQuote[];
@@ -27,7 +28,7 @@ const Diagram = (props: DiagramProps): JSX.Element => {
 
   return (
     <View>
-      <Text style={stockStyles.titleStyle}>
+      <Text style={textStyles.title}>
         {t('StockPage.RevenueOverYear')}
       </Text>
     </View>

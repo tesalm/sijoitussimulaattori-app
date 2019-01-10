@@ -38,12 +38,12 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 372,
+          "flex": 1,
           "margin": 0,
-          "paddingBottom": 32,
-          "paddingLeft": 32,
-          "paddingRight": 32,
-          "paddingTop": 32,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
@@ -82,8 +82,12 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 400,
+          "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
@@ -116,12 +120,20 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 112,
+          "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
-      <Bid />
+      <CardButton
+        iconName="bid"
+        route="Home"
+        translationTitle="StockPage.Bid"
+      />
     </Themed.Card>
   </View>
 </_class>

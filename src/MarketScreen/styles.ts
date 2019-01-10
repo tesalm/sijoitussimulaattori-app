@@ -37,18 +37,6 @@ const StockStyles = StyleSheet.create({
     fontSize: verticalScale(12),
     color: Colors.baseColor,
   },
-  revenueValueGreen: {
-    fontSize: verticalScale(18),
-    fontWeight: 'bold',
-    color: Colors.greenPercent,
-    textAlign: 'center',
-  },
-  revenueValueRed: {
-    fontSize: verticalScale(18),
-    fontWeight: 'bold',
-    color: Colors.redPercent,
-    textAlign: 'center',
-  },
   loadingView: {
     flex: 1,
     justifyContent: 'center',

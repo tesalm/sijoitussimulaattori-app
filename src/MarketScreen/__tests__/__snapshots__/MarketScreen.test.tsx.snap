@@ -779,7 +779,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#e20f00",
-                    "fontSize": 36,
+                    "fontSize": 35.311764705882354,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }
@@ -931,7 +931,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
                 style={
                   Object {
                     "color": "#e20f00",
-                    "fontSize": 36,
+                    "fontSize": 35.311764705882354,
                     "fontWeight": "bold",
                     "textAlign": "center",
                   }

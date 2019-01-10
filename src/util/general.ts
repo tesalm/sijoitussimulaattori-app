@@ -1,4 +1,4 @@
-import { StockStyles } from '../MarketScreen/styles';
+import { textStyles } from '../App/styles';
 
 const randomInt = (low: number = 0, high: number = Number.MAX_SAFE_INTEGER) => {
   return Math.floor(Math.random() * (high - low) + low);
@@ -14,8 +14,8 @@ const formatRevenue = (revenue: number) => {
 // Returns the color revenue should be. Green > 0, red < 0
 const revenueColor = (revenue: number) => {
   return revenue >= 0
-    ? StockStyles.revenueValueGreen
-    : StockStyles.revenueValueRed;
+    ? textStyles.revenueValueGreen
+    : textStyles.revenueValueRed;
 };
 
 // format currency from 'USD' to $ or 'EUR' to €

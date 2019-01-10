@@ -3,8 +3,13 @@ import { ActivityIndicator, Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { IntradayQuote, StockMetadata } from '../../MarketScreen/reducer';
-import { formatCurrency, formatRevenue, revenueColor } from '../../util/general';
+import {
+  formatCurrency,
+  formatRevenue,
+  revenueColor,
+} from '../../util/general';
 import { stockStyles } from '../styles';
+import { textStyles } from '../../App/styles';
 
 export interface BasicinfoProps {
   revenue: number;
@@ -47,7 +52,7 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
   return (
     <View style={stockStyles.basicinfo}>
       <View>
-        <Text style={stockStyles.titleStyle}>
+        <Text style={textStyles.title}>
           {props.stockMetadata.name} ({props.stockMetadata.symbol})
         </Text>
       </View>
@@ -55,15 +60,15 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
         <View style={stockStyles.basicinfoLeft}>
           <View style={stockStyles.basicinfoMiddle}>
             <View style={stockStyles.basicinfoMiddleContent}>
-              <Text style={stockStyles.valueHeader}>{t('StockPage.Low')}</Text>
-              <Text style={stockStyles.value}>
+              <Text style={textStyles.valueHeader}>{t('StockPage.Low')}</Text>
+              <Text style={textStyles.value}>
                 {formatCurrency(
                   props.intradayQuote.low,
                   props.stockMetadata.currency
                 )}
               </Text>
-              <Text style={stockStyles.valueHeader}>{t('StockPage.High')}</Text>
-              <Text style={stockStyles.value}>
+              <Text style={textStyles.valueHeader}>{t('StockPage.High')}</Text>
+              <Text style={textStyles.value}>
                 {formatCurrency(
                   props.intradayQuote.high,
                   props.stockMetadata.currency
@@ -71,17 +76,15 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
               </Text>
             </View>
             <View style={stockStyles.basicinfoMiddleContent}>
-              <Text style={stockStyles.valueHeader}>{t('StockPage.Open')}</Text>
-              <Text style={stockStyles.value}>
+              <Text style={textStyles.valueHeader}>{t('StockPage.Open')}</Text>
+              <Text style={textStyles.value}>
                 {formatCurrency(
                   props.intradayQuote.open,
                   props.stockMetadata.currency
                 )}
               </Text>
-              <Text style={stockStyles.valueHeader}>
-                {t('StockPage.Close')}
-              </Text>
-              <Text style={stockStyles.value}>
+              <Text style={textStyles.valueHeader}>{t('StockPage.Close')}</Text>
+              <Text style={textStyles.value}>
                 {formatCurrency(
                   props.intradayQuote.close,
                   props.stockMetadata.currency
@@ -106,7 +109,7 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
         </View>
       </View>
       <View>
-        <Text style={stockStyles.valueHeader}>
+        <Text style={textStyles.valueHeader}>
           {t('StockPage.Updated')}:{' '}
           {props.fetchTime ? props.fetchTime.toLocaleString() : ''}
         </Text>
