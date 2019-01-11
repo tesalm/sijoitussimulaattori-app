@@ -43,6 +43,7 @@
       "**/*.{js,tsx,ts}"
     ],
     "coveragePathIgnorePatterns": [
+      "index.js",
       "rn-cli.config.js",
       "reports/",
       "sijoitussimulaattori-app/dummy-server",
