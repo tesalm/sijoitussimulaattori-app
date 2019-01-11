@@ -131,7 +131,7 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     >
       <CardButton
         iconName="bid"
-        route="Home"
+        onPress={[Function]}
         translationTitle="StockPage.Bid"
       />
     </Themed.Card>
