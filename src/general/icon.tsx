@@ -40,6 +40,9 @@ const Icon = (props: IconProps): JSX.Element => {
     case IconNames.bid:
       req = require('../navigation/assets/bid.png');
       break;
+    default:
+      req = require('../navigation/assets/open.png');
+      break;
   }
 
   return (

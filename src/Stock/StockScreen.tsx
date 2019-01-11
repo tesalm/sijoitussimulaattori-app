@@ -1,24 +1,19 @@
 import React from 'react';
 import { RefreshControl, ScrollView, Text } from 'react-native';
 import { Card } from 'react-native-elements';
+import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
-import {
-  getHistory,
-  getIntraday,
-  getStockMetadata,
-  refreshIntraday,
-} from '../MarketScreen/actions';
+import { cardStyles } from '../App/styles';
+import CardButton from '../general/cardButton';
+import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
-import CardButton from '../general/cardButton';
-import { RouteName } from '../navigation/routes';
-import { NavigationScreenProps } from 'react-navigation';
-import { cardStyles } from '../App/styles';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -124,8 +119,7 @@ export class StockScreen extends React.Component<
             <CardButton
               iconName={'bid'}
               translationTitle={'StockPage.Bid'}
-              route={RouteName.Home}
-              navigation={this.props.navigation}
+              onPress={() => this.props.navigation.navigate(RouteName.Home)}
             />
           </Card>
         </ScrollView>
