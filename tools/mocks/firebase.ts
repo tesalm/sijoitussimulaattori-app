@@ -24,6 +24,10 @@ export const FirebaseGeneralMock = {
     onNotification: jest.fn(),
     onNotificationDisplayed: jest.fn(),
   })),
+
+  auth: jest.fn(() => ({
+    onAuthStateChanged: jest.fn(),
+  })),
 };
 
 // Constructs a custom, manually defined mock for Firebase. If you need to write tests for a new

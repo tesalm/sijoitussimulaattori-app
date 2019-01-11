@@ -1,6 +1,5 @@
 import React from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
@@ -15,7 +14,7 @@ export interface AppProps {
 }
 
 class App extends React.Component<AppProps> {
-  constructor(props: AppProps){
+  constructor(props: AppProps) {
     super(props);
   }
 
@@ -26,12 +25,16 @@ class App extends React.Component<AppProps> {
     SplashScreen.hide();
   };
 
-  render(){
+  render() {
     const { loginStatus } = this.props;
 
-    {/*Temporary fix before splash / loading screen implementation*/}
-    if(loginStatus === LoginState.CheckingPreviousLogin){
-      {/*Render empty view before the previous session (if exists) is restored*/}
+    {
+      /*Temporary fix before splash / loading screen implementation*/
+    }
+    if (loginStatus === LoginState.CheckingPreviousLogin) {
+      {
+        /*Render empty view before the previous session (if exists) is restored*/
+      }
       //return <View />;
     }
 
@@ -45,11 +48,15 @@ const mapStateToProps = (state: RootState) => ({
   loginStatus: state.login.loginState,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => 
-  bindActionCreators({
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
       restoreLogin: restorePreviousLogin,
     },
     dispatch
-);
+  );
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
