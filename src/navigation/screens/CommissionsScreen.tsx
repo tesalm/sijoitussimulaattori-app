@@ -18,14 +18,13 @@ export default class CommissionsScreen extends React.Component<
         <View style={{ padding: 10 }}>
           <Button
             title={t('CommissionsPage.GoToMarketsButtonLabel')}
-            onPress={() => this.props.navigation.navigate(RouteName.Market)}
+            onPress={() => this.props.navigation.navigate(RouteName.StockList)}
           />
-
         </View>
-        <View style={{padding: 10}}>
-        <Button
+        <View style={{ padding: 10 }}>
+          <Button
             title={t('CommissionsPage.GoToStockButtonLabel')}
-            onPress={() => this.props.navigation.navigate(RouteName.Stock,{})}
+            onPress={() => this.props.navigation.navigate(RouteName.Stock, {})}
           />
         </View>
       </View>
