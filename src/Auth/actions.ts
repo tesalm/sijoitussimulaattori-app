@@ -65,7 +65,7 @@ export class RestoreLoginImpossible {
   }
 }
 
-const restorePreviousLogin = () => async (
+const restorePreviousLogin = () => (
   dispatch: Dispatch<AuthAction | UserAction>
 ) => {
   // Generator, which returns true only when called at the first time.
