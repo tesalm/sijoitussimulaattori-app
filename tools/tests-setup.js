@@ -21,6 +21,9 @@ jest.mock('react-native-languages', () => ({
   },
 }));
 
+// Mock react navigation dependency to avoid MockNativeMethods lib error
+jest.mock('react-native-safe-area-view', () => ({ default: () => null }));
+
 // Set up jsdom with RN:
 // (modified from https://github.com/kentcdodds/react-testing-library/issues/22)
 

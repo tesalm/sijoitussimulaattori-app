@@ -76,7 +76,7 @@ export interface StocksListing {
   currentSymbol?: string;
 }
 
-const initialState: StocksListing = {
+export const initialState: StocksListing = {
   stocks: [],
   loading: false,
   refreshing: false,
