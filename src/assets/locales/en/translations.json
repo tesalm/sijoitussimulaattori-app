@@ -36,10 +36,6 @@
   "InfoPage": {
     "PlaceholderText": "PLACEHOLDER: Info page"
   },
-  "Hello": {
-    "HelloGreetee": "Hello, {{greetee}}!",
-    "World": "world"
-  },
   "Loading": {
     "LoggedInAs": "Logged in as"
   },
