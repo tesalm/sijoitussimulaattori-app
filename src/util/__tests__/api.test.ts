@@ -69,6 +69,7 @@ const mockStockIntraday: DailyQuote[] = mockStockHistory.map((quote, i) => ({
 describe('API client', () => {
   it('should get stockdata or throw an error', async () => {
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks')
       .reply(200, mockStockListData);
 
@@ -76,6 +77,7 @@ describe('API client', () => {
     expect(data).toStrictEqual(mockStockListData);
 
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks')
       .reply(500, 'Cannot call twice!');
 
@@ -92,6 +94,7 @@ describe('API client', () => {
 
   it('should get stock meta data or throw an error', async () => {
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks/FOO')
       .reply(200, mockStockMetaData);
 
@@ -103,6 +106,7 @@ describe('API client', () => {
     });
 
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks/BAR')
       .reply(404, 'Not found');
 
@@ -119,6 +123,7 @@ describe('API client', () => {
 
   it('should get stock history data or throw an error', async () => {
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks/FOO/history')
       .reply(200, mockStockHistory);
 
@@ -126,6 +131,7 @@ describe('API client', () => {
     expect(data).toStrictEqual(mockStockHistory);
 
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks/BAR/history')
       .reply(404, 'Not found');
 
@@ -142,6 +148,7 @@ describe('API client', () => {
 
   it('should get stock intraday data or throw an error', async () => {
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks/FOO/intraday')
       .reply(200, mockStockIntraday);
 
@@ -149,6 +156,7 @@ describe('API client', () => {
     expect(data).toStrictEqual(mockStockIntraday);
 
     nock(config.app.STOCK_API_URL)
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/stocks/BAR/intraday')
       .reply(404, 'Not found');
 

@@ -8,11 +8,9 @@ import 'react-native-mock-render/mock';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/config', () => ({
-  config: {
-    app: {
-      STOCK_API_URL: 'http://localhost',
-    },
+jest.mock('react-native-config', () => ({
+  Config: {
+    RN_STOCK_API_URL: 'http://fake-stock-url',
   },
 }));
 
