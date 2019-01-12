@@ -1,5 +1,12 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  RefreshControl,
+  Text,
+  ToastAndroid,
+  View,
+} from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -12,6 +19,7 @@ import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
 import { getStocks, saveAsCurrentStockSymbol } from './actions';
 import { Stock } from './reducer';
 import { StockStyles } from './styles';
+import { textStyles } from '../App/styles';
 
 export interface StockProps {
   stocks: Array<Stock>;
@@ -108,7 +116,7 @@ export class MarketScreen extends React.Component<
             titleStyle={StockStyles.titleStyle}
             rightTitle={
               <View style={StockStyles.rightTitleView}>
-                <Text style={StockStyles.revenueText}>
+                <Text style={textStyles.valueHeader}>
                   {t('ListStockPage.RevenueText')}
                 </Text>
                 <Text style={revenueColor(item.revenue)}>
@@ -118,7 +126,7 @@ export class MarketScreen extends React.Component<
             }
             subtitle={
               <View style={StockStyles.subtitleView}>
-                <Text style={StockStyles.lastSaleText}>
+                <Text style={textStyles.valueHeader}>
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>

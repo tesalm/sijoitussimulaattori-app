@@ -1,17 +1,19 @@
 import React from 'react';
 import { RefreshControl, ScrollView, Text } from 'react-native';
 import { Card } from 'react-native-elements';
+import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
+import { cardStyles } from '../App/styles';
+import CardButton from '../general/cardButton';
 import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
-import Bid from './components/Bid';
 import Diagram from './components/Diagram';
-import { stockContainerStyles } from './styles';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -23,10 +25,15 @@ export interface StockProps {
   stock?: Stock;
 }
 
+type StockPropsWithNavigation = StockProps & NavigationScreenProps;
+
 interface StockState {}
 
-export class StockScreen extends React.Component<StockProps, StockState> {
-  constructor(props: StockProps) {
+export class StockScreen extends React.Component<
+  StockPropsWithNavigation,
+  StockState
+> {
+  constructor(props: StockPropsWithNavigation) {
     super(props);
   }
 
@@ -74,7 +81,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
             />
           }
         >
-          <Card containerStyle={stockContainerStyles.basicInfo}>
+          <Card containerStyle={cardStyles.container}>
             <Basicinfo
               revenue={this.countRevenuePercentage()}
               stockMetadata={stock.stockInfo.stockMetadata}
@@ -96,7 +103,7 @@ export class StockScreen extends React.Component<StockProps, StockState> {
             />
           </Card>
 
-          <Card containerStyle={stockContainerStyles.diagram}>
+          <Card containerStyle={cardStyles.container}>
             <Diagram
               historyData={
                 stock.stockInfo.historyData
@@ -108,8 +115,12 @@ export class StockScreen extends React.Component<StockProps, StockState> {
             />
           </Card>
 
-          <Card containerStyle={stockContainerStyles.buttonContainer}>
-            <Bid />
+          <Card containerStyle={cardStyles.container}>
+            <CardButton
+              iconName={'bid'}
+              translationTitle={'StockPage.Bid'}
+              onPress={() => this.props.navigation.navigate(RouteName.Home)}
+            />
           </Card>
         </ScrollView>
       );
