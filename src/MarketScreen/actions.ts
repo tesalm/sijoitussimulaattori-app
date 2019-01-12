@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { stockHistoryApiRequest, stockIntraApiRequest, StockListApiRequest, stockMetaApiRequest } from '../utils/api';
+import { stockHistoryApiRequest, stockIntraApiRequest, stockListApiRequest, stockMetaApiRequest } from '../util/api';
 import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from './reducer';
 
 export enum ActionType {
@@ -172,7 +172,7 @@ export class GetHistoryFailure {
 const getStocks = () => async (dispatch: Dispatch<StockAction>) => {
   dispatch(new RequestStocksBegin());
   try {
-    const data = await StockListApiRequest();
+    const data = await stockListApiRequest();
     data.forEach((stock) => {
       stock.stockInfo = {
         metaLoading: false,
