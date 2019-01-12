@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { scale, verticalScale } from '../util/scale';
 
-import { Colors } from './colors';
+import { Colors, FormColors } from './colors';
 
 const generalStyles = StyleSheet.create({});
 
