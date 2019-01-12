@@ -13,7 +13,7 @@ interface CardButtonProps {
 
 const CardButton = (props: CardButtonProps): JSX.Element => {
   return (
-    <TouchableHighlight onPress={props.onPress}>
+    <TouchableHighlight onPress={() => props.onPress()}>
       <View style={cardButtonStyles.cardButtonView}>
         <View style={cardButtonStyles.cardButtonLogoView}>
           <Icon iconName={props.iconName} iconHeight={24} iconWidth={24} />
