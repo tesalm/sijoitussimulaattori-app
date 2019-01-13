@@ -117,9 +117,9 @@ exports[`stockpage graph tests renders correctly with intradata 2`] = `
     style={
       Object {
         "color": "#004D40",
-        "fontSize": 34,
+        "fontSize": 33.35,
         "fontWeight": "bold",
-        "marginBottom": 32,
+        "marginBottom": 31.388235294117646,
       }
     }
   >
@@ -217,9 +217,9 @@ exports[`stockpage graph tests renders loading 1`] = `
     style={
       Object {
         "color": "#004D40",
-        "fontSize": 34,
+        "fontSize": 33.35,
         "fontWeight": "bold",
-        "marginBottom": 32,
+        "marginBottom": 31.388235294117646,
       }
     }
   >
