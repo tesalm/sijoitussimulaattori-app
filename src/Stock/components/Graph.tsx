@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import { t } from '../../assets/i18n';
 import { HistoryDataQuote } from '../../MarketScreen/reducer';
 import { verticalScale } from '../../util/scale';
-import { stockContainerStyles } from '../styles';
+import { stockStyles } from '../styles';
 
 const { VictoryArea, VictoryChart, VictoryAxis } = require('victory-native');
 
@@ -47,7 +47,7 @@ const Graph = (props: graphProps): JSX.Element => {
     <VictoryChart
       height={verticalScale(180)}
       animate={false}
-      padding={stockContainerStyles.graphPadding}
+      padding={stockStyles.graphPadding}
       domainPadding={{ y: verticalScale(20) }}
       scale={{ x: 'time' }}
     >

@@ -2,6 +2,7 @@ import React from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 
+import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { HistoryDataQuote, IntradayQuote } from '../../MarketScreen/reducer';
 import { stockStyles } from '../styles';
@@ -112,10 +113,8 @@ class Diagram extends React.Component<GraphProps, GraphState> {
 
     return (
       <View>
-        <Text style={stockStyles.titleStyle}>
-          {t('StockPage.RevenueOverYear')}
-        </Text>
-        <View style={stockContainerStyles.graphContainer}>
+        <Text style={textStyles.title}>{t('StockPage.RevenueOverYear')}</Text>
+        <View style={stockStyles.graphContainer}>
           {graphLoading ? (
             <ActivityIndicator
               size="large"
@@ -136,7 +135,7 @@ class Diagram extends React.Component<GraphProps, GraphState> {
             t('Graph.3M'),
             t('Graph.1Y'),
           ]}
-          containerStyle={stockContainerStyles.buttonGrpContainer}
+          containerStyle={stockStyles.buttonGrpContainer}
           textStyle={stockStyles.buttonGrpText}
           selectedButtonStyle={{ backgroundColor: '#F0F0F0' }}
           selectedTextStyle={{ color: '#004D40' }}
