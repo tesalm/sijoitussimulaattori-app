@@ -7,7 +7,7 @@ exports[`stock tests Stockscreen renders correctly 1`] = `
   ellipsizeMode="tail"
   forwardedRef={null}
 >
-  Error, stockinfo not found!
+  Error, stockinfo not found! 
 </TouchableText>
 `;
 
