@@ -5,30 +5,32 @@ import { LoginState } from '../../Auth/reducer';
 import { LoginScreenTest, LoginViewProps } from '../LoginScreen';
 
 describe('Testing Login Screen', () => {
-  //Mock for navigation.
+  // Mock for navigation.
   const navigationMock: any = {};
 
   const defaultLoginViewProps: LoginViewProps = {
     loginState: LoginState.LoggedOut,
     loginError: undefined,
-    onLoginAsAnonym: jest.fn()
-  }
+    onLoginAsAnonym: jest.fn(),
+  };
 
   const afterLoginErrorProps: LoginViewProps = {
     loginState: LoginState.LoggedOut,
     loginError: Error('fake-failure occurred'),
-    onLoginAsAnonym: jest.fn()
-  }
+    onLoginAsAnonym: jest.fn(),
+  };
 
   const duringLoggingInProps: LoginViewProps = {
     loginState: LoginState.LoggingIn,
     loginError: undefined,
-    onLoginAsAnonym: jest.fn()
-  }
+    onLoginAsAnonym: jest.fn(),
+  };
 
   it('renders correctly', async () => {
     const component = renderer
-      .create(<LoginScreenTest {...defaultLoginViewProps} {...navigationMock} />)
+      .create(
+        <LoginScreenTest {...defaultLoginViewProps} {...navigationMock} />
+      )
       .toJSON();
     expect(component).toMatchSnapshot();
   });

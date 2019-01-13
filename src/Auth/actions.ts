@@ -142,6 +142,7 @@ const logout = () => async (dispatch: Dispatch<Logout>) => {
   const [err] = await to(signOut());
 
   if (err) {
+    // tslint:disable-next-line:no-console
     console.error('Error logging out');
   } else {
     dispatch(new Logout());

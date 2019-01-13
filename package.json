@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
+    "test": "tsc --noEmit -p . && npm run lint && jest --no-cache",
     "test:watch": "jest --watch",
-    "start:dummy": "node ./dummy-server/index.js"
+    "start:dummy": "node ./dummy-server/index.js",
+    "lint": "tslint --project tsconfig.json --config tslint.json"
   },
   "rnpm": {
     "assets": [
@@ -65,8 +66,9 @@
     "react-native-elements": "^1.0.0-beta7",
     "react-native-firebase": "^5.1.1",
     "react-native-languages": "^3.0.1",
-    "react-native-svg": "^8.0.8",
+    "react-native-size-matters": "^0.1.6",
     "react-native-splash-screen": "^3.1.1",
+    "react-native-svg": "^8.0.8",
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^2.18.1",
     "react-redux": "^5.0.7",
@@ -112,6 +114,7 @@
     "redux-devtools-extension": "^2.13.7",
     "redux-mock-store": "^1.5.3",
     "ts-jest": "^23.10.4",
+    "tslint": "^5.12.1",
     "typescript": "^3.1.3"
   }
 }

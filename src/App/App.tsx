@@ -35,7 +35,7 @@ class App extends React.Component<AppProps> {
       {
         /*Render empty view before the previous session (if exists) is restored*/
       }
-      //return <View />;
+      // return <View />;
     }
 
     const showLoginScreen: boolean = loginStatus !== LoginState.LoggedIn;

@@ -1,24 +1,23 @@
 import React from 'react';
 import { Text } from 'react-native';
+import { VictoryArea, VictoryAxis, VictoryChart } from 'victory-native';
 
 import { t } from '../../assets/i18n';
-import { HistoryDataQuote } from '../../MarketScreen/reducer';
+import { DailyQuote } from '../../MarketScreen/reducer';
 import { verticalScale } from '../../util/scale';
 import { stockStyles } from '../styles';
 
-const { VictoryArea, VictoryChart, VictoryAxis } = require('victory-native');
-
-interface graphProps {
-  historydata: Array<HistoryDataQuote>;
+interface GraphProps {
+  historyData: Array<DailyQuote>;
 }
 
-const Graph = (props: graphProps): JSX.Element => {
-  const { historydata } = props;
-  if (historydata.length < 2) {
+const Graph = (props: GraphProps): JSX.Element => {
+  const { historyData } = props;
+  if (historyData.length < 2) {
     return <Text>{t('Graph.NoData')}</Text>;
   }
-  const maxDate = new Date(historydata[0].date);
-  const minDate = new Date(historydata[historydata.length - 1].date);
+  const maxDate = new Date(historyData[0].date);
+  const minDate = new Date(historyData[historyData.length - 1].date);
   const startDate = new Date(
     minDate.getFullYear(),
     minDate.getMonth(),
@@ -29,14 +28,26 @@ const Graph = (props: graphProps): JSX.Element => {
     maxDate.getMonth(),
     maxDate.getDate()
   ).getTime();
-  const months = ['1','2','3','4','5','6','7','8','9','10','11','12']
-          .map((key) => t('Graph.Month.' + key));
+  const months = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+  ].map((key) => t('Graph.Month.' + key));
 
-  function getDomain(data: Array<HistoryDataQuote>) {
+  function getDomain(data: Array<DailyQuote>) {
     let min = data[0].close;
     let max = data[0].close;
     for (let i = 1, len = data.length; i < len; i++) {
-      let v = data[i].close;
+      const v = data[i].close;
       min = v < min ? v : min;
       max = v > max ? v : max;
     }
@@ -56,7 +67,7 @@ const Graph = (props: graphProps): JSX.Element => {
         invertAxis={true}
         fixLabelOverlap={true}
         tickFormat={(x: string) => {
-          if (historydata[historydata.length - 1].date === x) {
+          if (historyData[historyData.length - 1].date === x) {
             return null;
           }
           const date = new Date(x);
@@ -109,18 +120,18 @@ const Graph = (props: graphProps): JSX.Element => {
       />
 
       <VictoryArea
-        domain={{ y: getDomain(historydata) }}
+        domain={{ y: getDomain(historyData) }}
         interpolation="linear"
         animate={false}
         style={{
           data: {
-            fill: '#FF9900', //#00A8EF light blue
+            fill: '#FF9900', // #00A8EF light blue
             stroke: '#FF8000',
             strokeWidth: 1,
             fillOpacity: 0.3,
           },
         }}
-        data={historydata}
+        data={historyData}
         x="date"
         y="close"
       />

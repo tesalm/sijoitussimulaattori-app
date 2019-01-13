@@ -41,7 +41,7 @@ const Icon = (props: IconProps): JSX.Element => {
       req = require('../navigation/assets/bid.png');
       break;
     default:
-      //TODO: Add better icon for default case.
+      // TODO: Add better icon for default case.
       req = require('../navigation/assets/delete.png');
       break;
   }

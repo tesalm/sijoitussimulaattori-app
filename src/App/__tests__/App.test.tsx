@@ -11,12 +11,10 @@ import { initialUserState } from '../../User/reducer';
 import App from '../App';
 
 jest.mock('react-native-vector-icons', () => {
-  console.log('foooo');
   return null;
 });
 const mockStore = configureStore([thunk]);
 const defaultState: RootState = {
-  counter: { counterValue: 0 },
   login: initialAuthState,
   stocksListing: initialStockListingState,
   user: initialUserState,

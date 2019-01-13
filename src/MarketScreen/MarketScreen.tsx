@@ -1,18 +1,12 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  RefreshControl,
-  Text,
-  ToastAndroid,
-  View,
-} from 'react-native';
+import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
+import { textStyles } from '../App/styles';
 import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
@@ -20,7 +14,6 @@ import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
 import { getStocks, saveAsCurrentStockSymbol } from './actions';
 import { Stock } from './reducer';
 import { StockStyles } from './styles';
-import { textStyles } from '../App/styles';
 
 export interface StockProps {
   stocks: Array<Stock>;
@@ -39,13 +32,14 @@ export class MarketScreen extends React.Component<
   StockPropsWithNavigation,
   StockState
 > {
+  static navigationOptions = { title: t('MarketPage.Title') };
+
   constructor(props: StockPropsWithNavigation) {
     super(props);
   }
-  static navigationOptions = { title: t('MarketPage.Title') };
 
   componentDidMount() {
-    //Dispatch the actions
+    // Dispatch the actions
     this.props.getAllStocks();
   }
 
@@ -54,13 +48,13 @@ export class MarketScreen extends React.Component<
       <SearchBar
         lightTheme
         round
-        placeholder={t('ListStockPage.SearcBarPlaceholder')} //TODO: search bar functionality
+        placeholder={t('ListStockPage.SearcBarPlaceholder')} // TODO: search bar functionality
         autoCorrect={false}
       />
     );
   };
 
-  //Every other listitem has gray background
+  // Every other listitem has gray background
   listBackgroundColor = (index: number): typeof StockStyles.greyContainer => {
     return index % 2 ? StockStyles.greyContainer : StockStyles.whiteContainer;
   };
@@ -85,7 +79,7 @@ export class MarketScreen extends React.Component<
   render() {
     const { stocks, loading, refreshing, error } = this.props;
     if (error) {
-      //TODO: Format the error message to user
+      // TODO: Format the error message to user
       return <Text>Error! {error.message} </Text>;
     }
 
@@ -131,7 +125,12 @@ export class MarketScreen extends React.Component<
                   {t('ListStockPage.LastSaleText')}
                 </Text>
                 <Text style={StockStyles.lastSaleValue}>
-                  {formatCurrency(item.close, item.currency)}
+                  {formatCurrency(
+                    item.close,
+                    item.stockInfo && item.stockInfo.stockMetadata
+                      ? item.stockInfo.stockMetadata.currency
+                      : 'USD'
+                  )}
                 </Text>
               </View>
             }

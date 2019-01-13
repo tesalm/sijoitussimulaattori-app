@@ -76,7 +76,7 @@ export class StockScreen extends React.Component<
         <ScrollView
           refreshControl={
             <RefreshControl
-              refreshing={stock.stockInfo.refreshing}
+              refreshing={!!stock.stockInfo && stock.stockInfo.refreshing}
               onRefresh={this.refresh}
               colors={[Colors.baseColor]}
             />
@@ -85,43 +85,44 @@ export class StockScreen extends React.Component<
           <Card containerStyle={cardStyles.container}>
             <Basicinfo
               revenue={this.countRevenuePercentage()}
-              stockMetadata={stock.stockInfo.stockMetadata}
-              metaLoading={stock.stockInfo.metaLoading}
-              metaError={stock.stockInfo.metaError}
+              stockMetadata={stock.stockInfo && stock.stockInfo.stockMetadata}
+              metaLoading={stock.stockInfo && stock.stockInfo.metaLoading}
+              metaError={stock.stockInfo && stock.stockInfo.metaError}
               intradayQuote={
-                stock.stockInfo.intraday
+                stock.stockInfo && stock.stockInfo.intraday
                   ? stock.stockInfo.intraday.intradayQuote[0]
                   : undefined
               }
               fetchTime={
-                stock.stockInfo.intraday
+                stock.stockInfo && stock.stockInfo.intraday
                   ? stock.stockInfo.intraday.fetchTime
                   : undefined
               }
-              intraLoading={stock.stockInfo.intraLoading}
-              intraError={stock.stockInfo.intraError}
-              historyLoading={stock.stockInfo.historyLoading}
+              intraLoading={stock.stockInfo && stock.stockInfo.intraLoading}
+              intraError={stock.stockInfo && stock.stockInfo.intraError}
+              historyLoading={stock.stockInfo && stock.stockInfo.historyLoading}
             />
           </Card>
 
           <Card containerStyle={cardStyles.container}>
-            {stock.stockInfo.historyLoading || stock.stockInfo.intraLoading ? (
+            {stock.stockInfo &&
+            (stock.stockInfo.historyLoading || stock.stockInfo.intraLoading) ? (
               <View style={stockStyles.loading}>
                 <ActivityIndicator size="large" />
               </View>
             ) : (
               <Diagram
                 historyData={
-                  stock.stockInfo.historyData
+                  stock.stockInfo && stock.stockInfo.historyData
                     ? stock.stockInfo.historyData.historyDataQuote
                     : []
                 }
                 intraDay={
-                  stock.stockInfo.intraday
+                  stock.stockInfo && stock.stockInfo.intraday
                     ? stock.stockInfo.intraday.intradayQuote
                     : []
                 }
-                historyError={stock.stockInfo.historyError}
+                historyError={stock.stockInfo && stock.stockInfo.historyError}
               />
             )}
           </Card>
@@ -136,7 +137,7 @@ export class StockScreen extends React.Component<
         </ScrollView>
       );
     } else {
-      //TODO: Format the error message to user
+      // TODO: Format the error message to user
       return <Text>Error, stockinfo not found! </Text>;
     }
   }
