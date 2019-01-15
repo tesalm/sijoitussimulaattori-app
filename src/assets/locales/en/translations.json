@@ -106,10 +106,6 @@
     "TotalRevenueProcent": "Total Revenue (%)",
     "Acquisition": "Acquisition price",
     "TotalMarketValue": "Total market value",
-<<<<<<< HEAD
-    "TotalRevenueE": "Total revenue (€)"
-=======
     "TotalRevenue": "Total revenue"
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
   }
 }

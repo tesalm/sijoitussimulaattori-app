@@ -2,6 +2,7 @@ import React from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
+import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import Icon from '../../general/icon';
 import { Stock } from '../../MarketScreen/reducer';
@@ -41,12 +42,33 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     index: number,
     isActive: boolean
   ) => {
+    const { error, stocks } = this.props;
+    if (stocks == undefined) {
+      let errorMessage;
+      if (error) {
+        errorMessage = error.message + ' ';
+      }
+      // TODO: Muokkaa error-teksti käyttäjälle.
+      return <Text>Error! {errorMessage} </Text>;
+    }
+    //find right stock from the array.
+    const rightStock = stocks.find((stock) => stock.symbol == section.uid);
+    if (rightStock == undefined) {
+      if (error) {
+        return <Text>{error.message}</Text>;
+      } else {
+        return <ActivityIndicator size="small" />;
+      }
+    }
+
     const iconName = isActive ? 'arrowUp' : 'arrowDown';
 
     return (
       <View style={portfolioStyles.holdingsSubLogoView}>
         <View style={portfolioStyles.holdingsSubTitleView}>
-          <Text style={portfolioStyles.holdingsSubTitle}>{section.name}</Text>
+          <Text style={portfolioStyles.holdingsSubTitle}>
+            {rightStock.name}
+          </Text>
         </View>
         <View style={portfolioStyles.holdingsArrowView}>
           <Icon iconName={iconName} iconHeight={24} iconWidth={24} />
@@ -67,7 +89,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     }
 
     //find right stock from the array.
-    const rightStock = stocks.find((stock) => stock.symbol == section.symbol);
+    const rightStock = stocks.find((stock) => stock.symbol == section.uid);
     if (rightStock == undefined) {
       let errorMessage;
       if (error) {
@@ -110,17 +132,17 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       <View>
         <View style={portfolioStyles.holdingsContainer}>
           <View style={portfolioStyles.portfolioInfoSmallerComp}>
-            <Text style={portfolioStyles.valueHeader}>
+            <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.StocksOwned')}
             </Text>
             <Text style={portfolioStyles.value}>{section.amount}</Text>
-            <Text style={portfolioStyles.valueHeader}>
+            <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.MarketValue')}
             </Text>
             <Text style={portfolioStyles.value}>
               {formatCurrency(close, currency)}{' '}
             </Text>
-            <Text style={portfolioStyles.valueHeader}>
+            <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueProcent')}
             </Text>
             <Text style={valueColor(totalRevenueProcent)}>
@@ -128,19 +150,19 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
             </Text>
           </View>
           <View style={portfolioStyles.portfolioInfoSmallerComp}>
-            <Text style={portfolioStyles.valueHeader}>
+            <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.Acquisition')}
             </Text>
             <Text style={portfolioStyles.value}>
               {formatCurrency(section.avgPrice, currency)}
             </Text>
-            <Text style={portfolioStyles.valueHeader}>
+            <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.TotalMarketValue')}
             </Text>
             <Text style={portfolioStyles.value}>
               {formatCurrency(totalMarketValue, currency)}{' '}
             </Text>
-            <Text style={portfolioStyles.valueHeader}>
+            <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenue')}
             </Text>
             <Text style={valueColor(totalRevenue)}>
@@ -148,8 +170,8 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
             </Text>
           </View>
 
-          <View style={portfolioStyles.portfolioInfoSmallerComp}>
-            <Text style={portfolioStyles.valueHeaderRightSideHoldings}>
+          <View style={portfolioStyles.portfolioHoldingsRightComp}>
+            <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.Revenue')}
             </Text>
             <Text style={revenueColor(revenueProcent)}>

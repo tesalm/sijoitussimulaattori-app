@@ -35,12 +35,12 @@ export class RequestPortfolioFailure {
   }
 }
 
-const getPortfolioData = (name: string) => async (
+const getPortfolioData = (portfolioId: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
   dispatch(new RequestPortfolioBegin());
   try {
-    const data = await portfolioApiRequest(name);
+    const data = await portfolioApiRequest(portfolioId);
     dispatch(new RequestPortfolioSuccess(data));
   } catch (error) {
     dispatch(new RequestPortfolioFailure(error));

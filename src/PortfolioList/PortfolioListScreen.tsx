@@ -7,7 +7,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-import { getPortfolios, SaveAsCurrentPortfolio } from './actions';
+import { getPortfolios, SaveAsCurrentPortfolioId } from './actions';
 import { PortfolioList } from './reducers';
 
 export interface PortfolioListProps {
@@ -15,8 +15,8 @@ export interface PortfolioListProps {
   loading: boolean;
   error?: Error;
   getAllPortfolios: typeof getPortfolios;
-  saveName: typeof SaveAsCurrentPortfolio;
-  name?: string;
+  saveAsCurrentId: typeof SaveAsCurrentPortfolioId;
+  portfolioId?: string;
 }
 
 type PortfolioPropsWithNavigation = PortfolioListProps & NavigationScreenProps;
@@ -67,7 +67,7 @@ export class PortfolioListScreen extends React.Component<
           <ListItem
             //TODO: navigate to to right stock page.
             onPress={() => {
-              this.props.saveName(item.name);
+              this.props.saveAsCurrentId(item.name);
               this.props.navigation.navigate('SinglePortfolio');
             }}
             title={item.name}
@@ -88,7 +88,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllPortfolios: getPortfolios,
-      saveName: SaveAsCurrentPortfolio,
+      saveAsCurrentId: SaveAsCurrentPortfolioId,
     },
     dispatch
   );

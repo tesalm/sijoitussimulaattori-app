@@ -1,19 +1,11 @@
 import React from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 
+import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { IntradayQuote, StockMetadata } from '../../MarketScreen/reducer';
-<<<<<<< HEAD
-import {
-  formatCurrency,
-  formatRevenue,
-  revenueColor,
-} from '../../util/general';
-=======
 import { formatCurrency, formatRevenue, revenueColor } from '../../util/stock';
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 import { stockStyles } from '../styles';
-import { textStyles } from '../../App/styles';
 
 export interface BasicinfoProps {
   revenue: number;

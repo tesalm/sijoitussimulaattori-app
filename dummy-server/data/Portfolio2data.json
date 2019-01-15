@@ -1,13 +1,13 @@
 {
+  "uid": "Portfolio2",
   "name": "Portfolio2",
-  "ownerID": "klsdjfs",
   "balance": 500,
-  "revenue": 0.43,
+  "revenue": -0.02,
   "totalMarketValue": 5000,
+  "ownerId": "Joni",
   "stocks": [
     {
-      "symbol": "AMZN",
-      "name": "Amazon",
+      "uid": "AMZN",
       "amount": 245,
       "avgPrice": 153.3
     }

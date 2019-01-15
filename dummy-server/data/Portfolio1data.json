@@ -1,19 +1,18 @@
 {
+  "uid": "Portfolio1",
   "name": "Portfolio1",
-  "ownerID": "klsdjfs",
   "balance": 500,
-  "revenue": -2.4,
+  "revenue": -0.02,
   "totalMarketValue": 5000,
+  "ownerId": "Joooni",
   "stocks": [
     {
-      "symbol": "AMZN",
-      "name": "Amazon",
+      "uid": "AMZN",
       "amount": 245,
       "avgPrice": 153.3
     },
     {
-      "symbol": "AAPL",
-      "name": "Apple",
+      "uid": "AAPL",
       "amount": 340,
       "avgPrice": 132
     }

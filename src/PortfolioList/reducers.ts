@@ -8,14 +8,14 @@ export interface PortfolioListing {
   portfolios: Array<PortfolioList>;
   loading: boolean;
   error?: Error;
-  name?: string;
+  portfolioId?: string;
 }
 
 const initialState: PortfolioListing = {
   portfolios: [],
   loading: false,
   error: undefined,
-  name: undefined,
+  portfolioId: undefined,
 };
 
 export const portfolioListingReducer = (
@@ -34,8 +34,8 @@ export const portfolioListingReducer = (
       };
     case ActionType.RequestPortfoliosFailure:
       return { ...state, loading: false, error: action.error };
-    case ActionType.SaveName:
-      return { ...state, name: action.name };
+    case ActionType.SaveId:
+      return { ...state, portfolioId: action.id };
 
     default:
       return state;

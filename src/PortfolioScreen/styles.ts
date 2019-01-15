@@ -111,6 +111,25 @@ const portfolioStyles = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
   },
+  portfolioHoldingsRightComp: {
+    flexDirection: 'column',
+    flex: 0.8,
+    alignItems: 'center',
+    marginTop: scale(25),
+  },
+  portfolioInfoMiddleComp: {
+    flexDirection: 'column',
+    flex: 1,
+    textAlign: 'center',
+    marginTop: scale(20),
+  },
+  portfolioRightComp: {
+    flexDirection: 'column',
+    flex: 0.8,
+    textAlign: 'center',
+    marginTop: scale(20),
+    alignItems: 'center',
+  },
   loading: {
     height: '100%',
     justifyContent: 'center',

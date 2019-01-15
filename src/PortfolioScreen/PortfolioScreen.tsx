@@ -1,25 +1,27 @@
 import React from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements';
+import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
+import { cardButtonStyles, cardStyles } from '../App/styles';
+import CardButton from '../general/cardButton';
 import { getHistory, getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { t } from './../assets/i18n';
 import { getPortfolioData } from './actions';
-import { EventsTransactions, Manage } from './components/Buttons';
 import { Holdings } from './components/Holdings';
 import { PortfolioInfo } from './components/PortfolioInfo';
 import { Portfolio } from './reducers';
-import { portfolioContainerStyles } from './styles';
 
 export interface PortfolioProps {
   portfolio?: Portfolio;
   getPortfolio: typeof getPortfolioData;
-  name?: string;
+  portfolioId?: string;
   loading: boolean;
   error?: Error;
   refreshing: boolean;
@@ -31,15 +33,19 @@ export interface PortfolioProps {
   refreshIntra: typeof refreshIntraday;
 }
 
-export class PortfolioScreen extends React.Component<PortfolioProps> {
+type PortfolioPropsWithNavigation = PortfolioProps & NavigationScreenProps;
+
+export class PortfolioScreen extends React.Component<
+  PortfolioPropsWithNavigation
+> {
   static navigationOptions = { title: t('PortfoliosPage.Title') };
-  constructor(props: PortfolioProps) {
+  constructor(props: PortfolioPropsWithNavigation) {
     super(props);
   }
 
   async componentDidMount() {
-    if (this.props.name) {
-      await this.props.getPortfolio(this.props.name);
+    if (this.props.portfolioId) {
+      await this.props.getPortfolio(this.props.portfolioId);
     }
 
     await this.props.getAllStocks();
@@ -47,7 +53,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
     if (this.props.portfolio) {
       await this.props.portfolio.stocks.forEach(async (portfolioStock) => {
         var findStock = this.props.stocks.find((stock) => {
-          return stock.symbol === portfolioStock.symbol;
+          return stock.symbol === portfolioStock.uid;
         });
         if (findStock) {
           await this.props.getMeta(findStock, findStock.symbol);
@@ -59,13 +65,13 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
   }
 
   refreshPortfolioAndStock = () => {
-    if (this.props.name) {
-      this.props.getPortfolio(this.props.name);
+    if (this.props.portfolioId) {
+      this.props.getPortfolio(this.props.portfolioId);
     }
     if (this.props.portfolio) {
       this.props.portfolio.stocks.forEach(async (portfolioStock) => {
         var findStock = this.props.stocks.find((stock) => {
-          return stock.symbol === portfolioStock.symbol;
+          return stock.symbol === portfolioStock.uid;
         });
         if (findStock) {
           await this.props.refreshIntra(findStock, findStock.symbol);
@@ -87,7 +93,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
           />
         }
       >
-        <Card containerStyle={portfolioContainerStyles.basicInfo}>
+        <Card containerStyle={cardStyles.container}>
           <PortfolioInfo
             portfolio={portfolio}
             loading={loading}
@@ -95,8 +101,8 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
             stocks={stocks}
           />
         </Card>
-        <Card containerStyle={portfolioContainerStyles.diagram} />
-        <Card containerStyle={portfolioContainerStyles.holdings}>
+        <Card containerStyle={cardStyles.container} />
+        <Card containerStyle={cardStyles.container}>
           <Holdings
             portfolio={portfolio}
             loading={loading}
@@ -104,11 +110,21 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
             stocks={stocks}
           />
         </Card>
-        <Card containerStyle={portfolioContainerStyles.buttonContainer}>
-          <EventsTransactions />
+        <Card containerStyle={cardButtonStyles.cardButton}>
+          <CardButton
+            iconName={'manage'}
+            translationTitle={'PortfolioPage.Events'}
+            //TODO: navigate to events page
+            onPress={() => this.props.navigation.navigate(RouteName.Home)}
+          />
         </Card>
-        <Card containerStyle={portfolioContainerStyles.buttonContainer}>
-          <Manage />
+        <Card containerStyle={cardButtonStyles.cardButton}>
+          <CardButton
+            iconName={'manage'}
+            translationTitle={'PortfolioPage.Manage'}
+            //TODO: navigae to manage portfolio page
+            onPress={() => this.props.navigation.navigate(RouteName.Home)}
+          />
         </Card>
       </ScrollView>
     );
@@ -116,7 +132,7 @@ export class PortfolioScreen extends React.Component<PortfolioProps> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  name: state.portfolioListing.name,
+  portfolioId: state.portfolioListing.portfolioId,
   portfolio: state.singlePortfolio.portfolio,
   error: state.singlePortfolio.error,
   loading: state.singlePortfolio.loading,

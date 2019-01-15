@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 
+import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { Stock } from '../../MarketScreen/reducer';
 import { formatRevenue, revenueColor } from '../../util/stock';
@@ -35,36 +36,32 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
   return (
     <View>
       <View style={portfolioStyles.portfolioinfo}>
-        <Text style={portfolioStyles.titleStyle}>
-          {t('PortfolioPage.Title')}
-        </Text>
+        <Text style={textStyles.title}>{t('PortfolioPage.Title')}</Text>
       </View>
       <View style={portfolioStyles.portfolioinfo}>
         <View style={portfolioStyles.portfolioInfoSmallerComp}>
-          <Text style={portfolioStyles.valueHeader}>
+          <Text style={textStyles.valueHeader}>
             {t('PortfolioPage.MarketValue')}
           </Text>
-          <Text style={portfolioStyles.value}>
+          <Text style={textStyles.value}>
             {props.portfolio.totalMarketValue + ' $'}
           </Text>
-          <Text style={portfolioStyles.valueHeader}>
-            {t('PortfolioPage.Cash')}
-          </Text>
-          <Text style={portfolioStyles.value}>
+          <Text style={textStyles.valueHeader}>{t('PortfolioPage.Cash')}</Text>
+          <Text style={textStyles.value}>
             {props.portfolio.balance + ' $'}{' '}
           </Text>
         </View>
-        <View style={portfolioStyles.portfolioInfoSmallerComp}>
-          <Text style={portfolioStyles.valueHeaderMiddle}>
+        <View style={portfolioStyles.portfolioInfoMiddleComp}>
+          <Text style={textStyles.valueHeader}>
             {t('PortfolioPage.TotalValue')}
           </Text>
-          <Text style={portfolioStyles.valueMiddle}>
+          <Text style={textStyles.value}>
             {props.portfolio.balance + props.portfolio.totalMarketValue + ' $'}
           </Text>
         </View>
 
-        <View style={portfolioStyles.portfolioInfoSmallerComp}>
-          <Text style={portfolioStyles.valueHeaderRightSide}>
+        <View style={portfolioStyles.portfolioRightComp}>
+          <Text style={textStyles.valueHeader}>
             {t('PortfolioPage.Revenue')}
           </Text>
           <Text style={revenueColor(props.portfolio.revenue)}>

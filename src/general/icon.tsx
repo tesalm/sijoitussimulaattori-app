@@ -42,15 +42,15 @@ const Icon = (props: IconProps): JSX.Element => {
     case IconNames.bid:
       req = require('../navigation/assets/bid.png');
       break;
-    default:
-      //TODO: Add better icon for default case.
-      req = require('../navigation/assets/delete.png');
     case IconNames.arrowDown:
       req = require('../navigation/assets/arrowDown.png');
       break;
     case IconNames.arrowUp:
       req = require('../navigation/assets/arrowUp.png');
       break;
+    default:
+      //TODO: Add better icon for default case.
+      req = require('../navigation/assets/delete.png');
   }
 
   return (

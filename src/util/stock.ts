@@ -1,6 +1,5 @@
-import { generalStyles } from '../App/generalStyles';
+import { textStyles } from '../App/styles';
 import { Stock } from '../MarketScreen/reducer';
-import { StockStyles } from '../MarketScreen/styles';
 import { PortfolioStock } from '../PortfolioScreen/reducers';
 import { portfolioStyles } from '../PortfolioScreen/styles';
 
@@ -21,14 +20,8 @@ const formatRevenueCurrency = (revenue: number, currency: string) => {
 // Returns the color revenue should be. Green > 0, red < 0
 const revenueColor = (revenue: number) => {
   return revenue >= 0
-    ? generalStyles.revenueValueGreen
-    : generalStyles.revenueValueRed;
-};
-
-const revenueColorMarketScreen = (revenue: number) => {
-  return revenue >= 0
-    ? StockStyles.revenueValueGreen
-    : StockStyles.revenueValueRed;
+    ? textStyles.revenueValueGreen
+    : textStyles.revenueValueRed;
 };
 
 // Returns the color certain items in PorftoflioScreen should be. Green >0, red < 0
@@ -113,5 +106,4 @@ export {
   calculateTotalRevenue,
   calculateTotalRevenueProcent,
   countRevenuePercentage,
-  revenueColorMarketScreen,
 };

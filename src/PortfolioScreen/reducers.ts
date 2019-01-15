@@ -3,18 +3,18 @@ import cloneDeep from 'lodash/cloneDeep';
 import { ActionType, PortfolioAction } from './actions';
 
 export interface PortfolioStock {
-  symbol: string;
-  name: string;
+  uid: string;
   amount: number;
   avgPrice: number;
 }
 export interface Portfolio {
-  ownerId: string;
+  uid: string;
+  portfolioId: string;
   balance: number;
-  stocks: PortfolioStock[];
-  name: string;
   revenue: number;
   totalMarketValue: number;
+  ownerId: string;
+  stocks: PortfolioStock[];
 }
 
 export interface SinglePortfolio {
