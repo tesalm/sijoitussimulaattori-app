@@ -9,6 +9,7 @@ import {
 } from '../MarketScreen/reducer';
 import { Portfolio, SinglePortfolio } from '../PortfolioList/reducers';
 import { getIdToken } from '../util/general';
+import firebase, { RNFirebase } from 'react-native-firebase';
 
 const stockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
@@ -85,15 +86,16 @@ const stockHistoryApiRequest = async (
   }
 };
 
-const createPortfolioApiRequest = async (
+const createPortfolioRequest = async (
   portfolioName: string,
   porftolioAmount: number
 ): Promise<void> => {
   try {
-    const url = config.app.STOCK_API_URL + '/profile/portfolio';
+    const url = config.app.PROFILE_API_URL + '/profile/portfolio';
     await axios.post(url, {
       name: portfolioName,
       balance: porftolioAmount,
+      uid: firebase.auth().currentUser,
     });
   } catch (error) {
     throw error;
