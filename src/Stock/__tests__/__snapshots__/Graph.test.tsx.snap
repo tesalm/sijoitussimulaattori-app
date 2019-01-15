@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stockpage graph tests renders correctly with error 1`] = `
+<Text>
+  Error! 
+  Network connection failed
+</Text>
+`;
+
+exports[`stockpage graph tests renders correctly with historydata 1`] = `
+Object {
+  "buttonBarIndex": 4,
+  "graphLoading": false,
+  "historyInterval": Array [
+    Object {
+      "close": 107.53,
+      "date": "2019-01-04T00:00:00.000Z",
+      "high": 66.6,
+      "low": 66.6,
+      "open": 66.6,
+      "symbol": "AMZN",
+      "volume": 66,
+    },
+    Object {
+      "close": 107.6799,
+      "date": "2019-01-03T00:00:00.000Z",
+      "high": 66.6,
+      "low": 66.6,
+      "open": 66.6,
+      "symbol": "AMZN",
+      "volume": 66,
+    },
+    Object {
+      "close": 107.51,
+      "date": "2019-01-02T00:00:00.000Z",
+      "high": 66.6,
+      "low": 66.6,
+      "open": 66.6,
+      "symbol": "AMZN",
+      "volume": 66,
+    },
+  ],
+}
+`;
+
+exports[`stockpage graph tests renders correctly with historydata 2`] = `
+Array [
+  Object {
+    "close": 107.53,
+    "date": "2019-01-04T00:00:00.000Z",
+    "high": 66.6,
+    "low": 66.6,
+    "open": 66.6,
+    "symbol": "AMZN",
+    "volume": 66,
+  },
+  Object {
+    "close": 107.6799,
+    "date": "2019-01-03T00:00:00.000Z",
+    "high": 66.6,
+    "low": 66.6,
+    "open": 66.6,
+    "symbol": "AMZN",
+    "volume": 66,
+  },
+  Object {
+    "close": 107.51,
+    "date": "2019-01-02T00:00:00.000Z",
+    "high": 66.6,
+    "low": 66.6,
+    "open": 66.6,
+    "symbol": "AMZN",
+    "volume": 66,
+  },
+]
+`;
+
+exports[`stockpage graph tests renders correctly with intradata 1`] = `
+Object {
+  "buttonBarIndex": 0,
+  "graphLoading": false,
+  "historyInterval": Array [
+    Object {
+      "close": 107.53,
+      "date": "2019-01-05T16:00:00.000Z",
+      "high": 66.6,
+      "low": 66.6,
+      "open": 66.6,
+      "symbol": "AMZN",
+      "volume": 66,
+    },
+    Object {
+      "close": 107.6799,
+      "date": "2019-01-05T15:55:00.000Z",
+      "high": 66.6,
+      "low": 66.6,
+      "open": 66.6,
+      "symbol": "AMZN",
+      "volume": 66,
+    },
+    Object {
+      "close": 107.51,
+      "date": "2019-01-05T15:50:00.000Z",
+      "high": 66.6,
+      "low": 66.6,
+      "open": 66.6,
+      "symbol": "AMZN",
+      "volume": 66,
+    },
+  ],
+}
+`;
+
+exports[`stockpage graph tests renders correctly with intradata 2`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#004D40",
+        "fontSize": 33.35,
+        "fontWeight": "bold",
+        "marginBottom": 31.388235294117646,
+      }
+    }
+  >
+    Revenue over a year
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 360,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Graph
+      historydata={
+        Array [
+          Object {
+            "close": 107.53,
+            "date": "2019-01-05T16:00:00.000Z",
+            "high": 66.6,
+            "low": 66.6,
+            "open": 66.6,
+            "symbol": "AMZN",
+            "volume": 66,
+          },
+          Object {
+            "close": 107.6799,
+            "date": "2019-01-05T15:55:00.000Z",
+            "high": 66.6,
+            "low": 66.6,
+            "open": 66.6,
+            "symbol": "AMZN",
+            "volume": 66,
+          },
+          Object {
+            "close": 107.51,
+            "date": "2019-01-05T15:50:00.000Z",
+            "high": 66.6,
+            "low": 66.6,
+            "open": 66.6,
+            "symbol": "AMZN",
+            "volume": 66,
+          },
+        ]
+      }
+    />
+  </View>
+  <Themed.ButtonGroup
+    buttons={
+      Array [
+        "Today",
+        "1 Week",
+        "1 Month",
+        "3 Months",
+        "1 Year",
+      ]
+    }
+    containerStyle={
+      Object {
+        "height": 60,
+        "margin": 0,
+      }
+    }
+    onPress={[Function]}
+    selectedButtonStyle={
+      Object {
+        "backgroundColor": "#F0F0F0",
+      }
+    }
+    selectedIndex={0}
+    selectedTextStyle={
+      Object {
+        "color": "#004D40",
+      }
+    }
+    textStyle={
+      Object {
+        "fontSize": 20,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`stockpage graph tests renders correctly with no data 1`] = `
+<text>
+  No data, choose another timespan
+</text>
+`;
+
+exports[`stockpage graph tests renders loading 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#004D40",
+        "fontSize": 33.35,
+        "fontWeight": "bold",
+        "marginBottom": 31.388235294117646,
+      }
+    }
+  >
+    Revenue over a year
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 360,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="green"
+      hidesWhenStopped={true}
+      size="large"
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+  <Themed.ButtonGroup
+    buttons={
+      Array [
+        "Today",
+        "1 Week",
+        "1 Month",
+        "3 Months",
+        "1 Year",
+      ]
+    }
+    containerStyle={
+      Object {
+        "height": 60,
+        "margin": 0,
+      }
+    }
+    onPress={[Function]}
+    selectedButtonStyle={
+      Object {
+        "backgroundColor": "#F0F0F0",
+      }
+    }
+    selectedIndex={1}
+    selectedTextStyle={
+      Object {
+        "color": "#004D40",
+      }
+    }
+    textStyle={
+      Object {
+        "fontSize": 20,
+      }
+    }
+  />
+</View>
+`;

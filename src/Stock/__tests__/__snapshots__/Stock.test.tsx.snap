@@ -114,7 +114,28 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
             },
           ]
         }
-        historyLoading={false}
+        intraDay={
+          Array [
+            Object {
+              "close": 168.63,
+              "date": "2018-12-12T00:20:00.000Z",
+              "high": 170.43,
+              "low": 165.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+            Object {
+              "close": 168.63,
+              "date": "2018-12-12T00:10:00.000Z",
+              "high": 170.43,
+              "low": 165.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+          ]
+        }
       />
     </Themed.Card>
     <Themed.Card
