@@ -16,7 +16,7 @@ export interface ProfileScreenProps extends NavigationScreenProps {
   loginRequest: typeof login;
 }
 
-export class ProfileScreen extends React.Component<ProfileScreenProps> {
+class ProfileScreen extends React.Component<ProfileScreenProps> {
   static navigationOptions = { title: t('ProfilePage.Title') };
 
   constructor(public props: ProfileScreenProps) {
@@ -51,7 +51,7 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      deleteCurrentUserRequest: deleteUser,
+      deleteUserRequest: deleteUser,
       loginRequest: login,
       logoutRequest: logout,
     },
