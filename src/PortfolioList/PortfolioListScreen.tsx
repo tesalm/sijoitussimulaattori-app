@@ -8,10 +8,10 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
 import { getPortfolios, SaveAsCurrentPortfolioId } from './actions';
-import { PortfolioList } from './reducers';
+import { SinglePortfolio } from './reducers';
 
 export interface PortfolioListProps {
-  portfolios: Array<PortfolioList>;
+  portfolios: Array<SinglePortfolio>;
   loading: boolean;
   error?: Error;
   getAllPortfolios: typeof getPortfolios;

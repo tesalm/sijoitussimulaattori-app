@@ -12,19 +12,6 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly 1`] = `
 </TouchableText>
 `;
 
-exports[`portfolioInfo tests PortfolioInfo renders correctly with error 1`] = `
-<TouchableText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  forwardedRef={null}
->
-  Error! 
-  Network connection failed 
-   
-</TouchableText>
-`;
-
 exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and stocks 1`] = `
 <ContextConsumer>
   <Component />

@@ -4,8 +4,8 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { Stock } from '../../MarketScreen/reducer';
+import { Portfolio } from '../../PortfolioList/reducers';
 import { formatRevenue, revenueColor } from '../../util/stock';
-import { Portfolio } from '../reducers';
 import { portfolioStyles } from '../styles';
 
 export interface PortfolioInfoProps {
@@ -43,19 +43,22 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
           <Text style={textStyles.valueHeader}>
             {t('PortfolioPage.MarketValue')}
           </Text>
-          <Text style={textStyles.value}>
+          <Text style={portfolioStyles.portfolioValue}>
             {props.portfolio.totalMarketValue + ' $'}
           </Text>
           <Text style={textStyles.valueHeader}>{t('PortfolioPage.Cash')}</Text>
-          <Text style={textStyles.value}>
+          <Text style={portfolioStyles.portfolioValue}>
             {props.portfolio.balance + ' $'}{' '}
           </Text>
+        </View>
+        <View style={portfolioStyles.portfolioCurlyBracketsContainer}>
+          <Text style={portfolioStyles.portfolioCurlyBracket}>{'}'}</Text>
         </View>
         <View style={portfolioStyles.portfolioInfoMiddleComp}>
           <Text style={textStyles.valueHeader}>
             {t('PortfolioPage.TotalValue')}
           </Text>
-          <Text style={textStyles.value}>
+          <Text style={portfolioStyles.portfolioValue}>
             {props.portfolio.balance + props.portfolio.totalMarketValue + ' $'}
           </Text>
         </View>
@@ -64,8 +67,8 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
           <Text style={textStyles.valueHeader}>
             {t('PortfolioPage.Revenue')}
           </Text>
-          <Text style={revenueColor(props.portfolio.revenue)}>
-            {formatRevenue(props.portfolio.revenue)}
+          <Text style={revenueColor(props.portfolio.lastDayRevenue)}>
+            {formatRevenue(props.portfolio.lastDayRevenue)}
           </Text>
         </View>
       </View>

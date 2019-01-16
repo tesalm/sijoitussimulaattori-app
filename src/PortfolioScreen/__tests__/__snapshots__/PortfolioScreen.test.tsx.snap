@@ -27,8 +27,12 @@ exports[`portfolio tests PortfolioScreen renders correctly with portfolio and st
     <Themed.Card
       containerStyle={
         Object {
-          "height": 130,
+          "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
@@ -37,18 +41,30 @@ exports[`portfolio tests PortfolioScreen renders correctly with portfolio and st
         portfolio={
           Object {
             "balance": 500,
+            "lastDayRevenue": 0,
             "name": "Portfolio1",
-            "ownerId": "klsdjfs",
-            "revenue": -2.4,
+            "ownerId": "Joooni",
             "stocks": Array [
+              Object {
+                "amount": 245,
+                "avgPrice": 153.3,
+                "lastDayRevenue": 0.52,
+                "totalMarketValue": 2084,
+                "totalRevenue": 0.54,
+                "uid": "AMZN",
+              },
               Object {
                 "amount": 340,
                 "avgPrice": 132,
-                "name": "Apple",
-                "symbol": "AAPL",
+                "lastDayRevenue": 0.52,
+                "totalMarketValue": 2084,
+                "totalRevenue": 0.54,
+                "uid": "AAPL",
               },
             ],
             "totalMarketValue": 5000,
+            "totalRevenue": -0.02,
+            "uid": "Portfolio1",
           }
         }
         stocks={
@@ -135,8 +151,12 @@ exports[`portfolio tests PortfolioScreen renders correctly with portfolio and st
     <Themed.Card
       containerStyle={
         Object {
-          "height": 200,
+          "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     />
@@ -145,28 +165,44 @@ exports[`portfolio tests PortfolioScreen renders correctly with portfolio and st
         Object {
           "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
       <Holdings
-        loading={false}
         portfolio={
           Object {
             "balance": 500,
+            "lastDayRevenue": 0,
             "name": "Portfolio1",
-            "ownerId": "klsdjfs",
-            "revenue": -2.4,
+            "ownerId": "Joooni",
             "stocks": Array [
+              Object {
+                "amount": 245,
+                "avgPrice": 153.3,
+                "lastDayRevenue": 0.52,
+                "totalMarketValue": 2084,
+                "totalRevenue": 0.54,
+                "uid": "AMZN",
+              },
               Object {
                 "amount": 340,
                 "avgPrice": 132,
-                "name": "Apple",
-                "symbol": "AAPL",
+                "lastDayRevenue": 0.52,
+                "totalMarketValue": 2084,
+                "totalRevenue": 0.54,
+                "uid": "AAPL",
               },
             ],
             "totalMarketValue": 5000,
+            "totalRevenue": -0.02,
+            "uid": "Portfolio1",
           }
         }
+        portfolioLoading={false}
         stocks={
           Array [
             Object {
@@ -246,110 +282,48 @@ exports[`portfolio tests PortfolioScreen renders correctly with portfolio and st
             },
           ]
         }
+        stocksLoading={false}
       />
     </Themed.Card>
     <Themed.Card
       containerStyle={
         Object {
-          "height": 50,
+          "height": 109.85882352941177,
           "margin": 0,
         }
       }
     >
-      <Component />
+      <CardButton
+        iconName="manage"
+        onPress={[Function]}
+        translationTitle="PortfolioPage.Events"
+      />
     </Themed.Card>
     <Themed.Card
       containerStyle={
         Object {
-          "height": 50,
+          "height": 109.85882352941177,
           "margin": 0,
         }
       }
     >
-      <Component />
+      <CardButton
+        iconName="manage"
+        onPress={[Function]}
+        translationTitle="PortfolioPage.Manage"
+      />
     </Themed.Card>
   </View>
 </_class>
 `;
 
 exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
-<_class
-  refreshControl={
-    <RefreshControlMock
-      colors={
-        Array [
-          "#004D40",
-        ]
-      }
-      onRefresh={[Function]}
-      refreshing={false}
-    />
-  }
+<TouchableText
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  forwardedRef={null}
 >
-  <RefreshControlMock
-    colors={
-      Array [
-        "#004D40",
-      ]
-    }
-    onRefresh={[Function]}
-    refreshing={false}
-  />
-  <View>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 130,
-          "margin": 0,
-        }
-      }
-    >
-      <Component
-        loading={false}
-        stocks={Array []}
-      />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 200,
-          "margin": 0,
-        }
-      }
-    />
-    <Themed.Card
-      containerStyle={
-        Object {
-          "flex": 1,
-          "margin": 0,
-        }
-      }
-    >
-      <Holdings
-        loading={false}
-        stocks={Array []}
-      />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 50,
-          "margin": 0,
-        }
-      }
-    >
-      <Component />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
-        Object {
-          "height": 50,
-          "margin": 0,
-        }
-      }
-    >
-      <Component />
-    </Themed.Card>
-  </View>
-</_class>
+  Error, portfolio not found! 
+</TouchableText>
 `;

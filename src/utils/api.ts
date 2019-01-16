@@ -2,8 +2,7 @@ import axios from 'axios';
 
 import { config } from '../config';
 import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
-import { PortfolioList } from '../PortfolioList/reducers';
-import { Portfolio } from '../PortfolioScreen/reducers';
+import { Portfolio, SinglePortfolio } from '../PortfolioList/reducers';
 
 const stockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
@@ -46,13 +45,14 @@ const stockIntraApiRequest = async (
     throw error;
   }
 };
-const portfolioListApiRequest = async (): Promise<PortfolioList[]> => {
+const portfolioListApiRequest = async (): Promise<SinglePortfolio[]> => {
+  //TODO correct API call
   try {
-    //const res = await axios.get(
-    //config.app.PORTFOLIO_API_URL + '/profile/portfolio/list'
-    //);
-    const data = [{ name: 'Portfolio1' }, { name: 'Portfolio2' }];
-    return data;
+    const res = await axios.get(
+      config.app.PORTFOLIO_API_URL + '/profile/portfolio'
+    );
+
+    return res.data;
   } catch (error) {
     throw error;
   }

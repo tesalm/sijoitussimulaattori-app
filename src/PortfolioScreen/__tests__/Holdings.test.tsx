@@ -2,7 +2,6 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
-
 import { Holdings, HoldingsProps } from '../components/Holdings';
 
 describe('Holdings tests', () => {
@@ -13,31 +12,45 @@ describe('Holdings tests', () => {
 
   const defaultHoldingsProps: HoldingsProps = {
     portfolio: undefined,
-    loading: undefined,
+    portfolioLoading: true,
+    stocksLoading: true,
     error: undefined,
     stocks: undefined,
   };
 
   const errorHoldingsProps: HoldingsProps = {
     portfolio: undefined,
-    loading: undefined,
+    portfolioLoading: false,
+    stocksLoading: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
     stocks: undefined,
   };
 
   const successHoldingsProps: HoldingsProps = {
     portfolio: {
+      uid: 'Portfolio1',
       name: 'Portfolio1',
-      ownerId: 'klsdjfs',
       balance: 500,
-      revenue: -2.4,
+      totalRevenue: -0.02,
       totalMarketValue: 5000,
+      lastDayRevenue: 0,
+      ownerId: 'Joooni',
       stocks: [
         {
-          symbol: 'AAPL',
-          name: 'Apple',
+          uid: 'AMZN',
+          amount: 245,
+          avgPrice: 153.3,
+          totalRevenue: 0.54,
+          totalMarketValue: 2084,
+          lastDayRevenue: 0.52,
+        },
+        {
+          uid: 'AAPL',
           amount: 340,
           avgPrice: 132,
+          totalRevenue: 0.54,
+          totalMarketValue: 2084,
+          lastDayRevenue: 0.52,
         },
       ],
     },
@@ -119,7 +132,8 @@ describe('Holdings tests', () => {
       },
     ],
     error: undefined,
-    loading: false,
+    portfolioLoading: false,
+    stocksLoading: false,
   };
 
   it('Holdings renders correctly', async () => {
@@ -130,7 +144,6 @@ describe('Holdings tests', () => {
     expect(wrapper.dive()).toMatchSnapshot();
   });
 
-  
   it('Holdings renders correctly with error', async () => {
     const wrapper = shallow(
       <Holdings {...errorHoldingsProps} {...navigationMock} />,

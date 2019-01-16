@@ -1,0 +1,20 @@
+[
+  {
+    "uid": "Portfolio1",
+    "name": "Portfolio1",
+    "balance": 500,
+    "ownerId": "Jooni",
+    "totalRevenue": 0.25,
+    "totalMarketValue": 0.53,
+    "lastDayRevenue": 0.23
+  },
+  {
+    "uid": "Portfolio2",
+    "name": "Portfolio2",
+    "balance": 500,
+    "ownerId": "Jooni",
+    "totalRevenue": 0.25,
+    "totalMarketValue": 0.53,
+    "lastDayRevenue": 0.23
+  }
+]

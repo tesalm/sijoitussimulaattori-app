@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { PortfolioInfoProps, PortfolioInfo } from '../components/PortfolioInfo';
+import { PortfolioInfo, PortfolioInfoProps } from '../components/PortfolioInfo';
 
 describe('portfolioInfo tests', () => {
   // Mock for navigation.
@@ -17,26 +17,31 @@ describe('portfolioInfo tests', () => {
     stocks: undefined,
   };
 
-  const errorPortfolioProps: PortfolioInfoProps = {
-    portfolio: undefined,
-    loading: undefined,
-    error: { name: 'Network Error', message: 'Network connection failed' },
-    stocks: undefined,
-  };
-
   const successPortfolioProps: PortfolioInfoProps = {
     portfolio: {
+      uid: 'Portfolio1',
       name: 'Portfolio1',
-      ownerId: 'klsdjfs',
       balance: 500,
-      revenue: -2.4,
+      totalRevenue: -0.02,
       totalMarketValue: 5000,
+      lastDayRevenue: 0,
+      ownerId: 'Joooni',
       stocks: [
         {
-          symbol: 'AAPL',
-          name: 'Apple',
+          uid: 'AMZN',
+          amount: 245,
+          avgPrice: 153.3,
+          totalRevenue: 0.54,
+          totalMarketValue: 2084,
+          lastDayRevenue: 0.52,
+        },
+        {
+          uid: 'AAPL',
           amount: 340,
           avgPrice: 132,
+          totalRevenue: 0.54,
+          totalMarketValue: 2084,
+          lastDayRevenue: 0.52,
         },
       ],
     },
@@ -124,15 +129,6 @@ describe('portfolioInfo tests', () => {
   it('PortfolioInfo renders correctly', async () => {
     const wrapper = shallow(
       <PortfolioInfo {...defaultPortfolioProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
-  });
-
-  
-  it('PortfolioInfo renders correctly with error', async () => {
-    const wrapper = shallow(
-      <PortfolioInfo {...errorPortfolioProps} {...navigationMock} />,
       { context: { store: mockStore() } }
     );
     expect(wrapper.dive()).toMatchSnapshot();

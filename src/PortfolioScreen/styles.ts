@@ -3,43 +3,11 @@ import { scale, verticalScale } from 'react-native-size-matters';
 
 import { Colors } from '../App/colors';
 
-const portfolioContainerStyles = StyleSheet.create({
-  basicInfo: {
-    margin: 0,
-    height: 130,
-  },
-  diagram: {
-    margin: 0,
-    height: 200,
-  },
-  buttonContainer: {
-    margin: 0,
-    height: 50,
-  },
-  holdings: {
-    margin: 0,
-    flex: 1,
-  },
-});
-
 const portfolioStyles = StyleSheet.create({
-  titleStyle: {
-    fontWeight: 'bold',
-    fontSize: 17,
-    marginBottom: scale(8),
-    color: Colors.baseColor,
-  },
   valueHeader: {
     fontSize: 12,
     textAlign: 'justify',
     marginBottom: verticalScale(0),
-    color: Colors.baseColor,
-  },
-  valueHeaderMiddle: {
-    fontSize: 12,
-    textAlign: 'justify',
-    marginTop: verticalScale(20),
-    marginLeft: scale(16),
     color: Colors.baseColor,
   },
 
@@ -69,27 +37,6 @@ const portfolioStyles = StyleSheet.create({
     marginBottom: verticalScale(4),
     color: Colors.redPercent,
   },
-  valueMiddle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'justify',
-    marginTop: verticalScale(-2),
-    marginLeft: scale(16),
-    marginBottom: verticalScale(8),
-    color: Colors.baseColor,
-  },
-  valueHeaderRightSide: {
-    fontSize: 12,
-    marginTop: verticalScale(20),
-    marginLeft: scale(30),
-    color: Colors.baseColor,
-  },
-  valueHeaderRightSideHoldings: {
-    fontSize: 12,
-    marginTop: verticalScale(30),
-    marginLeft: scale(30),
-    color: Colors.baseColor,
-  },
 
   titleText: {
     fontSize: 17,
@@ -106,10 +53,11 @@ const portfolioStyles = StyleSheet.create({
   portfolioinfo: {
     display: 'flex',
     flexDirection: 'row',
+    flex: 1,
   },
   portfolioInfoSmallerComp: {
     flexDirection: 'column',
-    flex: 1,
+    flex: 0.7,
   },
   portfolioHoldingsRightComp: {
     flexDirection: 'column',
@@ -123,6 +71,26 @@ const portfolioStyles = StyleSheet.create({
     textAlign: 'center',
     marginTop: scale(20),
   },
+  portfolioCurlyBracketsContainer: {
+    flexDirection: 'column',
+    flex: 0.4,
+    textAlign: 'center',
+    marginTop: scale(6),
+  },
+  portfolioCurlyBracket: {
+    fontSize: scale(40),
+    color: Colors.baseColor,
+  },
+
+  portfolioValue: {
+    fontSize: verticalScale(14),
+    fontWeight: 'bold',
+    textAlign: 'justify',
+    marginTop: verticalScale(-2),
+    marginBottom: verticalScale(8),
+    color: Colors.baseColor,
+  },
+
   portfolioRightComp: {
     flexDirection: 'column',
     flex: 0.8,
@@ -164,4 +132,4 @@ const portfolioStyles = StyleSheet.create({
   },
 });
 
-export { portfolioContainerStyles, portfolioStyles };
+export { portfolioStyles };

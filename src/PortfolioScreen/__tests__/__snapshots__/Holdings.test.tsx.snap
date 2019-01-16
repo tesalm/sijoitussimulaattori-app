@@ -1,15 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Holdings tests Holdings renders correctly 1`] = `
-<TouchableText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  forwardedRef={null}
->
-  Error! 
-   
-</TouchableText>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Holdings tests Holdings renders correctly with error 1`] = `

@@ -1,6 +1,4 @@
 import { textStyles } from '../App/styles';
-import { Stock } from '../MarketScreen/reducer';
-import { PortfolioStock } from '../PortfolioScreen/reducers';
 import { portfolioStyles } from '../PortfolioScreen/styles';
 
 //format revenue to right forms. Converts number to string and add procent marker.
@@ -41,69 +39,10 @@ const formatCurrency = (value: number, currency: string) => {
   return value.toFixed(2) + ' $';
 };
 
-//calculate total revenue procent.
-const calculateTotalRevenueProcent = (
-  stock: Stock,
-  section: PortfolioStock
-): number => {
-  if (stock && stock.stockInfo && stock.stockInfo.intraday) {
-    return (
-      (calculateTotalMarketValue(stock, section) - section.avgPrice) /
-      (section.avgPrice * section.amount)
-    );
-  } else {
-    return 0;
-  }
-};
-//calculate total market value.
-const calculateTotalMarketValue = (
-  stock: Stock,
-  section: PortfolioStock
-): number => {
-  if (stock && stock.stockInfo && stock.stockInfo.intraday) {
-    return stock.stockInfo.intraday.intradayQuote[0].close * section.amount;
-  } else {
-    return 0;
-  }
-};
-//calculate absolute total revenue
-const calculateTotalRevenue = (
-  stock: Stock,
-  section: PortfolioStock
-): number => {
-  if (stock && stock.stockInfo && stock.stockInfo.intraday) {
-    return (
-      calculateTotalMarketValue(stock, section) -
-      section.avgPrice * section.amount
-    );
-  } else {
-    return 0;
-  }
-};
-
-const countRevenuePercentage = (stock: Stock) => {
-  if (
-    stock !== undefined &&
-    stock.stockInfo !== undefined &&
-    stock.stockInfo.historyData !== undefined &&
-    stock.stockInfo.intraday !== undefined
-  ) {
-    const yesterday = stock.stockInfo.historyData.historyDataQuote[0].close;
-    const today = stock.stockInfo.intraday.intradayQuote[0].close;
-    const revenue = (today - yesterday) / yesterday;
-    return revenue;
-  }
-  return 0;
-};
-
 export {
   formatRevenue,
   revenueColor,
   formatCurrency,
   formatRevenueCurrency,
   valueColor,
-  calculateTotalMarketValue,
-  calculateTotalRevenue,
-  calculateTotalRevenueProcent,
-  countRevenuePercentage,
 };

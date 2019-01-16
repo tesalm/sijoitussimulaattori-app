@@ -3,7 +3,7 @@ import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
 import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../../MarketScreen/actions';
-import { getPortfolioData } from '../actions';
+import { getPortfolioData } from '../../PortfolioList/actions';
 import { PortfolioProps, PortfolioScreen } from '../PortfolioScreen';
 
 describe('portfolio tests', () => {
@@ -15,33 +15,57 @@ describe('portfolio tests', () => {
   const defaultPortfolioProps: PortfolioProps = {
     portfolio: undefined,
     getPortfolio: getPortfolioData,
-    name: undefined,
-    loading: false,
-    error: undefined,
-    refreshing: false,
+    portfolioId: undefined,
     stocks: [],
     getAllStocks: getStocks,
     getMeta: getStockMetadata,
     getHistoryData: jest.fn(),
     getIntra: getIntraday,
     refreshIntra: refreshIntraday,
+    stocksLoading: false,
   };
 
   const successPortfolioProps: PortfolioProps = {
     portfolio: {
+      uid: 'Portfolio1',
       name: 'Portfolio1',
-      ownerId: 'klsdjfs',
       balance: 500,
-      revenue: -2.4,
+      totalRevenue: -0.02,
       totalMarketValue: 5000,
-      stocks: [
-        {
-          symbol: 'AAPL',
-          name: 'Apple',
-          amount: 340,
-          avgPrice: 132,
+      lastDayRevenue: 0,
+      ownerId: 'Joooni',
+      portfolioInfo: {
+        loading: false,
+        error: undefined,
+        refreshing: false,
+        portfolio: {
+          uid: 'Portfolio1',
+          name: 'Portfolio1',
+          balance: 500,
+          totalRevenue: -0.02,
+          totalMarketValue: 5000,
+          lastDayRevenue: 0,
+          ownerId: 'Joooni',
+          stocks: [
+            {
+              uid: 'AMZN',
+              amount: 245,
+              avgPrice: 153.3,
+              totalRevenue: 0.54,
+              totalMarketValue: 2084,
+              lastDayRevenue: 0.52,
+            },
+            {
+              uid: 'AAPL',
+              amount: 340,
+              avgPrice: 132,
+              totalRevenue: 0.54,
+              totalMarketValue: 2084,
+              lastDayRevenue: 0.52,
+            },
+          ],
         },
-      ],
+      },
     },
     stocks: [
       {
@@ -124,11 +148,10 @@ describe('portfolio tests', () => {
     getIntra: jest.fn(),
     refreshIntra: jest.fn(),
     getHistoryData: jest.fn(),
-    refreshing: false,
-    name: 'Portfolio1',
+    portfolioId: 'Portfolio1',
     getAllStocks: jest.fn(),
     getPortfolio: jest.fn(),
-    loading: false,
+    stocksLoading: false,
   };
 
   it('Portfolioscreen renders correctly', async () => {

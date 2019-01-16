@@ -15,6 +15,9 @@ const singleStockHistory = (symbol) =>
   JSON.parse(fs.readFileSync(__dirname + '/data/' + symbol + 'history.json'));
 const availablePortfolio = (symbol) =>
   JSON.parse(fs.readFileSync(__dirname + '/data/' + symbol + 'data.json'));
+const availablePortfolioList = JSON.parse(
+  fs.readFileSync(__dirname + '/data/availablePortfolios.json')
+);
 app.get('/stocks', (req, res) => {
   console.log('all stocks being fethced');
   res.json(availableStocks);
@@ -33,6 +36,10 @@ app.get('/stocks/:symbol/intraDay', (req, res) => {
 app.get('/stocks/:symbol/history', (req, res) => {
   console.log(req.params.symbol + ' history being fetched');
   res.json(singleStockHistory(req.params.symbol));
+});
+app.get('/profile/portfolio', (req, res) => {
+  console.log('All portfolios are being fetched');
+  res.json(availablePortfolioList);
 });
 app.get('/profile/portfolio/:portfolioID', (req, res) => {
   console.log(req.params.portfolioID + ' data is being fetched');

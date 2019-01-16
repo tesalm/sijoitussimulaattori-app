@@ -6,23 +6,14 @@ import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import Icon from '../../general/icon';
 import { Stock } from '../../MarketScreen/reducer';
-import {
-  calculateTotalMarketValue,
-  calculateTotalRevenue,
-  calculateTotalRevenueProcent,
-  countRevenuePercentage,
-  formatCurrency,
-  formatRevenue,
-  formatRevenueCurrency,
-  revenueColor,
-  valueColor,
-} from '../../util/stock';
-import { Portfolio, PortfolioStock } from '../reducers';
+import { Portfolio, PortfolioStock } from '../../PortfolioList/reducers';
+import { formatCurrency, formatRevenue, formatRevenueCurrency, revenueColor, valueColor } from '../../util/stock';
 import { portfolioStyles } from '../styles';
 
 export interface HoldingsProps {
   portfolio?: Portfolio;
-  loading?: boolean;
+  portfolioLoading: boolean;
+  stocksLoading: boolean;
   error?: Error;
   stocks?: Array<Stock>;
 }
@@ -37,6 +28,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     this.state = { activeSections: [] };
   }
 
+  //Render header for one section
   renderHeader = (
     section: PortfolioStock,
     index: number,
@@ -54,11 +46,12 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     //find right stock from the array.
     const rightStock = stocks.find((stock) => stock.symbol == section.uid);
     if (rightStock == undefined) {
+      let errorMessage;
       if (error) {
-        return <Text>{error.message}</Text>;
-      } else {
-        return <ActivityIndicator size="small" />;
+        //TODO: Error message to user
+        errorMessage = error.message;
       }
+      return <Text> Error! {errorMessage}</Text>;
     }
 
     const iconName = isActive ? 'arrowUp' : 'arrowDown';
@@ -77,6 +70,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     );
   };
 
+  //Renders content for one section
   renderContent = (section: PortfolioStock) => {
     const { error, stocks } = this.props;
     if (stocks == undefined) {
@@ -120,14 +114,6 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     //calculate all necessary values needed.
     const currency = rightStock.stockInfo.stockMetadata.currency;
     const close = rightStock.stockInfo.intraday.intradayQuote[0].close;
-    const totalRevenueProcent = calculateTotalRevenueProcent(
-      rightStock,
-      section
-    );
-    const totalMarketValue = calculateTotalMarketValue(rightStock, section);
-    const totalRevenue = calculateTotalRevenue(rightStock, section);
-    const revenueProcent = countRevenuePercentage(rightStock);
-
     return (
       <View>
         <View style={portfolioStyles.holdingsContainer}>
@@ -145,8 +131,8 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
             <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenueProcent')}
             </Text>
-            <Text style={valueColor(totalRevenueProcent)}>
-              {formatRevenue(totalRevenueProcent)}{' '}
+            <Text style={valueColor(section.totalRevenue)}>
+              {formatRevenue(section.totalRevenue)}{' '}
             </Text>
           </View>
           <View style={portfolioStyles.portfolioInfoSmallerComp}>
@@ -160,13 +146,13 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
               {t('PortfolioPage.TotalMarketValue')}
             </Text>
             <Text style={portfolioStyles.value}>
-              {formatCurrency(totalMarketValue, currency)}{' '}
+              {formatCurrency(section.totalMarketValue, currency)}{' '}
             </Text>
             <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenue')}
             </Text>
-            <Text style={valueColor(totalRevenue)}>
-              {formatRevenueCurrency(totalRevenue, currency)}{' '}
+            <Text style={valueColor(section.totalRevenue)}>
+              {formatRevenueCurrency(section.totalRevenue, currency)}{' '}
             </Text>
           </View>
 
@@ -174,8 +160,8 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
             <Text style={portfolioStyles.valueHeader}>
               {t('PortfolioPage.Revenue')}
             </Text>
-            <Text style={revenueColor(revenueProcent)}>
-              {formatRevenue(revenueProcent)}
+            <Text style={revenueColor(section.lastDayRevenue)}>
+              {formatRevenue(section.lastDayRevenue)}
             </Text>
           </View>
         </View>
@@ -188,8 +174,14 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
   };
 
   render() {
-    const { portfolio, error, loading, stocks } = this.props;
-    if (loading) {
+    const {
+      portfolio,
+      error,
+      portfolioLoading,
+      stocksLoading,
+      stocks,
+    } = this.props;
+    if (portfolioLoading || stocksLoading) {
       return (
         <View style={portfolioStyles.loading}>
           <ActivityIndicator size="large" />
@@ -219,6 +211,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
           </Text>
         </View>
         <Accordion
+          underlayColor={'white'}
           expandMultiple={true}
           sections={portfolio.stocks}
           activeSections={this.state.activeSections}
