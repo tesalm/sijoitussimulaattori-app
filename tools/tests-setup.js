@@ -9,7 +9,8 @@ import 'react-native-mock-render/mock';
 configure({ adapter: new Adapter() });
 
 jest.mock('react-native-config', () => ({
-  Config: {
+  __esModule: true,
+  default: {
     RN_STOCK_API_URL: 'http://fake-stock-url',
   },
 }));
