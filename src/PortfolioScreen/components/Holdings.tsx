@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator, Text, TouchableHighlight, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
 import { textStyles } from '../../App/styles';
@@ -53,12 +53,20 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       }
       return <Text> Error! {errorMessage}</Text>;
     }
+    //Check if it still loading data.
+    if (
+      rightStock.stockInfo.metaLoading ||
+      rightStock.stockInfo.historyLoading ||
+      rightStock.stockInfo.intraLoading
+    ) {
+      return <ActivityIndicator size="small" />;
+    }
 
     const iconName = isActive ? 'arrowUp' : 'arrowDown';
 
     return (
-      <View style={portfolioStyles.holdingsSubLogoView}>
-        <View style={portfolioStyles.holdingsSubTitleView}>
+      <View style={portfolioStyles.holdingsLogoView}>
+        <View style={portfolioStyles.holdingsTitleView}>
           <Text style={portfolioStyles.holdingsSubTitle}>
             {rightStock.name}
           </Text>
@@ -173,6 +181,24 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     this.setState({ activeSections });
   };
 
+  //When icon is pressed, open or close all sections
+  onPressOpenOrClose = () => {
+    if (this.props.portfolio) {
+      //If all sections open, close them if not, open them all.
+      if (
+        this.state.activeSections.length === this.props.portfolio.stocks.length
+      ) {
+        this.updateSections([]);
+      } else {
+        this.updateSections(
+          new Array(this.props.portfolio.stocks.length - 1 - 0 + 1)
+            .fill(undefined)
+            .map((_, i) => i + 0)
+        );
+      }
+    }
+  };
+
   render() {
     const {
       portfolio,
@@ -201,15 +227,27 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
         return <Text>Error! {errorMessage} </Text>;
       }
     }
+    const iconName =
+      this.state.activeSections.length === portfolio.stocks.length
+        ? 'twoArrowClose'
+        : 'twoArrowOpen';
 
     return (
       <View>
         <View style={portfolioStyles.holdingsLogoView}>
-          <Icon iconName={'holdings'} iconHeight={24} iconWidth={24} />
-          <Text style={portfolioStyles.titleText}>
-            {t('PortfolioPage.Holdings')}
-          </Text>
+          <View style={portfolioStyles.holdingsTitleView}>
+            <Icon iconName={'holdings'} iconHeight={24} iconWidth={24} />
+            <Text style={portfolioStyles.titleText}>
+              {t('PortfolioPage.Holdings')}
+            </Text>
+          </View>
+          <View style={portfolioStyles.holdingsArrowView}>
+            <TouchableHighlight onPress={this.onPressOpenOrClose}>
+              <Icon iconName={iconName} iconHeight={24} iconWidth={24} />
+            </TouchableHighlight>
+          </View>
         </View>
+
         <Accordion
           underlayColor={'white'}
           expandMultiple={true}

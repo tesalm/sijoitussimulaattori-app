@@ -113,18 +113,15 @@ const portfolioStyles = StyleSheet.create({
     color: Colors.baseColor,
     fontWeight: 'bold',
   },
+
   holdingsLogoView: {
     marginTop: 0,
     flexDirection: 'row',
     marginBottom: scale(12),
   },
-  holdingsSubLogoView: {
-    marginTop: 0,
-    flexDirection: 'row',
-    marginBottom: scale(12),
-  },
-  holdingsSubTitleView: {
+  holdingsTitleView: {
     flex: 0.9,
+    flexDirection: 'row',
   },
   holdingsArrowView: {
     flex: 0.1,

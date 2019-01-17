@@ -294,7 +294,7 @@ exports[`portfolio tests PortfolioScreen renders correctly with portfolio and st
       }
     >
       <CardButton
-        iconName="manage"
+        iconName="events"
         onPress={[Function]}
         translationTitle="PortfolioPage.Events"
       />

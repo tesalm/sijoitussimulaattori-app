@@ -51,24 +51,27 @@ export class PortfolioScreen extends React.Component<
     }
     if (this.props.stocks.length == 0) {
       await this.props.getAllStocks();
+    }
 
-      if (
-        this.props.portfolio &&
-        this.props.portfolio.portfolioInfo.portfolio
-      ) {
-        await this.props.portfolio.portfolioInfo.portfolio.stocks.forEach(
-          async (portfolioStock) => {
-            var findStock = this.props.stocks.find((stock) => {
-              return stock.symbol === portfolioStock.uid;
-            });
-            if (findStock) {
-              await this.props.getMeta(findStock, findStock.symbol);
+    if (this.props.portfolio && this.props.portfolio.portfolioInfo.portfolio) {
+      await this.props.portfolio.portfolioInfo.portfolio.stocks.forEach(
+        async (portfolioStock) => {
+          var findStock = this.props.stocks.find((stock) => {
+            return stock.symbol === portfolioStock.uid;
+          });
+          if (findStock) {
+            if (findStock.stockInfo.historyData == undefined) {
               await this.props.getHistoryData(findStock, findStock.symbol);
+            }
+            if (findStock.stockInfo.stockMetadata == undefined) {
+              await this.props.getMeta(findStock, findStock.symbol);
+            }
+            if (findStock.stockInfo.intraday == undefined) {
               await this.props.getIntra(findStock, findStock.symbol);
             }
           }
-        );
-      }
+        }
+      );
     }
   }
 
@@ -124,7 +127,7 @@ export class PortfolioScreen extends React.Component<
           </Card>
           <Card containerStyle={cardButtonStyles.cardButton}>
             <CardButton
-              iconName={'manage'}
+              iconName={'events'}
               translationTitle={'PortfolioPage.Events'}
               //TODO: navigate to events page
               onPress={() => this.props.navigation.navigate(RouteName.Home)}
