@@ -26,6 +26,15 @@ describe('portfolio-list tests', () => {
     saveAsCurrentPortfolio: jest.fn(),
   };
 
+  const refreshingStockProps: PortfolioListProps = {
+    portfolioListing: [],
+    loading: false,
+    refreshing: true,
+    portfolioListingLoadingError: undefined,
+    getAllPortfolios: jest.fn(),
+    saveAsCurrentPortfolio: jest.fn(),
+  };
+
   const errorPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: false,
@@ -85,6 +94,7 @@ describe('portfolio-list tests', () => {
     refreshing: false,
     loading: false,
     portfolioListingLoadingError: undefined,
+
     getAllPortfolios: jest.fn(),
     saveAsCurrentPortfolio: jest.fn(),
   };
@@ -108,6 +118,15 @@ describe('portfolio-list tests', () => {
           {...loadingPortfolioListingProps}
           {...navigationMock}
         />
+      )
+      .toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders correctly with refreshing', async () => {
+    const component = renderer
+      .create(
+        <PortfolioListScreen {...refreshingStockProps} {...navigationMock} />
       )
       .toJSON();
     expect(component).toMatchSnapshot();

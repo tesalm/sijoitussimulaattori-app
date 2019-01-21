@@ -20,12 +20,15 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
       style={
         Object {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
 =======
 <<<<<<< HEAD
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
           "flex": 1,
           "margin": 0,
           "marginBottom": 0,
@@ -34,6 +37,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+<<<<<<< HEAD
 <<<<<<< HEAD
           "shadowColor": "rgba(0,0,0, .2)",
           "shadowOffset": Object {
@@ -48,6 +52,8 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "margin": 0,
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
         }
       }
     >
@@ -58,7 +64,6 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
             "backgroundColor": "transparent",
 =======
             "balance": 500,
-<<<<<<< HEAD
             "lastDayRevenue": 0,
             "name": "Portfolio1",
             "ownerId": "Joooni",
@@ -83,6 +88,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
             "totalMarketValue": 5000,
             "totalRevenue": -0.02,
             "uid": "Portfolio1",
+<<<<<<< HEAD
 =======
             "name": "Portfolio1",
             "ownerId": "klsdjfs",
@@ -98,6 +104,8 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
             "totalMarketValue": 5000,
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
           }
         }
       >
@@ -297,12 +305,15 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
       style={
         Object {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
 =======
 <<<<<<< HEAD
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
           "flex": 1,
           "margin": 0,
           "marginBottom": 0,
@@ -311,6 +322,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+<<<<<<< HEAD
 <<<<<<< HEAD
           "shadowColor": "rgba(0,0,0, .2)",
           "shadowOffset": Object {
@@ -325,6 +337,8 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "margin": 0,
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
         }
       }
     >
@@ -345,15 +359,19 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "flex": 1,
           "margin": 0,
 <<<<<<< HEAD
+<<<<<<< HEAD
           "marginBottom": 0,
           "padding": 15,
 =======
 <<<<<<< HEAD
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
           "paddingBottom": 31.388235294117646,
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+<<<<<<< HEAD
 <<<<<<< HEAD
           "shadowColor": "rgba(0,0,0, .2)",
           "shadowOffset": Object {
@@ -370,11 +388,12 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
 =======
 =======
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
         }
       }
     >
       <Holdings
-<<<<<<< HEAD
         portfolio={
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
           Object {
@@ -451,26 +470,6 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                   source={
 =======
         portfolioLoading={false}
-=======
-        loading={false}
-        portfolio={
-          Object {
-            "balance": 500,
-            "name": "Portfolio1",
-            "ownerId": "klsdjfs",
-            "revenue": -2.4,
-            "stocks": Array [
-              Object {
-                "amount": 340,
-                "avgPrice": 132,
-                "name": "Apple",
-                "symbol": "AAPL",
-              },
-            ],
-            "totalMarketValue": 5000,
-          }
-        }
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
         stocks={
           Array [
             Object {
@@ -910,21 +909,18 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
             },
           ]
         }
-<<<<<<< HEAD
         stocksLoading={false}
-=======
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
       />
     </Themed.Card>
     <Themed.Card
       containerStyle={
         Object {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
-          "height": 109.85882352941177,
 =======
-          "height": 50,
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+>>>>>>> Created tests and updated snapshots
+          "height": 109.85882352941177,
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -938,6 +934,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
         }
       }
     >
+<<<<<<< HEAD
 <<<<<<< HEAD
       <View
         style={
@@ -1025,24 +1022,23 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "borderWidth": 1,
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Created tests and updated snapshots
       <CardButton
         iconName="events"
         onPress={[Function]}
         translationTitle="PortfolioPage.Events"
       />
-=======
-      <Component />
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
     </Themed.Card>
     <Themed.Card
       containerStyle={
         Object {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
-          "height": 109.85882352941177,
 =======
-          "height": 50,
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+>>>>>>> Created tests and updated snapshots
+          "height": 109.85882352941177,
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -1056,6 +1052,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
         }
       }
     >
+<<<<<<< HEAD
 <<<<<<< HEAD
       <View
         style={
@@ -1137,14 +1134,13 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
     </View>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Created tests and updated snapshots
       <CardButton
         iconName="manage"
         onPress={[Function]}
         translationTitle="PortfolioPage.Manage"
       />
-=======
-      <Component />
->>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
     </Themed.Card>
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
   </View>
@@ -1161,7 +1157,10 @@ exports[`portfolio-screen tests Portfolioscreen renders correctly 1`] = `
 =======
 exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
 <TouchableText
   accessible={true}
   allowFontScaling={true}
@@ -1170,6 +1169,7 @@ exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
 >
   Error, portfolio not found! 
 </TouchableText>
+<<<<<<< HEAD
 =======
 <_class
   refreshControl={
@@ -1252,4 +1252,6 @@ exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
 </_class>
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
+=======
+>>>>>>> Created tests and updated snapshots
 `;
