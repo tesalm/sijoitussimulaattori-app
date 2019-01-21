@@ -67,7 +67,7 @@ export class PortfolioListScreen extends React.Component<
           <ListItem
             //TODO: navigate to to right stock page.
             onPress={() => {
-              this.props.saveAsCurrentId(item.name);
+              this.props.saveAsCurrentId(item.uid);
               this.props.navigation.navigate('SinglePortfolio');
             }}
             title={item.name}
