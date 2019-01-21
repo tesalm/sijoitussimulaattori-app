@@ -1,11 +1,10 @@
 import React from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
-import { ListItem, SearchBar } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
 import { getPortfolios, SaveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducers';
@@ -32,18 +31,6 @@ export class PortfolioListScreen extends React.Component<
     //Dispatch the actions
     this.props.getAllPortfolios();
   }
-
-  renderHeader = (): JSX.Element => {
-    return (
-      <SearchBar
-        lightTheme
-        round
-        placeholder={t('ListStockPage.SearcBarPlaceholder')}
-        //TODO: search bar functionality
-        autoCorrect={false}
-      />
-    );
-  };
 
   render() {
     const { portfolios, loading, error } = this.props;
@@ -73,7 +60,6 @@ export class PortfolioListScreen extends React.Component<
             title={item.name}
           />
         )}
-        ListHeaderComponent={this.renderHeader}
       />
     );
   }

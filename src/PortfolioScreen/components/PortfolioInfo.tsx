@@ -44,7 +44,7 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
             {t('PortfolioPage.MarketValue')}
           </Text>
           <Text style={portfolioStyles.portfolioValue}>
-            {props.portfolio.totalMarketValue + ' $'}
+            {props.portfolio.totalMarketValue - props.portfolio.balance + ' $'}
           </Text>
           <Text style={textStyles.valueHeader}>{t('PortfolioPage.Cash')}</Text>
           <Text style={portfolioStyles.portfolioValue}>
