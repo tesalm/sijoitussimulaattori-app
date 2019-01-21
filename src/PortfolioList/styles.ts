@@ -10,7 +10,6 @@ const PortfolioListingStyles = StyleSheet.create({
     fontSize: verticalScale(16),
   },
   titleView: {
-    marginTop: verticalScale(16),
     marginLeft: scale(8),
   },
   subtitleView: {
@@ -55,9 +54,11 @@ const PortfolioListingStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   listContainer: {
-    height: verticalScale(75),
-    backgroundColor: Colors.whiteBackground,
+    flex: 1,
+    backgroundColor: 'white',
     borderBottomWidth: 0,
+    paddingLeft: scale(16),
+    paddingVertical: verticalScale(8),
   },
   itemSeparatorStyle: {
     height: verticalScale(5),

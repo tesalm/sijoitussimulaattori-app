@@ -102,7 +102,7 @@ export class PortfolioListScreen extends React.Component<
             rightTitle={
               <View style={PortfolioListingStyles.rightTitleView}>
                 <Text style={PortfolioListingStyles.revenueText}>
-                  {t('PortfolioListing.TotalRevenue')}
+                  {t('PortfolioListing.RevenueToday')}
                 </Text>
                 <Text style={revenueColor(item.lastDayRevenue)}>
                   {formatRevenue(item.lastDayRevenue)}
@@ -112,7 +112,7 @@ export class PortfolioListScreen extends React.Component<
             subtitle={
               <View style={PortfolioListingStyles.subtitleView}>
                 <Text style={PortfolioListingStyles.subtitleText}>
-                  {t('PortfolioListing.RevenueToday')}
+                  {t('PortfolioListing.TotalRevenue')}
                 </Text>
                 <Text style={valueColor(item.totalRevenue)}>
                   {formatRevenue(item.totalRevenue)}
