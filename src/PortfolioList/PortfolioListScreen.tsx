@@ -63,7 +63,7 @@ export class PortfolioListScreen extends React.Component<
     } = this.props;
     if (portfolioListingLoadingError) {
       //TODO: Format the error message to user
-      return <Text>Error! {portfolioListingLoadingError.message} </Text>;
+      return <Text>{t('PortfolioListing.NoPortfolios')}</Text>;
     }
     if (loading) {
       return (
@@ -71,6 +71,11 @@ export class PortfolioListScreen extends React.Component<
           <ActivityIndicator size="large" />
         </View>
       );
+    }
+
+    if (portfolioListing.length == 0) {
+      //TODO: Format message to user
+      return <Text>You don't own any portfolios</Text>;
     }
 
     return (
