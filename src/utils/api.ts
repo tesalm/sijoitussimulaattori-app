@@ -27,7 +27,7 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
 
 const portfolioApiRequest = async (symbol: string): Promise<Portfolio> => {
   try {
-    const url = config.app.PORTFOLIO_API_URL + '/profile/portfolio/' + symbol;
+    const url = config.app.PROFILE_API_URL + '/profile/portfolio/' + symbol;
 
     const token = await getIdToken();
     const res = await axios.get(url, {
@@ -54,7 +54,7 @@ const stockIntraApiRequest = async (
 };
 const portfolioListApiRequest = async (): Promise<SinglePortfolio[]> => {
   try {
-    const url = config.app.PORTFOLIO_API_URL + '/profile/portfolio';
+    const url = config.app.PROFILE_API_URL + '/profile/portfolio';
     const token = await getIdToken();
     const res = await axios.get(url, {
       headers: {
