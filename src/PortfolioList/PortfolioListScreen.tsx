@@ -37,7 +37,7 @@ export class PortfolioListScreen extends React.Component<
     this.props.getAllPortfolios();
   }
 
-  portfolioPressed = (name: string) => {
+  portfolioPressed = (uid: string) => {
     if (this.props.refreshing) {
       // TODO: Format toast message to user.
       ToastAndroid.show(
@@ -87,10 +87,10 @@ export class PortfolioListScreen extends React.Component<
         ItemSeparatorComponent={() => (
           <View style={PortfolioListingStyles.itemSeparatorStyle} />
         )}
-        keyExtractor={(item) => item.name}
+        keyExtractor={(item) => item.uid}
         renderItem={({ item, index }) => (
           <ListItem
-            onPress={() => this.portfolioPressed(item.name)}
+            onPress={() => this.portfolioPressed(item.uid)}
             containerStyle={PortfolioListingStyles.listContainer}
             title={
               <View style={PortfolioListingStyles.titleView}>

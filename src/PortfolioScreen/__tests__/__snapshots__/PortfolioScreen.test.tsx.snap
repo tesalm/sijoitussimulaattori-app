@@ -1147,8 +1147,8 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
 </RCTScrollView>
 `;
 
-<<<<<<< HEAD
 exports[`portfolio-screen tests Portfolioscreen renders correctly 1`] = `
+<<<<<<< HEAD
 <<<<<<< HEAD
 <Text>
   Error, portfolio not found! 
@@ -1161,6 +1161,8 @@ exports[`portfolio tests Portfolioscreen renders correctly 1`] = `
 >>>>>>> Made modifications requested by PR. Modified styles and made lot of refractoring. Started the tests also
 =======
 >>>>>>> Created tests and updated snapshots
+=======
+>>>>>>> Renamed some parameters. Fixed bug where portfolio name instead of uid was passed to store
 <TouchableText
   accessible={true}
   allowFontScaling={true}
