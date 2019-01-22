@@ -7,7 +7,7 @@ describe('portfolio-list tests', () => {
   //Mock for navigation.
   const navigationMock: any = {};
 
-  const defaultStockProps: PortfolioListProps = {
+  const defaultPortfolioListingProps: PortfolioListProps = {
     portfolios: [],
     loading: false,
 
@@ -16,7 +16,7 @@ describe('portfolio-list tests', () => {
     saveAsCurrentId: jest.fn(),
   };
 
-  const loadingStockProps: PortfolioListProps = {
+  const loadingPortfolioListingProps: PortfolioListProps = {
     portfolios: [],
     loading: true,
 
@@ -25,7 +25,7 @@ describe('portfolio-list tests', () => {
     saveAsCurrentId: jest.fn(),
   };
 
-  const errorStockProps: PortfolioListProps = {
+  const errorPortfolioListingProps: PortfolioListProps = {
     portfolios: [],
     loading: false,
 
@@ -34,7 +34,7 @@ describe('portfolio-list tests', () => {
     saveAsCurrentId: jest.fn(),
   };
 
-  const stocksStockProps: PortfolioListProps = {
+  const portfolioPortfolioListingProps: PortfolioListProps = {
     portfolios: [
       {
         uid: 'Portfolio1',
@@ -88,7 +88,10 @@ describe('portfolio-list tests', () => {
   it('renders correctly', async () => {
     const component = renderer
       .create(
-        <PortfolioListScreen {...defaultStockProps} {...navigationMock} />
+        <PortfolioListScreen
+          {...defaultPortfolioListingProps}
+          {...navigationMock}
+        />
       )
       .toJSON();
     expect(component).toMatchSnapshot();
@@ -97,7 +100,10 @@ describe('portfolio-list tests', () => {
   it('renders correctly with loading', async () => {
     const component = renderer
       .create(
-        <PortfolioListScreen {...loadingStockProps} {...navigationMock} />
+        <PortfolioListScreen
+          {...loadingPortfolioListingProps}
+          {...navigationMock}
+        />
       )
       .toJSON();
     expect(component).toMatchSnapshot();
@@ -105,14 +111,24 @@ describe('portfolio-list tests', () => {
 
   it('renders correctly with error', async () => {
     const component = renderer
-      .create(<PortfolioListScreen {...errorStockProps} {...navigationMock} />)
+      .create(
+        <PortfolioListScreen
+          {...errorPortfolioListingProps}
+          {...navigationMock}
+        />
+      )
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with portfolio', async () => {
     const component = renderer
-      .create(<PortfolioListScreen {...stocksStockProps} {...navigationMock} />)
+      .create(
+        <PortfolioListScreen
+          {...portfolioPortfolioListingProps}
+          {...navigationMock}
+        />
+      )
       .toJSON();
     expect(component).toMatchSnapshot();
   });
