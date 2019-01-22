@@ -40,17 +40,16 @@ export interface Portfolio {
 }
 
 export interface PortfolioListing {
-  portfolios: Array<SinglePortfolio>;
+  portfolioListing: Array<SinglePortfolio>;
   loading: boolean;
   error?: Error;
   portfolioId?: string;
 }
 
 const initialState: PortfolioListing = {
-  portfolios: [],
+  portfolioListing: [],
   loading: false,
   error: undefined,
-  portfolioId: undefined,
 };
 
 export const portfolioListingReducer = (
@@ -63,7 +62,7 @@ export const portfolioListingReducer = (
     case ActionType.RequestPortfoliosListingSuccess:
       return {
         ...state,
-        portfolios: action.portfolios,
+        portfolioListing: action.portfolios,
         loading: false,
         error: undefined,
       };
@@ -72,7 +71,7 @@ export const portfolioListingReducer = (
     case ActionType.SaveId:
       return { ...state, portfolioId: action.id };
     case ActionType.RequestPortfolioBegin: {
-      const portfolioList = cloneDeep(state.portfolios);
+      const portfolioList = cloneDeep(state.portfolioListing);
       const portfolioIndex = getPortfolioIndex(
         portfolioList,
         action.portfolioId
@@ -81,10 +80,10 @@ export const portfolioListingReducer = (
         return { ...state };
       }
       portfolioList[portfolioIndex].portfolioInfo.loading = true;
-      return { ...state, portfolios: portfolioList };
+      return { ...state, portfolioListing: portfolioList };
     }
     case ActionType.RequestPortfolioSuccess: {
-      const portfolioList = cloneDeep(state.portfolios);
+      const portfolioList = cloneDeep(state.portfolioListing);
       const portfolioIndex = getPortfolioIndex(
         portfolioList,
         action.portfolioId
@@ -98,10 +97,10 @@ export const portfolioListingReducer = (
         loading: false,
         error: undefined,
       };
-      return { ...state, portfolios: portfolioList };
+      return { ...state, portfolioListing: portfolioList };
     }
     case ActionType.RequestPortfolioFailure: {
-      const portfolioList = cloneDeep(state.portfolios);
+      const portfolioList = cloneDeep(state.portfolioListing);
       const portfolioIndex = getPortfolioIndex(
         portfolioList,
         action.portfolioId
@@ -115,7 +114,7 @@ export const portfolioListingReducer = (
         loading: false,
         error: action.error,
       };
-      return { ...state, portfolios: portfolioList };
+      return { ...state, portfolioListing: portfolioList };
     }
 
     default:

@@ -8,7 +8,7 @@ describe('portfolio-list tests', () => {
   const navigationMock: any = {};
 
   const defaultPortfolioListingProps: PortfolioListProps = {
-    portfolios: [],
+    portfolioListing: [],
     loading: false,
 
     error: undefined,
@@ -17,7 +17,7 @@ describe('portfolio-list tests', () => {
   };
 
   const loadingPortfolioListingProps: PortfolioListProps = {
-    portfolios: [],
+    portfolioListing: [],
     loading: true,
 
     error: undefined,
@@ -26,7 +26,7 @@ describe('portfolio-list tests', () => {
   };
 
   const errorPortfolioListingProps: PortfolioListProps = {
-    portfolios: [],
+    portfolioListing: [],
     loading: false,
 
     error: { name: 'Network Error', message: 'Network connection failed' },
@@ -35,7 +35,7 @@ describe('portfolio-list tests', () => {
   };
 
   const portfolioPortfolioListingProps: PortfolioListProps = {
-    portfolios: [
+    portfolioListing: [
       {
         uid: 'Portfolio1',
         name: 'Portfolio1',

@@ -10,12 +10,11 @@ import { getPortfolios, SaveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducers';
 
 export interface PortfolioListProps {
-  portfolios: Array<SinglePortfolio>;
+  portfolioListing: Array<SinglePortfolio>;
   loading: boolean;
   error?: Error;
   getAllPortfolios: typeof getPortfolios;
   saveAsCurrentId: typeof SaveAsCurrentPortfolioId;
-  portfolioId?: string;
 }
 
 type PortfolioPropsWithNavigation = PortfolioListProps & NavigationScreenProps;
@@ -33,7 +32,7 @@ export class PortfolioListScreen extends React.Component<
   }
 
   render() {
-    const { portfolios, loading, error } = this.props;
+    const { portfolioListing, loading, error } = this.props;
     if (error) {
       //TODO: Format the error message to user
       return <Text>Error! {error.message} </Text>;
@@ -49,7 +48,7 @@ export class PortfolioListScreen extends React.Component<
     return (
       //TODO: Modify this list to match design for portfolio-list.
       <FlatList
-        data={portfolios}
+        data={portfolioListing}
         keyExtractor={(item) => item.name}
         renderItem={({ item, index }) => (
           <ListItem
@@ -65,7 +64,7 @@ export class PortfolioListScreen extends React.Component<
   }
 }
 const mapStateToProps = (state: RootState) => ({
-  portfolios: state.portfolioListing.portfolios,
+  portfolioListing: state.portfolioListing.portfolioListing,
   loading: state.portfolioListing.loading,
   error: state.portfolioListing.error,
 });

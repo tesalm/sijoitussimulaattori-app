@@ -152,7 +152,7 @@ export class PortfolioScreen extends React.Component<
 
 const mapStateToProps = (state: RootState) => ({
   portfolioId: state.portfolioListing.portfolioId,
-  portfolio: state.portfolioListing.portfolios.find((portfolio) => {
+  portfolio: state.portfolioListing.portfolioListing.find((portfolio) => {
     return portfolio.uid == state.portfolioListing.portfolioId;
   }),
   stocks: state.stocksListing.stocks,
