@@ -36,7 +36,7 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
   return (
     <View>
       <View style={portfolioStyles.portfolioinfo}>
-        <Text style={textStyles.title}>{t('PortfolioPage.Title')}</Text>
+        <Text style={textStyles.title}>{props.portfolio.name}</Text>
       </View>
       <View style={portfolioStyles.portfolioinfo}>
         <View style={portfolioStyles.portfolioInfoSmallerComp}>

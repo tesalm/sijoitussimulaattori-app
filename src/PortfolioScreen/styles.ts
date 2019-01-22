@@ -57,7 +57,7 @@ const portfolioStyles = StyleSheet.create({
   },
   portfolioInfoSmallerComp: {
     flexDirection: 'column',
-    flex: 0.7,
+    flex: 0.8,
   },
   portfolioHoldingsRightComp: {
     flexDirection: 'column',

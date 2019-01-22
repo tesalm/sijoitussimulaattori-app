@@ -6,7 +6,7 @@ import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../..
 import { getPortfolioData } from '../../PortfolioList/actions';
 import { PortfolioProps, PortfolioScreen } from '../PortfolioScreen';
 
-describe('portfolio tests', () => {
+describe('portfolio-screen tests', () => {
   // Mock for navigation.
   const navigationMock: any = {};
   const middlewares: any = [];

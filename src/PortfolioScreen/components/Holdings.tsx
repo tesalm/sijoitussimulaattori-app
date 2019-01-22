@@ -119,9 +119,11 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       return <Text>Error! {errorMessage} </Text>;
     }
 
-    //calculate all necessary values needed.
+    //calculate all needed values.
     const currency = rightStock.stockInfo.stockMetadata.currency;
     const close = rightStock.stockInfo.intraday.intradayQuote[0].close;
+    const totalRevenueCurrency =
+      section.totalMarketValue - section.avgPrice * section.amount;
     return (
       <View>
         <View style={portfolioStyles.holdingsContainer}>
@@ -159,8 +161,8 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
             <Text style={textStyles.valueHeader}>
               {t('PortfolioPage.TotalRevenue')}
             </Text>
-            <Text style={valueColor(section.totalRevenue)}>
-              {formatRevenueCurrency(section.totalRevenue, currency)}{' '}
+            <Text style={valueColor(totalRevenueCurrency)}>
+              {formatRevenueCurrency(totalRevenueCurrency, currency)}{' '}
             </Text>
           </View>
 
@@ -227,6 +229,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
         return <Text>Error! {errorMessage} </Text>;
       }
     }
+    //Choose correct icon
     const iconName =
       this.state.activeSections.length === portfolio.stocks.length
         ? 'twoArrowClose'

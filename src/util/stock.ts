@@ -8,11 +8,13 @@ const formatRevenue = (revenue: number) => {
     : (revenue * 100).toFixed(2) + ' %';
 };
 
-//format revenue to right forms. Converts number to string and add currency marker.
+/** format revenue to right forms. Converts number to string and
+ * add currency marker and plus sign if needed. This function does not
+ * handle procent values **/
 const formatRevenueCurrency = (revenue: number, currency: string) => {
   return revenue >= 0
-    ? '+' + formatCurrency(revenue * 100, currency)
-    : formatCurrency(revenue * 100, currency);
+    ? '+' + formatCurrency(revenue, currency)
+    : formatCurrency(revenue, currency);
 };
 
 // Returns the color revenue should be. Green > 0, red < 0

@@ -47,12 +47,12 @@ export class PortfolioListScreen extends React.Component<
     }
 
     return (
+      //TODO: Modify this list to match design for portfolio-list.
       <FlatList
         data={portfolios}
         keyExtractor={(item) => item.name}
         renderItem={({ item, index }) => (
           <ListItem
-            //TODO: navigate to to right stock page.
             onPress={() => {
               this.props.saveAsCurrentId(item.uid);
               this.props.navigation.navigate('SinglePortfolio');
