@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
+import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 import { Holdings, HoldingsProps } from '../components/Holdings';
@@ -137,26 +137,22 @@ describe('Holdings tests', () => {
   };
 
   it('Holdings renders correctly', async () => {
-    const wrapper = shallow(
-      <Holdings {...defaultHoldingsProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(<Holdings {...defaultHoldingsProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
-
   it('Holdings renders correctly with error', async () => {
-    const wrapper = shallow(
-      <Holdings {...errorHoldingsProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(<Holdings {...successHoldingsProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 
   it('Holdings renders correctly with portfolio and stocks', async () => {
-    const wrapper = shallow(
-      <Holdings {...successHoldingsProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(<Holdings {...errorHoldingsProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 });

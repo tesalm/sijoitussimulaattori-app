@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio and stocks 1`] = `
-<_class
+<RCTScrollView
   refreshControl={
     <RefreshControlMock
       colors={
@@ -14,316 +14,941 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
     />
   }
 >
-  <RefreshControlMock
-    colors={
-      Array [
-        "#004D40",
-      ]
-    }
-    onRefresh={[Function]}
-    refreshing={false}
-  />
+  <RCTRefreshControl />
   <View>
-    <Themed.Card
-      containerStyle={
+    <View
+      style={
         Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
           "flex": 1,
           "margin": 0,
+          "marginBottom": 0,
+          "padding": 15,
           "paddingBottom": 31.388235294117646,
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
         }
       }
     >
-      <Component
-        loading={false}
-        portfolio={
+      <View
+        style={
           Object {
-            "balance": 500,
-            "lastDayRevenue": 0,
-            "name": "Portfolio1",
-            "ownerId": "Joooni",
-            "stocks": Array [
-              Object {
-                "amount": 245,
-                "avgPrice": 153.3,
-                "lastDayRevenue": 0.52,
-                "totalMarketValue": 2084,
-                "totalRevenue": 0.54,
-                "uid": "AMZN",
-              },
-              Object {
-                "amount": 340,
-                "avgPrice": 132,
-                "lastDayRevenue": 0.52,
-                "totalMarketValue": 2084,
-                "totalRevenue": 0.54,
-                "uid": "AAPL",
-              },
-            ],
-            "totalMarketValue": 5000,
-            "totalRevenue": -0.02,
-            "uid": "Portfolio1",
+            "backgroundColor": "transparent",
           }
         }
-        stocks={
-          Array [
-            Object {
-              "close": 293.42,
-              "currency": "USD",
-              "high": 375.53,
-              "low": 354.38,
-              "name": "Apple",
-              "revenue": 3894.34,
-              "stockInfo": Object {
-                "historyData": Object {
-                  "fetchTime": 2018-12-17T01:24:00.000Z,
-                  "historyDataQuote": Array [
-                    Object {
-                      "close": 162.63,
-                      "date": "2018-12-15T00:00:00.000Z",
-                      "high": 170.43,
-                      "low": 165.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                    Object {
-                      "close": 168.63,
-                      "date": "2018-12-14T00:00:00.000Z",
-                      "high": 170.43,
-                      "low": 161.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                  ],
-                },
-                "historyError": undefined,
-                "historyLoading": false,
-                "intraError": undefined,
-                "intraLoading": false,
-                "intraday": Object {
-                  "fetchTime": 2018-12-17T01:24:00.000Z,
-                  "intradayQuote": Array [
-                    Object {
-                      "close": 168.63,
-                      "date": "2018-12-12T00:20:00.000Z",
-                      "high": 170.43,
-                      "low": 165.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                    Object {
-                      "close": 168.63,
-                      "date": "2018-12-12T00:10:00.000Z",
-                      "high": 170.43,
-                      "low": 165.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                  ],
-                },
-                "metaError": undefined,
-                "metaLoading": false,
-                "refreshing": false,
-                "stockMetadata": Object {
-                  "currency": "USD",
-                  "fetchTime": 2018-12-17T01:24:00.000Z,
-                  "marketClose": "2018-12-12 11:20:00",
-                  "marketOpen": "2018-12-12 11:20:00",
-                  "name": "Apple Inc.",
-                  "region": "string",
-                  "symbol": "AAPL",
-                  "timeZone": "US/Eastern",
-                  "type": "string",
-                },
-              },
-              "symbol": "AAPL",
-            },
-          ]
-        }
-      />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 33.35,
+                  "fontWeight": "bold",
+                  "marginBottom": 31.388235294117646,
+                }
+              }
+            >
+              Portfolio1
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 0.8,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 23.541176470588233,
+                    "marginBottom": 0,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Market value
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 27.46470588235294,
+                    "fontWeight": "bold",
+                    "marginBottom": 15.694117647058823,
+                    "marginTop": -3.9235294117647057,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                4500 $
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 23.541176470588233,
+                    "marginBottom": 0,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Cash
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 27.46470588235294,
+                    "fontWeight": "bold",
+                    "marginBottom": 15.694117647058823,
+                    "marginTop": -3.9235294117647057,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                500 $
+                 
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 0.4,
+                  "flexDirection": "column",
+                  "marginTop": 12.857142857142858,
+                  "textAlign": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 85.71428571428571,
+                  }
+                }
+              >
+                }
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "marginTop": 42.857142857142854,
+                  "textAlign": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 23.541176470588233,
+                    "marginBottom": 0,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Total Value
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 27.46470588235294,
+                    "fontWeight": "bold",
+                    "marginBottom": 15.694117647058823,
+                    "marginTop": -3.9235294117647057,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                5000 $
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 0.8,
+                  "flexDirection": "column",
+                  "marginTop": 42.857142857142854,
+                  "textAlign": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 23.541176470588233,
+                    "marginBottom": 0,
+                    "textAlign": "justify",
+                  }
+                }
+              >
+                Revenue today
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#54c242",
+                    "fontSize": 35.311764705882354,
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                +0.00 %
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
         Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
           "flex": 1,
           "margin": 0,
+          "marginBottom": 0,
+          "padding": 15,
           "paddingBottom": 31.388235294117646,
           "paddingLeft": 34.285714285714285,
           "paddingRight": 34.285714285714285,
           "paddingTop": 31.388235294117646,
-        }
-      }
-    />
-    <Themed.Card
-      containerStyle={
-        Object {
-          "flex": 1,
-          "margin": 0,
-          "paddingBottom": 31.388235294117646,
-          "paddingLeft": 34.285714285714285,
-          "paddingRight": 34.285714285714285,
-          "paddingTop": 31.388235294117646,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
         }
       }
     >
-      <Holdings
-        portfolio={
+      <View
+        style={
           Object {
-            "balance": 500,
-            "lastDayRevenue": 0,
-            "name": "Portfolio1",
-            "ownerId": "Joooni",
-            "stocks": Array [
-              Object {
-                "amount": 245,
-                "avgPrice": 153.3,
-                "lastDayRevenue": 0.52,
-                "totalMarketValue": 2084,
-                "totalRevenue": 0.54,
-                "uid": "AMZN",
-              },
-              Object {
-                "amount": 340,
-                "avgPrice": 132,
-                "lastDayRevenue": 0.52,
-                "totalMarketValue": 2084,
-                "totalRevenue": 0.54,
-                "uid": "AAPL",
-              },
-            ],
-            "totalMarketValue": 5000,
-            "totalRevenue": -0.02,
-            "uid": "Portfolio1",
+            "backgroundColor": "transparent",
           }
         }
-        portfolioLoading={false}
-        stocks={
-          Array [
-            Object {
-              "close": 293.42,
-              "currency": "USD",
-              "high": 375.53,
-              "low": 354.38,
-              "name": "Apple",
-              "revenue": 3894.34,
-              "stockInfo": Object {
-                "historyData": Object {
-                  "fetchTime": 2018-12-17T01:24:00.000Z,
-                  "historyDataQuote": Array [
-                    Object {
-                      "close": 162.63,
-                      "date": "2018-12-15T00:00:00.000Z",
-                      "high": 170.43,
-                      "low": 165.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                    Object {
-                      "close": 168.63,
-                      "date": "2018-12-14T00:00:00.000Z",
-                      "high": 170.43,
-                      "low": 161.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                  ],
-                },
-                "historyError": undefined,
-                "historyLoading": false,
-                "intraError": undefined,
-                "intraLoading": false,
-                "intraday": Object {
-                  "fetchTime": 2018-12-17T01:24:00.000Z,
-                  "intradayQuote": Array [
-                    Object {
-                      "close": 168.63,
-                      "date": "2018-12-12T00:20:00.000Z",
-                      "high": 170.43,
-                      "low": 165.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                    Object {
-                      "close": 168.63,
-                      "date": "2018-12-12T00:10:00.000Z",
-                      "high": 170.43,
-                      "low": 165.43,
-                      "open": 170.4,
-                      "symbol": "AAPL",
-                      "volume": 12279994,
-                    },
-                  ],
-                },
-                "metaError": undefined,
-                "metaLoading": false,
-                "refreshing": false,
-                "stockMetadata": Object {
-                  "currency": "USD",
-                  "fetchTime": 2018-12-17T01:24:00.000Z,
-                  "marketClose": "2018-12-12 11:20:00",
-                  "marketOpen": "2018-12-12 11:20:00",
-                  "name": "Apple Inc.",
-                  "region": "string",
-                  "symbol": "AAPL",
-                  "timeZone": "US/Eastern",
-                  "type": "string",
-                },
-              },
-              "symbol": "AAPL",
-            },
-          ]
-        }
-        stocksLoading={false}
       />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
+    </View>
+    <View
+      style={
         Object {
-          "height": 109.85882352941177,
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
+          "flex": 1,
           "margin": 0,
+          "marginBottom": 0,
+          "padding": 15,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
         }
       }
     >
-      <CardButton
-        iconName="events"
-        onPress={[Function]}
-        translationTitle="PortfolioPage.Events"
-      />
-    </Themed.Card>
-    <Themed.Card
-      containerStyle={
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginBottom": 25.714285714285715,
+                "marginTop": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 0.9,
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/navigation/assets/briefcase2.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 48,
+                    "tintColor": "#004D40",
+                    "width": 48,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 17,
+                    "fontWeight": "bold",
+                    "marginLeft": 17.142857142857142,
+                  }
+                }
+              >
+                My holdings
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 0.1,
+                  "marginTop": 10.714285714285714,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={null}
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/navigation/assets/twoArrowOpen.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 48,
+                      "tintColor": "#004D40",
+                      "width": 48,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "borderTopWidth": 1.5,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={null}
+              >
+                <Text
+                  style={null}
+                >
+                   Error! 
+                </Text>
+              </View>
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "height": 0,
+                    "overflow": "hidden",
+                  }
+                }
+              >
+                <View
+                  onLayout={[Function]}
+                  style={Object {}}
+                >
+                  <Text>
+                    Error! 
+                     
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "borderTopWidth": 1.5,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={null}
+              >
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "marginBottom": 25.714285714285715,
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "flex": 0.9,
+                        "flexDirection": "row",
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#004D40",
+                          "fontSize": 15,
+                          "fontWeight": "bold",
+                          "marginBottom": 17.142857142857142,
+                          "marginTop": 17.142857142857142,
+                        }
+                      }
+                    >
+                      Apple
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "flex": 0.1,
+                        "marginTop": 10.714285714285714,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "testUri": "../../../src/navigation/assets/arrowDown.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 48,
+                          "tintColor": "#004D40",
+                          "width": 48,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "height": 0,
+                    "overflow": "hidden",
+                  }
+                }
+              >
+                <View
+                  onLayout={[Function]}
+                  style={Object {}}
+                >
+                  <View>
+                    <View
+                      style={
+                        Object {
+                          "display": "flex",
+                          "flexDirection": "row",
+                          "marginBottom": 8,
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "flex": 0.8,
+                            "flexDirection": "column",
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 23.541176470588233,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Stocks Owned
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginBottom": 7.847058823529411,
+                              "marginTop": -3.9235294117647057,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          340
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 23.541176470588233,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Market value
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginBottom": 7.847058823529411,
+                              "marginTop": -3.9235294117647057,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          168.63 $
+                           
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 23.541176470588233,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Total Revenue (%)
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#54c242",
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginBottom": 7.847058823529411,
+                              "marginTop": -3.9235294117647057,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          +54.00 %
+                           
+                        </Text>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "flex": 0.8,
+                            "flexDirection": "column",
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 23.541176470588233,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Acquisition price
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginBottom": 7.847058823529411,
+                              "marginTop": -3.9235294117647057,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          132.00 $
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 23.541176470588233,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Total market value
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginBottom": 7.847058823529411,
+                              "marginTop": -3.9235294117647057,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          2084.00 $
+                           
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 23.541176470588233,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Total revenue
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#e20f00",
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginBottom": 7.847058823529411,
+                              "marginTop": -3.9235294117647057,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          -42796.00 $
+                           
+                        </Text>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "flex": 0.8,
+                            "flexDirection": "column",
+                            "marginTop": 53.57142857142857,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#004D40",
+                              "fontSize": 12,
+                              "marginBottom": 0,
+                              "textAlign": "justify",
+                            }
+                          }
+                        >
+                          Revenue today
+                        </Text>
+                        <Text
+                          style={
+                            Object {
+                              "color": "#54c242",
+                              "fontSize": 35.311764705882354,
+                              "fontWeight": "bold",
+                              "textAlign": "center",
+                            }
+                          }
+                        >
+                          +52.00 %
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
         Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
           "height": 109.85882352941177,
           "margin": 0,
+          "marginBottom": 0,
+          "padding": 15,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
         }
       }
     >
-      <CardButton
-        iconName="manage"
-        onPress={[Function]}
-        translationTitle="PortfolioPage.Manage"
-      />
-    </Themed.Card>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/navigation/assets/events.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 48,
+                    "tintColor": "#004D40",
+                    "width": 48,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 33.35,
+                    "fontWeight": "bold",
+                    "marginLeft": 17.142857142857142,
+                  }
+                }
+              >
+                Events & transactions
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/navigation/assets/open.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 48,
+                  "tintColor": "#004D40",
+                  "width": 48,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
+          "height": 109.85882352941177,
+          "margin": 0,
+          "marginBottom": 0,
+          "padding": 15,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/navigation/assets/manage.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 48,
+                    "tintColor": "#004D40",
+                    "width": 48,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "color": "#004D40",
+                    "fontSize": 33.35,
+                    "fontWeight": "bold",
+                    "marginLeft": 17.142857142857142,
+                  }
+                }
+              >
+                Manage portfolio
+              </Text>
+            </View>
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/navigation/assets/open.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 48,
+                  "tintColor": "#004D40",
+                  "width": 48,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
   </View>
-</_class>
+</RCTScrollView>
 `;
 
 exports[`portfolio-screen tests Portfolioscreen renders correctly 1`] = `
-<TouchableText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  forwardedRef={null}
->
+<Text>
   Error, portfolio not found! 
-</TouchableText>
+</Text>
 `;

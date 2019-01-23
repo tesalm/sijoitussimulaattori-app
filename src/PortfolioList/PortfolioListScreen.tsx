@@ -5,16 +5,17 @@ import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
-import { getPortfolios, SaveAsCurrentPortfolioId } from './actions';
+import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducers';
 
 export interface PortfolioListProps {
   portfolioListing: Array<SinglePortfolio>;
   loading: boolean;
-  error?: Error;
+  PortfolioListingLoadingError?: Error;
   getAllPortfolios: typeof getPortfolios;
-  saveAsCurrentId: typeof SaveAsCurrentPortfolioId;
+  saveAsCurrentPortfolio: typeof saveAsCurrentPortfolioId;
 }
 
 type PortfolioPropsWithNavigation = PortfolioListProps & NavigationScreenProps;
@@ -32,10 +33,14 @@ export class PortfolioListScreen extends React.Component<
   }
 
   render() {
-    const { portfolioListing, loading, error } = this.props;
-    if (error) {
+    const {
+      portfolioListing,
+      loading,
+      PortfolioListingLoadingError,
+    } = this.props;
+    if (PortfolioListingLoadingError) {
       //TODO: Format the error message to user
-      return <Text>Error! {error.message} </Text>;
+      return <Text>Error! {PortfolioListingLoadingError.message} </Text>;
     }
     if (loading) {
       return (
@@ -53,8 +58,8 @@ export class PortfolioListScreen extends React.Component<
         renderItem={({ item, index }) => (
           <ListItem
             onPress={() => {
-              this.props.saveAsCurrentId(item.uid);
-              this.props.navigation.navigate('SinglePortfolio');
+              this.props.saveAsCurrentPortfolio(item.uid);
+              this.props.navigation.navigate(RouteName.SinglePortfolio);
             }}
             title={item.name}
           />
@@ -66,14 +71,14 @@ export class PortfolioListScreen extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   portfolioListing: state.portfolioListing.portfolioListing,
   loading: state.portfolioListing.loading,
-  error: state.portfolioListing.error,
+  PortfolioListingLoadingError: state.portfolioListing.error,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getAllPortfolios: getPortfolios,
-      saveAsCurrentId: SaveAsCurrentPortfolioId,
+      saveAsCurrentPortfolio: saveAsCurrentPortfolioId,
     },
     dispatch
   );

@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import React from 'react';
 import { RefreshControl, ScrollView, Text } from 'react-native';
 import { Card } from 'react-native-elements';
@@ -8,11 +9,11 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { Colors } from '../App/colors';
 import { cardButtonStyles, cardStyles } from '../App/styles';
 import CardButton from '../general/cardButton';
-import { getHistory, getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../MarketScreen/actions';
+import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
 import { RouteName } from '../navigation/routes';
 import { getPortfolioData } from '../PortfolioList/actions';
-import { SinglePortfolio } from '../PortfolioList/reducers';
+import { PortfolioStock, SinglePortfolio } from '../PortfolioList/reducers';
 import { RootState } from '../redux/reducers';
 import { t } from './../assets/i18n';
 import { Holdings } from './components/Holdings';
@@ -24,10 +25,9 @@ export interface PortfolioProps {
   portfolioId?: string;
   stocks: Array<Stock>;
   getAllStocks: typeof getStocks;
-  getMeta: typeof getStockMetadata;
-  getHistoryData: typeof getHistory;
-  getIntra: typeof getIntraday;
-  refreshIntra: typeof refreshIntraday;
+  getStockMetaData: typeof getStockMetadata;
+  getStockIntraData: typeof getIntraday;
+  refreshStockIntraData: typeof refreshIntraday;
   stocksLoading: boolean;
 }
 
@@ -41,41 +41,44 @@ export class PortfolioScreen extends React.Component<
     super(props);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     if (
       this.props.portfolio &&
       this.props.portfolioId &&
       this.props.portfolio.portfolioInfo.portfolio == undefined
     ) {
-      await this.props.getPortfolio(this.props.portfolioId);
+      this.props.getPortfolio(this.props.portfolioId);
     }
     if (this.props.stocks.length == 0) {
-      await this.props.getAllStocks();
-    }
-
-    if (this.props.portfolio && this.props.portfolio.portfolioInfo.portfolio) {
-      await this.props.portfolio.portfolioInfo.portfolio.stocks.forEach(
-        async (portfolioStock) => {
-          var findStock = this.props.stocks.find((stock) => {
-            return stock.symbol === portfolioStock.uid;
-          });
-          if (findStock) {
-            if (findStock.stockInfo.historyData == undefined) {
-              await this.props.getHistoryData(findStock, findStock.symbol);
-            }
-            if (findStock.stockInfo.stockMetadata == undefined) {
-              await this.props.getMeta(findStock, findStock.symbol);
-            }
-            if (findStock.stockInfo.intraday == undefined) {
-              await this.props.getIntra(findStock, findStock.symbol);
-            }
-          }
-        }
-      );
+      this.props.getAllStocks();
     }
   }
 
-  //Fetch portfolio and stock data when refreshed.
+  // Debounce function with 500 ms delay
+  getStockData = debounce((stocks: PortfolioStock[]) => {
+    stocks.forEach((portfolioStock) => {
+      var findStock = this.props.stocks.find((stock) => {
+        return stock.symbol === portfolioStock.uid;
+      });
+
+      if (findStock) {
+        if (!findStock.stockInfo.intraday) {
+          this.props.getStockMetaData(findStock, findStock.symbol);
+        }
+        if (!findStock.stockInfo.intraday) {
+          this.props.getStockIntraData(findStock, findStock.symbol);
+        }
+      }
+    });
+  }, 500);
+
+  componentDidUpdate() {
+    if (this.props.portfolio && this.props.portfolio.portfolioInfo.portfolio) {
+      this.getStockData(this.props.portfolio.portfolioInfo.portfolio.stocks);
+    }
+  }
+
+  // Fetch portfolio and stock data when refreshed.
   refreshPortfolioAndStock = () => {
     if (this.props.portfolioId) {
       this.props.getPortfolio(this.props.portfolioId);
@@ -87,7 +90,7 @@ export class PortfolioScreen extends React.Component<
             return stock.symbol === portfolioStock.uid;
           });
           if (findStock) {
-            await this.props.refreshIntra(findStock, findStock.symbol);
+            this.props.refreshStockIntraData(findStock, findStock.symbol);
           }
         }
       );
@@ -129,7 +132,7 @@ export class PortfolioScreen extends React.Component<
             <CardButton
               iconName={'events'}
               translationTitle={'PortfolioPage.Events'}
-              //TODO: navigate to events page
+              // TODO: navigate to events page
               onPress={() => this.props.navigation.navigate(RouteName.Home)}
             />
           </Card>
@@ -137,14 +140,14 @@ export class PortfolioScreen extends React.Component<
             <CardButton
               iconName={'manage'}
               translationTitle={'PortfolioPage.Manage'}
-              //TODO: navigae to manage portfolio page
+              // TODO: navigae to manage portfolio page
               onPress={() => this.props.navigation.navigate(RouteName.Home)}
             />
           </Card>
         </ScrollView>
       );
     } else {
-      //TODO: Format the error message to user
+      // TODO: Format the error message to user
       return <Text>Error, portfolio not found! </Text>;
     }
   }
@@ -164,10 +167,9 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     {
       getPortfolio: getPortfolioData,
       getAllStocks: getStocks,
-      getMeta: getStockMetadata,
-      getIntra: getIntraday,
-      getHistoryData: getHistory,
-      refreshIntra: refreshIntraday,
+      getStockMetaData: getStockMetadata,
+      getStockIntraData: getIntraday,
+      refreshStockIntraData: refreshIntraday,
     },
     dispatch
   );

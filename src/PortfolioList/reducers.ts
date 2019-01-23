@@ -58,7 +58,7 @@ export const portfolioListingReducer = (
 ): PortfolioListing => {
   switch (action.type) {
     case ActionType.RequestPortfolioListingBegin:
-      return { ...state, loading: true, error: undefined };
+      return { ...cloneDeep(state), loading: true, error: undefined };
     case ActionType.RequestPortfoliosListingSuccess:
       return {
         ...state,
@@ -68,8 +68,8 @@ export const portfolioListingReducer = (
       };
     case ActionType.RequestPortfoliosListingFailure:
       return { ...state, loading: false, error: action.error };
-    case ActionType.SaveId:
-      return { ...state, portfolioId: action.id };
+    case ActionType.SaveCurrentPortfolioId:
+      return { ...cloneDeep(state), portfolioId: action.id };
     case ActionType.RequestPortfolioBegin: {
       const portfolioList = cloneDeep(state.portfolioListing);
       const portfolioIndex = getPortfolioIndex(

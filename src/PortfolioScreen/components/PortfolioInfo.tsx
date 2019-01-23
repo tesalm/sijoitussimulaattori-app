@@ -23,7 +23,7 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
       </View>
     );
   } else {
-    if (props.portfolio === undefined) {
+    if (!props.portfolio) {
       let errorMessage;
       if (props.error) {
         errorMessage = props.error.message + ' ';

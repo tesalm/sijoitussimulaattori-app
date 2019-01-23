@@ -10,14 +10,14 @@ export enum ActionType {
   RequestPortfolioBegin = '[Portfolio] Data Request',
   RequestPortfolioSuccess = '[Portfolio] Data Success',
   RequestPortfolioFailure = '[Portfolio] Data Failure',
-  SaveId = '[Portfolios] Save Active Portfolio Id',
+  SaveCurrentPortfolioId = '[Portfolios] Save Current Portfolio Id',
 }
 
 export type PortfolioAction =
   | RequestPortfolioListingBegin
   | RequestPortfoliosListingSuccess
   | RequestPortfoliosListingFailure
-  | SaveId
+  | SaveCurrentPortfolioId
   | RequestPortfolioBegin
   | RequestPortfolioSuccess
   | RequestPortfolioFailure;
@@ -43,8 +43,8 @@ export class RequestPortfoliosListingFailure {
   }
 }
 
-export class SaveId {
-  readonly type = ActionType.SaveId;
+export class SaveCurrentPortfolioId {
+  readonly type = ActionType.SaveCurrentPortfolioId;
   constructor(public id: string) {
     return { type: this.type, id };
   }
@@ -83,10 +83,10 @@ const getPortfolioData = (portfolioId: string) => async (
   }
 };
 
-const SaveAsCurrentPortfolioId = (symbol: string) => async (
+const saveAsCurrentPortfolioId = (symbol: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
-  dispatch(new SaveId(symbol));
+  dispatch(new SaveCurrentPortfolioId(symbol));
 };
 
 const getPortfolios = () => async (dispatch: Dispatch<PortfolioAction>) => {
@@ -107,4 +107,4 @@ const getPortfolios = () => async (dispatch: Dispatch<PortfolioAction>) => {
   }
 };
 
-export { getPortfolios, SaveAsCurrentPortfolioId, getPortfolioData };
+export { getPortfolios, saveAsCurrentPortfolioId, getPortfolioData };

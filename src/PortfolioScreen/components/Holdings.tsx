@@ -4,7 +4,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 
 import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
-import Icon from '../../general/icon';
+import Icon, { IconNames } from '../../general/icon';
 import { Stock } from '../../MarketScreen/reducer';
 import { Portfolio, PortfolioStock } from '../../PortfolioList/reducers';
 import { formatCurrency, formatRevenue, formatRevenueCurrency, revenueColor, valueColor } from '../../util/stock';
@@ -28,7 +28,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     this.state = { activeSections: [] };
   }
 
-  //Render header for one section
+  // Render header for one section
   renderHeader = (
     section: PortfolioStock,
     index: number,
@@ -40,29 +40,25 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       if (error) {
         errorMessage = error.message + ' ';
       }
-      // TODO: Muokkaa error-teksti käyttäjälle.
+      // TODO: Format error message to user
       return <Text>Error! {errorMessage} </Text>;
     }
-    //find right stock from the array.
+    // find right stock from the array.
     const rightStock = stocks.find((stock) => stock.symbol == section.uid);
     if (rightStock == undefined) {
       let errorMessage;
       if (error) {
-        //TODO: Error message to user
+        // TODO: Format Error message to user
         errorMessage = error.message;
       }
       return <Text> Error! {errorMessage}</Text>;
     }
-    //Check if it still loading data.
-    if (
-      rightStock.stockInfo.metaLoading ||
-      rightStock.stockInfo.historyLoading ||
-      rightStock.stockInfo.intraLoading
-    ) {
+    // Check if it still loading data.
+    if (rightStock.stockInfo.metaLoading || rightStock.stockInfo.intraLoading) {
       return <ActivityIndicator size="small" />;
     }
 
-    const iconName = isActive ? 'arrowUp' : 'arrowDown';
+    const iconName = isActive ? IconNames.arrowUp : IconNames.arrowDown;
 
     return (
       <View style={portfolioStyles.holdingsLogoView}>
@@ -78,7 +74,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     );
   };
 
-  //Renders content for one section
+  // Renders content for one section
   renderContent = (section: PortfolioStock) => {
     const { error, stocks } = this.props;
     if (stocks == undefined) {
@@ -86,7 +82,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       if (error) {
         errorMessage = error.message + ' ';
       }
-      // TODO: Muokkaa error-teksti käyttäjälle.
+      // TODO: Format error message to user.
       return <Text>Error! {errorMessage} </Text>;
     }
 
@@ -97,23 +93,16 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       if (error) {
         errorMessage = error.message + ' ';
       }
-      // TODO: Muokkaa error-teksti käyttäjälle.
+      // TODO: Format error message to user.
       return <Text>Error! {errorMessage} </Text>;
     }
-    if (
-      rightStock.stockInfo.intraday === undefined ||
-      rightStock.stockInfo.stockMetadata === undefined ||
-      rightStock.stockInfo.historyData == undefined
-    ) {
+    if (!rightStock.stockInfo.intraday || !rightStock.stockInfo.stockMetadata) {
       let errorMessage;
       if (rightStock.stockInfo.metaError) {
         errorMessage = rightStock.stockInfo.metaError.message + ' ';
       }
       if (rightStock.stockInfo.intraError) {
         errorMessage = errorMessage + rightStock.stockInfo.intraError.message;
-      }
-      if (rightStock.stockInfo.historyError) {
-        errorMessage = errorMessage + rightStock.stockInfo.historyError.message;
       }
       // TODO: Muokkaa error-teksti käyttäjälle.
       return <Text>Error! {errorMessage} </Text>;
@@ -193,9 +182,9 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
         this.updateSections([]);
       } else {
         this.updateSections(
-          new Array(this.props.portfolio.stocks.length - 1 - 0 + 1)
+          new Array(this.props.portfolio.stocks.length)
             .fill(undefined)
-            .map((_, i) => i + 0)
+            .map((_, i) => i)
         );
       }
     }
@@ -216,24 +205,20 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
         </View>
       );
     } else {
-      if (
-        portfolio === undefined ||
-        stocks == undefined ||
-        portfolio == undefined
-      ) {
+      if (!portfolio || !stocks) {
         let errorMessage;
         if (error) {
           errorMessage = error.message + ' ';
         }
-        // TODO: Muokkaa error-teksti käyttäjälle.
+        // TODO: Format error message to user.
         return <Text>Error! {errorMessage} </Text>;
       }
     }
-    //Choose correct icon
+    // Choose correct icon
     const iconName =
       this.state.activeSections.length === portfolio.stocks.length
-        ? 'twoArrowClose'
-        : 'twoArrowOpen';
+        ? IconNames.twoArrowClose
+        : IconNames.twoArrowOpen;
 
     return (
       <View>

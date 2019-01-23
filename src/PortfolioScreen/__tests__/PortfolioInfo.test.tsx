@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
+import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 import { PortfolioInfo, PortfolioInfoProps } from '../components/PortfolioInfo';
@@ -127,18 +127,16 @@ describe('portfolioInfo tests', () => {
   };
 
   it('PortfolioInfo renders correctly', async () => {
-    const wrapper = shallow(
-      <PortfolioInfo {...defaultPortfolioProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(<PortfolioInfo {...defaultPortfolioProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 
   it('PortfolioInfo renders correctly with portfolio and stocks', async () => {
-    const wrapper = shallow(
-      <PortfolioInfo {...successPortfolioProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(<PortfolioInfo {...successPortfolioProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 });

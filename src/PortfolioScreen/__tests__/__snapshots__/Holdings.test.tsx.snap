@@ -1,26 +1,474 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Holdings tests Holdings renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": "100%",
+      "justifyContent": "center",
+    }
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
 `;
 
 exports[`Holdings tests Holdings renders correctly with error 1`] = `
-<TouchableText
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  forwardedRef={null}
->
-  Error! 
-  Network connection failed 
-   
-</TouchableText>
+<View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginBottom": 25.714285714285715,
+        "marginTop": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 0.9,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/navigation/assets/briefcase2.png",
+          }
+        }
+        style={
+          Object {
+            "height": 48,
+            "tintColor": "#004D40",
+            "width": 48,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginLeft": 17.142857142857142,
+          }
+        }
+      >
+        My holdings
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 0.1,
+          "marginTop": 10.714285714285714,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/navigation/assets/twoArrowOpen.png",
+            }
+          }
+          style={
+            Object {
+              "height": 48,
+              "tintColor": "#004D40",
+              "width": 48,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "borderTopWidth": 1.5,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <Text
+          style={null}
+        >
+           Error! 
+        </Text>
+      </View>
+      <View
+        pointerEvents="none"
+        style={
+          Object {
+            "height": 0,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={Object {}}
+        >
+          <Text>
+            Error! 
+             
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "borderTopWidth": 1.5,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginBottom": 25.714285714285715,
+              "marginTop": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 0.9,
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 17.142857142857142,
+                  "marginTop": 17.142857142857142,
+                }
+              }
+            >
+              Apple
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.1,
+                "marginTop": 10.714285714285714,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/navigation/assets/arrowDown.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 48,
+                  "tintColor": "#004D40",
+                  "width": 48,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        pointerEvents="none"
+        style={
+          Object {
+            "height": 0,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={Object {}}
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "marginBottom": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flex": 0.8,
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 23.541176470588233,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Stocks Owned
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  340
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 23.541176470588233,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Market value
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  168.63 $
+                   
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 23.541176470588233,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Total Revenue (%)
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#54c242",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  +54.00 %
+                   
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 0.8,
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 23.541176470588233,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Acquisition price
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  132.00 $
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 23.541176470588233,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Total market value
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  2084.00 $
+                   
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 23.541176470588233,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Total revenue
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#e20f00",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  -42796.00 $
+                   
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 0.8,
+                    "flexDirection": "column",
+                    "marginTop": 53.57142857142857,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 12,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Revenue today
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#54c242",
+                      "fontSize": 35.311764705882354,
+                      "fontWeight": "bold",
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  +52.00 %
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`Holdings tests Holdings renders correctly with portfolio and stocks 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Text>
+  Error! 
+  Network connection failed 
+   
+</Text>
 `;

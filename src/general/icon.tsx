@@ -10,7 +10,7 @@ interface IconProps {
   iconWidth: number;
 }
 
-enum IconNames {
+export enum IconNames {
   open = 'open',
   transaction = 'transaction',
   holdings = 'holdings',

@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
+import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../../MarketScreen/actions';
@@ -18,10 +18,10 @@ describe('portfolio-screen tests', () => {
     portfolioId: undefined,
     stocks: [],
     getAllStocks: getStocks,
-    getMeta: getStockMetadata,
-    getHistoryData: jest.fn(),
-    getIntra: getIntraday,
-    refreshIntra: refreshIntraday,
+    getStockMetaData: getStockMetadata,
+
+    getStockIntraData: getIntraday,
+    refreshStockIntraData: refreshIntraday,
     stocksLoading: false,
   };
 
@@ -144,10 +144,10 @@ describe('portfolio-screen tests', () => {
         },
       },
     ],
-    getMeta: jest.fn(),
-    getIntra: jest.fn(),
-    refreshIntra: jest.fn(),
-    getHistoryData: jest.fn(),
+    getStockMetaData: jest.fn(),
+    getStockIntraData: jest.fn(),
+    refreshStockIntraData: jest.fn(),
+
     portfolioId: 'Portfolio1',
     getAllStocks: jest.fn(),
     getPortfolio: jest.fn(),
@@ -155,18 +155,20 @@ describe('portfolio-screen tests', () => {
   };
 
   it('Portfolioscreen renders correctly', async () => {
-    const wrapper = shallow(
-      <PortfolioScreen {...defaultPortfolioProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(
+        <PortfolioScreen {...defaultPortfolioProps} {...navigationMock} />
+      )
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 
   it('PortfolioScreen renders correctly with portfolio and stocks', async () => {
-    const wrapper = shallow(
-      <PortfolioScreen {...successPortfolioProps} {...navigationMock} />,
-      { context: { store: mockStore() } }
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(
+        <PortfolioScreen {...successPortfolioProps} {...navigationMock} />
+      )
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 });
