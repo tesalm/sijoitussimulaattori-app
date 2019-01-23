@@ -30,32 +30,11 @@ exports[`portfolio-list tests renders correctly 1`] = `
 `;
 
 exports[`portfolio-list tests renders correctly with error 1`] = `
-<RCTScrollView
-  data={Array []}
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  renderItem={[Function]}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
->
-  <View />
-</RCTScrollView>
+<Text>
+  Error! 
+  Network connection failed
+   
+</Text>
 `;
 
 exports[`portfolio-list tests renders correctly with loading 1`] = `
