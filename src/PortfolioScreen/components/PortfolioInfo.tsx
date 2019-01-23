@@ -28,7 +28,7 @@ export const PortfolioInfo = (props: PortfolioInfoProps): JSX.Element => {
       if (props.error) {
         errorMessage = props.error.message + ' ';
       }
-      // TODO: Muokkaa error-teksti käyttäjälle.
+      // TODO: Format error message to user.
       return <Text>Error! {errorMessage} </Text>;
     }
   }

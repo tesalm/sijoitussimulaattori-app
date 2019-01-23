@@ -86,7 +86,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       return <Text>Error! {errorMessage} </Text>;
     }
 
-    //find right stock from the array.
+    // find right stock from the array.
     const rightStock = stocks.find((stock) => stock.symbol == section.uid);
     if (rightStock == undefined) {
       let errorMessage;
@@ -108,7 +108,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       return <Text>Error! {errorMessage} </Text>;
     }
 
-    //calculate all needed values.
+    // calculate all needed values.
     const currency = rightStock.stockInfo.stockMetadata.currency;
     const close = rightStock.stockInfo.intraday.intradayQuote[0].close;
     const totalRevenueCurrency =
@@ -172,10 +172,10 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     this.setState({ activeSections });
   };
 
-  //When icon is pressed, open or close all sections
+  // When icon is pressed, open or close all sections
   onPressOpenOrClose = () => {
     if (this.props.portfolio) {
-      //If all sections open, close them if not, open them all.
+      // If all sections open, close them if not, open them all.
       if (
         this.state.activeSections.length === this.props.portfolio.stocks.length
       ) {
