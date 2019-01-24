@@ -13,7 +13,7 @@ import { SinglePortfolio } from './reducers';
 export interface PortfolioListProps {
   portfolioListing: Array<SinglePortfolio>;
   loading: boolean;
-  PortfolioListingLoadingError?: Error;
+  portfolioListingLoadingError?: Error;
   getAllPortfolios: typeof getPortfolios;
   saveAsCurrentPortfolio: typeof saveAsCurrentPortfolioId;
 }
@@ -36,11 +36,11 @@ export class PortfolioListScreen extends React.Component<
     const {
       portfolioListing,
       loading,
-      PortfolioListingLoadingError,
+      portfolioListingLoadingError,
     } = this.props;
-    if (PortfolioListingLoadingError) {
+    if (portfolioListingLoadingError) {
       //TODO: Format the error message to user
-      return <Text>Error! {PortfolioListingLoadingError.message} </Text>;
+      return <Text>Error! {portfolioListingLoadingError.message} </Text>;
     }
     if (loading) {
       return (
@@ -71,7 +71,7 @@ export class PortfolioListScreen extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   portfolioListing: state.portfolioListing.portfolioListing,
   loading: state.portfolioListing.loading,
-  PortfolioListingLoadingError: state.portfolioListing.error,
+  portfolioListingLoadingError: state.portfolioListing.error,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

@@ -20,8 +20,8 @@ describe('portfolio-screen tests', () => {
     getAllStocks: getStocks,
     getStockMetaData: getStockMetadata,
 
-    getStockIntraData: getIntraday,
-    refreshStockIntraData: refreshIntraday,
+    getStockIntraDayData: getIntraday,
+    refreshStockIntraDayData: refreshIntraday,
     stocksLoading: false,
   };
 
@@ -145,8 +145,8 @@ describe('portfolio-screen tests', () => {
       },
     ],
     getStockMetaData: jest.fn(),
-    getStockIntraData: jest.fn(),
-    refreshStockIntraData: jest.fn(),
+    getStockIntraDayData: jest.fn(),
+    refreshStockIntraDayData: jest.fn(),
 
     portfolioId: 'Portfolio1',
     getAllStocks: jest.fn(),

@@ -61,13 +61,13 @@ export const portfolioListingReducer = (
       return { ...cloneDeep(state), loading: true, error: undefined };
     case ActionType.RequestPortfoliosListingSuccess:
       return {
-        ...state,
+        ...cloneDeep(state),
         portfolioListing: action.portfolios,
         loading: false,
         error: undefined,
       };
     case ActionType.RequestPortfoliosListingFailure:
-      return { ...state, loading: false, error: action.error };
+      return { ...cloneDeep(state), loading: false, error: action.error };
     case ActionType.SaveCurrentPortfolioId:
       return { ...cloneDeep(state), portfolioId: action.id };
     case ActionType.RequestPortfolioBegin: {
@@ -77,10 +77,10 @@ export const portfolioListingReducer = (
         action.portfolioId
       );
       if (portfolioIndex < 0) {
-        return { ...state };
+        return { ...cloneDeep(state) };
       }
       portfolioList[portfolioIndex].portfolioInfo.loading = true;
-      return { ...state, portfolioListing: portfolioList };
+      return { ...cloneDeep(state), portfolioListing: portfolioList };
     }
     case ActionType.RequestPortfolioSuccess: {
       const portfolioList = cloneDeep(state.portfolioListing);
@@ -89,7 +89,7 @@ export const portfolioListingReducer = (
         action.portfolioId
       );
       if (portfolioIndex < 0) {
-        return { ...state };
+        return { ...cloneDeep(state) };
       }
       portfolioList[portfolioIndex].portfolioInfo = {
         ...portfolioList[portfolioIndex].portfolioInfo,
@@ -97,7 +97,7 @@ export const portfolioListingReducer = (
         loading: false,
         error: undefined,
       };
-      return { ...state, portfolioListing: portfolioList };
+      return { ...cloneDeep(state), portfolioListing: portfolioList };
     }
     case ActionType.RequestPortfolioFailure: {
       const portfolioList = cloneDeep(state.portfolioListing);
@@ -106,7 +106,7 @@ export const portfolioListingReducer = (
         action.portfolioId
       );
       if (portfolioIndex < 0) {
-        return { ...state };
+        return { ...cloneDeep(state) };
       }
       portfolioList[portfolioIndex].portfolioInfo = {
         ...portfolioList[portfolioIndex].portfolioInfo,
@@ -114,7 +114,7 @@ export const portfolioListingReducer = (
         loading: false,
         error: action.error,
       };
-      return { ...state, portfolioListing: portfolioList };
+      return { ...cloneDeep(state), portfolioListing: portfolioList };
     }
 
     default:

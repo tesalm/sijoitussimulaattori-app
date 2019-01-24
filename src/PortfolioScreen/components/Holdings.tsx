@@ -224,7 +224,11 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       <View>
         <View style={portfolioStyles.holdingsLogoView}>
           <View style={portfolioStyles.holdingsTitleView}>
-            <Icon iconName={'holdings'} iconHeight={24} iconWidth={24} />
+            <Icon
+              iconName={IconNames.holdings}
+              iconHeight={24}
+              iconWidth={24}
+            />
             <Text style={portfolioStyles.titleText}>
               {t('PortfolioPage.Holdings')}
             </Text>

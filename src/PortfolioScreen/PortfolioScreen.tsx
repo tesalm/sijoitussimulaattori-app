@@ -9,6 +9,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { Colors } from '../App/colors';
 import { cardButtonStyles, cardStyles } from '../App/styles';
 import CardButton from '../general/cardButton';
+import { IconNames } from '../general/icon';
 import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
 import { RouteName } from '../navigation/routes';
@@ -26,8 +27,8 @@ export interface PortfolioProps {
   stocks: Array<Stock>;
   getAllStocks: typeof getStocks;
   getStockMetaData: typeof getStockMetadata;
-  getStockIntraData: typeof getIntraday;
-  refreshStockIntraData: typeof refreshIntraday;
+  getStockIntraDayData: typeof getIntraday;
+  refreshStockIntraDayData: typeof refreshIntraday;
   stocksLoading: boolean;
 }
 
@@ -66,7 +67,7 @@ export class PortfolioScreen extends React.Component<
           this.props.getStockMetaData(findStock, findStock.symbol);
         }
         if (!findStock.stockInfo.intraday) {
-          this.props.getStockIntraData(findStock, findStock.symbol);
+          this.props.getStockIntraDayData(findStock, findStock.symbol);
         }
       }
     });
@@ -90,7 +91,7 @@ export class PortfolioScreen extends React.Component<
             return stock.symbol === portfolioStock.uid;
           });
           if (findStock) {
-            this.props.refreshStockIntraData(findStock, findStock.symbol);
+            this.props.refreshStockIntraDayData(findStock, findStock.symbol);
           }
         }
       );
@@ -130,7 +131,7 @@ export class PortfolioScreen extends React.Component<
           </Card>
           <Card containerStyle={cardButtonStyles.cardButton}>
             <CardButton
-              iconName={'events'}
+              iconName={IconNames.events}
               translationTitle={'PortfolioPage.Events'}
               // TODO: navigate to events page
               onPress={() => this.props.navigation.navigate(RouteName.Home)}
@@ -138,7 +139,7 @@ export class PortfolioScreen extends React.Component<
           </Card>
           <Card containerStyle={cardButtonStyles.cardButton}>
             <CardButton
-              iconName={'manage'}
+              iconName={IconNames.manage}
               translationTitle={'PortfolioPage.Manage'}
               // TODO: navigae to manage portfolio page
               onPress={() => this.props.navigation.navigate(RouteName.Home)}
@@ -168,8 +169,8 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
       getPortfolio: getPortfolioData,
       getAllStocks: getStocks,
       getStockMetaData: getStockMetadata,
-      getStockIntraData: getIntraday,
-      refreshStockIntraData: refreshIntraday,
+      getStockIntraDayData: getIntraday,
+      refreshStockIntraDayData: refreshIntraday,
     },
     dispatch
   );
