@@ -39,6 +39,7 @@ interface CreatePortfolioState {
   amountErrorMessage: string;
   sumActive: boolean;
   createActive: boolean;
+  dataSent: boolean;
 }
 
 class CreatePortfolio extends React.Component<
@@ -57,6 +58,7 @@ class CreatePortfolio extends React.Component<
       amountErrorMessage: '',
       sumActive: false,
       createActive: false,
+      dataSent: false,
     };
   }
 
@@ -65,7 +67,7 @@ class CreatePortfolio extends React.Component<
   };
 
   componentDidUpdate() {
-    if (this.props.success) {
+    if (this.props.success && this.state.dataSent) {
       this.props.navigation.goBack();
       ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
     }
@@ -140,11 +142,11 @@ class CreatePortfolio extends React.Component<
     }
   }
 
-  async validate() {
-    await this.sanitize(this.state.name);
-    await this.validateAmount(this.state.inputNumber);
+  validate() {
+    this.sanitize(this.state.name);
+    this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
-      this.props.create(this.state.name, this.state.amount);
+      this.setState({ dataSent: true }, () => this.props.create(this.state.name, this.state.amount));
     }
   }
 

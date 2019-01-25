@@ -47,8 +47,8 @@ app.get('/profile/portfolio/:portfolioID', (req, res) => {
 });
 
 app.post('/profile/portfolio', (req, res) => {
-  console.log('Dummy POST');
   console.log(req.params);
+  console.log(req.headers);
   res.end();
 });
 
