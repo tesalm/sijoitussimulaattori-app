@@ -63,6 +63,15 @@ const PortfolioListingStyles = StyleSheet.create({
   itemSeparatorStyle: {
     height: verticalScale(5),
   },
+  noPortfolioContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  noPortfolioText: {
+    fontSize: verticalScale(20),
+    textAlign: 'center',
+    color: Colors.baseColor,
+  },
 });
 
 export { PortfolioListingStyles };

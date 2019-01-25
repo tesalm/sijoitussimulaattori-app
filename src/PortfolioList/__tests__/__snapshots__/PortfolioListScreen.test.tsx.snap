@@ -1,52 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`portfolio-list tests renders correctly 1`] = `
-<RCTScrollView
-  ItemSeparatorComponent={[Function]}
-  data={Array []}
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  refreshControl={
-    <RefreshControlMock
-      colors={
-        Array [
-          "#004D40",
-        ]
-      }
-      onRefresh={[Function]}
-      refreshing={false}
-    />
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
-  renderItem={[Function]}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
 >
-  <RCTRefreshControl />
-  <View />
-</RCTScrollView>
+  <Text
+    style={
+      Object {
+        "color": "#004D40",
+        "fontSize": 40,
+        "textAlign": "center",
+      }
+    }
+  >
+    You don't have any portfolios
+  </Text>
+</View>
 `;
 
 exports[`portfolio-list tests renders correctly with error 1`] = `
 <Text>
-  Error! 
   Network connection failed
-   
 </Text>
 `;
 
@@ -290,43 +269,24 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
 `;
 
 exports[`portfolio-list tests renders correctly with refreshing 1`] = `
-<RCTScrollView
-  ItemSeparatorComponent={[Function]}
-  data={Array []}
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  refreshControl={
-    <RefreshControlMock
-      colors={
-        Array [
-          "#004D40",
-        ]
-      }
-      onRefresh={[Function]}
-      refreshing={true}
-    />
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
-  renderItem={[Function]}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
 >
-  <RCTRefreshControl />
-  <View />
-</RCTScrollView>
+  <Text
+    style={
+      Object {
+        "color": "#004D40",
+        "fontSize": 40,
+        "textAlign": "center",
+      }
+    }
+  >
+    You don't have any portfolios
+  </Text>
+</View>
 `;

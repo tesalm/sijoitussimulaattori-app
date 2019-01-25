@@ -110,6 +110,7 @@
   },
   "PortfolioListing": {
     "TotalRevenue": "Total revenue (%)",
-    "RevenueToday": "Revenue today"
+    "RevenueToday": "Revenue today",
+    "NoPortfolios": "You don't have any portfolios"
   }
 }

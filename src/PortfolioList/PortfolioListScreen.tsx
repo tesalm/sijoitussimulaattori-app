@@ -33,7 +33,7 @@ export class PortfolioListScreen extends React.Component<
   }
 
   componentDidMount() {
-    //Dispatch the actions
+    // Dispatch the actions
     this.props.getAllPortfolios();
   }
 
@@ -50,7 +50,7 @@ export class PortfolioListScreen extends React.Component<
     }
   };
 
-  refresh = () => {
+  refreshPortfolios = () => {
     this.props.getAllPortfolios();
   };
 
@@ -73,18 +73,24 @@ export class PortfolioListScreen extends React.Component<
       );
     }
 
+    // Show message if there are no portfolios
     if (portfolioListing.length == 0) {
-      //TODO: Format message to user
-      return <Text>{t('PortfolioListing.NoPortfolios')}</Text>;
+      return (
+        <View style={PortfolioListingStyles.noPortfolioContainer}>
+          <Text style={PortfolioListingStyles.noPortfolioText}>
+            {t('PortfolioListing.NoPortfolios')}
+          </Text>
+        </View>
+      );
     }
 
     return (
-      //TODO: Modify this list to match design for portfolio-list.
+      // TODO: Modify this list to match design for portfolio-list.
       <FlatList
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
-            onRefresh={this.refresh}
+            onRefresh={this.refreshPortfolios}
             colors={[Colors.baseColor]}
           />
         }
