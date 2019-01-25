@@ -2,8 +2,10 @@ import axios from 'axios';
 
 import { config } from '../config';
 import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
+import { Portfolio, SinglePortfolio } from '../PortfolioList/reducers';
+import { getIdToken } from '../util/general';
 
-const StockListApiRequest = async (): Promise<Array<Stock>> => {
+const stockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
     const res = await axios.get(config.app.STOCK_API_URL + '/stocks');
     const data = res.data;
@@ -23,12 +25,43 @@ const stockMetaApiRequest = async (symbol: string): Promise<StockMetadata> => {
   }
 };
 
+const portfolioApiRequest = async (symbol: string): Promise<Portfolio> => {
+  try {
+    const url = config.app.PROFILE_API_URL + '/profile/portfolio/' + symbol;
+
+    const token = await getIdToken();
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const stockIntraApiRequest = async (
   symbol: string
 ): Promise<IntradayQuote[]> => {
   try {
     const url = config.app.STOCK_API_URL + '/stocks/' + symbol + '/intraDay';
     const res = await axios.get(url);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+const portfolioListApiRequest = async (): Promise<SinglePortfolio[]> => {
+  try {
+    const url = config.app.PROFILE_API_URL + '/profile/portfolio';
+    const token = await getIdToken();
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    });
+
     return res.data;
   } catch (error) {
     throw error;
@@ -48,8 +81,10 @@ const stockHistoryApiRequest = async (
 };
 
 export {
-  StockListApiRequest,
+  stockListApiRequest,
   stockMetaApiRequest,
   stockIntraApiRequest,
   stockHistoryApiRequest,
+  portfolioApiRequest,
+  portfolioListApiRequest,
 };

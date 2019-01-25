@@ -1,25 +1,18 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  RefreshControl,
-  Text,
-  ToastAndroid,
-  View,
-} from 'react-native';
+import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
+import { textStyles } from '../App/styles';
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
-import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
+import { formatCurrency, formatRevenue, revenueColor } from '../util/stock';
 import { getStocks, saveAsCurrentStockSymbol } from './actions';
 import { Stock } from './reducer';
 import { StockStyles } from './styles';
-import { textStyles } from '../App/styles';
 
 export interface StockProps {
   stocks: Array<Stock>;
