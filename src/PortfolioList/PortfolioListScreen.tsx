@@ -63,7 +63,7 @@ export class PortfolioListScreen extends React.Component<
     } = this.props;
     if (portfolioListingLoadingError) {
       //TODO: Format the error message to user
-      return <Text>{t('PortfolioListing.NoPortfolios')}</Text>;
+      return <Text>{portfolioListingLoadingError.message}</Text>;
     }
     if (loading) {
       return (
@@ -75,7 +75,7 @@ export class PortfolioListScreen extends React.Component<
 
     if (portfolioListing.length == 0) {
       //TODO: Format message to user
-      return <Text>You don't own any portfolios</Text>;
+      return <Text>{t('PortfolioListing.NoPortfolios')}</Text>;
     }
 
     return (
@@ -133,8 +133,8 @@ export class PortfolioListScreen extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   portfolioListing: state.portfolioListing.portfolioListing,
   portfolioListingLoadingError: state.portfolioListing.error,
-  error: state.portfolioListing.error,
   refreshing: state.portfolioListing.refreshing,
+  loading: state.portfolioListing.loading,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
