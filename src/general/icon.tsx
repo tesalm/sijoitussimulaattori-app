@@ -23,7 +23,6 @@ export enum IconNames {
   twoArrowOpen = 'twoArrowOpen',
   twoArrowClose = 'twoArrowClose',
   events = 'events',
-  add='add',
 }
 const Icon = (props: IconProps): JSX.Element => {
   let req;

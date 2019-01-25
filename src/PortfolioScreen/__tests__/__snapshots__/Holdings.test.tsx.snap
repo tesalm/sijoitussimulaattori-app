@@ -255,7 +255,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 23.541176470588233,
+                      "fontSize": 24,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
@@ -281,7 +281,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 23.541176470588233,
+                      "fontSize": 24,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
@@ -308,7 +308,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 23.541176470588233,
+                      "fontSize": 24,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
@@ -344,7 +344,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 23.541176470588233,
+                      "fontSize": 24,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
@@ -370,7 +370,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 23.541176470588233,
+                      "fontSize": 24,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
@@ -397,7 +397,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 23.541176470588233,
+                      "fontSize": 24,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
@@ -447,7 +447,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#54c242",
-                      "fontSize": 35.311764705882354,
+                      "fontSize": 36,
                       "fontWeight": "bold",
                       "textAlign": "center",
                     }

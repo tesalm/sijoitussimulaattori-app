@@ -10,19 +10,22 @@ describe('Create Portfolio', () => {
   const defaultCreatePortfolioProps: CreatePortfolioProps = {
     loading: false,
     error: undefined,
-    sendData: jest.fn(),
+    create: jest.fn(),
+    success: false,
   };
 
   const loadingCreatePortfolioProps: CreatePortfolioProps = {
     loading: true,
     error: undefined,
-    sendData: jest.fn(),
+    create: jest.fn(),
+    success: false,
   };
 
   const errorCreatePortfolioProps: CreatePortfolioProps = {
     loading: false,
     error: { name: 'Network Error', message: 'Network connection failed' },
-    sendData: jest.fn(),
+    create: jest.fn(),
+    success: false,
   };
 
   it('renders correctly', async () => {
