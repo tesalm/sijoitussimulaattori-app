@@ -45,7 +45,7 @@ export class PortfolioListScreen extends React.Component<
         ToastAndroid.SHORT
       );
     } else {
-      this.props.saveAsCurrentPortfolio(name);
+      this.props.saveAsCurrentPortfolio(uid);
       this.props.navigation.navigate(RouteName.SinglePortfolio);
     }
   };
