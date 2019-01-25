@@ -1,9 +1,5 @@
 import { combineReducers } from 'redux';
 import { counterReducer, Counter } from '../HelloFeature/reducer';
-import {
-  createPortfolioReducer,
-  CreatingPortfolio,
-} from '../CreatePortfolio/reducer';
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
 import {
   PortfolioListing,
@@ -18,7 +14,6 @@ export interface RootState {
   stocksListing: StocksListing;
   user: User;
   portfolioListing: PortfolioListing;
-  newPortfolio: CreatingPortfolio;
 }
 
 export const rootReducer = combineReducers<RootState>({
@@ -27,5 +22,4 @@ export const rootReducer = combineReducers<RootState>({
   stocksListing: stocksListingReducer,
   user: userReducer,
   portfolioListing: portfolioListingReducer,
-  newPortfolio: createPortfolioReducer,
 });

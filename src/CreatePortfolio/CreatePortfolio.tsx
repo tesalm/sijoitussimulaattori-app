@@ -17,12 +17,12 @@ import { RootState } from '../redux/reducers';
 import { CreatePortfolioStyles as styles } from './styles';
 import { FormColors } from '../App/colors';
 import { buttonStyles, textInputStyles } from '../App/styles';
-import { sendPortfolioInfo } from './actions';
+import { createPortfolio } from '../PortfolioList/actions';
 
 export interface CreatePortfolioProps {
   loading: boolean;
   error?: Error;
-  sendData: typeof sendPortfolioInfo;
+  create: typeof createPortfolio;
   success: boolean;
 }
 
@@ -63,6 +63,13 @@ class CreatePortfolio extends React.Component<
   static navigationOptions = {
     header: null,
   };
+
+  componentDidUpdate() {
+    if (this.props.success) {
+      this.props.navigation.goBack();
+      ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
+    }
+  }
 
   // Sanitizes input. Trims whitespaces and checks if the name is empty.
   // TODO: Check if there is already a portfolio with the same name.
@@ -137,7 +144,7 @@ class CreatePortfolio extends React.Component<
     await this.sanitize(this.state.name);
     await this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
-      this.props.sendData(this.state.name, this.state.amount);
+      this.props.create(this.state.name, this.state.amount);
     }
   }
 
@@ -154,7 +161,7 @@ class CreatePortfolio extends React.Component<
   }
 
   render() {
-    const { loading, error, success } = this.props;
+    const { loading, error } = this.props;
     const {
       nameActive,
       sumActive,
@@ -166,11 +173,6 @@ class CreatePortfolio extends React.Component<
     if (error) {
       // TODO: Format error-message for user. Use showErrors-function.
       <Text>Error! From the API-request</Text>;
-    }
-
-    if (success) {
-      this.props.navigation.goBack();
-      ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
     }
 
     return (
@@ -271,15 +273,15 @@ class CreatePortfolio extends React.Component<
 }
 
 const mapStateToProps = (state: RootState) => ({
-  loading: state.newPortfolio.loading,
-  error: state.newPortfolio.error,
-  success: state.newPortfolio.success,
+  loading: state.portfolioListing.creatingPortfolio.loading,
+  error: state.portfolioListing.creatingPortfolio.error,
+  success: state.portfolioListing.creatingPortfolio.success,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      sendData: sendPortfolioInfo,
+      create: createPortfolio,
     },
     dispatch
   );

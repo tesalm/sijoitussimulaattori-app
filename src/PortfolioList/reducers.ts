@@ -1,5 +1,4 @@
 import cloneDeep from 'lodash/cloneDeep';
-
 import { ActionType, PortfolioAction } from './actions';
 
 export interface PortfolioStock {
@@ -39,17 +38,29 @@ export interface Portfolio {
   stocks: PortfolioStock[];
 }
 
+export interface CreatingPortfolio {
+  loading: boolean;
+  error?: Error;
+  success: boolean;
+}
+
 export interface PortfolioListing {
   portfolioListing: Array<SinglePortfolio>;
   loading: boolean;
   error?: Error;
   portfolioId?: string;
+  creatingPortfolio: CreatingPortfolio;
 }
 
 const initialState: PortfolioListing = {
   portfolioListing: [],
   loading: false,
   error: undefined,
+  creatingPortfolio: {
+    loading: false,
+    error: undefined,
+    success: false,
+  },
 };
 
 export const portfolioListingReducer = (
@@ -116,7 +127,44 @@ export const portfolioListingReducer = (
       };
       return { ...cloneDeep(state), portfolioListing: portfolioList };
     }
-
+    case ActionType.CreatePortfolioBegin: {
+      const creation = cloneDeep(state.creatingPortfolio);
+      creation.loading = true;
+      creation.error = undefined;
+      creation.success = false;
+      return { ...state, creatingPortfolio: creation };
+    }
+    case ActionType.CreatePortfolioSuccess: {
+      const creation = cloneDeep(state.creatingPortfolio);
+      creation.loading = false;
+      creation.error = undefined;
+      creation.success = true;
+      const newPortfolio = {
+        uid: action.uid,
+        name: action.name,
+        ownerId: action.ownerId,
+        balance: action.amount,
+        totalRevenue: 0,
+        totalMarketValue: 0,
+        lastDayRevenue: 0,
+        portfolioInfo: {
+          loading: false,
+          refreshing: false,
+          error: undefined,
+          portfolioInfo: undefined,
+        },
+      };
+      const portfolioList = cloneDeep(state.portfolioListing);
+      portfolioList.push(newPortfolio);
+      return { ...cloneDeep(state), creatingPortfolio: creation };
+    }
+    case ActionType.CreatePortfolioFailure: {
+      const creation = cloneDeep(state.creatingPortfolio);
+      creation.loading = false;
+      creation.error = action.error;
+      creation.success = false;
+      return { ...state, creatingPortfolio: creation };
+    }
     default:
       return state;
   }

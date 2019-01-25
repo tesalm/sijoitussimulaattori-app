@@ -1,5 +1,11 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -9,6 +15,9 @@ import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducers';
+import Icon from '../general/icon';
+import { t } from '../assets/i18n';
+import { Styles } from './styles';
 
 export interface PortfolioListProps {
   portfolioListing: Array<SinglePortfolio>;
@@ -52,19 +61,33 @@ export class PortfolioListScreen extends React.Component<
 
     return (
       //TODO: Modify this list to match design for portfolio-list.
-      <FlatList
-        data={portfolioListing}
-        keyExtractor={(item) => item.name}
-        renderItem={({ item, index }) => (
-          <ListItem
-            onPress={() => {
-              this.props.saveAsCurrentPortfolio(item.uid);
-              this.props.navigation.navigate(RouteName.SinglePortfolio);
-            }}
-            title={item.name}
+      <View>
+        <FlatList
+          data={portfolioListing}
+          keyExtractor={(item) => item.name}
+          renderItem={({ item, index }) => (
+            <ListItem
+              onPress={() => {
+                this.props.saveAsCurrentPortfolio(item.uid);
+                this.props.navigation.navigate(RouteName.SinglePortfolio);
+              }}
+              title={item.name}
+            />
+          )}
+        />
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate(RouteName.CreatePortfolio)
+          }
+          style={Styles.createNewPortfolio}
+        >
+          <Icon
+            iconName={t('CreatePortfolio.add')}
+            iconHeight={50}
+            iconWidth={50}
           />
-        )}
-      />
+        </TouchableOpacity>
+      </View>
     );
   }
 }
