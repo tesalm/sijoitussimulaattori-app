@@ -114,7 +114,8 @@
     "PortfolioNameInputTitle": "Name your portfolio",
     "PortfolioAmountInputTitle": "Give initial capital to your portfolio",
     "Cancel": "Cancel",
-    "Save": "Save"
+    "Save": "Save",
+    "add": "add"
   },
   "InputErrors": {
     "NameEmpty": "Name can not be empty!",

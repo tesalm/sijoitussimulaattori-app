@@ -21,8 +21,8 @@ export class CreatePortfolioBegin {
 
 export class CreatePortfolioSuccess {
   readonly type = ActionType.CreatePortfolioSuccess;
-  constructor() {
-    return { type: this.type };
+  constructor(public uid: string, public name: string, public amount: number) {
+    return { type: this.type, uid, name, amount };
   }
 }
 
@@ -38,8 +38,8 @@ const sendPortfolioInfo = (name: string, amount: number) => async (
 ) => {
   dispatch(new CreatePortfolioBegin());
   try {
-    await createPortfolioRequest(name, amount);
-    dispatch(new CreatePortfolioSuccess());
+    const uid = await createPortfolioRequest(name, amount);
+    dispatch(new CreatePortfolioSuccess(uid, name, amount));
   } catch (error) {
     dispatch(new CreatePortfolioFailure(error));
   }

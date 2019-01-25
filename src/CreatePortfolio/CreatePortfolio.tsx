@@ -23,6 +23,7 @@ export interface CreatePortfolioProps {
   loading: boolean;
   error?: Error;
   sendData: typeof sendPortfolioInfo;
+  success: boolean;
 }
 
 type CreatePortfolioPropsWithNavigation = CreatePortfolioProps &
@@ -136,14 +137,7 @@ class CreatePortfolio extends React.Component<
     await this.sanitize(this.state.name);
     await this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
-      await this.props.sendData(this.state.name, this.state.amount);
-      if (!this.props.error) {
-        this.props.navigation.goBack();
-        ToastAndroid.show(
-          'Portfolio created successfully!',
-          ToastAndroid.SHORT
-        );
-      }
+      this.props.sendData(this.state.name, this.state.amount);
     }
   }
 
@@ -160,7 +154,7 @@ class CreatePortfolio extends React.Component<
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, error, success } = this.props;
     const {
       nameActive,
       sumActive,
@@ -172,6 +166,11 @@ class CreatePortfolio extends React.Component<
     if (error) {
       // TODO: Format error-message for user. Use showErrors-function.
       <Text>Error! From the API-request</Text>;
+    }
+
+    if (success) {
+      this.props.navigation.goBack();
+      ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
     }
 
     return (
@@ -274,6 +273,7 @@ class CreatePortfolio extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   loading: state.creatingPortfolio.loading,
   error: state.creatingPortfolio.error,
+  success: state.creatingPortfolio.success,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

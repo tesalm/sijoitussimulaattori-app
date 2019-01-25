@@ -89,14 +89,15 @@ const stockHistoryApiRequest = async (
 const createPortfolioRequest = async (
   portfolioName: string,
   porftolioAmount: number
-): Promise<void> => {
+): Promise<string> => {
   try {
     const url = config.app.PROFILE_API_URL + '/profile/portfolio';
-    await axios.post(url, {
+    const res = await axios.post(url, {
       name: portfolioName,
       balance: porftolioAmount,
       uid: firebase.auth().currentUser,
     });
+    return res.data;
   } catch (error) {
     throw error;
   }
