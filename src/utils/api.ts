@@ -110,5 +110,5 @@ export {
   stockHistoryApiRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
-  createPortfolioApiRequest,
+  createPortfolioRequest,
 };

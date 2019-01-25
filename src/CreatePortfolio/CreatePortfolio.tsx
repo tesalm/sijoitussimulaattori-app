@@ -271,9 +271,9 @@ class CreatePortfolio extends React.Component<
 }
 
 const mapStateToProps = (state: RootState) => ({
-  loading: state.creatingPortfolio.loading,
-  error: state.creatingPortfolio.error,
-  success: state.creatingPortfolio.success,
+  loading: state.newPortfolio.loading,
+  error: state.newPortfolio.error,
+  success: state.newPortfolio.success,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

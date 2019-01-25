@@ -5,7 +5,10 @@ import {
   CreatingPortfolio,
 } from '../CreatePortfolio/reducer';
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
-import { PortfolioListing, portfolioListingReducer } from '../PortfolioList/reducers';
+import {
+  PortfolioListing,
+  portfolioListingReducer,
+} from '../PortfolioList/reducers';
 import { User, userReducer } from '../User/reducer';
 import { Auth, authReducer } from './../Auth/reducer';
 
@@ -15,7 +18,7 @@ export interface RootState {
   stocksListing: StocksListing;
   user: User;
   portfolioListing: PortfolioListing;
-  portfolio: CreatingPortfolio;
+  newPortfolio: CreatingPortfolio;
 }
 
 export const rootReducer = combineReducers<RootState>({
@@ -24,5 +27,5 @@ export const rootReducer = combineReducers<RootState>({
   stocksListing: stocksListingReducer,
   user: userReducer,
   portfolioListing: portfolioListingReducer,
-  portfolio: createPortfolioReducer,
+  newPortfolio: createPortfolioReducer,
 });
