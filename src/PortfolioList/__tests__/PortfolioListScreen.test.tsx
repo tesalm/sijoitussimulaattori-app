@@ -10,7 +10,6 @@ describe('portfolio-list tests', () => {
   const defaultPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: false,
-
     portfolioListingLoadingError: undefined,
     getAllPortfolios: jest.fn(),
     saveAsCurrentPortfolio: jest.fn(),
@@ -19,7 +18,6 @@ describe('portfolio-list tests', () => {
   const loadingPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: true,
-
     portfolioListingLoadingError: undefined,
     getAllPortfolios: jest.fn(),
     saveAsCurrentPortfolio: jest.fn(),
@@ -28,7 +26,6 @@ describe('portfolio-list tests', () => {
   const errorPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: false,
-
     portfolioListingLoadingError: {
       name: 'Network Error',
       message: 'Network connection failed',

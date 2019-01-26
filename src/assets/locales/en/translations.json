@@ -47,9 +47,9 @@
     "NoAuthenticatedUser": "No authenticated user"
   },
   "ListStockPage": {
-    "SearcBarPlaceholder": "Search for stocks",
     "RevenueText": "Revenue today",
-    "LastSaleText": "Last sale"
+    "LastSaleText": "Last sale",
+    "NoPortfolio": "You don't own any portfolios"
   },
   "StockPage": {
     "Title": "Stock",
@@ -107,5 +107,10 @@
     "Acquisition": "Acquisition price",
     "TotalMarketValue": "Total market value",
     "TotalRevenue": "Total revenue"
+  },
+  "PortfolioListing": {
+    "TotalRevenue": "Total revenue (%)",
+    "RevenueToday": "Revenue today",
+    "NoPortfolios": "You don't have any portfolios"
   }
 }

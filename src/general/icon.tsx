@@ -16,6 +16,7 @@ export enum IconNames {
   holdings = 'holdings',
   manage = 'manage',
   eventsTransactions = 'eventsTransactions',
+
   bid = 'bid',
   arrowDown = 'arrowDown',
   arrowUp = 'arrowUp',

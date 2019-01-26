@@ -9,8 +9,7 @@ const formatRevenue = (revenue: number) => {
 };
 
 /** format revenue to right forms. Converts number to string and
- * add currency marker and plus sign if needed. This function does not
- * handle procent values **/
+ * add currency marker and plus sign if needed. **/
 const formatRevenueCurrency = (revenue: number, currency: string) => {
   return revenue >= 0
     ? '+' + formatCurrency(revenue, currency)
