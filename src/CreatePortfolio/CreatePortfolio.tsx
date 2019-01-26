@@ -96,7 +96,6 @@ class CreatePortfolio extends React.Component<
   validateAmount(input: string) {
     const trimWhitespaces = validator.trim(input);
     const commaToPoint: string = trimWhitespaces.replace(/,/g, '.');
-    console.log(commaToPoint);
     // If the string is empty, returns error message.
     if (commaToPoint === '') {
       this.setState({

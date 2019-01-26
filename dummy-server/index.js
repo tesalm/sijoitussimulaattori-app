@@ -1,6 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 4000;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const fs = require('fs');
 
@@ -18,6 +22,7 @@ const availablePortfolio = (symbol) =>
 const availablePortfolioList = JSON.parse(
   fs.readFileSync(__dirname + '/data/availablePortfolios.json')
 );
+
 app.get('/stocks', (req, res) => {
   console.log('all stocks being fethced');
   res.json(availableStocks);
@@ -47,8 +52,16 @@ app.get('/profile/portfolio/:portfolioID', (req, res) => {
 });
 
 app.post('/profile/portfolio', (req, res) => {
-  console.log(req.params);
+  console.log(req.body.name);
   console.log(req.headers);
+  // const portfolio = {
+  //   uid: '1' + name,
+  //   name: req.body.name,
+  //   balance: req.body.balance,
+  //   ownerId: '',
+  // };
+  // console.log(portfolio);
+  // res.json(portfolio);
   res.end();
 });
 
