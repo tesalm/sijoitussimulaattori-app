@@ -15,7 +15,7 @@ import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducers';
-import Icon from '../general/icon';
+import Icon, { IconNames } from '../general/icon';
 import { t } from '../assets/i18n';
 import { Styles } from './styles';
 
@@ -82,7 +82,7 @@ export class PortfolioListScreen extends React.Component<
           style={Styles.createNewPortfolio}
         >
           <Icon
-            iconName={t('CreatePortfolio.add')}
+            iconName={IconNames.add}
             iconHeight={50}
             iconWidth={50}
           />

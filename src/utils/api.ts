@@ -7,16 +7,12 @@ import {
   Stock,
   StockMetadata,
 } from '../MarketScreen/reducer';
-import { Portfolio, SinglePortfolio } from '../PortfolioList/reducers';
+import {
+  Portfolio,
+  SinglePortfolio,
+  CreatePortfolio,
+} from '../PortfolioList/reducers';
 import { getIdToken } from '../util/general';
-import firebase, { RNFirebase } from 'react-native-firebase';
-
-export interface CreatePortfolio {
-  uid: string;
-  name: string;
-  balance: number;
-  ownerId: string;
-}
 
 const stockListApiRequest = async (): Promise<Array<Stock>> => {
   try {

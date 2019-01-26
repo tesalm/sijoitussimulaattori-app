@@ -20,10 +20,10 @@ import { buttonStyles, textInputStyles } from '../App/styles';
 import { createPortfolio } from '../PortfolioList/actions';
 
 export interface CreatePortfolioProps {
-  loading: boolean;
-  error?: Error;
-  create: typeof createPortfolio;
-  success: boolean;
+  createPortfolioLoading: boolean;
+  createPortfolioError?: createPortfolioError;
+  createNewPortfolio: typeof createPortfolio;
+  createPortfolioSuccess: boolean;
 }
 
 type CreatePortfolioPropsWithNavigation = CreatePortfolioProps &
@@ -67,7 +67,7 @@ class CreatePortfolio extends React.Component<
   };
 
   componentDidUpdate() {
-    if (this.props.success && this.state.dataSent) {
+    if (this.props.createPortfolioSuccess && this.state.dataSent) {
       this.props.navigation.goBack();
       ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
     }
@@ -75,7 +75,7 @@ class CreatePortfolio extends React.Component<
 
   // Sanitizes input. Trims whitespaces and checks if the name is empty.
   // TODO: Check if there is already a portfolio with the same name.
-  sanitize(input: string) {
+  sanitizePortfolioName(input: string) {
     const trimWhitespaces = validator.trim(input);
     if (trimWhitespaces === '') {
       this.setState({
@@ -142,10 +142,12 @@ class CreatePortfolio extends React.Component<
   }
 
   validate() {
-    this.sanitize(this.state.name);
+    this.sanitizePortfolioName(this.state.name);
     this.validateAmount(this.state.inputNumber);
     if (!this.state.nameError && !this.state.amountError) {
-      this.setState({ dataSent: true }, () => this.props.create(this.state.name, this.state.amount));
+      this.setState({ dataSent: true }, () =>
+        this.props.createNewPortfolio(this.state.name, this.state.amount)
+      );
     }
   }
 
@@ -162,7 +164,7 @@ class CreatePortfolio extends React.Component<
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { createPortfolioLoading, createPortfolioError } = this.props;
     const {
       nameActive,
       sumActive,
@@ -171,7 +173,7 @@ class CreatePortfolio extends React.Component<
       createActive,
     } = this.state;
 
-    if (error) {
+    if (createPortfolioError) {
       // TODO: Format error-message for user. Use showErrors-function.
       <Text>Error! From the API-request</Text>;
     }
@@ -201,10 +203,10 @@ class CreatePortfolio extends React.Component<
                 {
                   nameActive: false,
                 },
-                () => this.sanitize(name)
+                () => this.sanitizePortfolioName(name)
               )
             }
-            onSubmitEditing={() => this.sanitize(name)}
+            onSubmitEditing={() => this.sanitizePortfolioName(name)}
           />
         </View>
         <View>{this.showNameErrors()}</View>
@@ -239,7 +241,7 @@ class CreatePortfolio extends React.Component<
           />
         </View>
         <View>{this.showAmountErrors()}</View>
-        {!loading ? (
+        {!createPortfolioLoading ? (
           <View style={buttonStyles.container}>
             <TouchableOpacity
               style={buttonStyles.cancelButton}
@@ -274,15 +276,18 @@ class CreatePortfolio extends React.Component<
 }
 
 const mapStateToProps = (state: RootState) => ({
-  loading: state.portfolioListing.creatingPortfolio.loading,
-  error: state.portfolioListing.creatingPortfolio.error,
-  success: state.portfolioListing.creatingPortfolio.success,
+  createPortfolioLoading:
+    state.portfolioListing.creatingPortfolio.creatingPortfolioLoading,
+  createPortfolioError:
+    state.portfolioListing.creatingPortfolio.creatingPortfolioError,
+  createPortfolioSuccess:
+    state.portfolioListing.creatingPortfolio.creatingPortfolioSuccess,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      create: createPortfolio,
+      createNewPortfolio: createPortfolio,
     },
     dispatch
   );
