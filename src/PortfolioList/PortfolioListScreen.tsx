@@ -20,7 +20,6 @@ export interface PortfolioListProps {
   portfolioListingLoadingError?: Error;
   getAllPortfolios: typeof getPortfolios;
   saveAsCurrentPortfolio: typeof saveAsCurrentPortfolioId;
-  refreshing: boolean;
 }
 
 type PortfolioPropsWithNavigation = PortfolioListProps & NavigationScreenProps;
@@ -38,7 +37,7 @@ export class PortfolioListScreen extends React.Component<
   }
 
   portfolioPressed = (uid: string) => {
-    if (this.props.refreshing) {
+    if (this.props.loading) {
       // TODO: Format toast message to user.
       ToastAndroid.show(
         'Wait, stock-list is being refreshed.',
@@ -59,7 +58,6 @@ export class PortfolioListScreen extends React.Component<
       portfolioListing,
       loading,
       portfolioListingLoadingError,
-      refreshing,
     } = this.props;
     if (portfolioListingLoadingError) {
       //TODO: Format the error message to user
@@ -89,7 +87,7 @@ export class PortfolioListScreen extends React.Component<
       <FlatList
         refreshControl={
           <RefreshControl
-            refreshing={refreshing}
+            refreshing={loading}
             onRefresh={this.refreshPortfolios}
             colors={[Colors.baseColor]}
           />
@@ -139,7 +137,6 @@ export class PortfolioListScreen extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   portfolioListing: state.portfolioListing.portfolioListing,
   portfolioListingLoadingError: state.portfolioListing.error,
-  refreshing: state.portfolioListing.refreshing,
   loading: state.portfolioListing.loading,
 });
 

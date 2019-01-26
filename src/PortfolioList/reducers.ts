@@ -44,14 +44,12 @@ export interface PortfolioListing {
   loading: boolean;
   error?: Error;
   portfolioId?: string;
-  refreshing: boolean;
 }
 
 const initialState: PortfolioListing = {
   portfolioListing: [],
   loading: false,
   error: undefined,
-  refreshing: false,
 };
 
 export const portfolioListingReducer = (
@@ -67,7 +65,6 @@ export const portfolioListingReducer = (
         portfolioListing: action.portfolios,
         loading: false,
         error: undefined,
-        refreshing: false,
       };
     case ActionType.RequestPortfoliosListingFailure:
       return { ...cloneDeep(state), loading: false, error: action.error };
