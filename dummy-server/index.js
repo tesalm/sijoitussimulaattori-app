@@ -54,15 +54,14 @@ app.get('/profile/portfolio/:portfolioID', (req, res) => {
 app.post('/profile/portfolio', (req, res) => {
   console.log(req.body.name);
   console.log(req.headers);
-  // const portfolio = {
-  //   uid: '1' + name,
-  //   name: req.body.name,
-  //   balance: req.body.balance,
-  //   ownerId: '',
-  // };
-  // console.log(portfolio);
-  // res.json(portfolio);
-  res.end();
+  const portfolio = {
+    uid: '1' + req.body.name,
+    name: req.body.name,
+    balance: req.body.balance,
+    ownerId: '',
+  };
+  console.log(portfolio);
+  res.json(portfolio);
 });
 
 app.listen(port, () => {

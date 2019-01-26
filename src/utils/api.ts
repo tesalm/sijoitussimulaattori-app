@@ -100,15 +100,18 @@ const createPortfolioRequest = async (
   try {
     const url = config.app.PROFILE_API_URL + '/profile/portfolio';
     const token = await getIdToken();
-    const res = await axios.post(url, {
-      body: {
+    const res = await axios.post(
+      url,
+      {
         name: portfolioName,
         balance: porftolioAmount,
       },
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    });
+      {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      }
+    );
     return res.data;
   } catch (error) {
     throw error;
