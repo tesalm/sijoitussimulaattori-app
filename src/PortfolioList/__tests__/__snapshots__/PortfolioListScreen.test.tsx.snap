@@ -267,26 +267,3 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
   </View>
 </RCTScrollView>
 `;
-
-exports[`portfolio-list tests renders correctly with refreshing 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-      "justifyContent": "center",
-    }
-  }
->
-  <Text
-    style={
-      Object {
-        "color": "#004D40",
-        "fontSize": 40,
-        "textAlign": "center",
-      }
-    }
-  >
-    You don't have any portfolios
-  </Text>
-</View>
-`;

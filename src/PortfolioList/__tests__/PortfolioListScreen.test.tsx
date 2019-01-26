@@ -10,8 +10,6 @@ describe('portfolio-list tests', () => {
   const defaultPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: false,
-    refreshing: false,
-
     portfolioListingLoadingError: undefined,
     getAllPortfolios: jest.fn(),
     saveAsCurrentPortfolio: jest.fn(),
@@ -20,16 +18,6 @@ describe('portfolio-list tests', () => {
   const loadingPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: true,
-    refreshing: false,
-    portfolioListingLoadingError: undefined,
-    getAllPortfolios: jest.fn(),
-    saveAsCurrentPortfolio: jest.fn(),
-  };
-
-  const refreshingStockProps: PortfolioListProps = {
-    portfolioListing: [],
-    loading: false,
-    refreshing: true,
     portfolioListingLoadingError: undefined,
     getAllPortfolios: jest.fn(),
     saveAsCurrentPortfolio: jest.fn(),
@@ -38,7 +26,6 @@ describe('portfolio-list tests', () => {
   const errorPortfolioListingProps: PortfolioListProps = {
     portfolioListing: [],
     loading: false,
-    refreshing: false,
     portfolioListingLoadingError: {
       name: 'Network Error',
       message: 'Network connection failed',
@@ -91,10 +78,9 @@ describe('portfolio-list tests', () => {
         },
       },
     ],
-    refreshing: false,
+
     loading: false,
     portfolioListingLoadingError: undefined,
-
     getAllPortfolios: jest.fn(),
     saveAsCurrentPortfolio: jest.fn(),
   };
@@ -118,15 +104,6 @@ describe('portfolio-list tests', () => {
           {...loadingPortfolioListingProps}
           {...navigationMock}
         />
-      )
-      .toJSON();
-    expect(component).toMatchSnapshot();
-  });
-
-  it('renders correctly with refreshing', async () => {
-    const component = renderer
-      .create(
-        <PortfolioListScreen {...refreshingStockProps} {...navigationMock} />
       )
       .toJSON();
     expect(component).toMatchSnapshot();
