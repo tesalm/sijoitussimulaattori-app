@@ -4,29 +4,30 @@ import { ButtonGroup } from 'react-native-elements';
 
 import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
-import { HistoryDataQuote, IntradayQuote } from '../../MarketScreen/reducer';
+import { DailyQuote } from '../../MarketScreen/reducer';
 import { stockStyles } from '../styles';
 import Graph from './Graph';
 
 interface GraphState {
   buttonBarIndex: number;
-  historyInterval: Array<HistoryDataQuote>;
+  historyInterval: Array<DailyQuote>;
   graphLoading?: boolean;
 }
 
 export interface GraphProps {
-  historyData: Array<HistoryDataQuote>;
-  intraDay: Array<IntradayQuote>;
+  historyData: Array<DailyQuote>;
+  intraDay: Array<DailyQuote>;
   historyError?: Error;
 }
 
 class Diagram extends React.Component<GraphProps, GraphState> {
+  private schedule = 0;
+
   constructor(props: GraphProps) {
     super(props);
     this.state = { buttonBarIndex: NaN, historyInterval: [] };
     this.updateGraph = this.updateGraph.bind(this);
   }
-  _schedule = 0;
 
   componentDidMount() {
     if (this.props.intraDay.length > 1) {
@@ -38,14 +39,14 @@ class Diagram extends React.Component<GraphProps, GraphState> {
   }
 
   componentWillUnmount() {
-    clearTimeout(this._schedule);
+    clearTimeout(this.schedule);
   }
 
   updateGraph(buttonBarIndex: number) {
-    if (this.state.buttonBarIndex != buttonBarIndex) {
+    if (this.state.buttonBarIndex !== buttonBarIndex) {
       this.setState({ buttonBarIndex, graphLoading: true });
       // schedule the execution of setHistoryInterval() right after the state is updated
-      this._schedule = setTimeout(
+      this.schedule = window.setTimeout(
         () => this.setHistoryInterval(buttonBarIndex),
         0
       );
@@ -122,7 +123,7 @@ class Diagram extends React.Component<GraphProps, GraphState> {
               style={{ position: 'absolute' }}
             />
           ) : (
-            <Graph historydata={historyInterval} />
+            <Graph historyData={historyInterval} />
           )}
         </View>
         <ButtonGroup

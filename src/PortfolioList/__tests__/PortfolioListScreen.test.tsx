@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { PortfolioListProps, PortfolioListScreen } from '../PortfolioListScreen';
 
 describe('portfolio-list tests', () => {
-  //Mock for navigation.
+  // Mock for navigation.
   const navigationMock: any = {};
 
   const defaultPortfolioListingProps: PortfolioListProps = {

@@ -36,10 +36,6 @@
   "InfoPage": {
     "PlaceholderText": "PLACEHOLDER: Info page"
   },
-  "Hello": {
-    "HelloGreetee": "Hello, {{greetee}}!",
-    "World": "world"
-  },
   "Loading": {
     "LoggedInAs": "Logged in as"
   },
@@ -66,7 +62,7 @@
     "Bid": "Bid"
   },
   "LoginScreen": {
-    "NewUserGreeting": "Your first time the ValueTown?",
+    "NewUserGreeting": "Your first time at ValueTown?",
     "NewUserButton": "Continue as new user",
     "AfterErrButton": "Try again"
   },

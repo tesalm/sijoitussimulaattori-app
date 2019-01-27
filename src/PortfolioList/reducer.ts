@@ -46,7 +46,7 @@ export interface PortfolioListing {
   portfolioId?: string;
 }
 
-const initialState: PortfolioListing = {
+export const initialState: PortfolioListing = {
   portfolioListing: [],
   loading: false,
   error: undefined,

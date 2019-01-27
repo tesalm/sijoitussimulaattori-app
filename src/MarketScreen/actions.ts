@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
-import { stockHistoryApiRequest, stockIntraApiRequest, stockListApiRequest, stockMetaApiRequest } from '../utils/api';
-import { HistoryDataQuote, IntradayQuote, Stock, StockMetadata } from './reducer';
+import { stockHistoryApiRequest, stockIntradayApiRequest, stockListApiRequest, stockMetaApiRequest } from '../util/api';
+import { DailyQuote, Stock, StockMetadata } from './reducer';
 
 export enum ActionType {
   RequestStocksBegin = '[Stocks] API Request',
@@ -105,7 +105,7 @@ export class GetIntradaySuccess {
   readonly type = ActionType.GetIntradaySuccess;
   constructor(
     public symbol: string,
-    public intraData: IntradayQuote[],
+    public intraData: DailyQuote[],
     public fetchTime: Date
   ) {
     return { type: this.type, symbol, intraData, fetchTime };
@@ -130,7 +130,7 @@ export class RefreshIntradaySuccess {
   readonly type = ActionType.RefreshIntradaySuccess;
   constructor(
     public symbol: string,
-    public intraData: IntradayQuote[],
+    public intraData: DailyQuote[],
     public fetchTime: Date
   ) {
     return { type: this.type, symbol, intraData, fetchTime };
@@ -155,7 +155,7 @@ export class GetHistorySuccess {
   readonly type = ActionType.GetHistorySuccess;
   constructor(
     public symbol: string,
-    public historyData: HistoryDataQuote[],
+    public historyData: DailyQuote[],
     public fetchTime: Date
   ) {
     return { type: this.type, symbol, historyData, fetchTime };
@@ -231,7 +231,7 @@ const getIntraday = (stock: Stock, symbol: string) => async (
   ) {
     dispatch(new GetIntradayBegin(symbol));
     try {
-      const intraData = await stockIntraApiRequest(symbol);
+      const intraData = await stockIntradayApiRequest(symbol);
       dispatch(new GetIntradaySuccess(symbol, intraData, currentTime));
     } catch (error) {
       dispatch(new GetIntradayFailure(symbol, error));
@@ -252,7 +252,7 @@ const refreshIntraday = (stock: Stock, symbol: string) => async (
   ) {
     dispatch(new RefreshIntradayBegin(symbol));
     try {
-      const intraData = await stockIntraApiRequest(symbol);
+      const intraData = await stockIntradayApiRequest(symbol);
       dispatch(new RefreshIntradaySuccess(symbol, intraData, currentTime));
     } catch (error) {
       dispatch(new RefreshIntradayFailure(symbol, error));
@@ -298,7 +298,7 @@ function onceADayRefreshrateDated(curTime: Date, fetchTime: Date): boolean {
   ) {
     // If data has been fetched the day before or fetchTime < updateTime, refresh data
     if (
-      curTime.getDate() != fetchTime.getDate() ||
+      curTime.getDate() !== fetchTime.getDate() ||
       (fetchTime.getHours() <= updateTimeH &&
         fetchTime.getMinutes() <= updateTimeM &&
         fetchTime.getSeconds() <= updateTimeS)
@@ -311,10 +311,10 @@ function onceADayRefreshrateDated(curTime: Date, fetchTime: Date): boolean {
 
 // Checks if intraday should be updated (intraday is updated many times a day)
 function refreshrateDated(curTime: Date, fetchTime: Date): boolean {
-  const curTime_ms = curTime.getTime();
-  const intraTime_ms = fetchTime.getTime();
+  const curTimeMs = curTime.getTime();
+  const intraTimeMs = fetchTime.getTime();
   // TODO: Set refreshrate. Now 5 minutes.
-  if (curTime_ms - intraTime_ms > 1000 * 60 * 5) {
+  if (curTimeMs - intraTimeMs > 1000 * 60 * 5) {
     return true;
   }
   return false;

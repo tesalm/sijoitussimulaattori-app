@@ -135,7 +135,7 @@ exports[`stockpage graph tests renders correctly with intradata 2`] = `
     }
   >
     <Graph
-      historydata={
+      historyData={
         Array [
           Object {
             "close": 107.53,

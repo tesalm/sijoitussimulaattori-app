@@ -423,7 +423,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
     Array [
       Object {
         "close": 14.57,
-        "currency": "USD",
         "high": 10.28,
         "low": 9.99,
         "name": "Apple",
@@ -438,7 +437,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
       },
       Object {
         "close": 14.57,
-        "currency": "USD",
         "high": 10.28,
         "low": 9.99,
         "name": "Apple",

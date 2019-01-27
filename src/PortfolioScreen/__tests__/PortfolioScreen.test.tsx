@@ -6,6 +6,8 @@ import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../..
 import { getPortfolioData } from '../../PortfolioList/actions';
 import { PortfolioProps, PortfolioScreen } from '../PortfolioScreen';
 
+import 'jest';
+
 describe('portfolio-screen tests', () => {
   // Mock for navigation.
   const navigationMock: any = {};
@@ -75,7 +77,6 @@ describe('portfolio-screen tests', () => {
         low: 354.38,
         revenue: 3894.34,
         close: 293.42,
-        currency: 'USD',
         stockInfo: {
           stockMetadata: {
             symbol: 'AAPL',

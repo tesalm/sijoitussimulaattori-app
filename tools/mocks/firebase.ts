@@ -24,6 +24,10 @@ export const FirebaseGeneralMock = {
     onNotification: jest.fn(),
     onNotificationDisplayed: jest.fn(),
   })),
+
+  auth: jest.fn(() => ({
+    onAuthStateChanged: jest.fn(),
+  })),
 };
 
 // Constructs a custom, manually defined mock for Firebase. If you need to write tests for a new
@@ -86,9 +90,9 @@ export function CreateCustomReactNativeFirebaseMock(
     // Fake and incomplete user data object containing only necessary parameters.
     const data = {
       exists: true,
-      data: jest.fn(() => {
-        uid: 'fake-uid';
-      }),
+      data: jest.fn(() => ({
+        uid: 'fake-uid',
+      })),
     };
 
     return {
@@ -120,7 +124,7 @@ export function CreateCustomReactNativeFirebaseMock(
 // function, which has been defined to be executed when the listener 'onAuthStateChange' should be
 // triggered.
 const restorePreviousLoginEvent = async (
-  restorePossible: Boolean,
+  restorePossible: boolean,
   callback: (auth: UserAuth | undefined) => void
 ) => {
   await new Promise((res) => setTimeout(res, 800));
@@ -145,7 +149,7 @@ const restorePreviousLoginEvent = async (
 // checked at this point.
 export function CreateRestorePreviousLoginCustomMock(
   testCaseType: TestCaseType,
-  restorePossible: Boolean,
+  restorePossible: boolean,
   expectAndDone: () => void
 ) {
   // Defines mocks for the functions 'get', 'update' and 'set', which are belonging to
@@ -159,9 +163,9 @@ export function CreateRestorePreviousLoginCustomMock(
     // Fake and incomplete user data object containing only necessary parameters.
     const data = {
       exists: true,
-      data: jest.fn(() => {
-        uid: 'fake-uid';
-      }),
+      data: jest.fn(() => ({
+        uid: 'fake-uid',
+      })),
     };
 
     return {

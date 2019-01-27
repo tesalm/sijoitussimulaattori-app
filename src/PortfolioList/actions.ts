@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
-import { portfolioApiRequest, portfolioListApiRequest } from '../utils/api';
-import { Portfolio, SinglePortfolio } from './reducers';
+import { portfolioApiRequest, portfolioListApiRequest } from '../util/api';
+import { Portfolio, SinglePortfolio } from './reducer';
 
 export enum ActionType {
   RequestPortfolioListingBegin = '[Portfolios] API Request',

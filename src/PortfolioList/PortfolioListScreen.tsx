@@ -11,7 +11,7 @@ import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { formatRevenue, revenueColor, valueColor } from '../util/stock';
 import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
-import { SinglePortfolio } from './reducers';
+import { SinglePortfolio } from './reducer';
 import { PortfolioListingStyles } from './styles';
 
 export interface PortfolioListProps {
@@ -60,7 +60,7 @@ export class PortfolioListScreen extends React.Component<
       portfolioListingLoadingError,
     } = this.props;
     if (portfolioListingLoadingError) {
-      //TODO: Format the error message to user
+      // TODO: Format the error message to user
       return <Text>{portfolioListingLoadingError.message}</Text>;
     }
     if (loading) {
@@ -72,7 +72,7 @@ export class PortfolioListScreen extends React.Component<
     }
 
     // Show message if there are no portfolios
-    if (portfolioListing.length == 0) {
+    if (portfolioListing.length === 0) {
       return (
         <View style={PortfolioListingStyles.noPortfolioContainer}>
           <Text style={PortfolioListingStyles.noPortfolioText}>
@@ -134,6 +134,7 @@ export class PortfolioListScreen extends React.Component<
     );
   }
 }
+
 const mapStateToProps = (state: RootState) => ({
   portfolioListing: state.portfolioListing.portfolioListing,
   portfolioListingLoadingError: state.portfolioListing.error,
@@ -148,6 +149,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     },
     dispatch
   );
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
