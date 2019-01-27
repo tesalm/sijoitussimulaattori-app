@@ -4,7 +4,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { DailyQuote, StockMetadata } from '../../MarketScreen/reducer';
-import { formatCurrency, formatRevenue, revenueColor } from '../../util/general';
+import { formatCurrency, formatRevenue, revenueColor } from '../../util/stock';
 import { stockStyles } from '../styles';
 
 export interface BasicinfoProps {

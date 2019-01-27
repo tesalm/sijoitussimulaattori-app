@@ -12,6 +12,7 @@ jest.mock('react-native-config', () => ({
   __esModule: true,
   default: {
     RN_STOCK_API_URL: 'http://fake-stock-url',
+    RN_PROFILE_API_URL: 'http://fake-profile-url',
   },
 }));
 

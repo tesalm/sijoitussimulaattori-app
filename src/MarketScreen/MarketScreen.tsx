@@ -10,7 +10,7 @@ import { textStyles } from '../App/styles';
 import { t } from '../assets/i18n';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
-import { formatCurrency, formatRevenue, revenueColor } from '../util/general';
+import { formatCurrency, formatRevenue, revenueColor } from '../util/stock';
 import { getStocks, saveAsCurrentStockSymbol } from './actions';
 import { Stock } from './reducer';
 import { StockStyles } from './styles';

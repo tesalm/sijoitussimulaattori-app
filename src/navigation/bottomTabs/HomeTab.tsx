@@ -3,14 +3,16 @@ import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { t } from '../../assets/i18n';
+import PortfolioListScreen from '../../PortfolioList/PortfolioListScreen';
+import PortfolioScreen from '../../PortfolioScreen/PortfolioScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
-import HomeScreen from '../screens/HomeScreen';
 import { Colors, Styles } from '../styles';
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: PortfolioListScreen,
+    SinglePortfolio: { screen: PortfolioScreen },
   },
   {
     // Shared options

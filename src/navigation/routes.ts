@@ -4,6 +4,7 @@ export enum RouteName {
   App = 'App',
   Main = 'Main',
   Home = 'Home',
+  SinglePortfolio = 'SinglePortfolio',
   StockList = 'StockList',
   Stock = 'Stock',
   Commissions = 'Commissions',

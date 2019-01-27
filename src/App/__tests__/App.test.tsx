@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 
 import { initialAuthState, LoginState } from '../../Auth/reducer';
 import { initialState as initialStockListingState } from '../../MarketScreen/reducer';
+import { initialState as initialPortfolioListingState } from '../../PortfolioList/reducer';
 import { RootState } from '../../redux/reducers';
 import { initialUserState } from '../../User/reducer';
 import App from '../App';
@@ -17,6 +18,7 @@ const mockStore = configureStore([thunk]);
 const defaultState: RootState = {
   login: initialAuthState,
   stocksListing: initialStockListingState,
+  portfolioListing: initialPortfolioListingState,
   user: initialUserState,
 };
 const authenticatedState: RootState = {
@@ -58,10 +60,10 @@ describe('App', () => {
     );
     expect(
       wrapper
-        .find('HomeScreen')
+        .find('PortfolioListScreen')
         .find('Text')
         .first()
         .text()
-    ).toEqual('PLACEHOLDER: Listing of portfolios');
+    ).toEqual("You don't have any portfolios");
   });
 });

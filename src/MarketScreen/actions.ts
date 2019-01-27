@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { stockHistoryApiRequest, stockIntraApiRequest, stockListApiRequest, stockMetaApiRequest } from '../util/api';
+import { stockHistoryApiRequest, stockIntradayApiRequest, stockListApiRequest, stockMetaApiRequest } from '../util/api';
 import { DailyQuote, Stock, StockMetadata } from './reducer';
 
 export enum ActionType {
@@ -231,7 +231,7 @@ const getIntraday = (stock: Stock, symbol: string) => async (
   ) {
     dispatch(new GetIntradayBegin(symbol));
     try {
-      const intraData = await stockIntraApiRequest(symbol);
+      const intraData = await stockIntradayApiRequest(symbol);
       dispatch(new GetIntradaySuccess(symbol, intraData, currentTime));
     } catch (error) {
       dispatch(new GetIntradayFailure(symbol, error));
@@ -252,7 +252,7 @@ const refreshIntraday = (stock: Stock, symbol: string) => async (
   ) {
     dispatch(new RefreshIntradayBegin(symbol));
     try {
-      const intraData = await stockIntraApiRequest(symbol);
+      const intraData = await stockIntradayApiRequest(symbol);
       dispatch(new RefreshIntradaySuccess(symbol, intraData, currentTime));
     } catch (error) {
       dispatch(new RefreshIntradayFailure(symbol, error));

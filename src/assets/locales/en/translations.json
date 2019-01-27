@@ -21,7 +21,7 @@
   "PortfoliosPage": {
     "Title": "Portfolios",
     "PlaceholderText": "PLACEHOLDER: Listing of portfolios",
-    "GoToProfileButtonLabel": "Go to Profile"
+    "GoToPortfolioPage": "Go to Portfolio"
   },
   "MarketPage": {
     "Title": "Stocks",
@@ -43,9 +43,9 @@
     "NoAuthenticatedUser": "No authenticated user"
   },
   "ListStockPage": {
-    "SearcBarPlaceholder": "Search for stocks",
     "RevenueText": "Revenue today",
-    "LastSaleText": "Last sale"
+    "LastSaleText": "Last sale",
+    "NoPortfolio": "You don't own any portfolios"
   },
   "StockPage": {
     "Title": "Stock",
@@ -87,5 +87,26 @@
       "11": "nov",
       "12": "dec"
     }
+  },
+  "PortfolioPage": {
+    "Title": "My main stocks",
+    "MarketValue": "Market value",
+    "Cash": "Cash",
+    "TotalValue": "Total Value",
+    "Revenue": "Revenue today",
+    "Holdings": "My holdings",
+    "Events": "Events & transactions",
+    "Manage": "Manage portfolio",
+
+    "StocksOwned": "Stocks Owned",
+    "TotalRevenueProcent": "Total Revenue (%)",
+    "Acquisition": "Acquisition price",
+    "TotalMarketValue": "Total market value",
+    "TotalRevenue": "Total revenue"
+  },
+  "PortfolioListing": {
+    "TotalRevenue": "Total revenue (%)",
+    "RevenueToday": "Revenue today",
+    "NoPortfolios": "You don't have any portfolios"
   }
 }

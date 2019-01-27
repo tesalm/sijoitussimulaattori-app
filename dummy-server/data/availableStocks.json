@@ -18,7 +18,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "APL",
+    "symbol": "AA",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -27,7 +27,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "AAP",
+    "symbol": "DD",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -36,7 +36,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "AAL",
+    "symbol": "FF",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -45,7 +45,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "AAAPL",
+    "symbol": "SS",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -54,7 +54,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "AAPLA",
+    "symbol": "DD",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -63,7 +63,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "AAAAPL",
+    "symbol": "FF",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,
@@ -72,7 +72,7 @@
     "currency": "USD"
   },
   {
-    "symbol": "AAPAEL",
+    "symbol": "GG",
     "name": "Apple",
     "high": 10.28,
     "low": 9.99,

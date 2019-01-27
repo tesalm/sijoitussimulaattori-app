@@ -2,7 +2,7 @@ import nock from 'nock';
 
 import { config } from '../../config';
 import { DailyQuote, Stock, StockMetadata } from '../../MarketScreen/reducer';
-import { stockHistoryApiRequest, stockIntraApiRequest, stockListApiRequest, stockMetaApiRequest } from '../api';
+import { stockHistoryApiRequest, stockIntradayApiRequest, stockListApiRequest, stockMetaApiRequest } from '../api';
 
 const mockStockListData: Stock[] = [
   {
@@ -152,7 +152,7 @@ describe('API client', () => {
       .get('/stocks/FOO/intraday')
       .reply(200, mockStockIntraday);
 
-    const data = await stockIntraApiRequest('FOO');
+    const data = await stockIntradayApiRequest('FOO');
     expect(data).toStrictEqual(mockStockIntraday);
 
     nock(config.app.STOCK_API_URL)
@@ -161,7 +161,7 @@ describe('API client', () => {
       .reply(404, 'Not found');
 
     try {
-      await stockIntraApiRequest('BAR');
+      await stockIntradayApiRequest('BAR');
 
       // This should never happen:
       expect(true).toBe(false);
