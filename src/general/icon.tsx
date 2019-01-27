@@ -16,6 +16,7 @@ export enum IconNames {
   holdings = 'holdings',
   manage = 'manage',
   eventsTransactions = 'eventsTransactions',
+
   bid = 'bid',
   add = 'add',
   arrowDown = 'arrowDown',
@@ -68,7 +69,7 @@ const Icon = (props: IconProps): JSX.Element => {
       req = require('../navigation/assets/add.png');
       break;
     default:
-      //TODO: Add better icon for default case.
+      // TODO: Add better icon for default case.
       req = require('../navigation/assets/delete.png');
   }
 

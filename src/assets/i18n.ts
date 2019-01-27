@@ -5,7 +5,7 @@ import translations_en from './locales/en/translations.json';
 
 const i18nInstance = i18next.init({
   fallbackLng: 'en',
-  debug: true,
+  debug: false,
   interpolation: {
     // React already does escaping
     escapeValue: false,

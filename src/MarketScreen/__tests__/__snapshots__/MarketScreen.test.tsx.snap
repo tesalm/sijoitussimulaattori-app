@@ -152,7 +152,7 @@ exports[`stock-list tests renders correctly 1`] = `
               onChangeText={[Function]}
               onClear={[Function]}
               onFocus={[Function]}
-              placeholder="Search for stocks"
+              placeholder="ListStockPage.SearcBarPlaceholder"
               placeholderTextColor="#86939e"
               platform="default"
               style={
@@ -208,7 +208,7 @@ exports[`stock-list tests renders correctly with loading 1`] = `
   style={
     Object {
       "flex": 1,
-      "justifyContent": "center",
+      "textAlign": "center",
     }
   }
 >
@@ -373,7 +373,7 @@ exports[`stock-list tests renders correctly with refreshing 1`] = `
               onChangeText={[Function]}
               onClear={[Function]}
               onFocus={[Function]}
-              placeholder="Search for stocks"
+              placeholder="ListStockPage.SearcBarPlaceholder"
               placeholderTextColor="#86939e"
               platform="default"
               style={
@@ -423,7 +423,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
     Array [
       Object {
         "close": 14.57,
-        "currency": "USD",
         "high": 10.28,
         "low": 9.99,
         "name": "Apple",
@@ -438,7 +437,6 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
       },
       Object {
         "close": 14.57,
-        "currency": "USD",
         "high": 10.28,
         "low": 9.99,
         "name": "Apple",
@@ -601,7 +599,7 @@ exports[`stock-list tests renders correctly with stocks 1`] = `
               onChangeText={[Function]}
               onClear={[Function]}
               onFocus={[Function]}
-              placeholder="Search for stocks"
+              placeholder="ListStockPage.SearcBarPlaceholder"
               placeholderTextColor="#86939e"
               platform="default"
               style={

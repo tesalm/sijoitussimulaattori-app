@@ -4,7 +4,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { Stock } from '../../MarketScreen/reducer';
-import { Portfolio } from '../../PortfolioList/reducers';
+import { Portfolio } from '../../PortfolioList/reducer';
 import { formatRevenue, revenueColor } from '../../util/stock';
 import { portfolioStyles } from '../styles';
 

@@ -62,7 +62,6 @@ describe('Holdings tests', () => {
         low: 354.38,
         revenue: 3894.34,
         close: 293.42,
-        currency: 'USD',
         stockInfo: {
           stockMetadata: {
             symbol: 'AAPL',

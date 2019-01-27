@@ -8,6 +8,14 @@ import 'react-native-mock-render/mock';
 
 configure({ adapter: new Adapter() });
 
+jest.mock('react-native-config', () => ({
+  __esModule: true,
+  default: {
+    RN_STOCK_API_URL: 'http://fake-stock-url',
+    RN_PROFILE_API_URL: 'http://fake-profile-url',
+  },
+}));
+
 jest.mock('react-native-firebase', () => {
   return {
     ...FirebaseGeneralMock,
@@ -20,6 +28,9 @@ jest.mock('react-native-languages', () => ({
     languages: ['en'],
   },
 }));
+
+// Mock react navigation dependency to avoid MockNativeMethods lib error
+jest.mock('react-native-safe-area-view', () => ({ default: () => null }));
 
 // Set up jsdom with RN:
 // (modified from https://github.com/kentcdodds/react-testing-library/issues/22)

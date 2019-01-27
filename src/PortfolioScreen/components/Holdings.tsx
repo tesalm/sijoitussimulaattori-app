@@ -6,7 +6,7 @@ import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import Icon, { IconNames } from '../../general/icon';
 import { Stock } from '../../MarketScreen/reducer';
-import { Portfolio, PortfolioStock } from '../../PortfolioList/reducers';
+import { Portfolio, PortfolioStock } from '../../PortfolioList/reducer';
 import { formatCurrency, formatRevenue, formatRevenueCurrency, revenueColor, valueColor } from '../../util/stock';
 import { portfolioStyles } from '../styles';
 
@@ -35,7 +35,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     isActive: boolean
   ) => {
     const { error, stocks } = this.props;
-    if (stocks == undefined) {
+    if (stocks === undefined) {
       let errorMessage;
       if (error) {
         errorMessage = error.message + ' ';
@@ -44,8 +44,8 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       return <Text>Error! {errorMessage} </Text>;
     }
     // find right stock from the array.
-    const rightStock = stocks.find((stock) => stock.symbol == section.uid);
-    if (rightStock == undefined) {
+    const rightStock = stocks.find((stock) => stock.symbol === section.uid);
+    if (rightStock === undefined) {
       let errorMessage;
       if (error) {
         // TODO: Format Error message to user
@@ -54,7 +54,11 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       return <Text> Error! {errorMessage}</Text>;
     }
     // Check if it still loading data.
-    if (rightStock.stockInfo.metaLoading || rightStock.stockInfo.intraLoading) {
+    if (
+      !rightStock.stockInfo ||
+      rightStock.stockInfo.metaLoading ||
+      rightStock.stockInfo.intraLoading
+    ) {
       return <ActivityIndicator size="small" />;
     }
 
@@ -77,7 +81,7 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
   // Renders content for one section
   renderContent = (section: PortfolioStock) => {
     const { error, stocks } = this.props;
-    if (stocks == undefined) {
+    if (stocks === undefined) {
       let errorMessage;
       if (error) {
         errorMessage = error.message + ' ';
@@ -87,8 +91,8 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
     }
 
     // find right stock from the array.
-    const rightStock = stocks.find((stock) => stock.symbol == section.uid);
-    if (rightStock == undefined) {
+    const rightStock = stocks.find((stock) => stock.symbol === section.uid);
+    if (rightStock === undefined) {
       let errorMessage;
       if (error) {
         errorMessage = error.message + ' ';
@@ -96,12 +100,16 @@ export class Holdings extends React.Component<HoldingsProps, HoldingsState> {
       // TODO: Format error message to user.
       return <Text>Error! {errorMessage} </Text>;
     }
-    if (!rightStock.stockInfo.intraday || !rightStock.stockInfo.stockMetadata) {
+    if (
+      !rightStock.stockInfo ||
+      !rightStock.stockInfo.intraday ||
+      !rightStock.stockInfo.stockMetadata
+    ) {
       let errorMessage;
-      if (rightStock.stockInfo.metaError) {
+      if (rightStock.stockInfo && rightStock.stockInfo.metaError) {
         errorMessage = rightStock.stockInfo.metaError.message + ' ';
       }
-      if (rightStock.stockInfo.intraError) {
+      if (rightStock.stockInfo && rightStock.stockInfo.intraError) {
         errorMessage = errorMessage + rightStock.stockInfo.intraError.message;
       }
       // TODO: Muokkaa error-teksti käyttäjälle.

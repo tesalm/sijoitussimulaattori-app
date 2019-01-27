@@ -14,7 +14,7 @@ export interface StockMetadata {
   fetchTime: Date;
 }
 
-export interface IntradayQuote {
+export interface DailyQuote {
   symbol: string;
   date: string;
   open: number;
@@ -25,22 +25,12 @@ export interface IntradayQuote {
 }
 
 export interface Intraday {
-  intradayQuote: IntradayQuote[];
+  intradayQuote: DailyQuote[];
   fetchTime: Date;
 }
 
-export interface HistoryDataQuote {
-  symbol: string;
-  date: string;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume: number;
-}
-
 export interface HistoryData {
-  historyDataQuote: HistoryDataQuote[];
+  historyDataQuote: DailyQuote[];
   fetchTime: Date;
 }
 
@@ -64,8 +54,7 @@ export interface Stock {
   low: number;
   revenue: number;
   close: number;
-  currency: string;
-  stockInfo: SingleStock;
+  stockInfo?: SingleStock;
 }
 
 export interface StocksListing {
@@ -76,7 +65,14 @@ export interface StocksListing {
   currentSymbol?: string;
 }
 
-const initialState: StocksListing = {
+const defaultSingleStock: SingleStock = {
+  metaLoading: false,
+  intraLoading: false,
+  historyLoading: false,
+  refreshing: false,
+};
+
+export const initialState: StocksListing = {
   stocks: [],
   loading: false,
   refreshing: false,
@@ -122,7 +118,10 @@ export const stocksListingReducer = (
         return { ...state };
       }
 
-      stockList[stockIndex].stockInfo.metaLoading = true;
+      stockList[stockIndex].stockInfo = {
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
+        metaLoading: true,
+      };
       return { ...state, stocks: stockList };
     }
     case ActionType.GetStockMetadataSuccess: {
@@ -133,7 +132,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         stockMetadata: { ...action.metaData, fetchTime: action.fetchTime },
         metaLoading: false,
         metaError: undefined,
@@ -148,7 +147,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         stockMetadata: undefined,
         metaLoading: false,
         metaError: action.error,
@@ -163,7 +162,10 @@ export const stocksListingReducer = (
         return { ...state };
       }
 
-      stockList[stockIndex].stockInfo.intraLoading = true;
+      stockList[stockIndex].stockInfo = {
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
+        intraLoading: true,
+      };
       return { ...state, stocks: stockList };
     }
     case ActionType.GetIntradaySuccess: {
@@ -174,7 +176,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         intraday: {
           intradayQuote: action.intraData,
           fetchTime: action.fetchTime,
@@ -192,7 +194,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         intraday: undefined,
         intraLoading: false,
         intraError: action.error,
@@ -208,7 +210,10 @@ export const stocksListingReducer = (
         return { ...state };
       }
 
-      stockList[stockIndex].stockInfo.refreshing = true;
+      stockList[stockIndex].stockInfo = {
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
+        refreshing: true,
+      };
       return { ...state, stocks: stockList };
     }
     case ActionType.RefreshIntradaySuccess: {
@@ -219,7 +224,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         intraday: {
           intradayQuote: action.intraData,
           fetchTime: action.fetchTime,
@@ -238,7 +243,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         intraday: undefined,
         refreshing: false,
         intraError: action.error,
@@ -253,7 +258,10 @@ export const stocksListingReducer = (
         return { ...state };
       }
 
-      stockList[stockIndex].stockInfo.historyLoading = true;
+      stockList[stockIndex].stockInfo = {
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
+        historyLoading: true,
+      };
       return { ...state, stocks: stockList };
     }
     case ActionType.GetHistorySuccess: {
@@ -264,7 +272,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         historyData: {
           historyDataQuote: action.historyData,
           fetchTime: action.fetchTime,
@@ -282,7 +290,7 @@ export const stocksListingReducer = (
       }
 
       stockList[stockIndex].stockInfo = {
-        ...stockList[stockIndex].stockInfo,
+        ...(stockList[stockIndex].stockInfo || defaultSingleStock),
         historyData: undefined,
         historyLoading: false,
         historyError: action.error,

@@ -14,7 +14,7 @@ import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../Ma
 import { Stock } from '../MarketScreen/reducer';
 import { RouteName } from '../navigation/routes';
 import { getPortfolioData } from '../PortfolioList/actions';
-import { PortfolioStock, SinglePortfolio } from '../PortfolioList/reducers';
+import { PortfolioStock, SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
 import { t } from './../assets/i18n';
 import { Holdings } from './components/Holdings';
@@ -46,11 +46,11 @@ export class PortfolioScreen extends React.Component<
     if (
       this.props.portfolio &&
       this.props.portfolioId &&
-      this.props.portfolio.portfolioInfo.portfolio == undefined
+      this.props.portfolio.portfolioInfo.portfolio === undefined
     ) {
       this.props.getPortfolio(this.props.portfolioId);
     }
-    if (this.props.stocks.length == 0) {
+    if (this.props.stocks.length === 0) {
       this.props.getAllStocks();
     }
   }
@@ -58,15 +58,15 @@ export class PortfolioScreen extends React.Component<
   // Debounce function with 500 ms delay
   getStockData = debounce((stocks: PortfolioStock[]) => {
     stocks.forEach((portfolioStock) => {
-      var findStock = this.props.stocks.find((stock) => {
+      const findStock = this.props.stocks.find((stock) => {
         return stock.symbol === portfolioStock.uid;
       });
 
       if (findStock) {
-        if (!findStock.stockInfo.intraday) {
+        if (!findStock.stockInfo || !findStock.stockInfo.intraday) {
           this.props.getStockMetaData(findStock, findStock.symbol);
         }
-        if (!findStock.stockInfo.intraday) {
+        if (!findStock.stockInfo || !findStock.stockInfo.intraday) {
           this.props.getStockIntraDayData(findStock, findStock.symbol);
         }
       }
@@ -87,7 +87,7 @@ export class PortfolioScreen extends React.Component<
     if (this.props.portfolio && this.props.portfolio.portfolioInfo.portfolio) {
       this.props.portfolio.portfolioInfo.portfolio.stocks.forEach(
         async (portfolioStock) => {
-          var findStock = this.props.stocks.find((stock) => {
+          const findStock = this.props.stocks.find((stock) => {
             return stock.symbol === portfolioStock.uid;
           });
           if (findStock) {
@@ -157,7 +157,7 @@ export class PortfolioScreen extends React.Component<
 const mapStateToProps = (state: RootState) => ({
   portfolioId: state.portfolioListing.portfolioId,
   portfolio: state.portfolioListing.portfolioListing.find((portfolio) => {
-    return portfolio.uid == state.portfolioListing.portfolioId;
+    return portfolio.uid === state.portfolioListing.portfolioId;
   }),
   stocks: state.stocksListing.stocks,
   stocksLoading: state.stocksListing.loading,

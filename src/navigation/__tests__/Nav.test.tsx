@@ -1,45 +1,51 @@
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as React from 'react';
-import { NavigationActions, DrawerActions } from 'react-navigation';
+import { DrawerActions, NavigationActions, StackActions } from 'react-navigation';
 
-import MainNavigator from '../MainNavigator';
+import { createMainSwitchNavigator } from '../AppNavigator';
 import { RouteName } from '../routes';
+
 import 'react-native';
 
-describe('navigation', () => {
-  const wrapper = shallow(<MainNavigator />);
+const getCurrentRoute = (state: any): string =>
+  state.index !== undefined
+    ? getCurrentRoute(state.routes && state.routes[state.index])
+    : state.routeName;
+
+describe('Main navigation', () => {
+  const wrapper = shallow(
+    React.createElement(createMainSwitchNavigator(false))
+  );
   const navigator: any = wrapper.instance();
-  
-  it('routes', async () => {
+
+  it('should navigate to all routes', async () => {
     const routes = Object.keys(RouteName);
-    routes.map((route) => {
+    routes.forEach((route) => {
       expect(
         navigator.dispatch(NavigationActions.navigate({ routeName: route }))
       ).toEqual(true);
     });
   });
 
-  it('bottom tabs', async () => {
-    expect(navigator.state.nav.routes[0].routes.length).toBe(4);
+  it('should open and close the drawer toggle', async () => {
+    navigator.dispatch(DrawerActions.toggleDrawer());
 
-    navigator.dispatch(NavigationActions.navigate({routeName: RouteName.Home}));
-    expect(navigator.state.nav.routes[0]).toMatchObject({ index: 0 });
-
-    navigator.dispatch(NavigationActions.navigate({routeName: RouteName.Market}));
-    expect(navigator.state.nav.routes[0]).toMatchObject({ index: 1 });
-
-    navigator.dispatch(NavigationActions.navigate({routeName: RouteName.Commissions}));
-    expect(navigator.state.nav.routes[0]).toMatchObject({ index: 2 });
-
-    navigator.dispatch(NavigationActions.navigate({routeName: RouteName.Community}));
-    expect(navigator.state.nav.routes[0]).toMatchObject({ index: 3 });
-
-    navigator.dispatch(NavigationActions.back());
-    expect(navigator.state.nav.routes[0]).toMatchObject({ index: 0 });
+    expect(
+      navigator.state.nav.routes
+        .find((o: any) => o.routeName === RouteName.App)
+        .routes.find((o: any) => o.routeName === RouteName.App).toggleId
+    ).toBe(1);
   });
 
-  it('drawer toggle', async () => {
-    navigator.dispatch(DrawerActions.toggleDrawer());
-    expect(navigator.state.nav.toggleId).toBe(1);
+  it('should create a stack', () => {
+    navigator.dispatch(
+      NavigationActions.navigate({
+        routeName: RouteName.Stock,
+      })
+    );
+
+    expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.Stock);
+    navigator.dispatch(StackActions.pop({}));
+    expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.StockList);
   });
 });

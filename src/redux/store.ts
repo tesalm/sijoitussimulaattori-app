@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 
 import { rootReducer } from './reducers';
 
-
 export function configureStore(additionalMiddleware: Middleware[] = []) {
   return createStore(
     rootReducer,

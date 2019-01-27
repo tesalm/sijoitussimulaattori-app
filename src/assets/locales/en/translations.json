@@ -36,10 +36,6 @@
   "InfoPage": {
     "PlaceholderText": "PLACEHOLDER: Info page"
   },
-  "Hello": {
-    "HelloGreetee": "Hello, {{greetee}}!",
-    "World": "world"
-  },
   "Loading": {
     "LoggedInAs": "Logged in as"
   },
@@ -47,9 +43,9 @@
     "NoAuthenticatedUser": "No authenticated user"
   },
   "ListStockPage": {
-    "SearcBarPlaceholder": "Search for stocks",
     "RevenueText": "Revenue today",
-    "LastSaleText": "Last sale"
+    "LastSaleText": "Last sale",
+    "NoPortfolio": "You don't own any portfolios"
   },
   "StockPage": {
     "Title": "Stock",
@@ -66,7 +62,7 @@
     "Bid": "Bid"
   },
   "LoginScreen": {
-    "NewUserGreeting": "Your first time the ValueTown?",
+    "NewUserGreeting": "Your first time at ValueTown?",
     "NewUserButton": "Continue as new user",
     "AfterErrButton": "Try again"
   },
@@ -120,5 +116,10 @@
     "NameEmpty": "Name can not be empty!",
     "NotNumber": "Amount needs to be a number!",
     "NotPositiveNumber": "Amount needs to be postive number!"
+  },
+  "PortfolioListing": {
+    "TotalRevenue": "Total revenue (%)",
+    "RevenueToday": "Revenue today",
+    "NoPortfolios": "You don't have any portfolios"
   }
 }

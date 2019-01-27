@@ -4,8 +4,8 @@ import {
   portfolioApiRequest,
   portfolioListApiRequest,
   createPortfolioRequest,
-} from '../utils/api';
-import { Portfolio, SinglePortfolio } from './reducers';
+} from '../util/api';
+import { Portfolio, SinglePortfolio } from './reducer';
 
 export enum ActionType {
   RequestPortfolioListingBegin = '[Portfolios] API Request',

@@ -59,7 +59,7 @@ export interface PortfolioListing {
   creatingPortfolio: CreatingPortfolio;
 }
 
-const initialState: PortfolioListing = {
+export const initialState: PortfolioListing = {
   portfolioListing: [],
   loading: false,
   error: undefined,

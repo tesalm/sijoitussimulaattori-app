@@ -1,7 +1,7 @@
 import { textStyles } from '../App/styles';
 import { portfolioStyles } from '../PortfolioScreen/styles';
 
-//format revenue to right forms. Converts number to string and add procent marker.
+// format revenue to right forms. Converts number to string and add procent marker.
 const formatRevenue = (revenue: number) => {
   return revenue >= 0
     ? '+' + (revenue * 100).toFixed(2) + ' %'
@@ -9,8 +9,7 @@ const formatRevenue = (revenue: number) => {
 };
 
 /** format revenue to right forms. Converts number to string and
- * add currency marker and plus sign if needed. This function does not
- * handle procent values **/
+ * add currency marker and plus sign if needed. **/
 const formatRevenueCurrency = (revenue: number, currency: string) => {
   return revenue >= 0
     ? '+' + formatCurrency(revenue, currency)
@@ -32,9 +31,9 @@ const valueColor = (value: number) => {
 // format currency from 'USD' to $ or 'EUR' to €
 const formatCurrency = (value: number, currency: string) => {
   if (currency) {
-    if (currency == 'USD') {
+    if (currency === 'USD') {
       return value.toFixed(2) + ' $';
-    } else if (currency == 'EUR') {
+    } else if (currency === 'EUR') {
       return value.toFixed(2) + ' €';
     }
   }

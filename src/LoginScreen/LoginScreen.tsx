@@ -44,7 +44,7 @@ class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
           style={loginScreenStyles.logo as ImageStyle}
           source={require('../assets/images/Logo.png')}
         />
-        {/*New user greetee and anonymous login button.*/}
+        {/*New user greeting and anonymous login button.*/}
         <View style={loginScreenStyles.buttonContainer}>
           <Text style={loginScreenStyles.text}>{loginGreeting}</Text>
           <Button

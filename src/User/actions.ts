@@ -114,10 +114,10 @@ const deleteUser = () => async (dispatch: Dispatch<UserAction | Logout>) => {
     return; // <- Exit on error.
   }
 
-  const [err] = await to(userAuth.delete());
+  const [error] = await to(userAuth.delete());
 
-  if (err) {
-    dispatch(new DeleteCurrentUserFailure(err));
+  if (error) {
+    dispatch(new DeleteCurrentUserFailure(error));
   } else {
     dispatch(new DeleteCurrentUserSuccess());
     dispatch(new Logout());
