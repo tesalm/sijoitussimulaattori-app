@@ -21,7 +21,7 @@ import { createPortfolio } from '../PortfolioList/actions';
 
 export interface CreatePortfolioProps {
   createPortfolioLoading: boolean;
-  createPortfolioError?: createPortfolioError;
+  createPortfolioError?: Error;
   createNewPortfolio: typeof createPortfolio;
   createPortfolioSuccess: boolean;
 }

@@ -8,24 +8,27 @@ describe('Create Portfolio', () => {
   const navigationMock: any = {};
 
   const defaultCreatePortfolioProps: CreatePortfolioProps = {
-    loading: false,
-    error: undefined,
-    create: jest.fn(),
-    success: false,
+    createPortfolioLoading: false,
+    createPortfolioError: undefined,
+    createNewPortfolio: jest.fn(),
+    createPortfolioSuccess: false,
   };
 
   const loadingCreatePortfolioProps: CreatePortfolioProps = {
-    loading: true,
-    error: undefined,
-    create: jest.fn(),
-    success: false,
+    createPortfolioLoading: true,
+    createPortfolioError: undefined,
+    createNewPortfolio: jest.fn(),
+    createPortfolioSuccess: false,
   };
 
   const errorCreatePortfolioProps: CreatePortfolioProps = {
-    loading: false,
-    error: { name: 'Network Error', message: 'Network connection failed' },
-    create: jest.fn(),
-    success: false,
+    createPortfolioLoading: false,
+    createPortfolioError: {
+      name: 'Network Error',
+      message: 'Network connection failed',
+    },
+    createNewPortfolio: jest.fn(),
+    createPortfolioSuccess: false,
   };
 
   it('renders correctly', async () => {
@@ -72,16 +75,16 @@ describe('Create Portfolio', () => {
     ).root;
     if (component != null) {
       //Whitespaces to portfolio name
-      component.instance.sanitize('    name     ');
+      component.instance.sanitizePortfolioName('    name     ');
       expect(component.instance.state.nameError).toEqual(false);
       expect(component.instance.state.name).toEqual('name');
       //lines to portfolio name
-      component.instance.sanitize('--');
+      component.instance.sanitizePortfolioName('--');
       expect(component.instance.state.nameError).toEqual(false);
       expect(component.instance.state.name).toEqual('--');
       //empty portfolio name
       component.instance.state.name = '';
-      component.instance.sanitize('');
+      component.instance.sanitizePortfolioName('');
       expect(component.instance.state.nameError).toEqual(true);
       expect(component.instance.state.name).toEqual('');
     }
