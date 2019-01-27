@@ -41,7 +41,13 @@ exports[`portfolio-list tests renders correctly with loading 1`] = `
 `;
 
 exports[`portfolio-list tests renders correctly with portfolio 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
   <RCTScrollView
     ItemSeparatorComponent={[Function]}
     data={
