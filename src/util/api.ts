@@ -3,9 +3,9 @@ import axios from 'axios';
 import { config } from '../config';
 import { DailyQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
 import {
+  CreatePortfolio,
   Portfolio,
   SinglePortfolio,
-  CreatePortfolio,
 } from '../PortfolioList/reducer';
 import { getIdToken } from './general';
 

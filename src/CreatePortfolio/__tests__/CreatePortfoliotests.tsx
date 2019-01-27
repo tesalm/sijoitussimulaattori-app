@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { CreatePortfolioProps, CreatePortfolioTest } from '../CreatePortfolio';
 
 describe('Create Portfolio', () => {
-  //Mock for navigation.
+  // Mock for navigation.
   const navigationMock: any = {};
 
   const defaultCreatePortfolioProps: CreatePortfolioProps = {
@@ -50,16 +50,16 @@ describe('Create Portfolio', () => {
         {...navigationMock}
       />
     ).root;
-    if (component != null) {
-      //Text to portfolio amount
+    if (component !== null) {
+      // Text to portfolio amount
       component.instance.validateAmount('a');
       expect(component.instance.state.amountError).toEqual(true);
       expect(component.instance.state.amount).toEqual(NaN);
-      //Whitespaces to portfolio amount
+      // Whitespaces to portfolio amount
       component.instance.validateAmount('    10.00     ');
       expect(component.instance.state.amountError).toEqual(false);
       expect(component.instance.state.amount).toEqual(10.0);
-      //end dot to portfolio amount
+      // end dot to portfolio amount
       component.instance.validateAmount('10.');
       expect(component.instance.state.amountError).toEqual(false);
       expect(component.instance.state.amount).toEqual(10.0);
@@ -73,16 +73,16 @@ describe('Create Portfolio', () => {
         {...navigationMock}
       />
     ).root;
-    if (component != null) {
-      //Whitespaces to portfolio name
+    if (component !== null) {
+      // Whitespaces to portfolio name
       component.instance.sanitizePortfolioName('    name     ');
       expect(component.instance.state.nameError).toEqual(false);
       expect(component.instance.state.name).toEqual('name');
-      //lines to portfolio name
+      // lines to portfolio name
       component.instance.sanitizePortfolioName('--');
       expect(component.instance.state.nameError).toEqual(false);
       expect(component.instance.state.name).toEqual('--');
-      //empty portfolio name
+      // empty portfolio name
       component.instance.state.name = '';
       component.instance.sanitizePortfolioName('');
       expect(component.instance.state.nameError).toEqual(true);

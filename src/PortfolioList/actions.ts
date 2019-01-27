@@ -1,9 +1,9 @@
 import { Dispatch } from 'redux';
 
 import {
+  createPortfolioRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
-  createPortfolioRequest,
 } from '../util/api';
 import { Portfolio, SinglePortfolio } from './reducer';
 

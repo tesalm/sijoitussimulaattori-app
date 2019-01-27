@@ -1,11 +1,11 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Text,
   TextInput,
-  View,
-  TouchableOpacity,
-  ActivityIndicator,
   ToastAndroid,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -15,6 +15,7 @@ import validator from 'validator';
 import { t } from '../assets/i18n';
 import { RootState } from '../redux/reducers';
 import { CreatePortfolioStyles as styles } from './styles';
+
 import { FormColors } from '../App/colors';
 import { buttonStyles, textInputStyles } from '../App/styles';
 import { createPortfolio } from '../PortfolioList/actions';
@@ -175,7 +176,8 @@ class CreatePortfolio extends React.Component<
 
     if (createPortfolioError) {
       // TODO: Format error-message for user. Use showErrors-function.
-      <Text>Error! From the API-request</Text>;
+      return(
+      <Text>Error! From the API-request</Text>);
     }
 
     return (
@@ -191,7 +193,7 @@ class CreatePortfolio extends React.Component<
             }
             style={textInputStyles.item}
             ref="name"
-            onChangeText={(name) => this.setState({ name })}
+            onChangeText={(portfolioName) => this.setState({ name: portfolioName })}
             value={name}
             onFocus={() =>
               this.setState({
@@ -222,7 +224,7 @@ class CreatePortfolio extends React.Component<
             style={textInputStyles.item}
             keyboardType="numeric"
             ref="amount"
-            onChangeText={(inputNumber) => this.setState({ inputNumber })}
+            onChangeText={(amount) => this.setState({ inputNumber: amount })}
             value={inputNumber}
             onFocus={() =>
               this.setState({

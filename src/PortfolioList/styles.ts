@@ -3,6 +3,9 @@ import { Colors } from '../App/colors';
 import { scale, verticalScale } from '../util/scale';
 
 const PortfolioListingStyles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   titleStyle: {
     fontWeight: 'bold',
     color: Colors.baseColor,

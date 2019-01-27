@@ -5,8 +5,8 @@ import {
   RefreshControl,
   Text,
   ToastAndroid,
-  View,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
@@ -20,6 +20,7 @@ import { RootState } from '../redux/reducers';
 import { formatRevenue, revenueColor, valueColor } from '../util/stock';
 import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducer';
+
 import Icon, { IconNames } from '../general/icon';
 import { PortfolioListingStyles } from './styles';
 
@@ -92,7 +93,7 @@ export class PortfolioListScreen extends React.Component<
     }
 
     return (
-      <View>
+      <View style={PortfolioListingStyles.screen}>
         <FlatList
           refreshControl={
             <RefreshControl

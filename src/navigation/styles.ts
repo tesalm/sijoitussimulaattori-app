@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { verticalScale, scale } from '../util/scale';
 
 const Colors = {
   headerTint: '#F3EBDD',

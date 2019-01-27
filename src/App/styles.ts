@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { scale, verticalScale } from '../util/scale';
-
 import { Colors, FormColors } from './colors';
 
 const generalStyles = StyleSheet.create({});
@@ -118,6 +117,5 @@ const textInputStyles = StyleSheet.create({
     paddingHorizontal: scale(16),
   },
 });
-
 
 export { generalStyles, cardButtonStyles, cardStyles, textStyles, buttonStyles, textInputStyles };
