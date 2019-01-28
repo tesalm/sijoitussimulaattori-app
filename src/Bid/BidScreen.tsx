@@ -1,45 +1,53 @@
+import debounce from 'lodash/debounce';
 import React, { createRef } from 'react';
-import { RootState } from '../redux/reducers';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
 import {
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput,
   ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
-import { bidPageStyle, bidStyles, actionButtons, sumUpCancel } from './styles';
+import { NavigationScreenProps } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+
+import { WizardFormColors } from '../App/colors';
 import { t } from '../assets/i18n';
 import { Stock } from '../MarketScreen/reducer';
-import { WizardFormColors } from '../App/colors';
+import { getPortfolioData } from '../PortfolioList/actions';
+import { SinglePortfolio } from '../PortfolioList/reducer';
+import { RootState } from '../redux/reducers';
 import {
   countRevenue,
   formatCurrency,
   parseStringDecimalToFloat,
 } from '../util/general';
 import { verticalScale } from '../util/scale';
-import { NavigationScreenProps } from 'react-navigation';
-import { saveBidForm } from './actions';
-import { StockInfo } from './components/Stockinfo';
+import { saveBidForm, updateSelectedPortfolio } from './actions';
 import { ActionButton } from './components/ActionButton';
+import { PortfolioInfoTexts } from './components/PortfolioInfoTexts';
+import { StockInfo } from './components/Stockinfo';
+import { actionButtons, bidPageStyle, bidStyles, sumUpCancel } from './styles';
 
 export interface BidProps {
   stock?: Stock;
   saveForm: typeof saveBidForm;
+  portfolios: SinglePortfolio[];
+  getDataForPortfolio: typeof getPortfolioData;
+  currentSymbol?: string;
 }
 
 type BidPropsWithNavigation = BidProps & NavigationScreenProps;
 
-export interface BidState {
+interface BidState {
   bidLevel: string;
   action: string;
   bidLevelActive: boolean;
-  sumOfStocksActive: boolean;
-  portfolios: Object;
-  sumOfStocks: string;
+  portfolioNames: {}[];
   selectedPortfolio: string;
+  sumOfStocksActive: boolean;
+  sumOfStocks: string;
   sumUpActive: boolean;
 }
 
@@ -57,15 +65,10 @@ export class BidScreen extends React.Component<
       bidLevel: '0,00',
       action: '',
       bidLevelActive: false,
+      portfolioNames: [],
+      selectedPortfolio: this.props.portfolios[0].name,
       sumOfStocksActive: false,
-      portfolios: [
-        { value: 'Portfolio 1' },
-        { value: 'Portfolio 2' },
-        { value: 'Portfolio 3' },
-        { value: 'Portfolio 4' },
-      ],
       sumOfStocks: '0',
-      selectedPortfolio: 'Portfolio 1',
       sumUpActive: false,
     };
   }
@@ -73,6 +76,15 @@ export class BidScreen extends React.Component<
   static navigationOptions = {
     header: null,
   };
+
+  componentDidMount() {
+    const allPortfolioNames = this.state.portfolioNames.slice();
+    this.props.portfolios.forEach((portfolio) => {
+      allPortfolioNames.push({ value: portfolio.name });
+      return;
+    });
+    this.setState({ portfolioNames: allPortfolioNames });
+  }
 
   scroll(yPos: number) {
     this.scroller.current!.scrollTo({ x: 0, y: yPos });
@@ -87,17 +99,26 @@ export class BidScreen extends React.Component<
     this.setState({ action: 'sell' }, () => this.scroll(verticalScale(96)));
   }
 
-  onDropdownTextChange(value: string) {
-    this.setState({ selectedPortfolio: value }, () =>
-      this.sumOfStocksRef.current!.focus()
-    );
-  }
+  // When portfolio is chosen, let's fetch its data, if that hasn't already be done.
+  onDropdownTextChange = debounce((value: string) => {
+    this.setState({ selectedPortfolio: value }, () => {
+      this.sumOfStocksRef.current!.focus();
+    });
+  }, 100);
 
-  onSumOfStocksFocuced() {
+  onSumOfStocksFocuced = debounce(() => {
     this.setState({ sumOfStocksActive: true }, () =>
       this.scroll(verticalScale(228))
     );
-  }
+    const currentPortfolio = this.props.portfolios.find((portfolio) => {
+      return portfolio.name === this.state.selectedPortfolio;
+    });
+    if (currentPortfolio && currentPortfolio.portfolioInfo) {
+      if (!currentPortfolio.portfolioInfo.portfolio) {
+        this.props.getDataForPortfolio(currentPortfolio.uid);
+      }
+    }
+  }, 500);
 
   onSumOfStocksSubmit() {
     this.bidLevelRef.current!.focus();
@@ -148,6 +169,7 @@ export class BidScreen extends React.Component<
   countTotalCost() {
     if (
       this.props.stock &&
+      this.props.stock.stockInfo &&
       this.props.stock.stockInfo.stockMetadata &&
       this.state.bidLevel !== '' &&
       this.state.sumOfStocks !== ''
@@ -155,7 +177,7 @@ export class BidScreen extends React.Component<
       return formatCurrency(
         parseStringDecimalToFloat(this.state.bidLevel) *
           parseStringDecimalToFloat(this.state.sumOfStocks),
-        this.props.stock.currency
+        this.props.stock.stockInfo.stockMetadata.currency
       );
     }
     return 0;
@@ -171,20 +193,20 @@ export class BidScreen extends React.Component<
   }
 
   render() {
-    const { stock } = this.props;
+    const { currentSymbol, portfolios, stock } = this.props;
     const {
       sumOfStocksActive,
       bidLevelActive,
       action,
-      portfolios,
       bidLevel,
-      sumOfStocks,
+      portfolioNames,
       selectedPortfolio,
+      sumOfStocks,
       sumUpActive,
     } = this.state;
 
     if (!stock || !stock.stockInfo || !stock.stockInfo.stockMetadata) {
-      return <Text>Error!</Text>;
+      return <Text>Error! </Text>;
     }
 
     return (
@@ -229,7 +251,7 @@ export class BidScreen extends React.Component<
                     itemColor={WizardFormColors.backgroundColor}
                     baseColor={WizardFormColors.buttonsUnactive}
                     selectedItemColor={WizardFormColors.buttonsActive}
-                    data={portfolios}
+                    data={portfolioNames}
                     containerStyle={bidStyles.dropdown}
                     value={selectedPortfolio}
                     ref={this.portfolioRef}
@@ -239,15 +261,12 @@ export class BidScreen extends React.Component<
                     style={{ textAlign: 'center' }}
                   />
                   <View>
-                    <Text style={bidStyles.infoText}>
-                      {t('SumUpPage.YouOwn')}{' '}
-                      <Text style={bidStyles.infoTextHighlight}>16</Text>{' '}
-                      {t('SumUpPage.StocksOf')} {stock.name}.
-                    </Text>
-                    <Text style={bidStyles.infoText}>
-                      {t('SumUpPage.YourPortfoliosTotVal')}{' '}
-                      <Text style={bidStyles.infoTextHighlight}>1749394€</Text>
-                    </Text>
+                    <PortfolioInfoTexts
+                      currentSymbol={currentSymbol}
+                      portfolios={portfolios}
+                      selectedPortfolio={selectedPortfolio}
+                      stockName={stock.name}
+                    />
                   </View>
                 </View>
                 <View style={bidStyles.textInputContainer}>
@@ -286,7 +305,8 @@ export class BidScreen extends React.Component<
                 </View>
                 <View style={bidStyles.textInputContainer}>
                   <Text style={bidStyles.headings}>
-                    {t('BidPage.ChooseBidLevel')} ({stock.currency})
+                    {t('BidPage.ChooseBidLevel')} (
+                    {stock.stockInfo.stockMetadata.currency})
                   </Text>
                   <TextInput
                     ref={this.bidLevelRef}
@@ -351,11 +371,14 @@ const mapStateToProps = (state: RootState) => ({
   stock: state.stocksListing.stocks.find((stock) => {
     return stock.symbol === state.stocksListing.currentSymbol;
   }),
+  portfolios: state.portfolioListing.portfolioListing,
+  currentSymbol: state.stocksListing.currentSymbol,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
+      getDataForPortfolio: getPortfolioData,
       saveForm: saveBidForm,
     },
     dispatch

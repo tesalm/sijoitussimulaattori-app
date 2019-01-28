@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Text, View } from 'react-native';
-import { bidStyles, actionButtons } from '../styles';
-import Icon from '../../general/icon';
 import { WizardFormColors } from '../../App/colors';
 import { t } from '../../assets/i18n';
+import Icon from '../../general/icon';
+import { actionButtons } from '../styles';
 
 export interface ActionButtonProps {
   action: string;

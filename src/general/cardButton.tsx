@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 import { cardButtonStyles } from '../App/styles';
 import { t } from '../assets/i18n';
@@ -13,7 +13,7 @@ interface CardButtonProps {
 
 const CardButton = (props: CardButtonProps): JSX.Element => {
   return (
-    <TouchableHighlight onPress={() => props.onPress()}>
+    <TouchableOpacity onPress={() => props.onPress()}>
       <View style={cardButtonStyles.cardButtonView}>
         <View style={cardButtonStyles.cardButtonLogoView}>
           <Icon iconName={props.iconName} iconHeight={24} iconWidth={24} />
@@ -23,7 +23,7 @@ const CardButton = (props: CardButtonProps): JSX.Element => {
         </View>
         <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 

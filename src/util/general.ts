@@ -19,9 +19,9 @@ const revenueColor = (revenue: number) => {
 // format currency from 'USD' to $ or 'EUR' to €
 const formatCurrency = (value: number, currency: string) => {
   if (currency) {
-    if (currency == 'USD') {
+    if (currency === 'USD') {
       return value.toFixed(2) + ' $';
-    } else if (currency == 'EUR') {
+    } else if (currency === 'EUR') {
       return value.toFixed(2) + ' €';
     }
   }

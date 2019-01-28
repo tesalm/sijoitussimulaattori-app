@@ -1,16 +1,9 @@
 import React from 'react';
-
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
-import { StockMetadata, Intraday } from '../../MarketScreen/reducer';
-import {
-  revenueColor,
-  formatCurrency,
-  formatRevenue,
-} from '../../util/general';
-import { bidStyles, stockinfo } from '../styles';
-import { stockContainerStyles } from '../../Stock/styles';
+import { formatRevenue } from '../../util/stock';
+import { stockinfo } from '../styles';
 
 export interface StockinfoProps {
   name: string;

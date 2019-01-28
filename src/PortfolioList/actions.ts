@@ -1,7 +1,11 @@
 import { Dispatch } from 'redux';
 
-import { portfolioApiRequest, portfolioListApiRequest } from '../util/api';
-import { Portfolio, SinglePortfolio } from './reducer';
+import {
+  portfolioApiRequest,
+  portfolioListApiRequest,
+  transactionApiRequest,
+} from '../util/api';
+import { Portfolio, SinglePortfolio, Transaction } from './reducer';
 
 export enum ActionType {
   RequestPortfolioListingBegin = '[Portfolios] API Request',
@@ -11,6 +15,9 @@ export enum ActionType {
   RequestPortfolioSuccess = '[Portfolio] Data Success',
   RequestPortfolioFailure = '[Portfolio] Data Failure',
   SaveCurrentPortfolioId = '[Portfolios] Save Current Portfolio Id',
+  SaveTransactionBegin = '[Bid] Save transaction begin',
+  SaveTransactionSuccess = '[Bid] Save transaction success',
+  SaveTransactionFailure = '[Bid] Save transaction failure',
 }
 
 export type PortfolioAction =
@@ -20,7 +27,10 @@ export type PortfolioAction =
   | SaveCurrentPortfolioId
   | RequestPortfolioBegin
   | RequestPortfolioSuccess
-  | RequestPortfolioFailure;
+  | RequestPortfolioFailure
+  | SaveTransactionBegin
+  | SaveTransactionSuccess
+  | SaveTransactionFailure;
 
 export class RequestPortfolioListingBegin {
   readonly type = ActionType.RequestPortfolioListingBegin;
@@ -71,6 +81,27 @@ export class RequestPortfolioFailure {
   }
 }
 
+export class SaveTransactionBegin {
+  readonly type = ActionType.SaveTransactionBegin;
+  constructor(public portfolioId: string) {
+    return { type: this.type, portfolioId };
+  }
+}
+
+export class SaveTransactionSuccess {
+  readonly type = ActionType.SaveTransactionSuccess;
+  constructor(public portfolioId: string, public transaction: Transaction) {
+    return { type: this.type, portfolioId, transaction };
+  }
+}
+
+export class SaveTransactionFailure {
+  readonly type = ActionType.SaveTransactionFailure;
+  constructor(public portfolioId: string, public error: Error) {
+    return { type: this.type, portfolioId, error };
+  }
+}
+
 const getPortfolioData = (portfolioId: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
@@ -107,4 +138,31 @@ const getPortfolios = () => async (dispatch: Dispatch<PortfolioAction>) => {
   }
 };
 
-export { getPortfolios, saveAsCurrentPortfolioId, getPortfolioData };
+const saveTransaction = (
+  action: string,
+  stockSymbol: string,
+  amountOfStocks: number,
+  bidLevel: number,
+  portfolioId: string
+) => async (dispatch: Dispatch<PortfolioAction>) => {
+  dispatch(new SaveTransactionBegin(portfolioId));
+  try {
+    const data = await transactionApiRequest(
+      action,
+      stockSymbol,
+      amountOfStocks,
+      bidLevel,
+      portfolioId
+    );
+    dispatch(new SaveTransactionSuccess(portfolioId, data));
+  } catch (error) {
+    dispatch(new SaveTransactionFailure(portfolioId, error));
+  }
+};
+
+export {
+  getPortfolios,
+  saveAsCurrentPortfolioId,
+  getPortfolioData,
+  saveTransaction,
+};

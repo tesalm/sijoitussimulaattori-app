@@ -1,10 +1,14 @@
 import axios from 'axios';
 
+import { BidInfo } from '../Bid/reducers';
 import { config } from '../config';
 import { DailyQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
-import { Portfolio, SinglePortfolio } from '../PortfolioList/reducer';
+import {
+  Portfolio,
+  SinglePortfolio,
+  Transaction,
+} from '../PortfolioList/reducer';
 import { getIdToken } from './general';
-import { BidInfo } from '../Bid/reducers';
 
 const stockListApiRequest = async (): Promise<Array<Stock>> => {
   try {
@@ -82,21 +86,26 @@ const portfolioListApiRequest = async (): Promise<SinglePortfolio[]> => {
   }
 };
 
-const bidApiRequest = async (bidInfo: BidInfo): Promise<void> => {
+const transactionApiRequest = async (
+  type: string,
+  symbol: string,
+  amount: number,
+  price: number,
+  portfolioId: string
+): Promise<Transaction> => {
   try {
-    // TODO: Check that selectedPortfolio matches with the backends values.
-    const portfolioId = bidInfo.selectedPortfolio;
     const url =
       config.app.STOCK_API_URL +
       '/profile/portfolio/' +
       portfolioId +
       '/transaction';
-    await axios.post(url, {
-      type: bidInfo.action.toUpperCase,
-      symbol: bidInfo.symbol,
-      amount: bidInfo.sumOfStocks,
-      price: bidInfo.bidLevel,
+    const res = await axios.post(url, {
+      type: type.toUpperCase,
+      symbol: symbol,
+      amount: amount,
+      price: price,
     });
+    return res.data;
   } catch (error) {
     throw error;
   }
@@ -109,5 +118,5 @@ export {
   stockHistoryApiRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
-  bidApiRequest,
+  transactionApiRequest,
 };

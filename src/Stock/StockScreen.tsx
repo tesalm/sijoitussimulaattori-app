@@ -21,12 +21,12 @@ import {
   refreshIntraday,
 } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
+import { countRevenue } from '../util/general';
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
-import BackButtonWithNavigation from '../navigation/components/BackButton';
-import { countRevenue } from '../util/general';
 import { stockStyles } from './styles';
 
 export interface StockProps {
