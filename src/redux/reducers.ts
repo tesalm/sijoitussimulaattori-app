@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import { BidInfo, bidReducer } from '../Bid/reducers';
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
 import {
   PortfolioListing,
@@ -7,7 +8,6 @@ import {
 } from '../PortfolioList/reducer';
 import { User, userReducer } from '../User/reducer';
 import { Auth, authReducer } from './../Auth/reducer';
-import { BidInfo, bidReducer } from '../Bid/reducers';
 
 export interface RootState {
   login: Auth;

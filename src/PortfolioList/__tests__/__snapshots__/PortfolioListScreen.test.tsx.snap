@@ -84,6 +84,12 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
         },
         "totalMarketValue": 0.53,
         "totalRevenue": 0.25,
+        "transactionInfo": Object {
+          "transactionSuccess": false,
+          "transactions": undefined,
+          "transactionsError": undefined,
+          "transactionsLoading": false,
+        },
         "uid": "Portfolio1",
       },
     ]

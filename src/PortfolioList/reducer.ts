@@ -15,7 +15,7 @@ export interface Transaction {
 }
 
 export interface TransactionInfo {
-  transactions: Transaction[];
+  transactions?: Transaction[];
   transactionsLoading: boolean;
   transactionsError?: Error;
   transactionSuccess: boolean;

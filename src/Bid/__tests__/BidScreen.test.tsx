@@ -3,12 +3,15 @@ import renderer from 'react-test-renderer';
 import { BidProps, BidScreen } from '../BidScreen';
 
 describe('bid tests', () => {
-  //Mock for navigation.
+  // Mock for navigation.
   const navigationMock: any = {};
 
   const defaultBidProps: BidProps = {
     stock: undefined,
     saveForm: jest.fn(),
+    portfolios: [],
+    getDataForPortfolio: jest.fn(),
+    currentSymbol: '',
   };
 
   const bidProps: BidProps = {
@@ -19,7 +22,6 @@ describe('bid tests', () => {
       low: 354.38,
       revenue: 3894.34,
       close: 293.42,
-      currency: 'USD',
       stockInfo: {
         stockMetadata: {
           symbol: 'AAPL',
@@ -88,11 +90,75 @@ describe('bid tests', () => {
       },
     },
     saveForm: jest.fn(),
+    portfolios: [
+      {
+        uid: 'Portfolio1',
+        name: 'P1',
+        balance: 8372,
+        ownerId: 'Heidi',
+        totalRevenue: 9384,
+        totalMarketValue: 484394,
+        lastDayRevenue: 483,
+        portfolioInfo: {
+          loading: false,
+          refreshing: false,
+          error: undefined,
+          portfolio: {
+            uid: 'Portfolio1',
+            name: 'P1',
+            balance: 8372,
+            totalRevenue: 9384,
+            totalMarketValue: 484394,
+            lastDayRevenue: 483,
+            ownerId: 'Heidi',
+            stocks: [],
+          },
+        },
+        transactionInfo: {
+          transactions: undefined,
+          transactionsLoading: false,
+          transactionsError: undefined,
+          transactionSuccess: false,
+        },
+      },
+      {
+        uid: 'Portfolio2',
+        name: 'P2',
+        balance: 9372,
+        ownerId: 'Seidi',
+        totalRevenue: 19384,
+        totalMarketValue: 44394,
+        lastDayRevenue: 4835,
+        portfolioInfo: {
+          loading: false,
+          refreshing: false,
+          error: undefined,
+          portfolio: {
+            uid: 'Portfolio2',
+            name: 'P2',
+            balance: 9372,
+            totalRevenue: 19384,
+            totalMarketValue: 44394,
+            lastDayRevenue: 4835,
+            ownerId: 'Seidi',
+            stocks: [],
+          },
+        },
+        transactionInfo: {
+          transactions: undefined,
+          transactionsLoading: false,
+          transactionsError: undefined,
+          transactionSuccess: false,
+        },
+      },
+    ],
+    getDataForPortfolio: jest.fn(),
+    currentSymbol: 'AAPL',
   };
 
   it('BidScreen renders correctly', async () => {
     const component = renderer
-      .create(<BidScreen {...defaultBidProps} {...navigationMock} />)
+      .create(<BidScreen {...bidProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

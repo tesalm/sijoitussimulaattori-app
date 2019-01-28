@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { scale, verticalScale } from '../util/scale';
 import { Colors, WizardFormColors } from '../App/colors';
+import { scale, verticalScale } from '../util/scale';
 
 const sumUpStyles = StyleSheet.create({
   background: {

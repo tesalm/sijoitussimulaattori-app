@@ -24,7 +24,7 @@ import {
   parseStringDecimalToFloat,
 } from '../util/general';
 import { verticalScale } from '../util/scale';
-import { saveBidForm, updateSelectedPortfolio } from './actions';
+import { saveBidForm } from './actions';
 import { ActionButton } from './components/ActionButton';
 import { PortfolioInfoTexts } from './components/PortfolioInfoTexts';
 import { StockInfo } from './components/Stockinfo';

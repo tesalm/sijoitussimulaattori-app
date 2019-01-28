@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { scale, verticalScale } from '../util/scale';
 import { WizardFormColors } from '../App/colors';
+import { scale, verticalScale } from '../util/scale';
 
 const bidPageStyle = StyleSheet.create({
   background: {

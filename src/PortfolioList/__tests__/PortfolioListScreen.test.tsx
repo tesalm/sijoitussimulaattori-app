@@ -1,7 +1,10 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 
-import { PortfolioListProps, PortfolioListScreen } from '../PortfolioListScreen';
+import {
+  PortfolioListProps,
+  PortfolioListScreen,
+} from '../PortfolioListScreen';
 
 describe('portfolio-list tests', () => {
   // Mock for navigation.
@@ -75,6 +78,12 @@ describe('portfolio-list tests', () => {
               },
             ],
           },
+        },
+        transactionInfo: {
+          transactionSuccess: false,
+          transactions: undefined,
+          transactionsError: undefined,
+          transactionsLoading: false,
         },
       },
     ],

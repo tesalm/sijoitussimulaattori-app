@@ -329,7 +329,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": "#004D40",
+                    "tintColor": undefined,
                     "width": 48,
                   }
                 }
@@ -375,7 +375,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                   style={
                     Object {
                       "height": 48,
-                      "tintColor": "#004D40",
+                      "tintColor": undefined,
                       "width": 48,
                     }
                   }
@@ -494,7 +494,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                       style={
                         Object {
                           "height": 48,
-                          "tintColor": "#004D40",
+                          "tintColor": undefined,
                           "width": 48,
                         }
                       }
@@ -783,7 +783,11 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={null}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
         >
           <View
             style={
@@ -809,7 +813,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": "#004D40",
+                    "tintColor": undefined,
                     "width": 48,
                   }
                 }
@@ -836,7 +840,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               style={
                 Object {
                   "height": 48,
-                  "tintColor": "#004D40",
+                  "tintColor": undefined,
                   "width": 48,
                 }
               }
@@ -881,7 +885,11 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={null}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
         >
           <View
             style={
@@ -907,7 +915,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": "#004D40",
+                    "tintColor": undefined,
                     "width": 48,
                   }
                 }
@@ -934,7 +942,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               style={
                 Object {
                   "height": 48,
-                  "tintColor": "#004D40",
+                  "tintColor": undefined,
                   "width": 48,
                 }
               }

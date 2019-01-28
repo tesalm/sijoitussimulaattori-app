@@ -1,8 +1,8 @@
 import React from 'react';
 import {
+  HeaderBackButton,
   NavigationScreenProp,
   NavigationState,
-  HeaderBackButton,
   withNavigation,
 } from 'react-navigation';
 import { Colors } from '../../App/colors';
