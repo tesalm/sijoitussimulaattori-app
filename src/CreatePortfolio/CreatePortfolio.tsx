@@ -164,6 +164,44 @@ class CreatePortfolio extends React.Component<
     ) : null;
   }
 
+  changePortfolioName(portfolioName: string) {
+    this.setState({ name: portfolioName });
+  }
+
+  onPortfolioTextInputFocus() {
+    this.setState({
+      nameActive: true,
+    });
+  }
+
+  onPortfolioTextInputBlur() {
+    this.setState(
+      {
+        nameActive: false,
+      },
+      () => this.sanitizePortfolioName(this.state.name)
+    );
+  }
+
+  changeAmountTextInput(amount: string) {
+    this.setState({ inputNumber: amount });
+  }
+
+  onAmountTextInputFocus() {
+    this.setState({
+      sumActive: true,
+    });
+  }
+
+  onAmountTextInputBlur() {
+    this.setState(
+      {
+        sumActive: false,
+      },
+      () => this.validateAmount(this.state.inputNumber)
+    );
+  }
+
   render() {
     const { createPortfolioLoading, createPortfolioError } = this.props;
     const {
@@ -176,8 +214,7 @@ class CreatePortfolio extends React.Component<
 
     if (createPortfolioError) {
       // TODO: Format error-message for user. Use showErrors-function.
-      return(
-      <Text>Error! From the API-request</Text>);
+      return <Text>Error! From the API-request</Text>;
     }
 
     return (
@@ -193,21 +230,12 @@ class CreatePortfolio extends React.Component<
             }
             style={textInputStyles.item}
             ref="name"
-            onChangeText={(portfolioName) => this.setState({ name: portfolioName })}
+            onChangeText={(portfolioName) =>
+              this.changePortfolioName(portfolioName)
+            }
             value={name}
-            onFocus={() =>
-              this.setState({
-                nameActive: true,
-              })
-            }
-            onBlur={() =>
-              this.setState(
-                {
-                  nameActive: false,
-                },
-                () => this.sanitizePortfolioName(name)
-              )
-            }
+            onFocus={() => this.onPortfolioTextInputFocus()}
+            onBlur={() => this.onPortfolioTextInputBlur()}
             onSubmitEditing={() => this.sanitizePortfolioName(name)}
           />
         </View>
@@ -224,21 +252,10 @@ class CreatePortfolio extends React.Component<
             style={textInputStyles.item}
             keyboardType="numeric"
             ref="amount"
-            onChangeText={(amount) => this.setState({ inputNumber: amount })}
+            onChangeText={(amount) => this.changeAmountTextInput(amount)}
             value={inputNumber}
-            onFocus={() =>
-              this.setState({
-                sumActive: true,
-              })
-            }
-            onBlur={() =>
-              this.setState(
-                {
-                  sumActive: false,
-                },
-                () => this.validateAmount(inputNumber)
-              )
-            }
+            onFocus={() => this.onAmountTextInputFocus()}
+            onBlur={() => this.onAmountTextInputBlur()}
             onSubmitEditing={() => this.validateAmount(inputNumber)}
           />
         </View>

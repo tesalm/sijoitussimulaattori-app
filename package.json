@@ -55,7 +55,6 @@
     "cacheDirectory": ".jest/cache"
   },
   "dependencies": {
-    "@types/validator": "^10.9.0",
     "await-to-js": "^2.1.1",
     "axios": "^0.18.0",
     "i18next": "^12.1.0",
@@ -83,6 +82,7 @@
     "validator": "^10.10.0"
   },
   "devDependencies": {
+    "@types/validator": "^10.9.0",
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/i18n-js": "^3.0.1",
