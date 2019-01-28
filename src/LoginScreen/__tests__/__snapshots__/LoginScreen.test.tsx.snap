@@ -46,7 +46,7 @@ exports[`Testing Login Screen renders correctly 1`] = `
         }
       }
     >
-      Your first time the ValueTown?
+      Your first time at ValueTown?
     </Text>
     <View
       accessible={true}
@@ -254,7 +254,7 @@ exports[`Testing Login Screen renders correctly when logging in and waiting 1`] 
         }
       }
     >
-      Your first time the ValueTown?
+      Your first time at ValueTown?
     </Text>
     <View
       accessible={true}

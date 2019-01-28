@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { shallow } from 'enzyme';
+import * as React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { BasicinfoProps, Basicinfo } from '../components/Basicinfo';
+import { Basicinfo, BasicinfoProps } from '../components/Basicinfo';
 
 describe('basicinfo tests', () => {
   // Mock for navigation.

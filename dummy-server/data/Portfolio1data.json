@@ -1,0 +1,28 @@
+{
+  "uid": "Portfolio1",
+  "name": "Portfolio1",
+  "balance": 500,
+  "revenue": -0.02,
+  "totalMarketValue": 5000,
+  "totalRevenue": 59,
+  "lastDayRevenue": 0,
+  "ownerId": "Joooni",
+  "stocks": [
+    {
+      "uid": "AMZN",
+      "amount": 245,
+      "avgPrice": 153.3,
+      "totalRevenue": 0.54,
+      "totalMarketValue": 2084,
+      "lastDayRevenue": 0.52
+    },
+    {
+      "uid": "AAPL",
+      "amount": 340,
+      "avgPrice": 132,
+      "totalRevenue": 0.54,
+      "totalMarketValue": 2084,
+      "lastDayRevenue": 0.52
+    }
+  ]
+}

@@ -1,21 +1,19 @@
-import { StockStyles } from '../MarketScreen/styles';
+import { auth } from 'react-native-firebase';
+import { Colors } from '../App/colors';
 
 const randomInt = (low: number = 0, high: number = Number.MAX_SAFE_INTEGER) => {
   return Math.floor(Math.random() * (high - low) + low);
 };
 
-//format revenue to right forms. Converts number to string and add procent marker.
-const formatRevenue = (revenue: number) => {
-  return revenue >= 0
-    ? '+' + (revenue * 100).toFixed(2) + ' %'
-    : (revenue * 100).toFixed(2) + ' %';
+// Fetch id token for current user
+const getIdToken = async () => {
+  const token = await auth().currentUser!.getIdToken();
+  return token;
 };
 
 // Returns the color revenue should be. Green > 0, red < 0
 const revenueColor = (revenue: number) => {
-  return revenue >= 0
-    ? StockStyles.revenueValueGreen
-    : StockStyles.revenueValueRed;
+  return revenue >= 0 ? Colors.greenPercent : Colors.redPercent;
 };
 
 // format currency from 'USD' to $ or 'EUR' to €
@@ -42,7 +40,7 @@ const parseStringDecimalToFloat = (value: string) => {
 
 export {
   randomInt,
-  formatRevenue,
+  getIdToken,
   revenueColor,
   formatCurrency,
   countRevenue,

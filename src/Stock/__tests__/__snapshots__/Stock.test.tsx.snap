@@ -38,12 +38,12 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 372,
+          "flex": 1,
           "margin": 0,
-          "paddingBottom": 32,
-          "paddingLeft": 32,
-          "paddingRight": 32,
-          "paddingTop": 32,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
@@ -82,8 +82,12 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
     <Themed.Card
       containerStyle={
         Object {
-          "height": 400,
+          "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
@@ -110,18 +114,47 @@ exports[`stock tests Stockscreen renders correctly with stock 1`] = `
             },
           ]
         }
-        historyLoading={false}
+        intraDay={
+          Array [
+            Object {
+              "close": 168.63,
+              "date": "2018-12-12T00:20:00.000Z",
+              "high": 170.43,
+              "low": 165.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+            Object {
+              "close": 168.63,
+              "date": "2018-12-12T00:10:00.000Z",
+              "high": 170.43,
+              "low": 165.43,
+              "open": 170.4,
+              "symbol": "AAPL",
+              "volume": 12279994,
+            },
+          ]
+        }
       />
     </Themed.Card>
     <Themed.Card
       containerStyle={
         Object {
-          "height": 112,
+          "flex": 1,
           "margin": 0,
+          "paddingBottom": 31.388235294117646,
+          "paddingLeft": 34.285714285714285,
+          "paddingRight": 34.285714285714285,
+          "paddingTop": 31.388235294117646,
         }
       }
     >
-      <Bid />
+      <CardButton
+        iconName="bid"
+        onPress={[Function]}
+        translationTitle="StockPage.Bid"
+      />
     </Themed.Card>
   </View>
 </_class>

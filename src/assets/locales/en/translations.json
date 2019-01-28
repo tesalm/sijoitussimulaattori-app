@@ -21,7 +21,7 @@
   "PortfoliosPage": {
     "Title": "Portfolios",
     "PlaceholderText": "PLACEHOLDER: Listing of portfolios",
-    "GoToProfileButtonLabel": "Go to Profile"
+    "GoToPortfolioPage": "Go to Portfolio"
   },
   "MarketPage": {
     "Title": "Stocks",
@@ -36,10 +36,6 @@
   "InfoPage": {
     "PlaceholderText": "PLACEHOLDER: Info page"
   },
-  "Hello": {
-    "HelloGreetee": "Hello, {{greetee}}!",
-    "World": "world"
-  },
   "Loading": {
     "LoggedInAs": "Logged in as"
   },
@@ -47,9 +43,9 @@
     "NoAuthenticatedUser": "No authenticated user"
   },
   "ListStockPage": {
-    "SearcBarPlaceholder": "Search for stocks",
     "RevenueText": "Revenue today",
-    "LastSaleText": "Last sale"
+    "LastSaleText": "Last sale",
+    "NoPortfolio": "You don't own any portfolios"
   },
   "StockPage": {
     "Title": "Stock",
@@ -66,7 +62,7 @@
     "Bid": "Bid"
   },
   "LoginScreen": {
-    "NewUserGreeting": "Your first time the ValueTown?",
+    "NewUserGreeting": "Your first time at ValueTown?",
     "NewUserButton": "Continue as new user",
     "AfterErrButton": "Try again"
   },
@@ -96,5 +92,48 @@
     "StocksOf": "stocks of",
     "YourPortfoliosTotVal": "Your portfolios total value is",
     "TotalSumOfTransaction": "Total sum of transaction is"
+  },
+  "Graph": {
+    "NoData": "No data, choose another timespan",
+    "1D": "Today",
+    "1W": "1 Week",
+    "1M": "1 Month",
+    "3M": "3 Months",
+    "1Y": "1 Year",
+    "Month": {
+      "1": "jan",
+      "2": "feb",
+      "3": "mar",
+      "4": "apr",
+      "5": "may",
+      "6": "jun",
+      "7": "jul",
+      "8": "aug",
+      "9": "sep",
+      "10": "oct",
+      "11": "nov",
+      "12": "dec"
+    }
+  },
+  "PortfolioPage": {
+    "Title": "My main stocks",
+    "MarketValue": "Market value",
+    "Cash": "Cash",
+    "TotalValue": "Total Value",
+    "Revenue": "Revenue today",
+    "Holdings": "My holdings",
+    "Events": "Events & transactions",
+    "Manage": "Manage portfolio",
+
+    "StocksOwned": "Stocks Owned",
+    "TotalRevenueProcent": "Total Revenue (%)",
+    "Acquisition": "Acquisition price",
+    "TotalMarketValue": "Total market value",
+    "TotalRevenue": "Total revenue"
+  },
+  "PortfolioListing": {
+    "TotalRevenue": "Total revenue (%)",
+    "RevenueToday": "Revenue today",
+    "NoPortfolios": "You don't have any portfolios"
   }
 }

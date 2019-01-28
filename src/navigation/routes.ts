@@ -1,12 +1,17 @@
 // Define all routenames:
 export enum RouteName {
+  Login = 'Login',
+  App = 'App',
   Main = 'Main',
   Home = 'Home',
-  Market = 'Market',
+  SinglePortfolio = 'SinglePortfolio',
+  StockList = 'StockList',
+  Stock = 'Stock',
   Commissions = 'Commissions',
   Community = 'Community',
   Profile = 'Profile',
-  Stock = 'Stock',
   Bid = 'Bid',
   SumUp = 'SumUp',
+  StockModal = 'StockModal',
+  Info = 'Info',
 }

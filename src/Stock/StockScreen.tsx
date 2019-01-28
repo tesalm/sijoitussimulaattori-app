@@ -1,10 +1,19 @@
 import React from 'react';
-import { RefreshControl, ScrollView, Text } from 'react-native';
+import {
+  ActivityIndicator,
+  RefreshControl,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import { Card } from 'react-native-elements';
+import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
+import { cardStyles } from '../App/styles';
+import CardButton from '../general/cardButton';
 import {
   getHistory,
   getIntraday,
@@ -12,14 +21,13 @@ import {
   refreshIntraday,
 } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import Basicinfo from './components/Basicinfo';
-import Bid from './components/Bid';
 import Diagram from './components/Diagram';
-import { stockContainerStyles } from './styles';
-import { NavigationScreenProps } from 'react-navigation';
 import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { countRevenue } from '../util/general';
+import { stockStyles } from './styles';
 
 export interface StockProps {
   getMeta: typeof getStockMetadata;
@@ -85,53 +93,68 @@ export class StockScreen extends React.Component<
         <ScrollView
           refreshControl={
             <RefreshControl
-              refreshing={stock.stockInfo.refreshing}
+              refreshing={!!stock.stockInfo && stock.stockInfo.refreshing}
               onRefresh={this.refresh}
               colors={[Colors.baseColor]}
             />
           }
         >
-          <Card containerStyle={stockContainerStyles.basicInfo}>
+          <Card containerStyle={cardStyles.container}>
             <Basicinfo
               revenue={this.countRevenuePercentage()}
-              stockMetadata={stock.stockInfo.stockMetadata}
-              metaLoading={stock.stockInfo.metaLoading}
-              metaError={stock.stockInfo.metaError}
+              stockMetadata={stock.stockInfo && stock.stockInfo.stockMetadata}
+              metaLoading={stock.stockInfo && stock.stockInfo.metaLoading}
+              metaError={stock.stockInfo && stock.stockInfo.metaError}
               intradayQuote={
-                stock.stockInfo.intraday
+                stock.stockInfo && stock.stockInfo.intraday
                   ? stock.stockInfo.intraday.intradayQuote[0]
                   : undefined
               }
               fetchTime={
-                stock.stockInfo.intraday
+                stock.stockInfo && stock.stockInfo.intraday
                   ? stock.stockInfo.intraday.fetchTime
                   : undefined
               }
-              intraLoading={stock.stockInfo.intraLoading}
-              intraError={stock.stockInfo.intraError}
-              historyLoading={stock.stockInfo.historyLoading}
+              intraLoading={stock.stockInfo && stock.stockInfo.intraLoading}
+              intraError={stock.stockInfo && stock.stockInfo.intraError}
+              historyLoading={stock.stockInfo && stock.stockInfo.historyLoading}
             />
           </Card>
 
-          <Card containerStyle={stockContainerStyles.diagram}>
-            <Diagram
-              historyData={
-                stock.stockInfo.historyData
-                  ? stock.stockInfo.historyData.historyDataQuote
-                  : []
-              }
-              historyLoading={stock.stockInfo.historyLoading}
-              historyError={stock.stockInfo.historyError}
-            />
+          <Card containerStyle={cardStyles.container}>
+            {stock.stockInfo &&
+            (stock.stockInfo.historyLoading || stock.stockInfo.intraLoading) ? (
+              <View style={stockStyles.loading}>
+                <ActivityIndicator size="large" />
+              </View>
+            ) : (
+              <Diagram
+                historyData={
+                  stock.stockInfo && stock.stockInfo.historyData
+                    ? stock.stockInfo.historyData.historyDataQuote
+                    : []
+                }
+                intraDay={
+                  stock.stockInfo && stock.stockInfo.intraday
+                    ? stock.stockInfo.intraday.intradayQuote
+                    : []
+                }
+                historyError={stock.stockInfo && stock.stockInfo.historyError}
+              />
+            )}
           </Card>
 
-          <Card containerStyle={stockContainerStyles.buttonContainer}>
-            <Bid navigation={this.props.navigation} />
+          <Card containerStyle={cardStyles.container}>
+            <CardButton
+              iconName={'bid'}
+              translationTitle={'StockPage.Bid'}
+              onPress={() => this.props.navigation.navigate(RouteName.Bid)}
+            />
           </Card>
         </ScrollView>
       );
     } else {
-      //TODO: Format the error message to user
+      // TODO: Format the error message to user
       return <Text>Error, stockinfo not found! </Text>;
     }
   }

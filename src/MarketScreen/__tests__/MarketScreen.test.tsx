@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { MarketScreen, StockProps } from '../MarketScreen';
 
 describe('stock-list tests', () => {
-  //Mock for navigation.
+  // Mock for navigation.
   const navigationMock: any = {};
 
   const defaultStockProps: StockProps = {
@@ -52,7 +52,6 @@ describe('stock-list tests', () => {
         low: 9.99,
         revenue: -0.035,
         close: 14.57,
-        currency: 'USD',
         stockInfo: {
           metaLoading: false,
           intraLoading: false,
@@ -67,7 +66,6 @@ describe('stock-list tests', () => {
         low: 9.99,
         revenue: -0.035,
         close: 14.57,
-        currency: 'USD',
         stockInfo: {
           metaLoading: false,
           intraLoading: false,

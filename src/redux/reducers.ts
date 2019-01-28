@@ -1,23 +1,26 @@
 import { combineReducers } from 'redux';
 
-import { Counter, counterReducer } from '../HelloFeature/reducer';
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
+import {
+  PortfolioListing,
+  portfolioListingReducer,
+} from '../PortfolioList/reducer';
 import { User, userReducer } from '../User/reducer';
 import { Auth, authReducer } from './../Auth/reducer';
 import { BidInfo, bidReducer } from '../Bid/reducers';
 
 export interface RootState {
-  counter: Counter;
   login: Auth;
   stocksListing: StocksListing;
   user: User;
   bid: BidInfo;
+  portfolioListing: PortfolioListing;
 }
 
 export const rootReducer = combineReducers<RootState>({
-  counter: counterReducer,
   login: authReducer,
   stocksListing: stocksListingReducer,
   user: userReducer,
   bid: bidReducer,
+  portfolioListing: portfolioListingReducer,
 });

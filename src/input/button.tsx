@@ -4,13 +4,12 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { buttonStyles, buttonStylesLight } from './styles';
 
 export interface ButtonProps {
-  buttonText: String;
+  buttonText: string;
   onPress: () => void;
-  lightBackground?: Boolean;
-};
+  lightBackground?: boolean;
+}
 
-export class Button extends React.Component <ButtonProps> {
-
+export class Button extends React.Component<ButtonProps> {
   constructor(props: ButtonProps) {
     super(props);
   }
@@ -18,16 +17,15 @@ export class Button extends React.Component <ButtonProps> {
   render() {
     const { onPress, buttonText, lightBackground } = this.props;
 
-    const styleSheet = ( lightBackground && lightBackground === true ) ?
-      buttonStylesLight : buttonStyles;
+    const styleSheet =
+      lightBackground && lightBackground === true
+        ? buttonStylesLight
+        : buttonStyles;
 
-    return(
-      <TouchableOpacity 
-        onPress={onPress}>
+    return (
+      <TouchableOpacity onPress={onPress}>
         <View style={styleSheet.button}>
-          <Text style={styleSheet.buttonText}>
-            {buttonText.toUpperCase()}
-          </Text>
+          <Text style={styleSheet.buttonText}>{buttonText.toUpperCase()}</Text>
         </View>
       </TouchableOpacity>
     );

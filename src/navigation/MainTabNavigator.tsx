@@ -6,12 +6,12 @@ import HomeStack from './bottomTabs/HomeTab';
 import MarketStack from './bottomTabs/MarketTab';
 import { Colors } from './styles';
 
-const BottomNav = createBottomTabNavigator(
+const MainTabNavigator = createBottomTabNavigator(
   {
-    Home: { screen: HomeStack },
-    Market: { screen: MarketStack },
-    Commissions: { screen: CommissionsStack },
-    Community: { screen: CommunityStack },
+    Home: HomeStack,
+    Market: MarketStack,
+    Commissions: CommissionsStack,
+    Community: CommunityStack,
   },
   {
     tabBarOptions: {
@@ -26,4 +26,4 @@ const BottomNav = createBottomTabNavigator(
   }
 );
 
-export default BottomNav;
+export default MainTabNavigator;

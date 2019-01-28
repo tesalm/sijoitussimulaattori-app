@@ -45,7 +45,7 @@ export class Loading extends React.Component<LoadingProps, LoadingState> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  user: state.login.user,
+  user: state.login.userAuth,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
