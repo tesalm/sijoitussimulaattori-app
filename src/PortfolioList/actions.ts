@@ -1,10 +1,12 @@
 import { Dispatch } from 'redux';
 
 import {
+  cancelTransactionApiRequest,
   createPortfolioRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
   transactionApiRequest,
+  transactionsApiRequest,
 } from '../util/api';
 import { Portfolio, SinglePortfolio, Transaction } from './reducer';
 
@@ -22,6 +24,10 @@ export enum ActionType {
   CreatePortfolioBegin = '[CreatingPortfolio] Creating portfolio begin',
   CreatePortfolioSuccess = '[CreatingPortfolio] Creating portfolio success',
   CreatePortfolioFailure = '[CreatingPortfolio] Creating portfolio failure',
+  RequestTransactionsBegin = '[Transactions] API Request',
+  RequestTransactionsSuccess = '[Transactions] API Success',
+  RequestTransactionsFailure = '[Transactions] API Failure',
+  RequestCancelTransactionSuccess = '[Transactions] Cancel success',
 }
 
 export type PortfolioAction =
@@ -37,7 +43,11 @@ export type PortfolioAction =
   | SaveTransactionFailure
   | CreatePortfolioBegin
   | CreatePortfolioSuccess
-  | CreatePortfolioFailure;
+  | CreatePortfolioFailure
+  | RequestTransactionsBegin
+  | RequestTransactionsSuccess
+  | RequestTransactionsFailure
+  | RequestCancelTransactionSuccess;
 
 export class RequestPortfolioListingBegin {
   readonly type = ActionType.RequestPortfolioListingBegin;
@@ -135,6 +145,37 @@ export class CreatePortfolioFailure {
   }
 }
 
+export class RequestTransactionsBegin {
+  readonly type = ActionType.RequestTransactionsBegin;
+  constructor(public portfolioId: string) {
+    return { type: this.type, portfolioId };
+  }
+}
+
+export class RequestTransactionsSuccess {
+  readonly type = ActionType.RequestTransactionsSuccess;
+  constructor(
+    public transactions: Array<Transaction>,
+    public portfolioId: string
+  ) {
+    return { type: this.type, transactions, portfolioId };
+  }
+}
+
+export class RequestTransactionsFailure {
+  readonly type = ActionType.RequestTransactionsFailure;
+  constructor(public error: Error, public portfolioId: string) {
+    return { type: this.type, error, portfolioId };
+  }
+}
+
+export class RequestCancelTransactionSuccess {
+  readonly type = ActionType.RequestCancelTransactionSuccess;
+  constructor(public tid: string, public portfolioId: string) {
+    return { type: this.type, tid, portfolioId };
+  }
+}
+
 const getPortfolioData = (portfolioId: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
@@ -163,6 +204,11 @@ const getPortfolios = () => async (dispatch: Dispatch<PortfolioAction>) => {
         error: undefined,
         refreshing: false,
         portfolio: undefined,
+      };
+      portfolio.transactions = {
+        loading: false,
+        error: undefined,
+        transactions: [],
       };
     });
     dispatch(new RequestPortfoliosListingSuccess(data));
@@ -212,10 +258,36 @@ const createPortfolio = (name: string, amount: number) => async (
   }
 };
 
+const getTransactions = (pid: string) => async (
+  dispatch: Dispatch<PortfolioAction>
+) => {
+  dispatch(new RequestTransactionsBegin(pid));
+  try {
+    const data = await transactionsApiRequest(pid);
+    dispatch(new RequestTransactionsSuccess(data, pid));
+  } catch (error) {
+    dispatch(new RequestTransactionsFailure(error, pid));
+  }
+};
+
+const cancelTransaction = (pid: string, tid: string) => async (
+  dispatch: Dispatch<PortfolioAction>
+) => {
+  dispatch(new RequestTransactionsBegin(pid));
+  try {
+    await cancelTransactionApiRequest(pid, tid);
+    dispatch(new RequestCancelTransactionSuccess(tid, pid));
+  } catch (error) {
+    dispatch(new RequestTransactionsFailure(error, pid));
+  }
+};
+
 export {
   getPortfolios,
   saveAsCurrentPortfolioId,
   getPortfolioData,
   saveTransaction,
   createPortfolio,
+  getTransactions,
+  cancelTransaction,
 };

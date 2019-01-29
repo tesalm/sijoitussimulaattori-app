@@ -126,6 +126,32 @@ const portfolioStyles = StyleSheet.create({
     flex: 0.1,
     marginTop: scale(5),
   },
+  symbol: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'justify',
+    marginBottom: verticalScale(4),
+    color: Colors.baseColor,
+  },
+  basicText: {
+    fontSize: 12,
+    textAlign: 'justify',
+    color: Colors.baseColor,
+  },
+  noActionsText: {
+    fontSize: 14,
+    marginTop: verticalScale(15),
+    marginBottom: verticalScale(4),
+    opacity: 0.6,
+  },
+  cancelAction: {
+    fontSize: 15,
+    color: 'orange',
+  },
+  transaction: {
+    marginTop: verticalScale(12),
+    marginBottom: verticalScale(2),
+  },
 });
 
 export { portfolioStyles };
