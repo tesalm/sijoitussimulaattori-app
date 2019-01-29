@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { BidInfo, bidReducer } from '../Bid/reducers';
+import { BidInfo, bidReducer } from '../Bid/reducer';
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
 import {
   PortfolioListing,

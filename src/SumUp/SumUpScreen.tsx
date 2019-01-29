@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { t } from '../assets/i18n';
-import { BidInfo } from '../Bid/reducers';
+import { BidInfo } from '../Bid/reducer';
 import { Stock } from '../MarketScreen/reducer';
 import { RouteName } from '../navigation/routes';
 import { saveTransaction } from '../PortfolioList/actions';

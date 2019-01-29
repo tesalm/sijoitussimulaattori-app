@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { BidInfo } from './reducers';
+import { BidInfo } from './reducer';
 
 export enum ActionType {
   UpdateAction = '[Bid] Update action',

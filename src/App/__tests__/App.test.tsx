@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { initialAuthState, LoginState } from '../../Auth/reducer';
-import { initialState as initialBidState } from '../../Bid/reducers';
+import { initialState as initialBidState } from '../../Bid/reducer';
 import { initialState as initialStockListingState } from '../../MarketScreen/reducer';
 import { initialState as initialPortfolioListingState } from '../../PortfolioList/reducer';
 import { RootState } from '../../redux/reducers';

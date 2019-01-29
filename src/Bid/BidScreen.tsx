@@ -15,6 +15,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { FormColors } from '../App/colors';
 import { t } from '../assets/i18n';
 import { Stock } from '../MarketScreen/reducer';
+import { RouteName } from '../navigation/routes';
 import { getPortfolioData } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
@@ -29,7 +30,6 @@ import { ActionButton } from './components/ActionButton';
 import { PortfolioInfoTexts } from './components/PortfolioInfoTexts';
 import { StockInfo } from './components/Stockinfo';
 import { actionButtons, bidPageStyle, bidStyles, sumUpCancel } from './styles';
-import { RouteName } from '../navigation/routes';
 
 export interface BidProps {
   stock?: Stock;
