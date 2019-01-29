@@ -29,6 +29,7 @@ import { ActionButton } from './components/ActionButton';
 import { PortfolioInfoTexts } from './components/PortfolioInfoTexts';
 import { StockInfo } from './components/Stockinfo';
 import { actionButtons, bidPageStyle, bidStyles, sumUpCancel } from './styles';
+import { RouteName } from '../navigation/routes';
 
 export interface BidProps {
   stock?: Stock;
@@ -148,7 +149,7 @@ export class BidScreen extends React.Component<
       this.state.selectedPortfolio,
       this.props.stock.symbol
     );
-    this.props.navigation.navigate('SumUp');
+    this.props.navigation.navigate(RouteName.SumUp);
   }
 
   countRevenuePercentage() {

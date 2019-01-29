@@ -98,12 +98,17 @@ const transactionApiRequest = async (
       '/profile/portfolio/' +
       portfolioId +
       '/transaction';
-    const res = await axios.post(url, {
-      type: type.toUpperCase,
-      symbol: symbol,
-      amount: amount,
-      price: price,
-    });
+    const token = await getIdToken();
+    const res = await axios.post(
+      url,
+      {
+        type: type.toUpperCase,
+        symbol: symbol,
+        amount: amount,
+        price: price,
+      },
+      { headers: { Authorization: 'Bearer ' + token } }
+    );
     return res.data;
   } catch (error) {
     throw error;

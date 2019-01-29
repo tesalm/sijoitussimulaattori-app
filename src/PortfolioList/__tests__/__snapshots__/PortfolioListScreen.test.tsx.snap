@@ -53,7 +53,7 @@ exports[`portfolio-list tests renders correctly 1`] = `
       style={
         Object {
           "height": 100,
-          "tintColor": "#004D40",
+          "tintColor": undefined,
           "width": 100,
         }
       }
