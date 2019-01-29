@@ -22,6 +22,8 @@ const availablePortfolio = (symbol) =>
 const availablePortfolioList = JSON.parse(
   fs.readFileSync(__dirname + '/data/availablePortfolios.json')
 );
+const portfolioTransactions = (portfolioId) =>
+  JSON.parse(fs.readFileSync(__dirname + '/data/' + portfolioId + 'transacts.json'));
 
 app.get('/stocks', (req, res) => {
   console.log('all stocks being fethced');
@@ -49,6 +51,15 @@ app.get('/profile/portfolio', (req, res) => {
 app.get('/profile/portfolio/:portfolioID', (req, res) => {
   console.log(req.params.portfolioID + ' data is being fetched');
   res.json(availablePortfolio(req.params.portfolioID));
+});
+app.get('/profile/portfolio/:portfolioId/transaction', (req, res) => {
+  console.log('transactions of portfolio #' + req.params.portfolioId + ' being fetched');
+  res.json(portfolioTransactions(req.params.portfolioId));
+});
+app.delete('/profile/portfolio/:portfolioId/transaction/:transactionId', (req, res) => {
+  console.log('transaction #' + req.params.transactionId + 
+              ' deleted from portfolio #' + req.params.portfolioId);
+  res.json({uid: req.params.transactionId});
 });
 
 app.post('/profile/portfolio/:portfolioId/transaction', (req, res) => {

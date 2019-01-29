@@ -1,0 +1,46 @@
+[
+    {
+      "uid": "1",
+      "type": "SELL",
+      "symbol": "AAAA",
+      "amount": 50,
+      "price": 222.2,
+      "expiresAt": "2018-12-14T15:55:00.000Z",
+      "state": "MARKET",
+      "fulfilledAt": "",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "2",
+      "type": "SELL",
+      "symbol": "BBBB",
+      "amount": 60,
+      "price": 333.3,
+      "expiresAt": "2018-12-14T16:55:00.000Z",
+      "state": "MARKET",
+      "fulfilledAt": "",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "3",
+      "type": "SELL",
+      "symbol": "CCCC",
+      "amount": 70,
+      "price": 444.4,
+      "expiresAt": "2018-12-14T17:55:00.000Z",
+      "state": "MARKET",
+      "fulfilledAt": "",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "4",
+      "type": "SELL",
+      "symbol": "DDDD",
+      "amount": 45,
+      "price": 555.5,
+      "expiresAt": "2018-12-14T17:55:00.000Z",
+      "state": "FULFILLED",
+      "fulfilledAt": "2018-12-14T17:55:00.000Z",
+      "cancelledAt": ""
+    }
+]
