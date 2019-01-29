@@ -125,6 +125,7 @@ const portfolioStyles = StyleSheet.create({
   holdingsArrowView: {
     flex: 0.1,
     marginTop: scale(5),
+    alignItems: 'flex-end',
   },
   symbol: {
     fontSize: 15,
