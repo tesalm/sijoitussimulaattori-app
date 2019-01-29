@@ -350,6 +350,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
             <View
               style={
                 Object {
+                  "alignItems": "flex-end",
                   "flex": 0.1,
                   "marginTop": 10.714285714285714,
                 }
@@ -480,6 +481,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                   <View
                     style={
                       Object {
+                        "alignItems": "flex-end",
                         "flex": 0.1,
                         "marginTop": 10.714285714285714,
                       }

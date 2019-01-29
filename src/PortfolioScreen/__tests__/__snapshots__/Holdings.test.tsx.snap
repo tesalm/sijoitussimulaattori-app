@@ -68,6 +68,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
     <View
       style={
         Object {
+          "alignItems": "flex-end",
           "flex": 0.1,
           "marginTop": 10.714285714285714,
         }
@@ -198,6 +199,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-end",
                 "flex": 0.1,
                 "marginTop": 10.714285714285714,
               }
