@@ -1,5 +1,13 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  RefreshControl,
+  Text,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -12,6 +20,8 @@ import { RootState } from '../redux/reducers';
 import { formatRevenue, revenueColor, valueColor } from '../util/stock';
 import { getPortfolios, saveAsCurrentPortfolioId } from './actions';
 import { SinglePortfolio } from './reducer';
+
+import Icon, { IconNames } from '../general/icon';
 import { PortfolioListingStyles } from './styles';
 
 export interface PortfolioListProps {
@@ -83,54 +93,63 @@ export class PortfolioListScreen extends React.Component<
     }
 
     return (
-      // TODO: Modify this list to match design for portfolio-list.
-      <FlatList
-        refreshControl={
-          <RefreshControl
-            refreshing={loading}
-            onRefresh={this.refreshPortfolios}
-            colors={[Colors.baseColor]}
-          />
-        }
-        data={portfolioListing}
-        ItemSeparatorComponent={() => (
-          <View style={PortfolioListingStyles.itemSeparatorStyle} />
-        )}
-        keyExtractor={(item) => item.uid}
-        renderItem={({ item, index }) => (
-          <ListItem
-            onPress={() => this.portfolioPressed(item.uid)}
-            containerStyle={PortfolioListingStyles.listContainer}
-            title={
-              <View style={PortfolioListingStyles.titleView}>
-                <Text style={PortfolioListingStyles.titleStyle}>
-                  {item.name}
-                </Text>
-              </View>
-            }
-            rightTitle={
-              <View style={PortfolioListingStyles.rightTitleView}>
-                <Text style={PortfolioListingStyles.revenueText}>
-                  {t('PortfolioListing.RevenueToday')}
-                </Text>
-                <Text style={revenueColor(item.lastDayRevenue)}>
-                  {formatRevenue(item.lastDayRevenue)}
-                </Text>
-              </View>
-            }
-            subtitle={
-              <View style={PortfolioListingStyles.subtitleView}>
-                <Text style={PortfolioListingStyles.subtitleText}>
-                  {t('PortfolioListing.TotalRevenue')}
-                </Text>
-                <Text style={valueColor(item.totalRevenue)}>
-                  {formatRevenue(item.totalRevenue)}
-                </Text>
-              </View>
-            }
-          />
-        )}
-      />
+      <View style={PortfolioListingStyles.screen}>
+        <FlatList
+          refreshControl={
+            <RefreshControl
+              refreshing={loading}
+              onRefresh={this.refreshPortfolios}
+              colors={[Colors.baseColor]}
+            />
+          }
+          data={portfolioListing}
+          ItemSeparatorComponent={() => (
+            <View style={PortfolioListingStyles.itemSeparatorStyle} />
+          )}
+          keyExtractor={(item) => item.uid}
+          renderItem={({ item, index }) => (
+            <ListItem
+              onPress={() => this.portfolioPressed(item.uid)}
+              containerStyle={PortfolioListingStyles.listContainer}
+              title={
+                <View style={PortfolioListingStyles.titleView}>
+                  <Text style={PortfolioListingStyles.titleStyle}>
+                    {item.name}
+                  </Text>
+                </View>
+              }
+              rightTitle={
+                <View style={PortfolioListingStyles.rightTitleView}>
+                  <Text style={PortfolioListingStyles.revenueText}>
+                    {t('PortfolioListing.RevenueToday')}
+                  </Text>
+                  <Text style={revenueColor(item.lastDayRevenue)}>
+                    {formatRevenue(item.lastDayRevenue)}
+                  </Text>
+                </View>
+              }
+              subtitle={
+                <View style={PortfolioListingStyles.subtitleView}>
+                  <Text style={PortfolioListingStyles.subtitleText}>
+                    {t('PortfolioListing.TotalRevenue')}
+                  </Text>
+                  <Text style={valueColor(item.totalRevenue)}>
+                    {formatRevenue(item.totalRevenue)}
+                  </Text>
+                </View>
+              }
+            />
+          )}
+        />
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate(RouteName.CreatePortfolio)
+          }
+          style={PortfolioListingStyles.createNewPortfolio}
+        >
+          <Icon iconName={IconNames.add} iconHeight={50} iconWidth={50} />
+        </TouchableOpacity>
+      </View>
     );
   }
 }

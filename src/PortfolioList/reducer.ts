@@ -1,6 +1,12 @@
 import cloneDeep from 'lodash/cloneDeep';
-
 import { ActionType, PortfolioAction } from './actions';
+
+export interface CreatePortfolio {
+  uid: string;
+  name: string;
+  balance: number;
+  ownerId: string;
+}
 
 export interface PortfolioStock {
   uid: string;
@@ -39,17 +45,29 @@ export interface Portfolio {
   stocks: PortfolioStock[];
 }
 
+export interface CreatingPortfolio {
+  creatingPortfolioLoading: boolean;
+  creatingPortfolioError?: Error;
+  creatingPortfolioSuccess: boolean;
+}
+
 export interface PortfolioListing {
   portfolioListing: Array<SinglePortfolio>;
   loading: boolean;
   error?: Error;
   portfolioId?: string;
+  creatingPortfolio: CreatingPortfolio;
 }
 
 export const initialState: PortfolioListing = {
   portfolioListing: [],
   loading: false,
   error: undefined,
+  creatingPortfolio: {
+    creatingPortfolioLoading: false,
+    creatingPortfolioError: undefined,
+    creatingPortfolioSuccess: false,
+  },
 };
 
 export const portfolioListingReducer = (
@@ -116,7 +134,48 @@ export const portfolioListingReducer = (
       };
       return { ...cloneDeep(state), portfolioListing: portfolioList };
     }
-
+    case ActionType.CreatePortfolioBegin: {
+      const creation = cloneDeep(state.creatingPortfolio);
+      creation.creatingPortfolioLoading = true;
+      creation.creatingPortfolioError = undefined;
+      creation.creatingPortfolioSuccess = false;
+      return { ...state, creatingPortfolio: creation };
+    }
+    case ActionType.CreatePortfolioSuccess: {
+      const creation = cloneDeep(state.creatingPortfolio);
+      creation.creatingPortfolioLoading = false;
+      creation.creatingPortfolioError = undefined;
+      creation.creatingPortfolioSuccess = true;
+      const newPortfolio = {
+        uid: action.uid,
+        name: action.name,
+        ownerId: action.ownerId,
+        balance: action.amount,
+        totalRevenue: 0,
+        totalMarketValue: 0,
+        lastDayRevenue: 0,
+        portfolioInfo: {
+          loading: false,
+          refreshing: false,
+          error: undefined,
+          portfolio: undefined,
+        },
+      };
+      const portfolioList = cloneDeep(state.portfolioListing);
+      portfolioList.push(newPortfolio);
+      return {
+        ...cloneDeep(state),
+        creatingPortfolio: creation,
+        portfolioListing: portfolioList,
+      };
+    }
+    case ActionType.CreatePortfolioFailure: {
+      const creation = cloneDeep(state.creatingPortfolio);
+      creation.creatingPortfolioLoading = false;
+      creation.creatingPortfolioError = action.error;
+      creation.creatingPortfolioSuccess = false;
+      return { ...state, creatingPortfolio: creation };
+    }
     default:
       return state;
   }

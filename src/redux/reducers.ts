@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-
 import { StocksListing, stocksListingReducer } from '../MarketScreen/reducer';
-import { PortfolioListing, portfolioListingReducer } from '../PortfolioList/reducer';
+import {
+  PortfolioListing,
+  portfolioListingReducer,
+} from '../PortfolioList/reducer';
 import { User, userReducer } from '../User/reducer';
 import { Auth, authReducer } from './../Auth/reducer';
 

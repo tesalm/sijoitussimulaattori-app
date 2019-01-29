@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
-
 import { Colors } from '../App/colors';
 import { scale, verticalScale } from '../util/scale';
 
 const PortfolioListingStyles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   titleStyle: {
     fontWeight: 'bold',
     color: Colors.baseColor,
@@ -71,6 +73,17 @@ const PortfolioListingStyles = StyleSheet.create({
     fontSize: verticalScale(20),
     textAlign: 'center',
     color: Colors.baseColor,
+  },
+  createNewPortfolio: {
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    position: 'absolute',
+    bottom: verticalScale(16),
+    right: scale(16),
   },
 });
 

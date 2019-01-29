@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { scale, verticalScale } from 'react-native-size-matters';
-
-import { Colors } from './colors';
+import { scale, verticalScale } from '../util/scale';
+import { Colors, FormColors } from './colors';
 
 const generalStyles = StyleSheet.create({});
 
@@ -71,4 +70,52 @@ const textStyles = StyleSheet.create({
   },
 });
 
-export { generalStyles, cardButtonStyles, cardStyles, textStyles };
+const buttonStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: verticalScale(16),
+  },
+  cancelButton: {
+    height: verticalScale(36),
+    width: verticalScale(112),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cancelText: {
+    color: FormColors.fontColor,
+    fontSize: verticalScale(14),
+    fontWeight: 'bold',
+  },
+  okButton: {
+    height: verticalScale(36),
+    width: verticalScale(112),
+    backgroundColor: FormColors.activeColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowOffset: { width: 1, height: 1 },
+  },
+  okText: {
+    color: FormColors.fontColor,
+    fontSize: verticalScale(14),
+    fontWeight: 'bold',
+  },
+  buttonDisabled: {
+    height: verticalScale(36),
+    width: verticalScale(112),
+    backgroundColor: FormColors.disabled,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+const textInputStyles = StyleSheet.create({
+  item: {
+    color: FormColors.unactiveColor,
+    fontSize: verticalScale(16),
+    textAlign: 'center',
+    paddingHorizontal: scale(16),
+  },
+});
+
+export { generalStyles, cardButtonStyles, cardStyles, textStyles, buttonStyles, textInputStyles };
