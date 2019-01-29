@@ -20,6 +20,45 @@ exports[`portfolio-list tests renders correctly 1`] = `
   >
     You don't have any portfolios
   </Text>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "borderRadius": 30,
+        "bottom": 32,
+        "flexDirection": "column",
+        "height": 60,
+        "justifyContent": "flex-end",
+        "opacity": 1,
+        "position": "absolute",
+        "right": 32,
+        "width": 60,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/navigation/assets/add.png",
+        }
+      }
+      style={
+        Object {
+          "height": 100,
+          "tintColor": "#004D40",
+          "width": 100,
+        }
+      }
+    />
+  </View>
 </View>
 `;
 
