@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Text, View } from 'react-native';
-import { WizardFormColors } from '../../App/colors';
+import { FormColors } from '../../App/colors';
 import { t } from '../../assets/i18n';
 import Icon from '../../general/icon';
 import { actionButtons } from '../styles';
@@ -20,8 +20,8 @@ export const ActionButton = (props: ActionButtonProps): JSX.Element => {
         iconWidth={24}
         tintColor={
           props.active
-            ? WizardFormColors.buttonsActive
-            : WizardFormColors.buttonsUnactive
+            ? FormColors.activeColor
+            : FormColors.unactiveColor
         }
       />
       <Text

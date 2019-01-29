@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { WizardFormColors } from '../App/colors';
+import { FormColors } from '../App/colors';
 import { scale, verticalScale } from '../util/scale';
 
 const bidPageStyle = StyleSheet.create({
   background: {
-    backgroundColor: WizardFormColors.backgroundColor,
+    backgroundColor: FormColors.backgroundColor,
     height: verticalScale(965),
   },
 });
@@ -14,13 +14,13 @@ const actionButtons = StyleSheet.create({
     paddingTop: verticalScale(115),
   },
   buttonUnactive: {
-    color: WizardFormColors.buttonsUnactive,
+    color: FormColors.unactiveColor,
     fontWeight: 'bold',
     fontSize: verticalScale(20),
     paddingLeft: scale(8),
   },
   buttonActive: {
-    color: WizardFormColors.buttonsActive,
+    color: FormColors.activeColor,
     fontWeight: 'bold',
     fontSize: verticalScale(20),
     paddingLeft: scale(8),
@@ -39,7 +39,7 @@ const actionButtons = StyleSheet.create({
 
 const bidStyles = StyleSheet.create({
   headings: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontWeight: 'bold',
     fontSize: verticalScale(17),
     textAlign: 'center',
@@ -49,7 +49,7 @@ const bidStyles = StyleSheet.create({
     fontStyle: 'italic',
   },
   textInput: {
-    color: WizardFormColors.buttonsUnactive,
+    color: FormColors.unactiveColor,
     fontSize: verticalScale(17),
     textAlign: 'center',
   },
@@ -63,13 +63,13 @@ const bidStyles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   infoText: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(12),
     fontWeight: 'bold',
     textAlign: 'center',
   },
   infoTextHighlight: {
-    color: WizardFormColors.hightlightFontColor,
+    color: FormColors.activeColor,
   },
 });
 
@@ -86,27 +86,27 @@ const sumUpCancel = StyleSheet.create({
     justifyContent: 'center',
   },
   cancelText: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(14),
     fontWeight: 'bold',
   },
   sumUpButton: {
     height: verticalScale(36),
     width: verticalScale(112),
-    backgroundColor: WizardFormColors.buttonsActive,
+    backgroundColor: FormColors.activeColor,
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 1, height: 1 },
   },
   sumUpText: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(14),
     fontWeight: 'bold',
   },
   buttonDisabled: {
     height: verticalScale(36),
     width: verticalScale(112),
-    backgroundColor: WizardFormColors.disabled,
+    backgroundColor: FormColors.disabled,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -114,21 +114,21 @@ const sumUpCancel = StyleSheet.create({
 
 const stockinfo = StyleSheet.create({
   stockText: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontWeight: 'bold',
     fontSize: verticalScale(17),
   },
   valueHeaderSmall: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(12),
   },
   valueSmall: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(17),
     fontWeight: 'bold',
   },
   updatedText: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(11),
   },
   container: {
@@ -136,7 +136,7 @@ const stockinfo = StyleSheet.create({
     paddingHorizontal: scale(16),
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: WizardFormColors.backgroundColor,
+    backgroundColor: FormColors.backgroundColor,
     elevation: 4,
     shadowOffset: { width: 5, height: 5 },
     shadowColor: 'grey',

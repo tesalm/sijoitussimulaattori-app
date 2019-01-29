@@ -41,235 +41,282 @@ exports[`portfolio-list tests renders correctly with loading 1`] = `
 `;
 
 exports[`portfolio-list tests renders correctly with portfolio 1`] = `
-<RCTScrollView
-  ItemSeparatorComponent={[Function]}
-  data={
-    Array [
-      Object {
-        "balance": 500,
-        "lastDayRevenue": 0.23,
-        "name": "Portfolio1",
-        "ownerId": "Jooni",
-        "portfolioInfo": Object {
-          "error": undefined,
-          "loading": false,
-          "portfolio": Object {
-            "balance": 500,
-            "lastDayRevenue": 0,
-            "name": "Portfolio1",
-            "ownerId": "Joooni",
-            "stocks": Array [
-              Object {
-                "amount": 245,
-                "avgPrice": 153.3,
-                "lastDayRevenue": 0.52,
-                "totalMarketValue": 2084,
-                "totalRevenue": 0.54,
-                "uid": "AMZN",
-              },
-              Object {
-                "amount": 340,
-                "avgPrice": 132,
-                "lastDayRevenue": 0.52,
-                "totalMarketValue": 2084,
-                "totalRevenue": 0.54,
-                "uid": "AAPL",
-              },
-            ],
-            "totalMarketValue": 5000,
-            "totalRevenue": -0.02,
-            "uid": "Portfolio1",
-          },
-          "refreshing": false,
-        },
-        "totalMarketValue": 0.53,
-        "totalRevenue": 0.25,
-        "transactionInfo": Object {
-          "transactionSuccess": false,
-          "transactions": undefined,
-          "transactionsError": undefined,
-          "transactionsLoading": false,
-        },
-        "uid": "Portfolio1",
-      },
-    ]
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
   }
-  disableVirtualization={false}
-  getItem={[Function]}
-  getItemCount={[Function]}
-  horizontal={false}
-  initialNumToRender={10}
-  keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
-  numColumns={1}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={2}
-  onLayout={[Function]}
-  onMomentumScrollEnd={[Function]}
-  onScroll={[Function]}
-  onScrollBeginDrag={[Function]}
-  onScrollEndDrag={[Function]}
-  refreshControl={
-    <RefreshControlMock
-      colors={
-        Array [
-          "#004D40",
-        ]
-      }
-      onRefresh={[Function]}
-      refreshing={false}
-    />
-  }
-  renderItem={[Function]}
-  scrollEventThrottle={50}
-  stickyHeaderIndices={Array []}
-  updateCellsBatchingPeriod={50}
-  viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
 >
-  <RCTRefreshControl />
-  <View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "balance": 500,
+          "lastDayRevenue": 0.23,
+          "name": "Portfolio1",
+          "ownerId": "Jooni",
+          "portfolioInfo": Object {
+            "error": undefined,
+            "loading": false,
+            "portfolio": Object {
+              "balance": 500,
+              "lastDayRevenue": 0,
+              "name": "Portfolio1",
+              "ownerId": "Joooni",
+              "stocks": Array [
+                Object {
+                  "amount": 245,
+                  "avgPrice": 153.3,
+                  "lastDayRevenue": 0.52,
+                  "totalMarketValue": 2084,
+                  "totalRevenue": 0.54,
+                  "uid": "AMZN",
+                },
+                Object {
+                  "amount": 340,
+                  "avgPrice": 132,
+                  "lastDayRevenue": 0.52,
+                  "totalMarketValue": 2084,
+                  "totalRevenue": 0.54,
+                  "uid": "AAPL",
+                },
+              ],
+              "totalMarketValue": 5000,
+              "totalRevenue": -0.02,
+              "uid": "Portfolio1",
+            },
+            "refreshing": false,
+          },
+          "totalMarketValue": 0.53,
+          "totalRevenue": 0.25,
+          "transactionInfo": Object {
+            "transactionSuccess": false,
+            "transactions": undefined,
+            "transactionsError": undefined,
+            "transactionsLoading": false,
+          },
+          "uid": "Portfolio1",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        colors={
+          Array [
+            "#004D40",
+          ]
+        }
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
       <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        onLayout={[Function]}
         style={null}
       >
         <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "white",
-              "borderBottomWidth": 0,
-              "borderColor": "#bcbbc1",
-              "flex": 1,
-              "flexDirection": "row",
-              "padding": 14,
-              "paddingLeft": 32,
-              "paddingVertical": 16,
-            }
-          }
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
         >
           <View
             style={
               Object {
+                "alignItems": "center",
+                "backgroundColor": "white",
+                "borderBottomWidth": 0,
+                "borderColor": "#bcbbc1",
                 "flex": 1,
-                "justifyContent": "center",
+                "flexDirection": "row",
+                "padding": 14,
+                "paddingLeft": 32,
+                "paddingVertical": 16,
               }
             }
           >
             <View
               style={
                 Object {
-                  "marginLeft": 16,
+                  "flex": 1,
+                  "justifyContent": "center",
                 }
               }
             >
-              <Text
+              <View
                 style={
                   Object {
-                    "color": "#004D40",
-                    "fontSize": 32,
-                    "fontWeight": "bold",
+                    "marginLeft": 16,
                   }
                 }
               >
-                Portfolio1
-              </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 32,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  Portfolio1
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "column",
+                    "marginLeft": 16,
+                    "marginTop": 24,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 24,
+                      "marginBottom": 0,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  Total revenue (%)
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#54c242",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "marginBottom": 7.847058823529411,
+                      "marginTop": -3.9235294117647057,
+                      "textAlign": "justify",
+                    }
+                  }
+                >
+                  +25.00 %
+                </Text>
+              </View>
             </View>
+            <View
+              width={16}
+            />
             <View
               style={
                 Object {
-                  "flexDirection": "column",
-                  "marginLeft": 16,
-                  "marginTop": 24,
+                  "alignItems": "flex-end",
+                  "flex": 0.5,
+                  "justifyContent": "center",
                 }
               }
             >
-              <Text
+              <View
                 style={
                   Object {
-                    "color": "#004D40",
-                    "fontSize": 24,
-                    "marginBottom": 0,
-                    "textAlign": "justify",
+                    "flexDirection": "column",
+                    "marginLeft": 16,
                   }
                 }
               >
-                Total revenue (%)
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#54c242",
-                    "fontSize": 14,
-                    "fontWeight": "bold",
-                    "marginBottom": 7.847058823529411,
-                    "marginTop": -3.9235294117647057,
-                    "textAlign": "justify",
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 24,
+                    }
                   }
-                }
-              >
-                +25.00 %
-              </Text>
-            </View>
-          </View>
-          <View
-            width={16}
-          />
-          <View
-            style={
-              Object {
-                "alignItems": "flex-end",
-                "flex": 0.5,
-                "justifyContent": "center",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "flexDirection": "column",
-                  "marginLeft": 16,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "#004D40",
-                    "fontSize": 24,
+                >
+                  Revenue today
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#54c242",
+                      "fontSize": 36,
+                      "fontWeight": "bold",
+                      "textAlign": "center",
+                    }
                   }
-                }
-              >
-                Revenue today
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#54c242",
-                    "fontSize": 35.311764705882354,
-                    "fontWeight": "bold",
-                    "textAlign": "center",
-                  }
-                }
-              >
-                +23.00 %
-              </Text>
+                >
+                  +23.00 %
+                </Text>
+              </View>
             </View>
           </View>
         </View>
       </View>
     </View>
+  </RCTScrollView>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "borderRadius": 30,
+        "bottom": 32,
+        "flexDirection": "column",
+        "height": 60,
+        "justifyContent": "flex-end",
+        "opacity": 1,
+        "position": "absolute",
+        "right": 32,
+        "width": 60,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/navigation/assets/add.png",
+        }
+      }
+      style={
+        Object {
+          "height": 100,
+          "tintColor": undefined,
+          "width": 100,
+        }
+      }
+    />
   </View>
-</RCTScrollView>
+</View>
 `;

@@ -22,9 +22,9 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and 
       style={
         Object {
           "color": "#004D40",
-          "fontSize": 33.35,
+          "fontSize": 34,
           "fontWeight": "bold",
-          "marginBottom": 31.388235294117646,
+          "marginBottom": 32,
         }
       }
     >
@@ -52,7 +52,7 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and 
         style={
           Object {
             "color": "#004D40",
-            "fontSize": 23.541176470588233,
+            "fontSize": 24,
             "marginBottom": 0,
             "textAlign": "justify",
           }
@@ -78,7 +78,7 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and 
         style={
           Object {
             "color": "#004D40",
-            "fontSize": 23.541176470588233,
+            "fontSize": 24,
             "marginBottom": 0,
             "textAlign": "justify",
           }
@@ -137,7 +137,7 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and 
         style={
           Object {
             "color": "#004D40",
-            "fontSize": 23.541176470588233,
+            "fontSize": 24,
             "marginBottom": 0,
             "textAlign": "justify",
           }
@@ -175,7 +175,7 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and 
         style={
           Object {
             "color": "#004D40",
-            "fontSize": 23.541176470588233,
+            "fontSize": 24,
             "marginBottom": 0,
             "textAlign": "justify",
           }
@@ -187,7 +187,7 @@ exports[`portfolioInfo tests PortfolioInfo renders correctly with portfolio and 
         style={
           Object {
             "color": "#54c242",
-            "fontSize": 35.311764705882354,
+            "fontSize": 36,
             "fontWeight": "bold",
             "textAlign": "center",
           }

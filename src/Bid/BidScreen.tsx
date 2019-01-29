@@ -12,7 +12,7 @@ import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { WizardFormColors } from '../App/colors';
+import { FormColors } from '../App/colors';
 import { t } from '../assets/i18n';
 import { Stock } from '../MarketScreen/reducer';
 import { getPortfolioData } from '../PortfolioList/actions';
@@ -246,11 +246,11 @@ export class BidScreen extends React.Component<
                   </Text>
                   {/* TODO: Center dropdown texts. */}
                   <Dropdown
-                    textColor={WizardFormColors.buttonsUnactive}
+                    textColor={FormColors.unactiveColor}
                     fontSize={verticalScale(17)}
-                    itemColor={WizardFormColors.backgroundColor}
-                    baseColor={WizardFormColors.buttonsUnactive}
-                    selectedItemColor={WizardFormColors.buttonsActive}
+                    itemColor={FormColors.backgroundColor}
+                    baseColor={FormColors.unactiveColor}
+                    selectedItemColor={FormColors.activeColor}
                     data={portfolioNames}
                     containerStyle={bidStyles.dropdown}
                     value={selectedPortfolio}
@@ -283,11 +283,11 @@ export class BidScreen extends React.Component<
                   <TextInput
                     ref={this.sumOfStocksRef}
                     keyboardType={'numeric'}
-                    selectionColor={WizardFormColors.buttonsActive}
+                    selectionColor={FormColors.activeColor}
                     underlineColorAndroid={
                       sumOfStocksActive
-                        ? WizardFormColors.buttonsActive
-                        : WizardFormColors.buttonsUnactive
+                        ? FormColors.activeColor
+                        : FormColors.unactiveColor
                     }
                     style={bidStyles.textInput}
                     value={sumOfStocks}
@@ -311,11 +311,11 @@ export class BidScreen extends React.Component<
                   <TextInput
                     ref={this.bidLevelRef}
                     keyboardType={'numeric'}
-                    selectionColor={WizardFormColors.buttonsActive}
+                    selectionColor={FormColors.activeColor}
                     underlineColorAndroid={
                       bidLevelActive
-                        ? WizardFormColors.buttonsActive
-                        : WizardFormColors.buttonsUnactive
+                        ? FormColors.activeColor
+                        : FormColors.unactiveColor
                     }
                     style={bidStyles.textInput}
                     value={bidLevel}

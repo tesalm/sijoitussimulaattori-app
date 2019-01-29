@@ -5,15 +5,17 @@ const Colors = {
   greyBackground: '#F0F0F0',
   whiteBackground: 'white',
   headerIcons: 'white',
+  textInputText: '#e8a30c',
+  textInputBottomBorder: '#000000',
+  errorText: '#ff0000',
 };
 
-const WizardFormColors = {
+const FormColors = {
   backgroundColor: '#004D40',
-  buttonsUnactive: 'white',
-  buttonsActive: '#E8A30C',
-  defaultFontColor: 'white',
-  hightlightFontColor: '#E8A30C',
+  fontColor: 'white',
+  activeColor: '#e8a30c',
+  unactiveColor: 'white',
   disabled: '#8d8d8d',
 };
 
-export { Colors, WizardFormColors };
+export { Colors, FormColors };

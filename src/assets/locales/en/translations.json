@@ -131,6 +131,19 @@
     "TotalMarketValue": "Total market value",
     "TotalRevenue": "Total revenue"
   },
+  "CreatePortfolio": {
+    "ConfirmButtonText": "Create Portfolio",
+    "Title": "Create Portfolio",
+    "PortfolioNameInputTitle": "Name your portfolio",
+    "PortfolioAmountInputTitle": "Give initial capital to your portfolio",
+    "Cancel": "Cancel",
+    "Save": "Save"
+  },
+  "InputErrors": {
+    "NameEmpty": "Name can not be empty!",
+    "NotNumber": "Amount needs to be a number!",
+    "NotPositiveNumber": "Amount needs to be postive number!"
+  },
   "PortfolioListing": {
     "TotalRevenue": "Total revenue (%)",
     "RevenueToday": "Revenue today",

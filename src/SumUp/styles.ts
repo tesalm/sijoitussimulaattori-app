@@ -1,44 +1,44 @@
 import { StyleSheet } from 'react-native';
-import { Colors, WizardFormColors } from '../App/colors';
+import { Colors, FormColors } from '../App/colors';
 import { scale, verticalScale } from '../util/scale';
 
 const sumUpStyles = StyleSheet.create({
   background: {
-    backgroundColor: WizardFormColors.backgroundColor,
+    backgroundColor: FormColors.backgroundColor,
   },
   header: {
     fontSize: verticalScale(20),
     fontWeight: 'bold',
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     textAlign: 'center',
   },
   headerHighlight: {
     fontSize: verticalScale(20),
     fontWeight: 'bold',
-    color: WizardFormColors.buttonsActive,
+    color: FormColors.activeColor,
   },
   headerContainer: {
     marginTop: verticalScale(94),
   },
   valueHeaderSmall: {
     fontSize: verticalScale(12),
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
   },
   valueSmall: {
     fontSize: verticalScale(17),
     fontWeight: 'bold',
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
   },
   valueHeaderLarge: {
     fontSize: verticalScale(15),
     fontWeight: 'bold',
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     textAlign: 'center',
   },
   valueLarge: {
     fontSize: verticalScale(20),
     fontWeight: 'bold',
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     textAlign: 'center',
   },
   confirmCancelButtonContainer: {
@@ -53,20 +53,20 @@ const sumUpStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   cancelText: {
-    color: WizardFormColors.defaultFontColor,
+    color: FormColors.fontColor,
     fontSize: verticalScale(14),
     fontWeight: 'bold',
   },
   confirmButton: {
     height: verticalScale(36),
     width: verticalScale(112),
-    backgroundColor: WizardFormColors.buttonsActive,
+    backgroundColor: FormColors.activeColor,
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 1, height: 1 },
   },
   confirmButtonText: {
-    color: WizardFormColors.buttonsUnactive,
+    color: FormColors.unactiveColor,
     fontSize: verticalScale(14),
     fontWeight: 'bold',
   },

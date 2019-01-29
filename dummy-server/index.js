@@ -1,6 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 4000;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const fs = require('fs');
 
@@ -18,6 +22,7 @@ const availablePortfolio = (symbol) =>
 const availablePortfolioList = JSON.parse(
   fs.readFileSync(__dirname + '/data/availablePortfolios.json')
 );
+
 app.get('/stocks', (req, res) => {
   console.log('all stocks being fethced');
   res.json(availableStocks);
@@ -47,8 +52,27 @@ app.get('/profile/portfolio/:portfolioID', (req, res) => {
 });
 
 app.post('/profile/portfolio/:portfolioId/transaction', (req, res) => {
-  console.log('Create portfolio -test.');
-  res.end();
+  const transaction = {
+    uid: '1' + req.body.amount,
+    type: 'SELL',
+    symbol: 'AAPL',
+    amount: 56,
+    price: 700,
+    expiresAt: '2019-11-0305:00:00',
+    fulfilledAt: '',
+    cancelledAt: '',
+  };
+  res.json(transaction);
+});
+
+app.post('/profile/portfolio', (req, res) => {
+  const portfolio = {
+    uid: '1' + req.body.name,
+    name: req.body.name,
+    balance: req.body.balance,
+    ownerId: '',
+  };
+  res.json(portfolio);
 });
 
 app.listen(port, () => {

@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';
 
 import {
+  createPortfolioRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
   transactionApiRequest,
@@ -18,6 +19,9 @@ export enum ActionType {
   SaveTransactionBegin = '[Bid] Save transaction begin',
   SaveTransactionSuccess = '[Bid] Save transaction success',
   SaveTransactionFailure = '[Bid] Save transaction failure',
+  CreatePortfolioBegin = '[CreatingPortfolio] Creating portfolio begin',
+  CreatePortfolioSuccess = '[CreatingPortfolio] Creating portfolio success',
+  CreatePortfolioFailure = '[CreatingPortfolio] Creating portfolio failure',
 }
 
 export type PortfolioAction =
@@ -30,7 +34,10 @@ export type PortfolioAction =
   | RequestPortfolioFailure
   | SaveTransactionBegin
   | SaveTransactionSuccess
-  | SaveTransactionFailure;
+  | SaveTransactionFailure
+  | CreatePortfolioBegin
+  | CreatePortfolioSuccess
+  | CreatePortfolioFailure;
 
 export class RequestPortfolioListingBegin {
   readonly type = ActionType.RequestPortfolioListingBegin;
@@ -102,6 +109,32 @@ export class SaveTransactionFailure {
   }
 }
 
+export class CreatePortfolioBegin {
+  readonly type = ActionType.CreatePortfolioBegin;
+  constructor() {
+    return { type: this.type };
+  }
+}
+
+export class CreatePortfolioSuccess {
+  readonly type = ActionType.CreatePortfolioSuccess;
+  constructor(
+    public uid: string,
+    public name: string,
+    public amount: number,
+    public ownerId: string
+  ) {
+    return { type: this.type, uid, name, amount, ownerId };
+  }
+}
+
+export class CreatePortfolioFailure {
+  readonly type = ActionType.CreatePortfolioFailure;
+  constructor(public error: Error) {
+    return { type: this.type, error };
+  }
+}
+
 const getPortfolioData = (portfolioId: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
@@ -160,9 +193,29 @@ const saveTransaction = (
   }
 };
 
+const createPortfolio = (name: string, amount: number) => async (
+  dispatch: Dispatch<PortfolioAction>
+) => {
+  dispatch(new CreatePortfolioBegin());
+  try {
+    const data = await createPortfolioRequest(name, amount);
+    dispatch(
+      new CreatePortfolioSuccess(
+        data.uid,
+        data.name,
+        data.balance,
+        data.ownerId
+      )
+    );
+  } catch (error) {
+    dispatch(new CreatePortfolioFailure(error));
+  }
+};
+
 export {
   getPortfolios,
   saveAsCurrentPortfolioId,
   getPortfolioData,
   saveTransaction,
+  createPortfolio,
 };
