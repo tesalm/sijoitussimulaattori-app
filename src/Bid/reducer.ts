@@ -21,16 +21,15 @@ export const bidReducer = (
   action: BidAction
 ): BidInfo => {
   switch (action.type) {
-    case ActionType.UpdateAction:
-      return { ...state, action: action.actionType };
-    case ActionType.UpdateBidLevel:
-      return { ...state, bidLevel: action.bidLevel };
-    case ActionType.UpdateSumOfStocks:
-      return { ...state, sumOfStocks: action.sumOfStocks };
-    case ActionType.UpdateSelectedPortfolio:
-      return { ...state, selectedPortfolio: action.selectedPortfolio };
-    case ActionType.SetSymbol:
-      return { ...state, symbol: action.symbol };
+    case ActionType.UpdateBidInfo:
+      return {
+        ...state,
+        action: action.actionType,
+        bidLevel: action.bidLevel,
+        sumOfStocks: action.sumOfStocks,
+        selectedPortfolio: action.selectedPortfolio,
+        symbol: action.symbol,
+      };
     default:
       return state;
   }
