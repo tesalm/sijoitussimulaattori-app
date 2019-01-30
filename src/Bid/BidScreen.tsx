@@ -36,7 +36,7 @@ export interface BidProps {
   saveForm: typeof saveBidForm;
   portfolios: SinglePortfolio[];
   getDataForPortfolio: typeof getPortfolioData;
-  currentSymbol?: string;
+  currentStockSymbol?: string;
 }
 
 type BidPropsWithNavigation = BidProps & NavigationScreenProps;
@@ -194,7 +194,7 @@ export class BidScreen extends React.Component<
   }
 
   render() {
-    const { currentSymbol, portfolios, stock } = this.props;
+    const { currentStockSymbol, portfolios, stock } = this.props;
     const {
       sumOfStocksActive,
       bidLevelActive,
@@ -263,7 +263,7 @@ export class BidScreen extends React.Component<
                   />
                   <View>
                     <PortfolioInfoTexts
-                      currentSymbol={currentSymbol}
+                      currentStockSymbol={currentStockSymbol}
                       portfolios={portfolios}
                       selectedPortfolio={selectedPortfolio}
                       stockName={stock.name}
@@ -373,7 +373,7 @@ const mapStateToProps = (state: RootState) => ({
     return stock.symbol === state.stocksListing.currentSymbol;
   }),
   portfolios: state.portfolioListing.portfolioListing,
-  currentSymbol: state.stocksListing.currentSymbol,
+  currentStockSymbol: state.stocksListing.currentSymbol,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

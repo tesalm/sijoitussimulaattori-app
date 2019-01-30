@@ -7,7 +7,7 @@ import { formatCurrency } from '../../util/general';
 import { bidStyles } from '../styles';
 
 export interface PortfolioInfoTextsProps {
-  currentSymbol?: string;
+  currentStockSymbol?: string;
   portfolios?: SinglePortfolio[];
   selectedPortfolio?: string;
   stockName: string;
@@ -39,7 +39,7 @@ export const PortfolioInfoTexts = (
       } else {
         const portfolioStocks = currentPortfolio.portfolioInfo.portfolio.stocks.find(
           (stock) => {
-            return stock.uid === props.currentSymbol;
+            return stock.uid === props.currentStockSymbol;
           }
         );
         if (portfolioStocks) {
