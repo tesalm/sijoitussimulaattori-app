@@ -8,7 +8,7 @@ import { bidStyles } from '../styles';
 
 export interface PortfolioInfoTextsProps {
   currentStockSymbol?: string;
-  portfolios?: SinglePortfolio[];
+  portfolioList?: SinglePortfolio[];
   selectedPortfolio?: string;
   stockName: string;
 }
@@ -19,8 +19,8 @@ export const PortfolioInfoTexts = (
 ): JSX.Element => {
   // Returns selected portfolio as SinglePortfolio.
   function getCurrentPortfolio() {
-    if (props.portfolios) {
-      return props.portfolios.find((portfolio) => {
+    if (props.portfolioList) {
+      return props.portfolioList.find((portfolio) => {
         return portfolio.name === props.selectedPortfolio;
       });
     }

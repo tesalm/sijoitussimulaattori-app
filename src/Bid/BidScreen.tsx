@@ -34,7 +34,7 @@ import { actionButtons, bidPageStyle, bidStyles, sumUpCancel } from './styles';
 export interface BidProps {
   stock?: Stock;
   saveForm: typeof saveBidForm;
-  portfolios: SinglePortfolio[];
+  portfolioList: SinglePortfolio[];
   getDataForPortfolio: typeof getPortfolioData;
   currentStockSymbol?: string;
 }
@@ -67,7 +67,7 @@ export class BidScreen extends React.Component<
       action: '',
       bidLevelActive: false,
       portfolioNames: [],
-      selectedPortfolio: this.props.portfolios[0].name,
+      selectedPortfolio: this.props.portfolioList[0].name,
       sumOfStocksActive: false,
       sumOfStocks: '0',
       sumUpActive: false,
@@ -80,7 +80,7 @@ export class BidScreen extends React.Component<
 
   componentDidMount() {
     const allPortfolioNames = this.state.portfolioNames.slice();
-    this.props.portfolios.forEach((portfolio) => {
+    this.props.portfolioList.forEach((portfolio) => {
       allPortfolioNames.push({ value: portfolio.name });
       return;
     });
@@ -111,7 +111,7 @@ export class BidScreen extends React.Component<
     this.setState({ sumOfStocksActive: true }, () =>
       this.scroll(verticalScale(228))
     );
-    const currentPortfolio = this.props.portfolios.find((portfolio) => {
+    const currentPortfolio = this.props.portfolioList.find((portfolio) => {
       return portfolio.name === this.state.selectedPortfolio;
     });
     if (currentPortfolio && currentPortfolio.portfolioInfo) {
@@ -194,7 +194,7 @@ export class BidScreen extends React.Component<
   }
 
   render() {
-    const { currentStockSymbol, portfolios, stock } = this.props;
+    const { currentStockSymbol, portfolioList, stock } = this.props;
     const {
       sumOfStocksActive,
       bidLevelActive,
@@ -264,7 +264,7 @@ export class BidScreen extends React.Component<
                   <View>
                     <PortfolioInfoTexts
                       currentStockSymbol={currentStockSymbol}
-                      portfolios={portfolios}
+                      portfolioList={portfolioList}
                       selectedPortfolio={selectedPortfolio}
                       stockName={stock.name}
                     />
@@ -372,7 +372,7 @@ const mapStateToProps = (state: RootState) => ({
   stock: state.stocksListing.stocks.find((stock) => {
     return stock.symbol === state.stocksListing.currentSymbol;
   }),
-  portfolios: state.portfolioListing.portfolioListing,
+  portfolioList: state.portfolioListing.portfolioListing,
   currentStockSymbol: state.stocksListing.currentSymbol,
 });
 
