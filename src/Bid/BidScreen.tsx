@@ -16,7 +16,7 @@ import { FormColors } from '../App/colors';
 import { t } from '../assets/i18n';
 import { Stock } from '../MarketScreen/reducer';
 import { RouteName } from '../navigation/routes';
-import { getPortfolioData } from '../PortfolioList/actions';
+import { getPortfolioData, getPortfolios } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
 import {
@@ -29,13 +29,20 @@ import { saveBidForm } from './actions';
 import { ActionButton } from './components/ActionButton';
 import { PortfolioInfoTexts } from './components/PortfolioInfoTexts';
 import { StockInfo } from './components/Stockinfo';
-import { actionButtons, bidPageStyle, bidStyles, sumUpCancel } from './styles';
+import {
+  actionButtons,
+  bidPageStyle,
+  bidStyles,
+  sumUpCancel,
+  errorStyles,
+} from './styles';
 
 export interface BidProps {
   stock?: Stock;
   saveForm: typeof saveBidForm;
   portfolioList: SinglePortfolio[];
   getDataForPortfolio: typeof getPortfolioData;
+  getPortfolioList: typeof getPortfolios;
   currentStockSymbol?: string;
 }
 
@@ -79,6 +86,17 @@ export class BidScreen extends React.Component<
   };
 
   componentDidMount() {
+    if (this.props.portfolioList.length === 0) {
+      this.props.getPortfolioList();
+    }
+  }
+
+  scroll(yPos: number) {
+    this.scroller.current!.scrollTo({ x: 0, y: yPos });
+    this.isSumUpActive();
+  }
+
+  getPortfolioNamesToDropdown() {
     const allPortfolioNames = this.state.portfolioNames.slice();
     this.props.portfolioList.forEach((portfolio) => {
       allPortfolioNames.push({ value: portfolio.name });
@@ -87,17 +105,36 @@ export class BidScreen extends React.Component<
     this.setState({ portfolioNames: allPortfolioNames });
   }
 
-  scroll(yPos: number) {
-    this.scroller.current!.scrollTo({ x: 0, y: yPos });
-    this.isSumUpActive();
-  }
-
   onBuyPress() {
-    this.setState({ action: 'buy' }, () => this.scroll(verticalScale(96)));
+    this.getPortfolioNamesToDropdown();
+    // If selectedPortfolio is not yet set, let's set it.
+    if (this.state.selectedPortfolio === '') {
+      this.setState(
+        { selectedPortfolio: this.props.portfolioList[0].name },
+        () =>
+          this.setState({ action: 'buy' }, () => this.scroll(verticalScale(96)))
+      );
+    } else {
+      this.setState({ action: 'buy' }, () => this.scroll(verticalScale(96)));
+    }
   }
 
   onSellPress() {
-    this.setState({ action: 'sell' }, () => this.scroll(verticalScale(96)));
+    this.getPortfolioNamesToDropdown();
+    // If selectedPortfolio is not yet set, let's set it.
+    if (this.state.selectedPortfolio === '') {
+      this.setState(
+        {
+          selectedPortfolio: this.props.portfolioList[0].name,
+        },
+        () =>
+          this.setState({ action: 'sell' }, () =>
+            this.scroll(verticalScale(96))
+          )
+      );
+    } else {
+      this.setState({ action: 'sell' }, () => this.scroll(verticalScale(96)));
+    }
   }
 
   onDropdownTextChange = debounce((value: string) => {
@@ -208,6 +245,24 @@ export class BidScreen extends React.Component<
 
     if (!stock || !stock.stockInfo || !stock.stockInfo.stockMetadata) {
       return <Text>Error! </Text>;
+    }
+
+    if (portfolioList.length === 0 || portfolioList === undefined) {
+      return (
+        <View style={bidPageStyle.background}>
+          <Text style={errorStyles.noPortfolioText}>
+            {t('BidPage.NoPortfoliosError')}
+          </Text>
+          <View style={sumUpCancel.container}>
+            <TouchableOpacity
+              style={sumUpCancel.cancelButton}
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <Text style={sumUpCancel.cancelText}>{t('BidPage.Cancel')}</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      );
     }
 
     return (
@@ -380,6 +435,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
       getDataForPortfolio: getPortfolioData,
+      getPortfolioList: getPortfolios,
       saveForm: saveBidForm,
     },
     dispatch

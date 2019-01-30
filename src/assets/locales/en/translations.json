@@ -75,7 +75,8 @@
     "SumOfStocksSell": "Select sum of stocks to sell",
     "ChooseBidLevel": "Choose bid level",
     "SumUp": "SUM UP",
-    "Cancel": "CANCEL"
+    "Cancel": "CANCEL",
+    "NoPortfoliosError": "You can't bid on stocks because you don't have any portfolios. Please create portfolio from Portfolios-page."
   },
   "SumUpPage": {
     "Cancel": "CANCEL",

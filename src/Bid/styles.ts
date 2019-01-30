@@ -153,4 +153,19 @@ const stockinfo = StyleSheet.create({
   },
 });
 
-export { bidPageStyle, actionButtons, bidStyles, sumUpCancel, stockinfo };
+const errorStyles = StyleSheet.create({
+  noPortfolioText: {
+    fontSize: verticalScale(20),
+    textAlign: 'center',
+    color: FormColors.fontColor,
+  },
+});
+
+export {
+  bidPageStyle,
+  actionButtons,
+  bidStyles,
+  sumUpCancel,
+  stockinfo,
+  errorStyles,
+};
