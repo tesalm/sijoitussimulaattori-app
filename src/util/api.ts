@@ -94,11 +94,13 @@ const transactionApiRequest = async (
 ): Promise<Transaction> => {
   try {
     const url =
-      config.app.STOCK_API_URL +
+      config.app.PROFILE_API_URL +
       '/profile/portfolio/' +
       portfolioId +
       '/transaction';
     const token = await getIdToken();
+    const expires = new Date();
+    expires.setDate(expires.getDate() + 14);
     const res = await axios.post(
       url,
       {
@@ -106,6 +108,7 @@ const transactionApiRequest = async (
         symbol: symbol,
         amount: amount,
         price: price,
+        expiresAt: expires.toISOString(),
       },
       { headers: { Authorization: 'Bearer ' + token } }
     );

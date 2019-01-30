@@ -100,13 +100,13 @@ export class BidScreen extends React.Component<
     this.setState({ action: 'sell' }, () => this.scroll(verticalScale(96)));
   }
 
-  // When portfolio is chosen, let's fetch its data, if that hasn't already be done.
   onDropdownTextChange = debounce((value: string) => {
     this.setState({ selectedPortfolio: value }, () => {
       this.sumOfStocksRef.current!.focus();
     });
   }, 100);
 
+  // When portfolio is chosen, let's fetch its data, if that hasn't already be done.
   onSumOfStocksFocuced = debounce(() => {
     this.setState({ sumOfStocksActive: true }, () =>
       this.scroll(verticalScale(228))
