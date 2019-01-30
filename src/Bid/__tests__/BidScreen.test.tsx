@@ -1,10 +1,15 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
+
+import { shallow } from 'enzyme';
+import configureStore from 'redux-mock-store';
 import { BidProps, BidScreen } from '../BidScreen';
 
 describe('bid tests', () => {
   // Mock for navigation.
   const navigationMock: any = {};
+  const middlewares: any = [];
+  const mockStore = configureStore(middlewares);
 
   const defaultBidProps: BidProps = {
     stock: undefined,
@@ -159,9 +164,9 @@ describe('bid tests', () => {
   };
 
   it('BidScreen renders correctly', async () => {
-    const component = renderer
-      .create(<BidScreen {...bidProps} {...navigationMock} />)
-      .toJSON();
-    expect(component).toMatchSnapshot();
+    const wrapper = shallow(<BidScreen {...bidProps} {...navigationMock} />, {
+      context: { store: mockStore() },
+    });
+    expect(wrapper.dive()).toMatchSnapshot();
   });
 });
