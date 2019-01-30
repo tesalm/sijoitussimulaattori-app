@@ -9,9 +9,10 @@ describe('bid tests', () => {
   const defaultBidProps: BidProps = {
     stock: undefined,
     saveForm: jest.fn(),
-    portfolios: [],
+    portfolioList: [],
     getDataForPortfolio: jest.fn(),
-    currentSymbol: '',
+    getPortfolioList: jest.fn(),
+    currentStockSymbol: '',
   };
 
   const bidProps: BidProps = {
@@ -90,7 +91,7 @@ describe('bid tests', () => {
       },
     },
     saveForm: jest.fn(),
-    portfolios: [
+    portfolioList: [
       {
         uid: 'Portfolio1',
         name: 'P1',
@@ -153,7 +154,8 @@ describe('bid tests', () => {
       },
     ],
     getDataForPortfolio: jest.fn(),
-    currentSymbol: 'AAPL',
+    getPortfolioList: jest.fn(),
+    currentStockSymbol: 'AAPL',
   };
 
   it('BidScreen renders correctly', async () => {

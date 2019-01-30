@@ -33,8 +33,8 @@ import {
   actionButtons,
   bidPageStyle,
   bidStyles,
-  sumUpCancel,
   errorStyles,
+  sumUpCancel,
 } from './styles';
 
 export interface BidProps {
