@@ -365,6 +365,7 @@ exports[`Portfolio pending transactions tests:  renders correctly with data 1`] 
       style={
         Object {
           "color": "#004D40",
+          "fontFamily": "Roboto",
           "fontSize": 15,
           "fontWeight": "bold",
           "marginBottom": 7.847058823529411,
