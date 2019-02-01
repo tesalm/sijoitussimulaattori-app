@@ -99,8 +99,6 @@ const transactionApiRequest = async (
       portfolioId +
       '/transaction';
     const token = await getIdToken();
-    console.log('TOKEN');
-    console.log(type);
     const expires = new Date();
     expires.setDate(expires.getDate() + 14);
     const res = await axios.post(
@@ -118,9 +116,6 @@ const transactionApiRequest = async (
         },
       }
     );
-    console.log('API');
-    console.log(res);
-    console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;

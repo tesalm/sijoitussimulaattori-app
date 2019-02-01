@@ -155,7 +155,9 @@ const stockinfo = StyleSheet.create({
 
 const errorStyles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: FormColors.backgroundColor,
   },
   noPortfolioText: {

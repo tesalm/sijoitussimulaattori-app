@@ -1,6 +1,12 @@
 import debounce from 'lodash/debounce';
 import React, { createRef } from 'react';
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -13,13 +19,23 @@ import { RouteName } from '../navigation/routes';
 import { getPortfolioData, getPortfolios } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
-import { countRevenue, formatCurrency, parseStringDecimalToFloat } from '../util/general';
+import {
+  countRevenue,
+  formatCurrency,
+  parseStringDecimalToFloat,
+} from '../util/general';
 import { verticalScale } from '../util/scale';
 import { saveBidForm } from './actions';
 import { ActionButton } from './components/ActionButton';
 import { PortfolioInfoTexts } from './components/PortfolioInfoTexts';
 import { StockInfo } from './components/StockInfo';
-import { actionButtons, bidPageStyle, bidStyles, errorStyles, sumUpCancel } from './styles';
+import {
+  actionButtons,
+  bidPageStyle,
+  bidStyles,
+  errorStyles,
+  sumUpCancel,
+} from './styles';
 
 export interface BidProps {
   stock?: Stock;
@@ -242,7 +258,7 @@ export class BidScreen extends React.Component<
               style={sumUpCancel.cancelButton}
               onPress={() => this.props.navigation.goBack()}
             >
-              <Text style={sumUpCancel.cancelText}>{t('BidPage.Cancel')}</Text>
+              <Text style={sumUpCancel.cancelText}>{t('BidPage.GoBack')}</Text>
             </TouchableOpacity>
           </View>
         </View>
