@@ -871,6 +871,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               <Text
                 style={
                   Object {
+                    "fontFamily": "Roboto",
                     "fontSize": 14,
                     "marginBottom": 7.847058823529411,
                     "marginTop": 29.426470588235293,

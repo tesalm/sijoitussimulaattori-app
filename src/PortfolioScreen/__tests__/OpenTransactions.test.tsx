@@ -81,7 +81,7 @@ describe('Portfolio pending transactions tests: ', () => {
           },
         },
         transactions: {
-          transactions: successTransactionProps.transactions,
+          transactionListing: successTransactionProps.transactions,
           loading: false,
           error: undefined,
         },

@@ -61,6 +61,25 @@ export class OpenTransactions extends React.Component<
     );
   };
 
+  confirmationDialog = (portfolioId: string, transact: Transaction) => {
+    Alert.alert(
+      t('OpenTransactions.AlertTitle'),
+      t('OpenTransactions.Cancel') + ' ' + transact.symbol + ' ' +
+      t('OpenTransactions.Transaction'),
+      [
+        {
+          text: t('OpenTransactions.No'),
+          style: 'cancel',
+        },
+        {
+          text: t('OpenTransactions.Yes'),
+          onPress: () =>
+            this.props.cancelOpenTransaction(portfolioId, transact.uid),
+        },
+      ]
+    );
+  };
+
   renderContent = () => {
     const { error, transactions, portfolioId } = this.props;
     if (error) {
@@ -78,45 +97,27 @@ export class OpenTransactions extends React.Component<
       );
     }
 
-    return transactions.map((item, i) => (
-      <View key={i} style={portfolioStyles.transaction}>
-        <Text style={portfolioStyles.symbol}>{item.symbol}</Text>
+    return transactions.map((transact, index) => (
+      <View key={index} style={portfolioStyles.transaction}>
+        <Text style={portfolioStyles.symbol}>{transact.symbol}</Text>
         <View style={portfolioStyles.portfolioinfo}>
           <View style={{ flex: 1 }}>
             <Text style={portfolioStyles.basicText}>
               {t('OpenTransactions.Amount')}
             </Text>
-            <Text style={portfolioStyles.value}>{item.amount}</Text>
+            <Text style={portfolioStyles.value}>{transact.amount}</Text>
           </View>
           <View style={{ flex: 1.5 }}>
             <Text style={portfolioStyles.basicText}>
               {t('OpenTransactions.Total')}
             </Text>
-            <Text style={portfolioStyles.value}>{item.price} €</Text>
+            <Text style={portfolioStyles.value}>{transact.price}</Text>
           </View>
           <TouchableOpacity
-            onPress={() =>
-              Alert.alert(
-                t('OpenTransactions.AlertTitle'),
-                t('OpenTransactions.ConfTxtP1') +
-                  item.symbol +
-                  t('OpenTransactions.ConfTxtP2'),
-                [
-                  {
-                    text: t('OpenTransactions.N'),
-                    style: 'cancel',
-                  },
-                  {
-                    text: t('OpenTransactions.Y'),
-                    onPress: () =>
-                      this.props.cancelOpenTransaction(portfolioId, item.uid),
-                  },
-                ]
-              )
-            }
+            onPress={() => this.confirmationDialog(portfolioId, transact)}
           >
             <Text style={portfolioStyles.cancelAction}>
-              {t('OpenTransactions.CancelAction')}
+              {t('OpenTransactions.Cancel').toUpperCase()}
             </Text>
           </TouchableOpacity>
         </View>

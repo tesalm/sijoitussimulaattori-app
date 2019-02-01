@@ -156,11 +156,10 @@
     "ToggleTitle": "Open Transactions",
     "Amount": "Amount",
     "Total": "Total cost",
-    "CancelAction": "CANCEL",
+    "Cancel": "Cancel",
     "AlertTitle": "Confirmation",
-    "ConfTxtP1": "Cancel ",
-    "ConfTxtP2": " transaction",
-    "N": "No",
-    "Y": "Yes"
+    "Transaction": "transaction",
+    "No": "No",
+    "Yes": "Yes"
   }
 }

@@ -171,8 +171,8 @@ export class RequestTransactionsFailure {
 
 export class RequestCancelTransactionSuccess {
   readonly type = ActionType.RequestCancelTransactionSuccess;
-  constructor(public tid: string, public portfolioId: string) {
-    return { type: this.type, tid, portfolioId };
+  constructor(public portfolioId: string, public transactionId: string) {
+    return { type: this.type, portfolioId, transactionId };
   }
 }
 
@@ -208,7 +208,7 @@ const getPortfolios = () => async (dispatch: Dispatch<PortfolioAction>) => {
       portfolio.transactions = {
         loading: false,
         error: undefined,
-        transactions: [],
+        transactionListing: [],
       };
     });
     dispatch(new RequestPortfoliosListingSuccess(data));
@@ -258,27 +258,27 @@ const createPortfolio = (name: string, amount: number) => async (
   }
 };
 
-const getTransactions = (pid: string) => async (
+const getTransactions = (portfolioId: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
-  dispatch(new RequestTransactionsBegin(pid));
+  dispatch(new RequestTransactionsBegin(portfolioId));
   try {
-    const data = await transactionsApiRequest(pid);
-    dispatch(new RequestTransactionsSuccess(data, pid));
+    const data = await transactionsApiRequest(portfolioId);
+    dispatch(new RequestTransactionsSuccess(data, portfolioId));
   } catch (error) {
-    dispatch(new RequestTransactionsFailure(error, pid));
+    dispatch(new RequestTransactionsFailure(error, portfolioId));
   }
 };
 
-const cancelTransaction = (pid: string, tid: string) => async (
+const cancelTransaction = (portfolioId: string, transactionId: string) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
-  dispatch(new RequestTransactionsBegin(pid));
+  dispatch(new RequestTransactionsBegin(portfolioId));
   try {
-    await cancelTransactionApiRequest(pid, tid);
-    dispatch(new RequestCancelTransactionSuccess(tid, pid));
+    await cancelTransactionApiRequest(portfolioId, transactionId);
+    dispatch(new RequestCancelTransactionSuccess(portfolioId, transactionId));
   } catch (error) {
-    dispatch(new RequestTransactionsFailure(error, pid));
+    dispatch(new RequestTransactionsFailure(error, portfolioId));
   }
 };
 

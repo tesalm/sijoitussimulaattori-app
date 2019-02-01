@@ -82,7 +82,7 @@ export interface PortfolioListing {
 }
 
 export interface TransactionListing {
-  transactions: Array<Transaction>;
+  transactionListing: Array<Transaction>;
   loading: boolean;
   error?: Error;
 }
@@ -260,7 +260,7 @@ export const portfolioListingReducer = (
           transactions: undefined,
         },
         transactions: {
-          transactions: [],
+          transactionListing: [],
           loading: false,
           error: undefined,
         },
@@ -280,7 +280,7 @@ export const portfolioListingReducer = (
       creation.creatingPortfolioSuccess = false;
       return { ...state, creatingPortfolio: creation };
     }
-    // --- Transactions ---
+    // --- Transaction actions ---
     case ActionType.RequestTransactionsBegin: {
       const portfolioList = cloneDeep(state.portfolioListing);
       const portfolioIndex = getPortfolioIndex(
@@ -304,7 +304,7 @@ export const portfolioListingReducer = (
       }
       portfolioList[portfolioIndex].transactions = {
         ...portfolioList[portfolioIndex].transactions,
-        transactions: action.transactions,
+        transactionListing: action.transactions,
         loading: false,
         error: undefined,
       };
@@ -335,11 +335,11 @@ export const portfolioListingReducer = (
       if (portfolioIndex < 0) {
         return { ...cloneDeep(state) };
       }
-      const transactionList = portfolioList[portfolioIndex].transactions;
+      const transactions = portfolioList[portfolioIndex].transactions;
       portfolioList[portfolioIndex].transactions = {
-        ...transactionList,
-        transactions: transactionList.transactions.filter(
-          (i) => i.uid !== action.tid
+        ...transactions,
+        transactionListing: transactions.transactionListing.filter(
+          (transact) => transact.uid !== action.transactionId
         ),
         loading: false,
         error: undefined,

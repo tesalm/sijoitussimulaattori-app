@@ -88,14 +88,6 @@ export class PortfolioListScreen extends React.Component<
           <Text style={PortfolioListingStyles.noPortfolioText}>
             {t('PortfolioListing.NoPortfolios')}
           </Text>
-          <TouchableOpacity
-            onPress={() =>
-              this.props.navigation.navigate(RouteName.CreatePortfolio)
-            }
-            style={PortfolioListingStyles.createNewPortfolio}
-          >
-            <Icon iconName={IconNames.add} iconHeight={50} iconWidth={50} />
-          </TouchableOpacity>
         </View>
       );
     }

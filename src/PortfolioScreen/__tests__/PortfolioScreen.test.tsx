@@ -77,7 +77,7 @@ describe('portfolio-screen tests', () => {
         transactionsLoading: false,
       },
       transactions: {
-        transactions: [],
+        transactionListing: [],
         loading: false,
         error: undefined,
       },

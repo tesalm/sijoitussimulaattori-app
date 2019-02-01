@@ -128,6 +128,7 @@ const portfolioStyles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   symbol: {
+    fontFamily: 'Roboto',
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'justify',
@@ -135,17 +136,20 @@ const portfolioStyles = StyleSheet.create({
     color: Colors.baseColor,
   },
   basicText: {
+    fontFamily: 'Roboto',
     fontSize: 12,
     textAlign: 'justify',
     color: Colors.baseColor,
   },
   noActionsText: {
+    fontFamily: 'Roboto',
     fontSize: 14,
     marginTop: verticalScale(15),
     marginBottom: verticalScale(4),
     opacity: 0.6,
   },
   cancelAction: {
+    fontFamily: 'Roboto',
     fontSize: 15,
     color: 'orange',
   },

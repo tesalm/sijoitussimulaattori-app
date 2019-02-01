@@ -139,7 +139,7 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
           "transactions": Object {
             "error": undefined,
             "loading": false,
-            "transactions": Array [],
+            "transactionListing": Array [],
           },
           "uid": "Portfolio1",
         },

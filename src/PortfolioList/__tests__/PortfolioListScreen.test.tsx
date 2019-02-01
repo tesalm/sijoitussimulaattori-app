@@ -83,7 +83,7 @@ describe('portfolio-list tests', () => {
           transactionsLoading: false,
         },
         transactions: {
-          transactions: [],
+          transactionListing: [],
           loading: false,
           error: undefined,
         },

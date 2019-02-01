@@ -29,8 +29,8 @@ Object {
 
 exports[`Portfolio pending transactions tests:  actions 3`] = `
 Object {
-  "portfolioId": "Portfolio1",
-  "tid": "1",
+  "portfolioId": "1",
+  "transactionId": "Portfolio1",
   "type": "[Transactions] Cancel success",
 }
 `;
@@ -81,7 +81,7 @@ Object {
       "transactions": Object {
         "error": undefined,
         "loading": true,
-        "transactions": Array [
+        "transactionListing": Array [
           Object {
             "amount": 20,
             "cancelledAt": "",
@@ -136,7 +136,7 @@ Object {
       "transactions": Object {
         "error": undefined,
         "loading": false,
-        "transactions": Array [
+        "transactionListing": Array [
           Object {
             "amount": 20,
             "cancelledAt": "",
@@ -194,7 +194,7 @@ Object {
           "name": "Network Error",
         },
         "loading": false,
-        "transactions": Array [
+        "transactionListing": Array [
           Object {
             "amount": 20,
             "cancelledAt": "",
@@ -249,7 +249,19 @@ Object {
       "transactions": Object {
         "error": undefined,
         "loading": false,
-        "transactions": Array [],
+        "transactionListing": Array [
+          Object {
+            "amount": 20,
+            "cancelledAt": "",
+            "expiresAt": "2018-12-14T15:55:00.000Z",
+            "fulfilledAt": "",
+            "price": 222.2,
+            "state": "MARKET",
+            "symbol": "AMZN",
+            "type": "SELL",
+            "uid": "1",
+          },
+        ],
       },
       "uid": "Portfolio1",
     },
@@ -316,6 +328,7 @@ exports[`Portfolio pending transactions tests:  renders correctly 1`] = `
     <Text
       style={
         Object {
+          "fontFamily": "Roboto",
           "fontSize": 14,
           "marginBottom": 7.847058823529411,
           "marginTop": 29.426470588235293,
@@ -381,6 +394,7 @@ exports[`Portfolio pending transactions tests:  renders correctly with data 1`] 
           style={
             Object {
               "color": "#004D40",
+              "fontFamily": "Roboto",
               "fontSize": 12,
               "textAlign": "justify",
             }
@@ -414,6 +428,7 @@ exports[`Portfolio pending transactions tests:  renders correctly with data 1`] 
           style={
             Object {
               "color": "#004D40",
+              "fontFamily": "Roboto",
               "fontSize": 12,
               "textAlign": "justify",
             }
@@ -434,7 +449,6 @@ exports[`Portfolio pending transactions tests:  renders correctly with data 1`] 
           }
         >
           222.2
-           €
         </Text>
       </View>
       <TouchableOpacity
@@ -445,6 +459,7 @@ exports[`Portfolio pending transactions tests:  renders correctly with data 1`] 
           style={
             Object {
               "color": "orange",
+              "fontFamily": "Roboto",
               "fontSize": 15,
             }
           }
@@ -470,6 +485,7 @@ exports[`Portfolio pending transactions tests:  renders correctly with error 1`]
   <Text
     style={
       Object {
+        "fontFamily": "Roboto",
         "fontSize": 14,
         "marginBottom": 7.847058823529411,
         "marginTop": 29.426470588235293,
