@@ -58,7 +58,7 @@ export class BidScreen extends React.Component<
       action: '',
       bidLevelActive: false,
       portfolioNames: [],
-      selectedPortfolio: this.props.portfolioList[0].name,
+      selectedPortfolio: '',
       sumOfStocksActive: false,
       sumOfStocks: '0',
       sumUpActive: false,
@@ -233,7 +233,7 @@ export class BidScreen extends React.Component<
 
     if (portfolioList.length === 0 || portfolioList === undefined) {
       return (
-        <View style={bidPageStyle.background}>
+        <View style={errorStyles.container}>
           <Text style={errorStyles.noPortfolioText}>
             {t('BidPage.NoPortfoliosError')}
           </Text>

@@ -144,6 +144,8 @@ export class SumUpScreen extends React.Component<
       return <Text>Error!</Text>;
     }
 
+    console.log(this.props.portfolio);
+
     return (
       <ScrollView style={sumUpStyles.background}>
         <View style={sumUpStyles.headerContainer}>

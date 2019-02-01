@@ -154,6 +154,10 @@ const stockinfo = StyleSheet.create({
 });
 
 const errorStyles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    backgroundColor: FormColors.backgroundColor,
+  },
   noPortfolioText: {
     fontSize: verticalScale(20),
     textAlign: 'center',
