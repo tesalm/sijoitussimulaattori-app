@@ -6,13 +6,13 @@ import { getLocale } from '../../util/general';
 import { formatRevenue } from '../../util/stock';
 import { stockinfo } from '../styles';
 
-export interface StockinfoProps {
+export interface StockInfoProps {
   name: string;
   revenue: number;
   updated: Date;
 }
 
-export const StockInfo = (props: StockinfoProps): JSX.Element => {
+export const StockInfo = (props: StockInfoProps): JSX.Element => {
   return (
     <View style={stockinfo.container}>
       <View>
