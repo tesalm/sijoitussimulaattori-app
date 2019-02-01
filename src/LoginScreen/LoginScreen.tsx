@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageStyle, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -10,6 +10,7 @@ import { LoginState } from '../Auth/reducer';
 import { Button } from '../input/button';
 import { RootState } from '../redux/reducers';
 import { ModalActivityIndicator } from './components/ModalActivityIndicator';
+import { ValueTownLogo } from './components/ValueTownLogo';
 import { loginScreenStyles } from './styles';
 
 export interface LoginViewProps {
@@ -39,11 +40,7 @@ class LoginScreen extends React.Component<LoginViewPropsWithNavigation> {
       <View style={loginScreenStyles.background}>
         {// Show modal activity indicator on top of everything else when logging in.
         loginState === LoginState.LoggingIn && <ModalActivityIndicator />}
-        {/*Logo.*/}
-        <Image
-          style={loginScreenStyles.logo as ImageStyle}
-          source={require('../assets/images/Logo.png')}
-        />
+        <ValueTownLogo />
         {/*New user greeting and anonymous login button.*/}
         <View style={loginScreenStyles.buttonContainer}>
           <Text style={loginScreenStyles.text}>{loginGreeting}</Text>

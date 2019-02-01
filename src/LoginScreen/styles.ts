@@ -21,15 +21,9 @@ export const loginScreenStyles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: '4%',
   },
-  logo: {
-    width: '60%',
-    height: '30%',
-    resizeMode: 'contain',
-    marginTop: '8%',
-  },
   buttonContainer: {
     // <View>
     width: '65%',
-    marginBottom: '8%',
+    marginBottom: '12%',
   },
 });
