@@ -1,8 +1,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-
-import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+
 import { BidProps, BidScreen } from '../BidScreen';
 
 describe('bid tests', () => {
@@ -164,9 +163,9 @@ describe('bid tests', () => {
   };
 
   it('BidScreen renders correctly', async () => {
-    const wrapper = shallow(<BidScreen {...bidProps} {...navigationMock} />, {
-      context: { store: mockStore() },
-    });
-    expect(wrapper.dive()).toMatchSnapshot();
+    const component = renderer
+      .create(<BidScreen {...bidProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
   });
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
+import { getLocale } from '../../util/general';
 import { formatRevenue } from '../../util/stock';
 import { stockinfo } from '../styles';
 
@@ -32,7 +33,7 @@ export const StockInfo = (props: StockinfoProps): JSX.Element => {
       </View>
       <View>
         <Text style={stockinfo.updatedText}>
-          {t('StockPage.Updated')}: {props.updated.toLocaleString()}
+          {t('StockPage.Updated')}: {props.updated.toLocaleString(getLocale())}
         </Text>
       </View>
     </View>

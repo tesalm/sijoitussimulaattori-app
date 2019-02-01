@@ -23,6 +23,8 @@ jest.mock('react-native-firebase', () => {
 });
 
 jest.mock('react-native-languages', () => ({
+  __esModule: true,
+  default: { locale: 'en' },
   Languages: {
     language: 'en',
     languages: ['en'],

@@ -1,4 +1,6 @@
 import { auth } from 'react-native-firebase';
+import RNLanguages from 'react-native-languages';
+
 import { Colors } from '../App/colors';
 
 const randomInt = (low: number = 0, high: number = Number.MAX_SAFE_INTEGER) => {
@@ -38,6 +40,8 @@ const parseStringDecimalToFloat = (value: string) => {
   return parseFloat(value.concat().replace(',', '.'));
 };
 
+const getLocale = () => RNLanguages.locale || 'en';
+
 export {
   randomInt,
   getIdToken,
@@ -45,4 +49,5 @@ export {
   formatCurrency,
   countRevenue,
   parseStringDecimalToFloat,
+  getLocale,
 };
