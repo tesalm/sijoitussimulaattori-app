@@ -130,7 +130,7 @@ describe('Portfolio pending transactions tests: ', () => {
       )
     ).toMatchSnapshot();
     expect(
-      new actions.RequestCancelTransactionSuccess('1', 'Portfolio1')
+      new actions.RequestCancelTransactionSuccess('Portfolio1', '1')
     ).toMatchSnapshot();
 
     const err: any = errorTransactionProps.error;
@@ -160,7 +160,7 @@ describe('Portfolio pending transactions tests: ', () => {
     expect(portfolioListingReducer(initialState, action)).toMatchSnapshot();
     action = {
       type: actions.ActionType.RequestCancelTransactionSuccess,
-      tid: '1',
+      transactionId: '1',
       portfolioId: 'Portfolio1',
     };
     expect(portfolioListingReducer(initialState, action)).toMatchSnapshot();

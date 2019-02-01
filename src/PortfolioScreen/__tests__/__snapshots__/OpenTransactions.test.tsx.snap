@@ -29,8 +29,8 @@ Object {
 
 exports[`Portfolio pending transactions tests:  actions 3`] = `
 Object {
-  "portfolioId": "1",
-  "transactionId": "Portfolio1",
+  "portfolioId": "Portfolio1",
+  "transactionId": "1",
   "type": "[Transactions] Cancel success",
 }
 `;
@@ -249,19 +249,7 @@ Object {
       "transactions": Object {
         "error": undefined,
         "loading": false,
-        "transactionListing": Array [
-          Object {
-            "amount": 20,
-            "cancelledAt": "",
-            "expiresAt": "2018-12-14T15:55:00.000Z",
-            "fulfilledAt": "",
-            "price": 222.2,
-            "state": "MARKET",
-            "symbol": "AMZN",
-            "type": "SELL",
-            "uid": "1",
-          },
-        ],
+        "transactionListing": Array [],
       },
       "uid": "Portfolio1",
     },
