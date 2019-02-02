@@ -6,7 +6,7 @@
       "amount": 50,
       "price": 222.2,
       "expiresAt": "2018-12-14T15:55:00.000Z",
-      "state": "MARKET",
+      "status": "MARKET",
       "fulfilledAt": "",
       "cancelledAt": ""
     },
@@ -17,7 +17,7 @@
       "amount": 60,
       "price": 333.3,
       "expiresAt": "2018-12-14T16:55:00.000Z",
-      "state": "MARKET",
+      "status": "MARKET",
       "fulfilledAt": "",
       "cancelledAt": ""
     },
@@ -28,7 +28,7 @@
       "amount": 70,
       "price": 444.4,
       "expiresAt": "2018-12-14T17:55:00.000Z",
-      "state": "MARKET",
+      "status": "MARKET",
       "fulfilledAt": "",
       "cancelledAt": ""
     },
@@ -39,7 +39,7 @@
       "amount": 45,
       "price": 555.5,
       "expiresAt": "2018-12-14T17:55:00.000Z",
-      "state": "FULFILLED",
+      "status": "FULFILLED",
       "fulfilledAt": "2018-12-14T17:55:00.000Z",
       "cancelledAt": ""
     }

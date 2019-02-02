@@ -6,7 +6,7 @@
       "amount": 20,
       "price": 222.2,
       "expiresAt": "",
-      "state": "MARKET",
+      "status": "MARKET",
       "fulfilledAt": "",
       "cancelledAt": ""
     },
@@ -17,7 +17,7 @@
       "amount": 30,
       "price": 333.3,
       "expiresAt": "",
-      "state": "MARKET",
+      "status": "MARKET",
       "fulfilledAt": "",
       "cancelledAt": ""
     },
@@ -28,7 +28,7 @@
       "amount": 40,
       "price": 444.4,
       "expiresAt": "",
-      "state": "MARKET",
+      "status": "MARKET",
       "fulfilledAt": "",
       "cancelledAt": ""
     },
@@ -39,7 +39,7 @@
       "amount": 45,
       "price": 555.5,
       "expiresAt": "",
-      "state": "FULFILLED",
+      "status": "FULFILLED",
       "fulfilledAt": "2017-10-14T17:55:00.000Z",
       "cancelledAt": ""
     },
@@ -50,7 +50,7 @@
       "amount": 45,
       "price": 666.6,
       "expiresAt": "",
-      "state": "FULFILLED",
+      "status": "FULFILLED",
       "fulfilledAt": "2017-11-14T17:55:00.000Z",
       "cancelledAt": ""
     },
@@ -61,7 +61,7 @@
       "amount": 45,
       "price": 555.5,
       "expiresAt": "",
-      "state": "CANCELLED",
+      "status": "CANCELLED",
       "fulfilledAt": "",
       "cancelledAt": "2017-12-14T17:55:00.000Z"
     },
@@ -72,7 +72,7 @@
       "amount": 100,
       "price": 555.5,
       "expiresAt": "",
-      "state": "FULFILLED",
+      "status": "FULFILLED",
       "fulfilledAt": "2018-08-14T17:55:00.000Z",
       "cancelledAt": ""
     },
@@ -83,7 +83,7 @@
       "amount": 50,
       "price": 555.5,
       "expiresAt": "",
-      "state": "FULFILLED",
+      "status": "FULFILLED",
       "fulfilledAt": "2018-09-14T17:55:00.000Z",
       "cancelledAt": ""
     }
