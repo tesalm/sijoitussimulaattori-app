@@ -31,7 +31,7 @@ describe('Portfolio pending transactions tests: ', () => {
         amount: 20,
         price: 222.2,
         expiresAt: '2018-12-14T15:55:00.000Z',
-        state: 'MARKET',
+        status: 'MARKET',
         fulfilledAt: '',
         cancelledAt: '',
       },
@@ -79,6 +79,12 @@ describe('Portfolio pending transactions tests: ', () => {
             ownerId: 'JohnDoe',
             stocks: [],
           },
+        },
+        transactionInfo: {
+          transactions: undefined,
+          transactionsLoading: false,
+          transactionsError: undefined,
+          transactionSuccess: false,
         },
         transactions: {
           transactionListing: successTransactionProps.transactions,

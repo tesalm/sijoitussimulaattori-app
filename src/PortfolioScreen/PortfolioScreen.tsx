@@ -139,7 +139,7 @@ export class PortfolioScreen extends React.Component<
               cancelOpenTransaction={this.props.cancelOpenTransaction}
               portfolioId={this.props.portfolioId}
               transactions={portfolio.transactions.transactionListing.filter(
-                (transaction) => transaction.state === 'MARKET'
+                (transaction) => transaction.status === 'MARKET'
               )}
               loading={portfolio.transactions.loading}
               error={portfolio.transactions.error}

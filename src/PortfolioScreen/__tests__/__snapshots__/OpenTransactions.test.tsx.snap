@@ -17,7 +17,7 @@ Object {
       "expiresAt": "2018-12-14T15:55:00.000Z",
       "fulfilledAt": "",
       "price": 222.2,
-      "state": "MARKET",
+      "status": "MARKET",
       "symbol": "AMZN",
       "type": "SELL",
       "uid": "1",
@@ -78,6 +78,12 @@ Object {
       },
       "totalMarketValue": 5000,
       "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
       "transactions": Object {
         "error": undefined,
         "loading": true,
@@ -88,7 +94,7 @@ Object {
             "expiresAt": "2018-12-14T15:55:00.000Z",
             "fulfilledAt": "",
             "price": 222.2,
-            "state": "MARKET",
+            "status": "MARKET",
             "symbol": "AMZN",
             "type": "SELL",
             "uid": "1",
@@ -133,6 +139,12 @@ Object {
       },
       "totalMarketValue": 5000,
       "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
       "transactions": Object {
         "error": undefined,
         "loading": false,
@@ -143,7 +155,7 @@ Object {
             "expiresAt": "2018-12-14T15:55:00.000Z",
             "fulfilledAt": "",
             "price": 222.2,
-            "state": "MARKET",
+            "status": "MARKET",
             "symbol": "AMZN",
             "type": "SELL",
             "uid": "1",
@@ -188,6 +200,12 @@ Object {
       },
       "totalMarketValue": 5000,
       "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
       "transactions": Object {
         "error": Object {
           "message": "Network connection failed",
@@ -201,7 +219,7 @@ Object {
             "expiresAt": "2018-12-14T15:55:00.000Z",
             "fulfilledAt": "",
             "price": 222.2,
-            "state": "MARKET",
+            "status": "MARKET",
             "symbol": "AMZN",
             "type": "SELL",
             "uid": "1",
@@ -246,6 +264,12 @@ Object {
       },
       "totalMarketValue": 5000,
       "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
       "transactions": Object {
         "error": undefined,
         "loading": false,

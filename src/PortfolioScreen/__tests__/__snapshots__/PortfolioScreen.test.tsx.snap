@@ -813,7 +813,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": "#004D40",
+                    "tintColor": undefined,
                     "width": 48,
                   }
                 }
@@ -848,7 +848,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": "#004D40",
+                    "tintColor": undefined,
                     "width": 48,
                   }
                 }

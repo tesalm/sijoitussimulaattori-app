@@ -9,7 +9,7 @@ export interface Transaction {
   amount: number;
   price: number;
   expiresAt: string;
-  state: string;
+  status: string;
   fulfilledAt: string;
   cancelledAt: string;
 }
@@ -280,7 +280,6 @@ export const portfolioListingReducer = (
       creation.creatingPortfolioSuccess = false;
       return { ...state, creatingPortfolio: creation };
     }
-    // --- Transaction actions ---
     case ActionType.RequestTransactionsBegin: {
       const portfolioList = cloneDeep(state.portfolioListing);
       const portfolioIndex = getPortfolioIndex(

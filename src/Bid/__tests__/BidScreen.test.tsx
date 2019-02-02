@@ -125,6 +125,11 @@ describe('bid tests', () => {
           transactionsError: undefined,
           transactionSuccess: false,
         },
+        transactions: {
+          transactionListing: [],
+          loading: false,
+          error: undefined,
+        },
       },
       {
         uid: 'Portfolio2',
@@ -154,6 +159,11 @@ describe('bid tests', () => {
           transactionsLoading: false,
           transactionsError: undefined,
           transactionSuccess: false,
+        },
+        transactions: {
+          transactionListing: [],
+          loading: false,
+          error: undefined,
         },
       },
     ],

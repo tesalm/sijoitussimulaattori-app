@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, Alert, Text, TouchableOpacity, View } from 'react-native';
 import Collapsible from 'react-native-collapsible';
-import { scale, verticalScale } from 'react-native-size-matters';
+import { scale } from 'react-native-size-matters';
 
 import { t } from '../../assets/i18n';
 import Icon from '../../general/icon';
@@ -50,10 +50,7 @@ export class OpenTransactions extends React.Component<
             {t('OpenTransactions.ToggleTitle')}
           </Text>
           {this.props.loading && (
-            <ActivityIndicator
-              size={verticalScale(24)}
-              style={{ marginLeft: scale(18) }}
-            />
+            <ActivityIndicator size="small" style={{ marginLeft: scale(18) }} />
           )}
         </View>
         <Icon iconName={iconName} iconHeight={24} iconWidth={24} />
@@ -65,7 +62,7 @@ export class OpenTransactions extends React.Component<
     Alert.alert(
       t('OpenTransactions.AlertTitle'),
       t('OpenTransactions.Cancel') + ' ' + transact.symbol + ' ' +
-      t('OpenTransactions.Transaction'),
+        t('OpenTransactions.Transaction'),
       [
         {
           text: t('OpenTransactions.No'),

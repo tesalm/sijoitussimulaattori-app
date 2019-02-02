@@ -162,11 +162,7 @@ const transactionsApiRequest = async (pid: string): Promise<Transaction[]> => {
 const cancelTransactionApiRequest = async (pid: string, tid: string) => {
   try {
     const url =
-      config.app.PROFILE_API_URL +
-      '/profile/portfolio/' +
-      pid +
-      '/transaction/' +
-      tid;
+      config.app.PROFILE_API_URL + '/profile/portfolio/' + pid + '/transaction/' + tid;
     const token = await getIdToken();
     await axios.delete(url, {
       headers: {
