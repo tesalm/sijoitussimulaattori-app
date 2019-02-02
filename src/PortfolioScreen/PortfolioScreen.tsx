@@ -149,8 +149,9 @@ export class PortfolioScreen extends React.Component<
             <CardButton
               iconName={IconNames.events}
               translationTitle={'PortfolioPage.Events'}
-              // TODO: navigate to events page
-              onPress={() => this.props.navigation.navigate(RouteName.Home)}
+              onPress={() =>
+                this.props.navigation.navigate(RouteName.EventsAndTransactions)
+              }
             />
           </Card>
           <Card containerStyle={cardButtonStyles.cardButton}>
