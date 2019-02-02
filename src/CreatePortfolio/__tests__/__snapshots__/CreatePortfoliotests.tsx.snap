@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create Portfolio renders correctly 1`] = `
-<View
+<RCTScrollView
   style={
     Object {
       "backgroundColor": "#004D40",
@@ -9,117 +9,13 @@ exports[`Create Portfolio renders correctly 1`] = `
     }
   }
 >
-  <View
-    style={
-      Object {
-        "paddingBottom": 32,
-        "paddingHorizontal": 84,
-        "paddingTop": 346,
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 34,
-          "fontWeight": "bold",
-          "paddingBottom": 16,
-          "paddingTop": 32,
-          "textAlign": "center",
-        }
-      }
-    >
-      Name your portfolio
-    </Text>
-    <TextInput
-      allowFontScaling={true}
-      onBlur={[Function]}
-      onChangeText={[Function]}
-      onFocus={[Function]}
-      onSubmitEditing={[Function]}
-      selectionColor="#e8a30c"
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 32,
-          "paddingHorizontal": 32,
-          "textAlign": "center",
-        }
-      }
-      underlineColorAndroid="white"
-      value=""
-    />
-  </View>
-  <View />
-  <View
-    style={
-      Object {
-        "paddingBottom": 32,
-        "paddingHorizontal": 84,
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 34,
-          "fontWeight": "bold",
-          "paddingBottom": 16,
-          "paddingTop": 32,
-          "textAlign": "center",
-        }
-      }
-    >
-      Give initial capital to your portfolio
-    </Text>
-    <TextInput
-      allowFontScaling={true}
-      keyboardType="numeric"
-      onBlur={[Function]}
-      onChangeText={[Function]}
-      onFocus={[Function]}
-      onSubmitEditing={[Function]}
-      selectionColor="#e8a30c"
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 32,
-          "paddingHorizontal": 32,
-          "textAlign": "center",
-        }
-      }
-      underlineColorAndroid="white"
-      value=""
-    />
-  </View>
-  <View />
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "paddingTop": 32,
-      }
-    }
-  >
+  <View>
     <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "height": 72,
-          "justifyContent": "center",
-          "opacity": 1,
-          "width": 224,
+          "paddingBottom": 32,
+          "paddingHorizontal": 84,
+          "paddingTop": 346,
         }
       }
     >
@@ -127,31 +23,41 @@ exports[`Create Portfolio renders correctly 1`] = `
         style={
           Object {
             "color": "white",
-            "fontSize": 28,
+            "fontSize": 34,
             "fontWeight": "bold",
+            "paddingBottom": 16,
+            "paddingTop": 32,
+            "textAlign": "center",
           }
         }
       >
-        CANCEL
+        Name your portfolio
       </Text>
+      <TextInput
+        allowFontScaling={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        selectionColor="#e8a30c"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 32,
+            "paddingHorizontal": 32,
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="white"
+        value=""
+      />
     </View>
+    <View />
     <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#8d8d8d",
-          "height": 72,
-          "justifyContent": "center",
-          "opacity": 1,
-          "width": 224,
+          "paddingBottom": 32,
+          "paddingHorizontal": 84,
         }
       }
     >
@@ -159,16 +65,112 @@ exports[`Create Portfolio renders correctly 1`] = `
         style={
           Object {
             "color": "white",
-            "fontSize": 28,
+            "fontSize": 34,
             "fontWeight": "bold",
+            "paddingBottom": 16,
+            "paddingTop": 32,
+            "textAlign": "center",
           }
         }
       >
-        SAVE
+        Give initial capital to your portfolio
       </Text>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        selectionColor="#e8a30c"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 32,
+            "paddingHorizontal": 32,
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="white"
+        value=""
+      />
+    </View>
+    <View />
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingTop": 32,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 72,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 224,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 28,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          CANCEL
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#8d8d8d",
+            "height": 72,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 224,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 28,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          SAVE
+        </Text>
+      </View>
     </View>
   </View>
-</View>
+</RCTScrollView>
 `;
 
 exports[`Create Portfolio renders correctly with error 1`] = `
@@ -178,7 +180,7 @@ exports[`Create Portfolio renders correctly with error 1`] = `
 `;
 
 exports[`Create Portfolio renders correctly with loading 1`] = `
-<View
+<RCTScrollView
   style={
     Object {
       "backgroundColor": "#004D40",
@@ -186,107 +188,109 @@ exports[`Create Portfolio renders correctly with loading 1`] = `
     }
   }
 >
-  <View
-    style={
-      Object {
-        "paddingBottom": 32,
-        "paddingHorizontal": 84,
-        "paddingTop": 346,
-      }
-    }
-  >
-    <Text
+  <View>
+    <View
       style={
         Object {
-          "color": "white",
-          "fontSize": 34,
-          "fontWeight": "bold",
-          "paddingBottom": 16,
-          "paddingTop": 32,
-          "textAlign": "center",
+          "paddingBottom": 32,
+          "paddingHorizontal": 84,
+          "paddingTop": 346,
         }
       }
     >
-      Name your portfolio
-    </Text>
-    <TextInput
-      allowFontScaling={true}
-      onBlur={[Function]}
-      onChangeText={[Function]}
-      onFocus={[Function]}
-      onSubmitEditing={[Function]}
-      selectionColor="#e8a30c"
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 32,
-          "paddingHorizontal": 32,
-          "textAlign": "center",
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 34,
+            "fontWeight": "bold",
+            "paddingBottom": 16,
+            "paddingTop": 32,
+            "textAlign": "center",
+          }
         }
-      }
-      underlineColorAndroid="white"
-      value=""
-    />
-  </View>
-  <View />
-  <View
-    style={
-      Object {
-        "paddingBottom": 32,
-        "paddingHorizontal": 84,
-      }
-    }
-  >
-    <Text
+      >
+        Name your portfolio
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        selectionColor="#e8a30c"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 32,
+            "paddingHorizontal": 32,
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="white"
+        value=""
+      />
+    </View>
+    <View />
+    <View
       style={
         Object {
-          "color": "white",
-          "fontSize": 34,
-          "fontWeight": "bold",
-          "paddingBottom": 16,
-          "paddingTop": 32,
-          "textAlign": "center",
+          "paddingBottom": 32,
+          "paddingHorizontal": 84,
         }
       }
     >
-      Give initial capital to your portfolio
-    </Text>
-    <TextInput
-      allowFontScaling={true}
-      keyboardType="numeric"
-      onBlur={[Function]}
-      onChangeText={[Function]}
-      onFocus={[Function]}
-      onSubmitEditing={[Function]}
-      selectionColor="#e8a30c"
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 34,
+            "fontWeight": "bold",
+            "paddingBottom": 16,
+            "paddingTop": 32,
+            "textAlign": "center",
+          }
+        }
+      >
+        Give initial capital to your portfolio
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        selectionColor="#e8a30c"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 32,
+            "paddingHorizontal": 32,
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="white"
+        value=""
+      />
+    </View>
+    <View />
+    <View
       style={
         Object {
-          "color": "white",
-          "fontSize": 32,
-          "paddingHorizontal": 32,
-          "textAlign": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingTop": 32,
         }
       }
-      underlineColorAndroid="white"
-      value=""
-    />
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#999999"
+        hidesWhenStopped={true}
+        size="large"
+      />
+    </View>
   </View>
-  <View />
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "paddingTop": 32,
-      }
-    }
-  >
-    <ActivityIndicator
-      animating={true}
-      color="#999999"
-      hidesWhenStopped={true}
-      size="large"
-    />
-  </View>
-</View>
+</RCTScrollView>
 `;

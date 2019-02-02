@@ -207,8 +207,8 @@ exports[`stock-list tests renders correctly with loading 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
-      "textAlign": "center",
+      "height": 1334,
+      "justifyContent": "center",
     }
   }
 >
