@@ -232,7 +232,6 @@ exports[`Transactions screen tests:  renders correctly with data 1`] = `
               }
             >
               222.2
-               €
             </Text>
           </View>
           <View
@@ -434,7 +433,6 @@ exports[`Transactions screen tests:  renders correctly with data 1`] = `
               }
             >
               333.3
-               €
             </Text>
           </View>
           <View

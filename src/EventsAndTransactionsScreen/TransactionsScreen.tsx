@@ -111,7 +111,7 @@ export class TransactionsScreen extends React.Component<
                 <Text style={transactionStyles.basicText}>
                   {t('TransactionsPage.Value')}
                 </Text>
-                <Text style={transactionStyles.bold}>{item.price} €</Text>
+                <Text style={transactionStyles.bold}>{item.price}</Text>
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={transactionStyles.basicText}>
