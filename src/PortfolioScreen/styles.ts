@@ -125,6 +125,37 @@ const portfolioStyles = StyleSheet.create({
   holdingsArrowView: {
     flex: 0.1,
     marginTop: scale(5),
+    alignItems: 'flex-end',
+  },
+  symbol: {
+    fontFamily: 'Roboto',
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'justify',
+    marginBottom: verticalScale(4),
+    color: Colors.baseColor,
+  },
+  basicText: {
+    fontFamily: 'Roboto',
+    fontSize: 12,
+    textAlign: 'justify',
+    color: Colors.baseColor,
+  },
+  noActionsText: {
+    fontFamily: 'Roboto',
+    fontSize: 14,
+    marginTop: verticalScale(15),
+    marginBottom: verticalScale(4),
+    opacity: 0.6,
+  },
+  cancelAction: {
+    fontFamily: 'Roboto',
+    fontSize: 15,
+    color: 'orange',
+  },
+  transaction: {
+    marginTop: verticalScale(12),
+    marginBottom: verticalScale(2),
   },
 });
 

@@ -19,11 +19,12 @@ import {
 import { Stock } from '../MarketScreen/reducer';
 import PortfolioBackButtonWithNavigation from '../navigation/components/PortfolioBackButton';
 import { RouteName } from '../navigation/routes';
-import { getPortfolioData } from '../PortfolioList/actions';
+import { cancelTransaction, getPortfolioData, getTransactions } from '../PortfolioList/actions';
 import { PortfolioStock, SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
 import { t } from './../assets/i18n';
 import { Holdings } from './components/Holdings';
+import { OpenTransactions } from './components/OpenTransactions';
 import { PortfolioInfo } from './components/PortfolioInfo';
 
 export interface PortfolioProps {
@@ -34,6 +35,8 @@ export interface PortfolioProps {
   getAllStocks: typeof getStocks;
   getStockMetaData: typeof getStockMetadata;
   getStockIntraDayData: typeof getIntraday;
+  getTransactions: typeof getTransactions;
+  cancelOpenTransaction: typeof cancelTransaction;
   refreshStockIntraDayData: typeof refreshIntraday;
   stocksLoading: boolean;
 }
@@ -92,6 +95,7 @@ export class PortfolioScreen extends React.Component<
   refreshPortfolioAndStock = () => {
     if (this.props.portfolioId) {
       this.props.getPortfolio(this.props.portfolioId);
+      this.props.getTransactions(this.props.portfolioId);
     }
     if (this.props.portfolio && this.props.portfolio.portfolioInfo.portfolio) {
       this.props.portfolio.portfolioInfo.portfolio.stocks.forEach(
@@ -138,12 +142,25 @@ export class PortfolioScreen extends React.Component<
               stocksLoading={stocksLoading}
             />
           </Card>
+          <Card containerStyle={cardStyles.container}>
+            <OpenTransactions
+              getTransactions={this.props.getTransactions}
+              cancelOpenTransaction={this.props.cancelOpenTransaction}
+              portfolioId={this.props.portfolioId}
+              transactions={portfolio.transactions.transactionListing.filter(
+                (transaction) => transaction.status === 'MARKET'
+              )}
+              loading={portfolio.transactions.loading}
+              error={portfolio.transactions.error}
+            />
+          </Card>
           <Card containerStyle={cardButtonStyles.cardButton}>
             <CardButton
               iconName={IconNames.events}
               translationTitle={'PortfolioPage.Events'}
-              // TODO: navigate to events page
-              onPress={() => this.props.navigation.navigate(RouteName.Home)}
+              onPress={() =>
+                this.props.navigation.navigate(RouteName.EventsAndTransactions)
+              }
             />
           </Card>
           <Card containerStyle={cardButtonStyles.cardButton}>
@@ -180,6 +197,8 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
       getStockMetaData: getStockMetadata,
       getStockIntraDayData: getIntraday,
       refreshStockIntraDayData: refreshIntraday,
+      getTransactions: getTransactions,
+      cancelOpenTransaction: cancelTransaction,
     },
     dispatch
   );

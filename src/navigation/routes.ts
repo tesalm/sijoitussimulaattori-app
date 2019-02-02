@@ -15,4 +15,5 @@ export enum RouteName {
   CreatePortfolio = 'CreatePortfolio',
   StockModal = 'StockModal',
   Info = 'Info',
+  EventsAndTransactions = 'EventsAndTransactions',
 }

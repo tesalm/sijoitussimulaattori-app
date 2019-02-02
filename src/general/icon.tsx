@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+
 import { scale } from '../util/scale';
 
 interface IconProps {
@@ -24,9 +25,12 @@ export enum IconNames {
   events = 'events',
   buy = 'buy',
   sell = 'sell',
+  opensign = 'opensign',
 }
 const Icon = (props: IconProps): JSX.Element => {
   let req;
+  // set default color value for icon
+  const color = !props.tintColor ? '#004D40' : props.tintColor;
 
   switch (props.iconName) {
     case IconNames.open:
@@ -74,6 +78,9 @@ const Icon = (props: IconProps): JSX.Element => {
     case IconNames.add:
       req = require('../navigation/assets/add.png');
       break;
+    case IconNames.opensign:
+      req = require('../navigation/assets/opensign.png');
+      break;
     default:
       // TODO: Add better icon for default case.
       req = require('../navigation/assets/delete.png');
@@ -85,7 +92,7 @@ const Icon = (props: IconProps): JSX.Element => {
       style={{
         height: scale(props.iconHeight),
         width: scale(props.iconWidth),
-        tintColor: props.tintColor,
+        tintColor: color,
       }}
     />
   );

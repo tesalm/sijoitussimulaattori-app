@@ -3,9 +3,7 @@ import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { t } from '../../assets/i18n';
-import CreatePortfolio from '../../CreatePortfolio/CreatePortfolio';
 import PortfolioListScreen from '../../PortfolioList/PortfolioListScreen';
-import PortfolioScreen from '../../PortfolioScreen/PortfolioScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import { Colors, Styles } from '../styles';
@@ -13,9 +11,6 @@ import { Colors, Styles } from '../styles';
 const HomeStack = createStackNavigator(
   {
     Home: PortfolioListScreen,
-    // SinglePortfolio: { screen: PortfolioScreen },
-    // CreatePortfolio: { screen: CreatePortfolio },
-    // // TODO add more pages related to this tab
   },
   {
     // Shared options
