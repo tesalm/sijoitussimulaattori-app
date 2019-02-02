@@ -19,11 +19,8 @@ import { RouteName } from '../navigation/routes';
 import { getPortfolioData, getPortfolios } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
-import {
-  countRevenue,
-  formatCurrency,
-  parseStringDecimalToFloat,
-} from '../util/general';
+import { parseStringDecimalToFloat } from '../util/general';
+import { countRevenue, formatCurrency } from '../util/stock'
 import { verticalScale } from '../util/scale';
 import { saveBidForm } from './actions';
 import { ActionButton } from './components/ActionButton';

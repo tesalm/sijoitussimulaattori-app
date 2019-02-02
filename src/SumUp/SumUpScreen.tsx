@@ -18,7 +18,7 @@ import { RouteName } from '../navigation/routes';
 import { saveTransaction } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
-import { formatCurrency } from '../util/general';
+import { formatCurrency } from '../util/stock';
 import { sumUpStyles } from './styles';
 
 interface SumUpProps {

@@ -40,10 +40,16 @@ const formatCurrency = (value: number, currency: string) => {
   return value.toFixed(2) + ' $';
 };
 
+// counts revenue change from current close value compared to yesterdays value.
+const countRevenue = (closeYesterday: number, closeToday: number) => {
+  return (closeToday - closeYesterday) / closeYesterday;
+};
+
 export {
   formatRevenue,
   revenueColor,
   formatCurrency,
   formatRevenueCurrency,
   valueColor,
+  countRevenue
 };
