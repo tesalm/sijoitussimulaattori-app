@@ -1,0 +1,329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bid tests BidScreen renders correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#004D40",
+        "display": "flex",
+        "elevation": 4,
+        "flexDirection": "column",
+        "paddingHorizontal": 32,
+        "paddingVertical": 32,
+        "shadowColor": "grey",
+        "shadowOffset": Object {
+          "height": 5,
+          "width": 5,
+        },
+        "shadowOpacity": 0.5,
+        "shadowRadius": 10,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 34,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Apple
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "paddingVertical": 32,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 24,
+            }
+          }
+        >
+          Revenue today
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 34,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          +3.69 %
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      />
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 22,
+          }
+        }
+      >
+        Updated
+        : 
+        12/17/2018, 1:24:00 AM
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#004D40",
+            "height": 1930,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "paddingTop": 230,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 34,
+                "fontWeight": "bold",
+                "paddingVertical": 32,
+                "textAlign": "center",
+              }
+            }
+          >
+            Choose action for 
+            <Text
+              style={
+                Object {
+                  "fontStyle": "italic",
+                }
+              }
+            >
+              Apple
+            </Text>
+          </Text>
+          <View
+            style={
+              Object {
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "space-evenly",
+                "paddingVertical": 32,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/navigation/assets/buy.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 48,
+                      "tintColor": "white",
+                      "width": 48,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                      "fontSize": 40,
+                      "fontWeight": "bold",
+                      "paddingLeft": 16,
+                    }
+                  }
+                >
+                  Buy
+                </Text>
+              </View>
+            </View>
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/navigation/assets/sell.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 48,
+                      "tintColor": "white",
+                      "width": 48,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                      "fontSize": 40,
+                      "fontWeight": "bold",
+                      "paddingLeft": 16,
+                    }
+                  }
+                >
+                  Sell
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingTop": 64,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 72,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 224,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 28,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              CANCEL
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#8d8d8d",
+                "height": 72,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 224,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 28,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              SUM UP
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

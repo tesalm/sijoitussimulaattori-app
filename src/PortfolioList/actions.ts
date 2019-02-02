@@ -4,8 +4,9 @@ import {
   createPortfolioRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
+  transactionApiRequest,
 } from '../util/api';
-import { Portfolio, SinglePortfolio } from './reducer';
+import { Portfolio, SinglePortfolio, Transaction } from './reducer';
 
 export enum ActionType {
   RequestPortfolioListingBegin = '[Portfolios] API Request',
@@ -15,6 +16,9 @@ export enum ActionType {
   RequestPortfolioSuccess = '[Portfolio] Data Success',
   RequestPortfolioFailure = '[Portfolio] Data Failure',
   SaveCurrentPortfolioId = '[Portfolios] Save Current Portfolio Id',
+  SaveTransactionBegin = '[Bid] Save transaction begin',
+  SaveTransactionSuccess = '[Bid] Save transaction success',
+  SaveTransactionFailure = '[Bid] Save transaction failure',
   CreatePortfolioBegin = '[CreatingPortfolio] Creating portfolio begin',
   CreatePortfolioSuccess = '[CreatingPortfolio] Creating portfolio success',
   CreatePortfolioFailure = '[CreatingPortfolio] Creating portfolio failure',
@@ -28,6 +32,9 @@ export type PortfolioAction =
   | RequestPortfolioBegin
   | RequestPortfolioSuccess
   | RequestPortfolioFailure
+  | SaveTransactionBegin
+  | SaveTransactionSuccess
+  | SaveTransactionFailure
   | CreatePortfolioBegin
   | CreatePortfolioSuccess
   | CreatePortfolioFailure;
@@ -78,6 +85,27 @@ export class RequestPortfolioFailure {
   readonly type = ActionType.RequestPortfolioFailure;
   constructor(public error: Error, public portfolioId: string) {
     return { type: this.type, error, portfolioId };
+  }
+}
+
+export class SaveTransactionBegin {
+  readonly type = ActionType.SaveTransactionBegin;
+  constructor(public portfolioId: string) {
+    return { type: this.type, portfolioId };
+  }
+}
+
+export class SaveTransactionSuccess {
+  readonly type = ActionType.SaveTransactionSuccess;
+  constructor(public portfolioId: string, public transaction: Transaction) {
+    return { type: this.type, portfolioId, transaction };
+  }
+}
+
+export class SaveTransactionFailure {
+  readonly type = ActionType.SaveTransactionFailure;
+  constructor(public portfolioId: string, public error: Error) {
+    return { type: this.type, portfolioId, error };
   }
 }
 
@@ -143,6 +171,28 @@ const getPortfolios = () => async (dispatch: Dispatch<PortfolioAction>) => {
   }
 };
 
+const saveTransaction = (
+  action: string,
+  stockSymbol: string,
+  amountOfStocks: number,
+  bidLevel: number,
+  portfolioId: string
+) => async (dispatch: Dispatch<PortfolioAction>) => {
+  dispatch(new SaveTransactionBegin(portfolioId));
+  try {
+    const data = await transactionApiRequest(
+      action,
+      stockSymbol,
+      amountOfStocks,
+      bidLevel,
+      portfolioId
+    );
+    dispatch(new SaveTransactionSuccess(portfolioId, data));
+  } catch (error) {
+    dispatch(new SaveTransactionFailure(portfolioId, error));
+  }
+};
+
 const createPortfolio = (name: string, amount: number) => async (
   dispatch: Dispatch<PortfolioAction>
 ) => {
@@ -166,5 +216,6 @@ export {
   getPortfolios,
   saveAsCurrentPortfolioId,
   getPortfolioData,
+  saveTransaction,
   createPortfolio,
 };

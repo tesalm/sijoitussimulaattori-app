@@ -53,7 +53,7 @@ exports[`portfolio-list tests renders correctly 1`] = `
       style={
         Object {
           "height": 100,
-          "tintColor": "#004D40",
+          "tintColor": undefined,
           "width": 100,
         }
       }
@@ -130,6 +130,12 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
           },
           "totalMarketValue": 0.53,
           "totalRevenue": 0.25,
+          "transactionInfo": Object {
+            "transactionSuccess": false,
+            "transactions": undefined,
+            "transactionsError": undefined,
+            "transactionsLoading": false,
+          },
           "uid": "Portfolio1",
         },
       ]
@@ -345,7 +351,7 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
       style={
         Object {
           "height": 100,
-          "tintColor": "#004D40",
+          "tintColor": undefined,
           "width": 100,
         }
       }

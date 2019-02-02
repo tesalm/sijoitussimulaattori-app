@@ -1,6 +1,25 @@
 import cloneDeep from 'lodash/cloneDeep';
 import { ActionType, PortfolioAction } from './actions';
 
+export interface Transaction {
+  uid: string;
+  type: string;
+  symbol: string;
+  amount: number;
+  price: number;
+  expiresAt: string;
+  state: string;
+  fulfilledAt: string;
+  cancelledAt: string;
+}
+
+export interface TransactionInfo {
+  transactions?: Transaction[];
+  transactionsLoading: boolean;
+  transactionsError?: Error;
+  transactionSuccess: boolean;
+}
+
 export interface CreatePortfolio {
   uid: string;
   name: string;
@@ -25,6 +44,7 @@ export interface SinglePortfolio {
   totalMarketValue: number;
   lastDayRevenue: number;
   portfolioInfo: PortfolioInfo;
+  transactionInfo: TransactionInfo;
 }
 
 export interface PortfolioInfo {
@@ -134,6 +154,71 @@ export const portfolioListingReducer = (
       };
       return { ...cloneDeep(state), portfolioListing: portfolioList };
     }
+    case ActionType.SaveTransactionBegin: {
+      const portfolioList = cloneDeep(state.portfolioListing);
+      const portfolioIndex = getPortfolioIndex(
+        portfolioList,
+        action.portfolioId
+      );
+      if (portfolioIndex < 0) {
+        return { ...cloneDeep(state) };
+      }
+      portfolioList[portfolioIndex].transactionInfo = {
+        ...portfolioList[portfolioIndex].transactionInfo,
+        transactionsLoading: true,
+        transactionsError: undefined,
+        transactionSuccess: false,
+      };
+      return { ...cloneDeep(state), portfolioListing: portfolioList };
+    }
+    case ActionType.SaveTransactionSuccess: {
+      const portfolioList = cloneDeep(state.portfolioListing);
+      const portfolioIndex = getPortfolioIndex(
+        portfolioList,
+        action.portfolioId
+      );
+      if (portfolioIndex < 0) {
+        return { ...cloneDeep(state) };
+      }
+      const transactionList = cloneDeep(
+        portfolioList[portfolioIndex].transactionInfo.transactions
+      );
+      if (!transactionList) {
+        portfolioList[portfolioIndex].transactionInfo = {
+          ...portfolioList[portfolioIndex].transactionInfo,
+          transactionsLoading: false,
+          transactionsError: undefined,
+          transactionSuccess: true,
+          transactions: [action.transaction],
+        };
+      } else {
+        transactionList.push(action.transaction);
+        portfolioList[portfolioIndex].transactionInfo = {
+          ...portfolioList[portfolioIndex].transactionInfo,
+          transactionsLoading: false,
+          transactionsError: undefined,
+          transactionSuccess: false,
+          transactions: transactionList,
+        };
+      }
+      return { ...cloneDeep(state), portfolioListing: portfolioList };
+    }
+    case ActionType.SaveTransactionFailure: {
+      const portfolioList = cloneDeep(state.portfolioListing);
+      const portfolioIndex = getPortfolioIndex(
+        portfolioList,
+        action.portfolioId
+      );
+      if (portfolioIndex < 0) {
+        return { ...cloneDeep(state) };
+      }
+      portfolioList[portfolioIndex].transactionInfo = {
+        ...portfolioList[portfolioIndex].transactionInfo,
+        transactionsLoading: false,
+        transactionsError: action.error,
+      };
+      return { ...cloneDeep(state), portfolioListing: portfolioList };
+    }
     case ActionType.CreatePortfolioBegin: {
       const creation = cloneDeep(state.creatingPortfolio);
       creation.creatingPortfolioLoading = true;
@@ -160,6 +245,12 @@ export const portfolioListingReducer = (
           error: undefined,
           portfolio: undefined,
         },
+        transactionInfo: {
+          transactionsLoading: false,
+          transactionsError: undefined,
+          transactionSuccess: false,
+          transactions: undefined,
+        }
       };
       const portfolioList = cloneDeep(state.portfolioListing);
       portfolioList.push(newPortfolio);

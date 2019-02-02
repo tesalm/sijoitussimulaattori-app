@@ -1,13 +1,12 @@
 import React from 'react';
 import { Image } from 'react-native';
-
-import { Colors } from '../App/colors';
 import { scale } from '../util/scale';
 
 interface IconProps {
   iconName: string;
   iconHeight: number;
   iconWidth: number;
+  tintColor?: string;
 }
 
 export enum IconNames {
@@ -16,7 +15,6 @@ export enum IconNames {
   holdings = 'holdings',
   manage = 'manage',
   eventsTransactions = 'eventsTransactions',
-
   bid = 'bid',
   add = 'add',
   arrowDown = 'arrowDown',
@@ -24,6 +22,8 @@ export enum IconNames {
   twoArrowOpen = 'twoArrowOpen',
   twoArrowClose = 'twoArrowClose',
   events = 'events',
+  buy = 'buy',
+  sell = 'sell',
 }
 const Icon = (props: IconProps): JSX.Element => {
   let req;
@@ -65,6 +65,12 @@ const Icon = (props: IconProps): JSX.Element => {
     case IconNames.events:
       req = require('../navigation/assets/events.png');
       break;
+    case IconNames.buy:
+      req = require('../navigation/assets/buy.png');
+      break;
+    case IconNames.sell:
+      req = require('../navigation/assets/sell.png');
+      break;
     case IconNames.add:
       req = require('../navigation/assets/add.png');
       break;
@@ -79,7 +85,7 @@ const Icon = (props: IconProps): JSX.Element => {
       style={{
         height: scale(props.iconHeight),
         width: scale(props.iconWidth),
-        tintColor: Colors.baseColor,
+        tintColor: props.tintColor,
       }}
     />
   );

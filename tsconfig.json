@@ -72,6 +72,7 @@
     "node_modules",
     ".coverage",
     "native-assets",
-    "jest"
+    "jest",
+    "index.d.ts"
   ]
 }

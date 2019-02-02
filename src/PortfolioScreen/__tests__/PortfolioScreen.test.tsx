@@ -2,7 +2,12 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
-import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../../MarketScreen/actions';
+import {
+  getIntraday,
+  getStockMetadata,
+  getStocks,
+  refreshIntraday,
+} from '../../MarketScreen/actions';
 import { getPortfolioData } from '../../PortfolioList/actions';
 import { PortfolioProps, PortfolioScreen } from '../PortfolioScreen';
 
@@ -67,6 +72,12 @@ describe('portfolio-screen tests', () => {
             },
           ],
         },
+      },
+      transactionInfo: {
+        transactionSuccess: false,
+        transactions: undefined,
+        transactionsError: undefined,
+        transactionsLoading: false,
       },
     },
     stocks: [

@@ -1,5 +1,12 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, RefreshControl, Text, ToastAndroid, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  RefreshControl,
+  Text,
+  ToastAndroid,
+  View,
+} from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';

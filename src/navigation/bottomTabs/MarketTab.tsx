@@ -2,12 +2,15 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
+import { Colors } from '../../App/colors';
 import { t } from '../../assets/i18n';
+import BidScreen from '../../Bid/BidScreen';
 import MarketScreen from '../../MarketScreen/MarketScreen';
 import StockScreen from '../../Stock/StockScreen';
+import SumUpScreen from '../../SumUp/SumUpScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
-import { Colors, Styles } from '../styles';
+import { Styles } from '../styles';
 
 const MarketStack = createStackNavigator(
   {
@@ -16,9 +19,12 @@ const MarketStack = createStackNavigator(
     },
     Stock: {
       screen: StockScreen,
-      navigationOptions: () => ({
-        headerBackTitleVisible: true,
-      }),
+    },
+    Bid: {
+      screen: BidScreen,
+    },
+    SumUp: {
+      screen: SumUpScreen,
     },
   },
   {
@@ -26,8 +32,8 @@ const MarketStack = createStackNavigator(
     initialRouteName: RouteName.StockList,
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
-      headerTintColor: Colors.headerTint,
-      headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
+      headerTintColor: Colors.whiteBackground,
+      headerTitleStyle: { textAlign: 'left', flex: 1 },
       headerLeft: <MenuIcon navigation={navigation} />,
     }),
   }

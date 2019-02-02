@@ -4,6 +4,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { textStyles } from '../../App/styles';
 import { t } from '../../assets/i18n';
 import { DailyQuote, StockMetadata } from '../../MarketScreen/reducer';
+import { getLocale } from '../../util/general';
 import { formatCurrency, formatRevenue, revenueColor } from '../../util/stock';
 import { stockStyles } from '../styles';
 
@@ -107,7 +108,7 @@ export const Basicinfo = (props: BasicinfoProps): JSX.Element => {
       <View>
         <Text style={textStyles.valueHeader}>
           {t('StockPage.Updated')}:{' '}
-          {props.fetchTime ? props.fetchTime.toLocaleString() : ''}
+          {props.fetchTime ? props.fetchTime.toLocaleString(getLocale()) : ''}
         </Text>
       </View>
     </View>

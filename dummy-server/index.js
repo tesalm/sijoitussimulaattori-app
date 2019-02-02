@@ -51,16 +51,27 @@ app.get('/profile/portfolio/:portfolioID', (req, res) => {
   res.json(availablePortfolio(req.params.portfolioID));
 });
 
+app.post('/profile/portfolio/:portfolioId/transaction', (req, res) => {
+  const transaction = {
+    uid: '1' + req.body.amount,
+    type: 'SELL',
+    symbol: 'AAPL',
+    amount: 56,
+    price: 700,
+    expiresAt: '2019-11-0305:00:00',
+    fulfilledAt: '',
+    cancelledAt: '',
+  };
+  res.json(transaction);
+});
+
 app.post('/profile/portfolio', (req, res) => {
-  console.log(req.body.name);
-  console.log(req.headers);
   const portfolio = {
     uid: '1' + req.body.name,
     name: req.body.name,
     balance: req.body.balance,
     ownerId: '',
   };
-  console.log(portfolio);
   res.json(portfolio);
 });
 
