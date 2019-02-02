@@ -158,7 +158,7 @@ Object portfolioListings contains information of all users portfolio's. Structur
 
 ![stocksListing structure](/docs/img/portfolioListingPicture.png?raw=true)
 
-Array `portfoliListing.portfolioListing` contains general information for each user's portfolio. When stock data is needed fore some action, `portfolioInfo.portfolio` is updated for that portfolio with actions `RequestPortfolioBegin`, `RequestPortfolioSuccess` and `RequestPortfolioFailure`.
+Array `portfoliListing.portfolioListing` contains general information for each user's portfolio. When stock data is needed for some portfolio, `portfolioInfo.portfolio` is updated for that portfolio with actions `RequestPortfolioBegin`, `RequestPortfolioSuccess` and `RequestPortfolioFailure`.
 ## Other
 
 - The app is using some icons from [Icons8](https://icons8.com).
