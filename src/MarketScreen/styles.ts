@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { Colors } from '../App/colors';
-import { scale, verticalScale } from '../util/scale';
+import { scale, screenHeight, verticalScale } from '../util/scale';
 
 const StockStyles = StyleSheet.create({
   titleStyle: {
@@ -25,8 +25,8 @@ const StockStyles = StyleSheet.create({
     marginLeft: scale(16),
   },
   loadingView: {
-    flex: 1,
-    textAlign: 'center',
+    height: screenHeight(),
+    justifyContent: 'center',
   },
   whiteContainer: {
     flex: 1,

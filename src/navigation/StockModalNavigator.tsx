@@ -1,30 +1,25 @@
 import { createStackNavigator } from 'react-navigation';
 import { Colors } from '../App/colors';
-import { BidScreen } from '../Bid/BidScreen';
+import BidScreen from '../Bid/BidScreen';
 import StockScreen from '../Stock/StockScreen';
-import { SumUpScreen } from '../SumUp/SumUpScreen';
+import SumUpScreen from '../SumUp/SumUpScreen';
 import { Styles } from './styles';
 
 const StockModalNavigator = createStackNavigator(
   {
     StockModal: {
       screen: StockScreen,
-      navigationOptions: () => ({
-        headerBackTitleVisible: true,
-      }),
+      navigationOptions: {
+        headerBackTitle: 'StockList',
+        headerMode: 'none',
+      },
     },
-    // Bid: {
-    //   screen: BidScreen,
-    //   navigationOptions: () => ({
-    //     headerBackTitleVisible: true,
-    //   }),
-    // },
-    // SumUp: {
-    //   screen: SumUpScreen,
-    //   navigationOptions: () => ({
-    //     headerBackTitleVisible: true,
-    //   }),
-    // },
+    Bid: {
+      screen: BidScreen,
+    },
+    SumUp: {
+      screen: SumUpScreen,
+    },
   },
   {
     mode: 'modal',

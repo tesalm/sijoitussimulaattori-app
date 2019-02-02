@@ -6,19 +6,20 @@ import {
   withNavigation,
 } from 'react-navigation';
 import { Colors } from '../../App/colors';
+import { RouteName } from '../routes';
 
-export interface BackButtonProps {
+export interface PortfolioBackButtonProps {
   navigation: NavigationScreenProp<NavigationState>;
 }
 
-interface BackButtonState {}
+interface PortfolioBackButtonState {}
 
-export class BackButton extends React.Component<
-  BackButtonProps,
-  BackButtonState
+export class PortfolioBackButton extends React.Component<
+  PortfolioBackButtonProps,
+  PortfolioBackButtonState
 > {
   navigateBack = () => {
-    this.props.navigation.goBack();
+    this.props.navigation.navigate(RouteName.Home);
   };
 
   render() {
@@ -31,6 +32,6 @@ export class BackButton extends React.Component<
   }
 }
 
-const BackButtonWithNavigation = withNavigation(BackButton);
+const PortfolioBackButtonWithNavigation = withNavigation(PortfolioBackButton);
 
-export default BackButtonWithNavigation;
+export default PortfolioBackButtonWithNavigation;

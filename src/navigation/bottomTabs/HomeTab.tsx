@@ -13,9 +13,9 @@ import { Colors, Styles } from '../styles';
 const HomeStack = createStackNavigator(
   {
     Home: PortfolioListScreen,
-    SinglePortfolio: { screen: PortfolioScreen },
-    CreatePortfolio: { screen: CreatePortfolio },
-    // TODO add more pages related to this tab
+    // SinglePortfolio: { screen: PortfolioScreen },
+    // CreatePortfolio: { screen: CreatePortfolio },
+    // // TODO add more pages related to this tab
   },
   {
     // Shared options
@@ -24,7 +24,7 @@ const HomeStack = createStackNavigator(
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
-      headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
+      headerTitleStyle: { textAlign: 'left', flex: 1 },
       headerLeft: <MenuIcon navigation={navigation} />,
     }),
   }
