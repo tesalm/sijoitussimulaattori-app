@@ -1,0 +1,522 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transactions screen tests:  renders correctly 1`] = `
+<ScrollView
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <Themed.Card
+    containerStyle={
+      Object {
+        "flex": 1,
+        "margin": 0,
+        "paddingBottom": 32,
+        "paddingLeft": 32,
+        "paddingRight": 32,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "Roboto",
+          "fontSize": 15,
+          "marginBottom": 23.541176470588233,
+          "marginTop": 23.541176470588233,
+          "opacity": 0.6,
+        }
+      }
+    >
+      No transactions
+    </Text>
+  </Themed.Card>
+</ScrollView>
+`;
+
+exports[`Transactions screen tests:  renders correctly with data 1`] = `
+<ScrollView
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <Themed.Card
+    containerStyle={
+      Object {
+        "flex": 1,
+        "margin": 0,
+        "paddingBottom": 32,
+        "paddingLeft": 32,
+        "paddingRight": 32,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <View
+      key="0"
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 23.541176470588233,
+            "marginTop": 23.541176470588233,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "flexDirection": "row",
+              "marginBottom": 11.770588235294117,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              5
+              .
+              11
+              .
+              2018
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              BUY
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              AMZN
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "flexDirection": "row",
+              "marginBottom": 11.770588235294117,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Amount
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              20
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Value
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              222.2
+               €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              State
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              CANCELLED
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      key="1"
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 23.541176470588233,
+            "marginTop": 23.541176470588233,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "flexDirection": "row",
+              "marginBottom": 11.770588235294117,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              5
+              .
+              11
+              .
+              2018
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              BUY
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              GOOGL
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "flexDirection": "row",
+              "marginBottom": 11.770588235294117,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Amount
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              30
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              Value
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              333.3
+               €
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "textAlign": "justify",
+                }
+              }
+            >
+              State
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#004D40",
+                  "fontFamily": "Roboto",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "textAlign": "justify",
+                }
+              }
+            >
+              FULFILLED
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Themed.Card>
+</ScrollView>
+`;
+
+exports[`Transactions screen tests:  renders correctly with error 1`] = `
+<ScrollView
+  refreshControl={
+    <RefreshControlMock
+      colors={
+        Array [
+          "#004D40",
+        ]
+      }
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+>
+  <Themed.Card
+    containerStyle={
+      Object {
+        "flex": 1,
+        "margin": 0,
+        "paddingBottom": 32,
+        "paddingLeft": 32,
+        "paddingRight": 32,
+        "paddingTop": 32,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "Roboto",
+          "fontSize": 15,
+          "marginBottom": 23.541176470588233,
+          "marginTop": 23.541176470588233,
+          "opacity": 0.6,
+        }
+      }
+    >
+      Error! 
+      Network connection failed
+    </Text>
+  </Themed.Card>
+</ScrollView>
+`;

@@ -161,5 +161,11 @@
     "Transaction": "transaction",
     "No": "No",
     "Yes": "Yes"
+  },
+  "TransactionsPage": {
+    "NoTransactions": "No transactions",
+    "Amount": "Amount",
+    "Value": "Value",
+    "State": "State"
   }
 }
