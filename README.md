@@ -133,6 +133,26 @@ If developing with Visual Studio Code, install the following plugins:
 - EditorConfig for VS Code
 - Prettier - Code formatter
 - TypeScript Hero
+- 
+## Redux
+
+This app uses redux. For further information of the redux, see [Redux documentation](https://redux.js.org/).
+Rootstate contains following objects:
+- `login` 
+- `stocksListing`
+- `user` 
+- `bid` 
+- `portfolioListing` 
+
+### stocksListing
+Object `stocksListing` contains information  of all available stocks. Structure and actions related to `stocksListing` are presented in figure below.
+
+![stocksListing structure](/docs/img/stocksListingPicture.png?raw=true)
+
+
+
+### portfolioListing
+Object portfolioListings contains information of all users portfolio's. Structure and actions related to `portfolioListings` is presented figure below.
 
 ## Other
 
