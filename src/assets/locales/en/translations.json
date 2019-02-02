@@ -150,5 +150,16 @@
     "TotalRevenue": "Total revenue (%)",
     "RevenueToday": "Revenue today",
     "NoPortfolios": "You don't have any portfolios"
+  },
+  "OpenTransactions": {
+    "NoTransactions": "No pending transactions",
+    "ToggleTitle": "Open Transactions",
+    "Amount": "Amount",
+    "Total": "Total cost",
+    "Cancel": "Cancel",
+    "AlertTitle": "Confirmation",
+    "Transaction": "transaction",
+    "No": "No",
+    "Yes": "Yes"
   }
 }

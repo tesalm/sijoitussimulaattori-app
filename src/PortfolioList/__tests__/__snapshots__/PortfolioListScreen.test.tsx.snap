@@ -136,6 +136,11 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
             "transactionsError": undefined,
             "transactionsLoading": false,
           },
+          "transactions": Object {
+            "error": undefined,
+            "loading": false,
+            "transactionListing": Array [],
+          },
           "uid": "Portfolio1",
         },
       ]

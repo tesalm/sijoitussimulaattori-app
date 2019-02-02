@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+
 import { scale } from '../util/scale';
 
 interface IconProps {
@@ -24,6 +25,7 @@ export enum IconNames {
   events = 'events',
   buy = 'buy',
   sell = 'sell',
+  opensign = 'opensign',
 }
 const Icon = (props: IconProps): JSX.Element => {
   let req;
@@ -73,6 +75,9 @@ const Icon = (props: IconProps): JSX.Element => {
       break;
     case IconNames.add:
       req = require('../navigation/assets/add.png');
+      break;
+    case IconNames.opensign:
+      req = require('../navigation/assets/opensign.png');
       break;
     default:
       // TODO: Add better icon for default case.
