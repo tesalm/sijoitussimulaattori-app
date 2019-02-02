@@ -329,7 +329,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": undefined,
+                    "tintColor": "#004D40",
                     "width": 48,
                   }
                 }
@@ -376,7 +376,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                   style={
                     Object {
                       "height": 48,
-                      "tintColor": undefined,
+                      "tintColor": "#004D40",
                       "width": 48,
                     }
                   }
@@ -496,7 +496,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                       style={
                         Object {
                           "height": 48,
-                          "tintColor": undefined,
+                          "tintColor": "#004D40",
                           "width": 48,
                         }
                       }
@@ -813,7 +813,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": undefined,
+                    "tintColor": "#004D40",
                     "width": 48,
                   }
                 }
@@ -848,7 +848,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": undefined,
+                    "tintColor": "#004D40",
                     "width": 48,
                   }
                 }
@@ -952,7 +952,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": undefined,
+                    "tintColor": "#004D40",
                     "width": 48,
                   }
                 }
@@ -979,7 +979,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               style={
                 Object {
                   "height": 48,
-                  "tintColor": undefined,
+                  "tintColor": "#004D40",
                   "width": 48,
                 }
               }
@@ -1054,7 +1054,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "height": 48,
-                    "tintColor": undefined,
+                    "tintColor": "#004D40",
                     "width": 48,
                   }
                 }
@@ -1081,7 +1081,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               style={
                 Object {
                   "height": 48,
-                  "tintColor": undefined,
+                  "tintColor": "#004D40",
                   "width": 48,
                 }
               }

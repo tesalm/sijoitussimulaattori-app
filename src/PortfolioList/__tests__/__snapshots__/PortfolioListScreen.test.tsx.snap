@@ -53,7 +53,7 @@ exports[`portfolio-list tests renders correctly 1`] = `
       style={
         Object {
           "height": 100,
-          "tintColor": undefined,
+          "tintColor": "#004D40",
           "width": 100,
         }
       }
@@ -356,7 +356,7 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
       style={
         Object {
           "height": 100,
-          "tintColor": undefined,
+          "tintColor": "#004D40",
           "width": 100,
         }
       }

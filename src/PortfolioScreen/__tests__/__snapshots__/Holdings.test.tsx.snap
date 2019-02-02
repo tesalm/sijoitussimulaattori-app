@@ -47,7 +47,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
         style={
           Object {
             "height": 48,
-            "tintColor": undefined,
+            "tintColor": "#004D40",
             "width": 48,
           }
         }
@@ -94,7 +94,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
           style={
             Object {
               "height": 48,
-              "tintColor": undefined,
+              "tintColor": "#004D40",
               "width": 48,
             }
           }
@@ -214,7 +214,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
               style={
                 Object {
                   "height": 48,
-                  "tintColor": undefined,
+                  "tintColor": "#004D40",
                   "width": 48,
                 }
               }
