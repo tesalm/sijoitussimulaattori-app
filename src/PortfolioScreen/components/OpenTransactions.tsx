@@ -4,7 +4,7 @@ import Collapsible from 'react-native-collapsible';
 import { scale } from 'react-native-size-matters';
 
 import { t } from '../../assets/i18n';
-import Icon from '../../general/icon';
+import Icon, { IconNames } from '../../general/icon';
 import { cancelTransaction, getTransactions } from '../../PortfolioList/actions';
 import { Transaction } from '../../PortfolioList/reducer';
 import { portfolioStyles } from '../styles';
@@ -44,7 +44,7 @@ export class OpenTransactions extends React.Component<
     const iconName = this.state.collapsed ? 'arrowDown' : 'arrowUp';
     return (
       <View style={{ flex: 1, flexDirection: 'row' }}>
-        <Icon iconName={'opensign'} iconHeight={24} iconWidth={24} />
+        <Icon iconName={IconNames.opensign} iconHeight={24} iconWidth={24} />
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Text style={portfolioStyles.titleText}>
             {t('OpenTransactions.ToggleTitle')}
@@ -61,7 +61,10 @@ export class OpenTransactions extends React.Component<
   confirmationDialog = (portfolioId: string, transact: Transaction) => {
     Alert.alert(
       t('OpenTransactions.AlertTitle'),
-      t('OpenTransactions.Cancel') + ' ' + transact.symbol + ' ' +
+      t('OpenTransactions.Cancel') +
+        ' ' +
+        transact.symbol +
+        ' ' +
         t('OpenTransactions.Transaction'),
       [
         {

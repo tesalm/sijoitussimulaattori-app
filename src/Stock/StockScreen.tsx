@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  RefreshControl,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import { NavigationScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -14,12 +8,8 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { Colors } from '../App/colors';
 import { cardStyles } from '../App/styles';
 import CardButton from '../general/cardButton';
-import {
-  getHistory,
-  getIntraday,
-  getStockMetadata,
-  refreshIntraday,
-} from '../MarketScreen/actions';
+import { IconNames } from '../general/icon';
+import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
 import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { RouteName } from '../navigation/routes';
@@ -146,7 +136,7 @@ export class StockScreen extends React.Component<
 
           <Card containerStyle={cardStyles.container}>
             <CardButton
-              iconName={'bid'}
+              iconName={IconNames.bid}
               translationTitle={'StockPage.Bid'}
               onPress={() => this.props.navigation.navigate(RouteName.Bid)}
             />

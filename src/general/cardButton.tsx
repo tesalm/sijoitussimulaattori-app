@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 import { cardButtonStyles } from '../App/styles';
 import { t } from '../assets/i18n';
-import Icon from './icon';
+import Icon, { IconNames } from './icon';
 
 interface CardButtonProps {
   iconName: string;
@@ -21,7 +21,7 @@ const CardButton = (props: CardButtonProps): JSX.Element => {
             {t(props.translationTitle)}
           </Text>
         </View>
-        <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
+        <Icon iconName={IconNames.open} iconHeight={24} iconWidth={24} />
       </View>
     </TouchableOpacity>
   );

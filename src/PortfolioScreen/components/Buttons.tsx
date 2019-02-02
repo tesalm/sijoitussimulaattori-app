@@ -3,7 +3,7 @@ import { Text, TouchableHighlight, View } from 'react-native';
 
 import { generalStyles } from '../../App/generalStyles';
 import { t } from '../../assets/i18n';
-import Icon from '../../general/icon';
+import Icon, { IconNames } from '../../general/icon';
 
 export const EventsTransactions = (): JSX.Element => {
   return (
@@ -11,12 +11,12 @@ export const EventsTransactions = (): JSX.Element => {
     <TouchableHighlight style={generalStyles.button}>
       <View style={generalStyles.buttonView}>
         <View style={generalStyles.buttonLogoView}>
-          <Icon iconName={'manage'} iconHeight={24} iconWidth={24} />
+          <Icon iconName={IconNames.manage} iconHeight={24} iconWidth={24} />
           <Text style={generalStyles.buttonTitle}>
             {t('PortfolioPage.Events')}
           </Text>
         </View>
-        <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
+        <Icon iconName={IconNames.open} iconHeight={24} iconWidth={24} />
       </View>
     </TouchableHighlight>
   );
@@ -28,12 +28,12 @@ export const Manage = (): JSX.Element => {
     <TouchableHighlight style={generalStyles.button}>
       <View style={generalStyles.buttonView}>
         <View style={generalStyles.buttonLogoView}>
-          <Icon iconName={'manage'} iconHeight={24} iconWidth={24} />
+          <Icon iconName={IconNames.manage} iconHeight={24} iconWidth={24} />
           <Text style={generalStyles.buttonTitle}>
             {t('PortfolioPage.Manage')}
           </Text>
         </View>
-        <Icon iconName={'open'} iconHeight={24} iconWidth={24} />
+        <Icon iconName={IconNames.open} iconHeight={24} iconWidth={24} />
       </View>
     </TouchableHighlight>
   );
