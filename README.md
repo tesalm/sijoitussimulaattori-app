@@ -162,3 +162,32 @@ Array `portfoliListing.portfolioListing` contains general information for each u
 ## Other
 
 - The app is using some icons from [Icons8](https://icons8.com).
+
+## Documentation
+
+### Navigation
+
+The app uses `react-navigation` framework. The navigation structure is as follows:
+
+```()
+- <root> (SwitchNavigator)
+    - Login -> LoginScreen
+    - App (StackNavigator)
+        - App (DrawerNavigator)
+            - Main (TabNavigator)
+                - Home (StackNavigator)
+                    - Home -> PortfolioListScreen
+                    - SinglePortfolio -> PortfolioScreen
+                    - CreatePortfolio -> CreatePortfolio
+                    - EventsAndTransactions -> TransactionsScreen
+                - Market (StackNavigator)
+                    - StockList -> MarketScreen
+                    - Stock -> StockScreen
+                    - Bid -> BidScreen
+                    - SumUp - > SumUpScreen
+                - Commissions -> CommissionsScreen
+                - Community -> CommunityScreen
+            - Profile -> ProfileScreen
+        - StockModal -> StockScreen
+        - Info -> InfoScreen
+```
