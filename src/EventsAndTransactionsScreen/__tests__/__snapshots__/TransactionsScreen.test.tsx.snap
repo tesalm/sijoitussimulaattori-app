@@ -71,403 +71,397 @@ exports[`Transactions screen tests:  renders correctly with data 1`] = `
   >
     <View
       key="0"
+      style={
+        Object {
+          "marginBottom": 23.541176470588233,
+          "marginTop": 23.541176470588233,
+        }
+      }
     >
       <View
         style={
           Object {
-            "marginBottom": 23.541176470588233,
-            "marginTop": 23.541176470588233,
+            "display": "flex",
+            "flex": 1,
+            "flexDirection": "row",
+            "marginBottom": 11.770588235294117,
           }
         }
       >
         <View
           style={
             Object {
-              "display": "flex",
               "flex": 1,
-              "flexDirection": "row",
-              "marginBottom": 11.770588235294117,
             }
           }
         >
-          <View
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              5
-              .
-              11
-              .
-              2018
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              BUY
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              AMZN
-            </Text>
-          </View>
+            5
+            .
+            11
+            .
+            2018
+          </Text>
         </View>
         <View
           style={
             Object {
-              "display": "flex",
               "flex": 1,
-              "flexDirection": "row",
-              "marginBottom": 11.770588235294117,
             }
           }
         >
-          <View
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
-              }
-            >
-              Amount
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              20
-            </Text>
-          </View>
-          <View
+            BUY
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
-              }
-            >
-              Value
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              222.2
-            </Text>
-          </View>
-          <View
+            AMZN
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flex": 1,
+            "flexDirection": "row",
+            "marginBottom": 11.770588235294117,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 12,
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
+            Amount
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
-            >
-              State
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
+            }
+          >
+            20
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 12,
+                "textAlign": "justify",
               }
-            >
-              CANCELLED
-            </Text>
-          </View>
+            }
+          >
+            Value
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
+              }
+            }
+          >
+            222.2
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 12,
+                "textAlign": "justify",
+              }
+            }
+          >
+            State
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
+              }
+            }
+          >
+            CANCELLED
+          </Text>
         </View>
       </View>
     </View>
     <View
       key="1"
+      style={
+        Object {
+          "marginBottom": 23.541176470588233,
+          "marginTop": 23.541176470588233,
+        }
+      }
     >
       <View
         style={
           Object {
-            "marginBottom": 23.541176470588233,
-            "marginTop": 23.541176470588233,
+            "display": "flex",
+            "flex": 1,
+            "flexDirection": "row",
+            "marginBottom": 11.770588235294117,
           }
         }
       >
         <View
           style={
             Object {
-              "display": "flex",
               "flex": 1,
-              "flexDirection": "row",
-              "marginBottom": 11.770588235294117,
             }
           }
         >
-          <View
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              5
-              .
-              11
-              .
-              2018
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              BUY
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              GOOGL
-            </Text>
-          </View>
+            5
+            .
+            11
+            .
+            2018
+          </Text>
         </View>
         <View
           style={
             Object {
-              "display": "flex",
               "flex": 1,
-              "flexDirection": "row",
-              "marginBottom": 11.770588235294117,
             }
           }
         >
-          <View
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
-              }
-            >
-              Amount
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              30
-            </Text>
-          </View>
-          <View
+            BUY
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
-              }
-            >
-              Value
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
-              }
-            >
-              333.3
-            </Text>
-          </View>
-          <View
+            GOOGL
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flex": 1,
+            "flexDirection": "row",
+            "marginBottom": 11.770588235294117,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
             style={
               Object {
-                "flex": 1,
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 12,
+                "textAlign": "justify",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
+            Amount
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
               }
-            >
-              State
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#004D40",
-                  "fontFamily": "Roboto",
-                  "fontSize": 15,
-                  "fontWeight": "bold",
-                  "textAlign": "justify",
-                }
+            }
+          >
+            30
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 12,
+                "textAlign": "justify",
               }
-            >
-              FULFILLED
-            </Text>
-          </View>
+            }
+          >
+            Value
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
+              }
+            }
+          >
+            333.3
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 12,
+                "textAlign": "justify",
+              }
+            }
+          >
+            State
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#004D40",
+                "fontFamily": "Roboto",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "textAlign": "justify",
+              }
+            }
+          >
+            FULFILLED
+          </Text>
         </View>
       </View>
     </View>

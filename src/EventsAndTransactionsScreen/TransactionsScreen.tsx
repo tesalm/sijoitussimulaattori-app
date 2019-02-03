@@ -52,7 +52,6 @@ export class TransactionsScreen extends React.Component<
     if (portfolio === undefined || portfolioId === undefined) {
       return <Text>Error, portfolio not found! </Text>;
     }
-    const { transactionListing } = portfolio.transactions;
     if (portfolio.transactions.error) {
       return (
         <Text style={transactionStyles.noActionsText}>
@@ -60,7 +59,10 @@ export class TransactionsScreen extends React.Component<
         </Text>
       );
     }
-    if (transactionListing.length === 0) {
+    const events = portfolio.transactions.transactionListing.filter(
+      (transact) => transact.status !== 'MARKET'
+    );
+    if (events.length === 0) {
       return (
         <Text style={transactionStyles.noActionsText}>
           {t('TransactionsPage.NoTransactions')}
@@ -68,60 +70,56 @@ export class TransactionsScreen extends React.Component<
       );
     }
 
-    return transactionListing.map((item, i) => (
-      <View key={i}>
-        {item.status !== 'MARKET' && (
-          <View style={transactionStyles.eventContainer}>
-            <View style={transactionStyles.eventSection}>
-              <View style={{ flex: 1 }}>
-                {item.status === 'CANCELLED' ? (
-                  <Text style={transactionStyles.bold}>
-                    {new Date(item.cancelledAt).getDay()}
-                    {'.'}
-                    {new Date(item.cancelledAt).getMonth()}
-                    {'.'}
-                    {new Date(item.cancelledAt).getFullYear()}
-                  </Text>
-                ) : (
-                  <Text style={transactionStyles.bold}>
-                    {new Date(item.fulfilledAt).getDay()}
-                    {'.'}
-                    {new Date(item.fulfilledAt).getMonth()}
-                    {'.'}
-                    {new Date(item.fulfilledAt).getFullYear()}
-                  </Text>
-                )}
-              </View>
-
-              <View style={{ flex: 1 }}>
-                <Text style={transactionStyles.bold}>{item.type}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={transactionStyles.bold}>{item.symbol}</Text>
-              </View>
-            </View>
-            <View style={transactionStyles.eventSection}>
-              <View style={{ flex: 1 }}>
-                <Text style={transactionStyles.basicText}>
-                  {t('TransactionsPage.Amount')}
-                </Text>
-                <Text style={transactionStyles.bold}>{item.amount}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={transactionStyles.basicText}>
-                  {t('TransactionsPage.Value')}
-                </Text>
-                <Text style={transactionStyles.bold}>{item.price}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={transactionStyles.basicText}>
-                  {t('TransactionsPage.State')}
-                </Text>
-                <Text style={transactionStyles.bold}>{item.status}</Text>
-              </View>
-            </View>
+    return events.map((item, index) => (
+      <View key={index} style={transactionStyles.eventContainer}>
+        <View style={transactionStyles.eventSection}>
+          <View style={{ flex: 1 }}>
+            {item.status === 'CANCELLED' ? (
+              <Text style={transactionStyles.bold}>
+                {new Date(item.cancelledAt).getDay()}
+                {'.'}
+                {new Date(item.cancelledAt).getMonth()}
+                {'.'}
+                {new Date(item.cancelledAt).getFullYear()}
+              </Text>
+            ) : (
+              <Text style={transactionStyles.bold}>
+                {new Date(item.fulfilledAt).getDay()}
+                {'.'}
+                {new Date(item.fulfilledAt).getMonth()}
+                {'.'}
+                {new Date(item.fulfilledAt).getFullYear()}
+              </Text>
+            )}
           </View>
-        )}
+
+          <View style={{ flex: 1 }}>
+            <Text style={transactionStyles.bold}>{item.type}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={transactionStyles.bold}>{item.symbol}</Text>
+          </View>
+        </View>
+        <View style={transactionStyles.eventSection}>
+          <View style={{ flex: 1 }}>
+            <Text style={transactionStyles.basicText}>
+              {t('TransactionsPage.Amount')}
+            </Text>
+            <Text style={transactionStyles.bold}>{item.amount}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={transactionStyles.basicText}>
+              {t('TransactionsPage.Value')}
+            </Text>
+            <Text style={transactionStyles.bold}>{item.price}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={transactionStyles.basicText}>
+              {t('TransactionsPage.State')}
+            </Text>
+            <Text style={transactionStyles.bold}>{item.status}</Text>
+          </View>
+        </View>
       </View>
     ));
   };

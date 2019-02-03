@@ -866,7 +866,11 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           >
             <View
               onLayout={[Function]}
-              style={Object {}}
+              style={
+                Object {
+                  "marginTop": 11.770588235294117,
+                }
+              }
             >
               <Text
                 style={
