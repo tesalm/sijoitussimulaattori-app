@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sumUp tests Loading renders correctly 1`] = `
+Array [
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "margin": 1,
+        "textAlign": "center",
+      }
+    }
+  >
+    Loading...
+  </Text>,
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "margin": 1,
+        "textAlign": "center",
+      }
+    }
+  >
+    (simulated 3 seconds before sending login request)
+  </Text>,
+]
+`;

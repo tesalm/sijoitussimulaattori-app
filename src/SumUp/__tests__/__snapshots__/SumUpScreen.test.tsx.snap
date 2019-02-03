@@ -1,0 +1,680 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sumUp tests SumUpScreen renders correctly 1`] = `
+<Text
+  style={Object {}}
+  theme={
+    Object {
+      "colors": Object {
+        "divider": "#bcbbc1",
+        "error": "#ff190c",
+        "grey0": "#393e42",
+        "grey1": "#43484d",
+        "grey2": "#5e6977",
+        "grey3": "#86939e",
+        "grey4": "#bdc6cf",
+        "grey5": "#e1e8ee",
+        "greyOutline": "#bbb",
+        "primary": "#2089dc",
+        "searchBg": "#303337",
+        "secondary": "#8F0CE8",
+      },
+    }
+  }
+>
+  Error!
+</Text>
+`;
+
+exports[`sumUp tests SumUpScreen renders correctly with real data 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#004D40",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 188,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 40,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+        theme={
+          Object {
+            "colors": Object {
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+            },
+          }
+        }
+      >
+        You're going to
+         
+        <Text
+          style={
+            Object {
+              "color": "#e8a30c",
+              "fontSize": 40,
+              "fontWeight": "bold",
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+              },
+            }
+          }
+        >
+          buy
+           
+        </Text>
+        Apple
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 40,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+        theme={
+          Object {
+            "colors": Object {
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+            },
+          }
+        }
+      >
+        with following details
+        :
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "row",
+          "marginHorizontal": 32,
+          "marginVertical": 32,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginHorizontal": 32,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginBottom": 32,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 24,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            Portfolio
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 34,
+                "fontWeight": "bold",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            P1
+          </Text>
+        </View>
+        <View />
+        <View
+          style={
+            Object {
+              "marginBottom": 32,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 24,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            Amount of stocks
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 34,
+                "fontWeight": "bold",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            3
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginHorizontal": 32,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginBottom": 32,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 24,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            Total value of portfolio
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 34,
+                "fontWeight": "bold",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            484394.00 $
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 32,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 24,
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            Bid level
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 34,
+                "fontWeight": "bold",
+              }
+            }
+            theme={
+              Object {
+                "colors": Object {
+                  "divider": "#bcbbc1",
+                  "error": "#ff190c",
+                  "grey0": "#393e42",
+                  "grey1": "#43484d",
+                  "grey2": "#5e6977",
+                  "grey3": "#86939e",
+                  "grey4": "#bdc6cf",
+                  "grey5": "#e1e8ee",
+                  "greyOutline": "#bbb",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#8F0CE8",
+                },
+              }
+            }
+          >
+            56.00 $
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginBottom": 32,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+        theme={
+          Object {
+            "colors": Object {
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+            },
+          }
+        }
+      >
+        Total cost of transaction:
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 40,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+        theme={
+          Object {
+            "colors": Object {
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+            },
+          }
+        }
+      >
+        168.00 $
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "marginBottom": 32,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+        theme={
+          Object {
+            "colors": Object {
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+            },
+          }
+        }
+      >
+        Portfolios value after transaction:
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 40,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+        theme={
+          Object {
+            "colors": Object {
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#8F0CE8",
+            },
+          }
+        }
+      >
+        484226.00 $
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginTop": 32,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 72,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 224,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 28,
+              "fontWeight": "bold",
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+              },
+            }
+          }
+        >
+          CANCEL
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#e8a30c",
+            "height": 72,
+            "justifyContent": "center",
+            "opacity": 1,
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 1,
+            },
+            "width": 224,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 28,
+              "fontWeight": "bold",
+            }
+          }
+          theme={
+            Object {
+              "colors": Object {
+                "divider": "#bcbbc1",
+                "error": "#ff190c",
+                "grey0": "#393e42",
+                "grey1": "#43484d",
+                "grey2": "#5e6977",
+                "grey3": "#86939e",
+                "grey4": "#bdc6cf",
+                "grey5": "#e1e8ee",
+                "greyOutline": "#bbb",
+                "primary": "#2089dc",
+                "searchBg": "#303337",
+                "secondary": "#8F0CE8",
+              },
+            }
+          }
+        >
+          CONFIRM
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
