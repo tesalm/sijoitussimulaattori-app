@@ -134,6 +134,58 @@ If developing with Visual Studio Code, install the following plugins:
 - Prettier - Code formatter
 - TypeScript Hero
 
-## Other
+## Documentation
 
-- The app is using some icons from [Icons8](https://icons8.com).
+### Redux
+
+This app uses redux. For further information of the redux, see [Redux documentation](https://redux.js.org/).
+Rootstate contains following objects:
+
+- `login`
+- `stocksListing`
+- `user`
+- `bid`
+- `portfolioListing`
+
+#### stocksListing
+
+Object `stocksListing` contains information of all available stocks. Structure and actions related to `stocksListing` are presented in figure below.
+
+![stocksListing structure](/docs/img/stocksListingPicture.png?raw=true)
+
+`stocksListing.stocks` contains only general information for each stock. When `stocksListing` is updated for the first time, `stockMetadata`, `intraday` and `historyData` are all undefined. When more data is needed for some stock, actions for updating intraday data, history data or metadata are dispatched for that stock.
+
+#### portfolioListing
+
+Object portfolioListings contains information of all users portfolio's. Structure and actions related to `portfolioListings` is presented figure below.
+
+![stocksListing structure](/docs/img/portfolioListingPicture.png?raw=true)
+
+Array `portfolioListing.portfolioListing` contains general information for each user's portfolio. When stock data is needed for some portfolio, `portfolioInfo.portfolio` is updated for that portfolio with actions `RequestPortfolioBegin`, `RequestPortfolioSuccess` and `RequestPortfolioFailure`.
+
+### Navigation
+
+The app uses `react-navigation` framework. The navigation structure is as follows:
+
+```()
+- <root> (SwitchNavigator)
+    - Login -> LoginScreen
+    - App (StackNavigator)
+        - App (DrawerNavigator)
+            - Main (TabNavigator)
+                - Home (StackNavigator)
+                    - Home -> PortfolioListScreen
+                    - SinglePortfolio -> PortfolioScreen
+                    - CreatePortfolio -> CreatePortfolio
+                    - EventsAndTransactions -> TransactionsScreen
+                - Market (StackNavigator)
+                    - StockList -> MarketScreen
+                    - Stock -> StockScreen
+                    - Bid -> BidScreen
+                    - SumUp - > SumUpScreen
+                - Commissions -> CommissionsScreen
+                - Community -> CommunityScreen
+            - Profile -> ProfileScreen
+        - StockModal -> StockScreen
+        - Info -> InfoScreen
+```
