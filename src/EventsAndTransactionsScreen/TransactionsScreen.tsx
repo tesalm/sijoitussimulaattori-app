@@ -7,6 +7,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
 import { cardStyles } from '../App/styles';
+import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { getTransactions } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
@@ -25,7 +26,10 @@ type TransactionsPropsWithNavigation = TransactionsProps &
 export class TransactionsScreen extends React.Component<
   TransactionsPropsWithNavigation
 > {
-  static navigationOptions = { title: t('PortfolioPage.Events') };
+  static navigationOptions = {
+    title: t('PortfolioPage.Events'),
+    headerLeft: <BackButtonWithNavigation />,
+  };
   constructor(props: TransactionsPropsWithNavigation) {
     super(props);
   }
