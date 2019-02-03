@@ -41,7 +41,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
       <Image
         source={
           Object {
-            "testUri": "../../../src/navigation/assets/briefcase2.png",
+            "testUri": "../../../src/navigation/assets/briefcase.png",
           }
         }
         style={

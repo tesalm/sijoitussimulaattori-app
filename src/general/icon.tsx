@@ -40,7 +40,7 @@ const Icon = (props: IconProps): JSX.Element => {
       req = require(`../navigation/assets/transaction.png`);
       break;
     case IconNames.holdings:
-      req = require('../navigation/assets/briefcase2.png');
+      req = require('../navigation/assets/briefcase.png');
       break;
     case IconNames.manage:
       req = require('../navigation/assets/manage.png');
