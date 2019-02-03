@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, Alert, Text, TouchableOpacity, View } from 'react-native';
 import Collapsible from 'react-native-collapsible';
-import { scale } from 'react-native-size-matters';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 import { t } from '../../assets/i18n';
 import Icon, { IconNames } from '../../general/icon';
@@ -99,28 +99,28 @@ export class OpenTransactions extends React.Component<
 
     return transactions.map((transact, index) => (
       <View key={index} style={portfolioStyles.transaction}>
-        <Text style={portfolioStyles.symbol}>{transact.symbol}</Text>
-        <View style={portfolioStyles.portfolioinfo}>
-          <View style={{ flex: 1 }}>
-            <Text style={portfolioStyles.basicText}>
-              {t('OpenTransactions.Amount')}
-            </Text>
-            <Text style={portfolioStyles.value}>{transact.amount}</Text>
-          </View>
-          <View style={{ flex: 1.5 }}>
-            <Text style={portfolioStyles.basicText}>
-              {t('OpenTransactions.Total')}
-            </Text>
-            <Text style={portfolioStyles.value}>{transact.price}</Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => this.confirmationDialog(portfolioId, transact)}
-          >
-            <Text style={portfolioStyles.cancelAction}>
-              {t('OpenTransactions.Cancel').toUpperCase()}
-            </Text>
-          </TouchableOpacity>
+        <View style={{ flex: 1 }}>
+          <Text style={portfolioStyles.symbol}>{transact.type}</Text>
+          <Text style={portfolioStyles.basicText}>
+            {t('OpenTransactions.Amount')}
+          </Text>
+          <Text style={portfolioStyles.value}>{transact.amount}</Text>
         </View>
+        <View style={{ flex: 1.5 }}>
+          <Text style={portfolioStyles.symbol}>{transact.symbol}</Text>
+          <Text style={portfolioStyles.basicText}>
+            {t('OpenTransactions.Total')}
+          </Text>
+          <Text style={portfolioStyles.value}>{transact.price}</Text>
+        </View>
+        <TouchableOpacity
+          style={{ justifyContent: 'center' }}
+          onPress={() => this.confirmationDialog(portfolioId, transact)}
+        >
+          <Text style={portfolioStyles.cancelAction}>
+            {t('OpenTransactions.Cancel').toUpperCase()}
+          </Text>
+        </TouchableOpacity>
       </View>
     ));
   };
@@ -132,7 +132,10 @@ export class OpenTransactions extends React.Component<
           {this.renderToggleButton()}
         </TouchableOpacity>
         {!this.props.loading && (
-          <Collapsible collapsed={this.state.collapsed}>
+          <Collapsible
+            style={{ marginTop: verticalScale(6) }}
+            collapsed={this.state.collapsed}
+          >
             {this.renderContent()}
           </Collapsible>
         )}

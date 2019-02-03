@@ -129,7 +129,7 @@ const portfolioStyles = StyleSheet.create({
   },
   symbol: {
     fontFamily: 'Roboto',
-    fontSize: verticalScale(15),
+    fontSize: verticalScale(14),
     fontWeight: 'bold',
     textAlign: 'justify',
     marginBottom: verticalScale(4),
@@ -154,6 +154,9 @@ const portfolioStyles = StyleSheet.create({
     color: 'orange',
   },
   transaction: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
     marginTop: verticalScale(12),
     marginBottom: verticalScale(2),
   },
