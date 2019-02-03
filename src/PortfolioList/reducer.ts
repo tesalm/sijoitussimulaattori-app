@@ -205,7 +205,7 @@ export const portfolioListingReducer = (
           ...portfolioList[portfolioIndex].transactionInfo,
           transactionsLoading: false,
           transactionsError: undefined,
-          transactionSuccess: false,
+          transactionSuccess: true,
           transactions: transactionList,
         };
       }
