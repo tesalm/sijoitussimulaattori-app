@@ -336,6 +336,11 @@ exports[`Portfolio pending transactions tests:  renders correctly 1`] = `
     easing="easeOutCubic"
     enablePointerEvents={false}
     onAnimationEnd={[Function]}
+    style={
+      Object {
+        "marginTop": 11.770588235294117,
+      }
+    }
   >
     <Text
       style={
@@ -363,124 +368,141 @@ exports[`Portfolio pending transactions tests:  renders correctly with data 1`] 
   easing="easeOutCubic"
   enablePointerEvents={false}
   onAnimationEnd={[Function]}
+  style={
+    Object {
+      "marginTop": 11.770588235294117,
+    }
+  }
 >
   <View
     key="0"
     style={
       Object {
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "row",
         "marginBottom": 3.9235294117647057,
         "marginTop": 23.541176470588233,
       }
     }
   >
-    <Text
-      style={
-        Object {
-          "color": "#004D40",
-          "fontFamily": "Roboto",
-          "fontSize": 29.426470588235293,
-          "fontWeight": "bold",
-          "marginBottom": 7.847058823529411,
-          "textAlign": "justify",
-        }
-      }
-    >
-      AMZN
-    </Text>
     <View
       style={
         Object {
-          "display": "flex",
           "flex": 1,
-          "flexDirection": "row",
         }
       }
     >
-      <View
+      <Text
         style={
           Object {
-            "flex": 1,
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "textAlign": "justify",
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#004D40",
-              "fontFamily": "Roboto",
-              "fontSize": 23.541176470588233,
-              "textAlign": "justify",
-            }
-          }
-        >
-          Amount
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#004D40",
-              "fontSize": 27.46470588235294,
-              "fontWeight": "bold",
-              "marginBottom": 7.847058823529411,
-              "marginTop": -3.9235294117647057,
-              "textAlign": "justify",
-            }
-          }
-        >
-          20
-        </Text>
-      </View>
-      <View
+        SELL
+      </Text>
+      <Text
         style={
           Object {
-            "flex": 1.5,
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 23.541176470588233,
+            "textAlign": "justify",
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#004D40",
-              "fontFamily": "Roboto",
-              "fontSize": 23.541176470588233,
-              "textAlign": "justify",
-            }
+        Amount
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "marginTop": -3.9235294117647057,
+            "textAlign": "justify",
           }
-        >
-          Total cost
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#004D40",
-              "fontSize": 27.46470588235294,
-              "fontWeight": "bold",
-              "marginBottom": 7.847058823529411,
-              "marginTop": -3.9235294117647057,
-              "textAlign": "justify",
-            }
-          }
-        >
-          222.2
-        </Text>
-      </View>
-      <TouchableOpacity
-        activeOpacity={0.2}
-        onPress={[Function]}
+        }
       >
-        <Text
-          style={
-            Object {
-              "color": "orange",
-              "fontFamily": "Roboto",
-              "fontSize": 29.426470588235293,
-            }
-          }
-        >
-          CANCEL
-        </Text>
-      </TouchableOpacity>
+        20
+      </Text>
     </View>
+    <View
+      style={
+        Object {
+          "flex": 1.5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "textAlign": "justify",
+          }
+        }
+      >
+        AMZN
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 23.541176470588233,
+            "textAlign": "justify",
+          }
+        }
+      >
+        Total cost
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "marginTop": -3.9235294117647057,
+            "textAlign": "justify",
+          }
+        }
+      >
+        222.2
+      </Text>
+    </View>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "orange",
+            "fontFamily": "Roboto",
+            "fontSize": 29.426470588235293,
+          }
+        }
+      >
+        CANCEL
+      </Text>
+    </TouchableOpacity>
   </View>
 </Collapsible>
 `;
@@ -494,6 +516,11 @@ exports[`Portfolio pending transactions tests:  renders correctly with error 1`]
   easing="easeOutCubic"
   enablePointerEvents={false}
   onAnimationEnd={[Function]}
+  style={
+    Object {
+      "marginTop": 11.770588235294117,
+    }
+  }
 >
   <Text
     style={
