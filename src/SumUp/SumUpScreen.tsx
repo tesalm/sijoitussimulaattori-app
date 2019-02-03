@@ -126,7 +126,11 @@ export class SumUpScreen extends React.Component<
   }
 
   errorMessage() {
-    if (this.props.portfolio && this.props.portfolio.transactionInfo && this.state.dataSent) {
+    if (
+      this.props.portfolio &&
+      this.props.portfolio.transactionInfo &&
+      this.state.dataSent
+    ) {
       return (
         <Text>
           {String(this.props.portfolio.transactionInfo.transactionsError)}
