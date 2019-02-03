@@ -7,7 +7,6 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
 import { cardStyles } from '../App/styles';
-import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { getTransactions } from '../PortfolioList/actions';
 import { SinglePortfolio } from '../PortfolioList/reducer';
 import { RootState } from '../redux/reducers';
@@ -26,10 +25,7 @@ type TransactionsPropsWithNavigation = TransactionsProps &
 export class TransactionsScreen extends React.Component<
   TransactionsPropsWithNavigation
 > {
-  static navigationOptions = {
-    title: t('PortfolioPage.Events'),
-    headerLeft: <BackButtonWithNavigation />,
-  };
+  static navigationOptions = { title: t('PortfolioPage.Events') };
   constructor(props: TransactionsPropsWithNavigation) {
     super(props);
   }
@@ -80,17 +76,17 @@ export class TransactionsScreen extends React.Component<
           <View style={{ flex: 1 }}>
             {item.status === 'CANCELLED' ? (
               <Text style={transactionStyles.bold}>
-                {new Date(item.cancelledAt).getDay()}
+                {new Date(item.cancelledAt).getDate()}
                 {'.'}
-                {new Date(item.cancelledAt).getMonth()}
+                {new Date(item.cancelledAt).getMonth() + 1}
                 {'.'}
                 {new Date(item.cancelledAt).getFullYear()}
               </Text>
             ) : (
               <Text style={transactionStyles.bold}>
-                {new Date(item.fulfilledAt).getDay()}
+                {new Date(item.fulfilledAt).getDate()}
                 {'.'}
-                {new Date(item.fulfilledAt).getMonth()}
+                {new Date(item.fulfilledAt).getMonth() + 1}
                 {'.'}
                 {new Date(item.fulfilledAt).getFullYear()}
               </Text>

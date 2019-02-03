@@ -106,9 +106,9 @@ exports[`Transactions screen tests:  renders correctly with data 1`] = `
               }
             }
           >
-            5
+            14
             .
-            11
+            12
             .
             2018
           </Text>
@@ -304,9 +304,9 @@ exports[`Transactions screen tests:  renders correctly with data 1`] = `
               }
             }
           >
-            5
+            14
             .
-            11
+            12
             .
             2018
           </Text>
