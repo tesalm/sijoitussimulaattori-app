@@ -175,17 +175,19 @@ The app uses `react-navigation` framework. The navigation structure is as follow
             - Main (TabNavigator)
                 - Home (StackNavigator)
                     - Home -> PortfolioListScreen
-                    - SinglePortfolio -> PortfolioScreen
-                    - CreatePortfolio -> CreatePortfolio
-                    - EventsAndTransactions -> TransactionsScreen
                 - Market (StackNavigator)
                     - StockList -> MarketScreen
-                    - Stock -> StockScreen
-                    - Bid -> BidScreen
-                    - SumUp - > SumUpScreen
                 - Commissions -> CommissionsScreen
                 - Community -> CommunityScreen
             - Profile -> ProfileScreen
-        - StockModal -> StockScreen
+        - StockModal (StackNavigator)
+            - Stock -> StockScreen
+            - Bid -> BidScreen
+            - SumUp - > SumUpScreen
+        - PortfolioModal (StackNavigator)
+            - SinglePortfolio -> PortfolioScreen
+            - EventsAndTransactions -> TransactionsScreen
+        - CreatePortfolioModal (StackNavigator)
+            - CreatePortfolio -> CreatePortfolio
         - Info -> InfoScreen
 ```

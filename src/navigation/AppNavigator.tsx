@@ -13,7 +13,7 @@ const AppNavigator = createStackNavigator(
     App: MainNavigator,
     StockModal: StockModalNavigator,
     PortfolioModal: PortfolioModalNavigator,
-    CreatePortfolio: CreatePortfolioModalNavigator,
+    CreatePortfolioModal: CreatePortfolioModalNavigator,
     Info: InfoScreen,
   },
   { navigationOptions: { header: null } }
