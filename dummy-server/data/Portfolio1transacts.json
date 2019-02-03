@@ -1,0 +1,90 @@
+[
+    {
+      "uid": "1",
+      "type": "SELL",
+      "symbol": "AMZN",
+      "amount": 20,
+      "price": 222.2,
+      "expiresAt": "",
+      "status": "MARKET",
+      "fulfilledAt": "",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "2",
+      "type": "SELL",
+      "symbol": "AAPL",
+      "amount": 30,
+      "price": 333.3,
+      "expiresAt": "",
+      "status": "MARKET",
+      "fulfilledAt": "",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "3",
+      "type": "SELL",
+      "symbol": "MSFT",
+      "amount": 40,
+      "price": 444.4,
+      "expiresAt": "",
+      "status": "MARKET",
+      "fulfilledAt": "",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "4",
+      "type": "SELL",
+      "symbol": "GOOGL",
+      "amount": 45,
+      "price": 555.5,
+      "expiresAt": "",
+      "status": "FULFILLED",
+      "fulfilledAt": "2017-10-14T17:55:00.000Z",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "5",
+      "type": "SELL",
+      "symbol": "NOKIA",
+      "amount": 45,
+      "price": 666.6,
+      "expiresAt": "",
+      "status": "FULFILLED",
+      "fulfilledAt": "2017-11-14T17:55:00.000Z",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "6",
+      "type": "SELL",
+      "symbol": "FORTUM",
+      "amount": 45,
+      "price": 555.5,
+      "expiresAt": "",
+      "status": "CANCELLED",
+      "fulfilledAt": "",
+      "cancelledAt": "2017-12-14T17:55:00.000Z"
+    },
+    {
+      "uid": "7",
+      "type": "BUY",
+      "symbol": "ELISA",
+      "amount": 100,
+      "price": 555.5,
+      "expiresAt": "",
+      "status": "FULFILLED",
+      "fulfilledAt": "2018-08-14T17:55:00.000Z",
+      "cancelledAt": ""
+    },
+    {
+      "uid": "8",
+      "type": "BUY",
+      "symbol": "ELISA",
+      "amount": 50,
+      "price": 555.5,
+      "expiresAt": "",
+      "status": "FULFILLED",
+      "fulfilledAt": "2018-09-14T17:55:00.000Z",
+      "cancelledAt": ""
+    }
+]

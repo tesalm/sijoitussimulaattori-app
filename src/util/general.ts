@@ -1,4 +1,5 @@
 import { auth } from 'react-native-firebase';
+import RNLanguages from 'react-native-languages';
 
 const randomInt = (low: number = 0, high: number = Number.MAX_SAFE_INTEGER) => {
   return Math.floor(Math.random() * (high - low) + low);
@@ -9,4 +10,18 @@ const getIdToken = async () => {
   const token = await auth().currentUser!.getIdToken();
   return token;
 };
-export { randomInt, getIdToken };
+
+// Parses string to float. Changes , -> .
+const parseStringDecimalToFloat = (value: string) => {
+  return parseFloat(value.concat().replace(',', '.'));
+};
+
+const getLocale = () => RNLanguages.locale || 'en';
+
+export {
+  randomInt,
+  getIdToken,
+
+  parseStringDecimalToFloat,
+  getLocale,
+};

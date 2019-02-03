@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../../MarketScreen/actions';
-import { getPortfolioData } from '../../PortfolioList/actions';
+import { cancelTransaction, getPortfolioData, getTransactions } from '../../PortfolioList/actions';
 import { PortfolioProps, PortfolioScreen } from '../PortfolioScreen';
 
 import 'jest';
@@ -23,6 +23,8 @@ describe('portfolio-screen tests', () => {
     getStockMetaData: getStockMetadata,
 
     getStockIntraDayData: getIntraday,
+    getTransactions: getTransactions,
+    cancelOpenTransaction: cancelTransaction,
     refreshStockIntraDayData: refreshIntraday,
     stocksLoading: false,
   };
@@ -67,6 +69,17 @@ describe('portfolio-screen tests', () => {
             },
           ],
         },
+      },
+      transactionInfo: {
+        transactionSuccess: false,
+        transactions: undefined,
+        transactionsError: undefined,
+        transactionsLoading: false,
+      },
+      transactions: {
+        transactionListing: [],
+        loading: false,
+        error: undefined,
       },
     },
     stocks: [
@@ -152,6 +165,8 @@ describe('portfolio-screen tests', () => {
     portfolioId: 'Portfolio1',
     getAllStocks: jest.fn(),
     getPortfolio: jest.fn(),
+    getTransactions: jest.fn(),
+    cancelOpenTransaction: jest.fn(),
     stocksLoading: false,
   };
 

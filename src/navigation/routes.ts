@@ -10,7 +10,10 @@ export enum RouteName {
   Commissions = 'Commissions',
   Community = 'Community',
   Profile = 'Profile',
+  Bid = 'Bid',
+  SumUp = 'SumUp',
   CreatePortfolio = 'CreatePortfolio',
   StockModal = 'StockModal',
   Info = 'Info',
+  EventsAndTransactions = 'EventsAndTransactions',
 }

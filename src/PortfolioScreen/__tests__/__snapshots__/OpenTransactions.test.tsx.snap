@@ -1,0 +1,540 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portfolio pending transactions tests:  actions 1`] = `
+Object {
+  "portfolioId": "Portfolio1",
+  "type": "[Transactions] API Request",
+}
+`;
+
+exports[`Portfolio pending transactions tests:  actions 2`] = `
+Object {
+  "portfolioId": "Portfolio1",
+  "transactions": Array [
+    Object {
+      "amount": 20,
+      "cancelledAt": "",
+      "expiresAt": "2018-12-14T15:55:00.000Z",
+      "fulfilledAt": "",
+      "price": 222.2,
+      "status": "MARKET",
+      "symbol": "AMZN",
+      "type": "SELL",
+      "uid": "1",
+    },
+  ],
+  "type": "[Transactions] API Success",
+}
+`;
+
+exports[`Portfolio pending transactions tests:  actions 3`] = `
+Object {
+  "portfolioId": "Portfolio1",
+  "transactionId": "1",
+  "type": "[Transactions] Cancel success",
+}
+`;
+
+exports[`Portfolio pending transactions tests:  actions 4`] = `
+Object {
+  "error": Object {
+    "message": "Network connection failed",
+    "name": "Network Error",
+  },
+  "portfolioId": "Portfolio1",
+  "type": "[Transactions] API Failure",
+}
+`;
+
+exports[`Portfolio pending transactions tests:  reducers 1`] = `
+Object {
+  "creatingPortfolio": Object {
+    "creatingPortfolioError": undefined,
+    "creatingPortfolioLoading": false,
+    "creatingPortfolioSuccess": false,
+  },
+  "error": undefined,
+  "loading": false,
+  "portfolioListing": Array [
+    Object {
+      "balance": 500,
+      "lastDayRevenue": 0,
+      "name": "Portfolio1",
+      "ownerId": "JohnDoe",
+      "portfolioInfo": Object {
+        "error": undefined,
+        "loading": false,
+        "portfolio": Object {
+          "balance": 500,
+          "lastDayRevenue": 0,
+          "name": "Portfolio1",
+          "ownerId": "JohnDoe",
+          "stocks": Array [],
+          "totalMarketValue": 5000,
+          "totalRevenue": -0.02,
+          "uid": "Portfolio1",
+        },
+        "refreshing": false,
+      },
+      "totalMarketValue": 5000,
+      "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
+      "transactions": Object {
+        "error": undefined,
+        "loading": true,
+        "transactionListing": Array [
+          Object {
+            "amount": 20,
+            "cancelledAt": "",
+            "expiresAt": "2018-12-14T15:55:00.000Z",
+            "fulfilledAt": "",
+            "price": 222.2,
+            "status": "MARKET",
+            "symbol": "AMZN",
+            "type": "SELL",
+            "uid": "1",
+          },
+        ],
+      },
+      "uid": "Portfolio1",
+    },
+  ],
+}
+`;
+
+exports[`Portfolio pending transactions tests:  reducers 2`] = `
+Object {
+  "creatingPortfolio": Object {
+    "creatingPortfolioError": undefined,
+    "creatingPortfolioLoading": false,
+    "creatingPortfolioSuccess": false,
+  },
+  "error": undefined,
+  "loading": false,
+  "portfolioListing": Array [
+    Object {
+      "balance": 500,
+      "lastDayRevenue": 0,
+      "name": "Portfolio1",
+      "ownerId": "JohnDoe",
+      "portfolioInfo": Object {
+        "error": undefined,
+        "loading": false,
+        "portfolio": Object {
+          "balance": 500,
+          "lastDayRevenue": 0,
+          "name": "Portfolio1",
+          "ownerId": "JohnDoe",
+          "stocks": Array [],
+          "totalMarketValue": 5000,
+          "totalRevenue": -0.02,
+          "uid": "Portfolio1",
+        },
+        "refreshing": false,
+      },
+      "totalMarketValue": 5000,
+      "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
+      "transactions": Object {
+        "error": undefined,
+        "loading": false,
+        "transactionListing": Array [
+          Object {
+            "amount": 20,
+            "cancelledAt": "",
+            "expiresAt": "2018-12-14T15:55:00.000Z",
+            "fulfilledAt": "",
+            "price": 222.2,
+            "status": "MARKET",
+            "symbol": "AMZN",
+            "type": "SELL",
+            "uid": "1",
+          },
+        ],
+      },
+      "uid": "Portfolio1",
+    },
+  ],
+}
+`;
+
+exports[`Portfolio pending transactions tests:  reducers 3`] = `
+Object {
+  "creatingPortfolio": Object {
+    "creatingPortfolioError": undefined,
+    "creatingPortfolioLoading": false,
+    "creatingPortfolioSuccess": false,
+  },
+  "error": undefined,
+  "loading": false,
+  "portfolioListing": Array [
+    Object {
+      "balance": 500,
+      "lastDayRevenue": 0,
+      "name": "Portfolio1",
+      "ownerId": "JohnDoe",
+      "portfolioInfo": Object {
+        "error": undefined,
+        "loading": false,
+        "portfolio": Object {
+          "balance": 500,
+          "lastDayRevenue": 0,
+          "name": "Portfolio1",
+          "ownerId": "JohnDoe",
+          "stocks": Array [],
+          "totalMarketValue": 5000,
+          "totalRevenue": -0.02,
+          "uid": "Portfolio1",
+        },
+        "refreshing": false,
+      },
+      "totalMarketValue": 5000,
+      "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
+      "transactions": Object {
+        "error": Object {
+          "message": "Network connection failed",
+          "name": "Network Error",
+        },
+        "loading": false,
+        "transactionListing": Array [
+          Object {
+            "amount": 20,
+            "cancelledAt": "",
+            "expiresAt": "2018-12-14T15:55:00.000Z",
+            "fulfilledAt": "",
+            "price": 222.2,
+            "status": "MARKET",
+            "symbol": "AMZN",
+            "type": "SELL",
+            "uid": "1",
+          },
+        ],
+      },
+      "uid": "Portfolio1",
+    },
+  ],
+}
+`;
+
+exports[`Portfolio pending transactions tests:  reducers 4`] = `
+Object {
+  "creatingPortfolio": Object {
+    "creatingPortfolioError": undefined,
+    "creatingPortfolioLoading": false,
+    "creatingPortfolioSuccess": false,
+  },
+  "error": undefined,
+  "loading": false,
+  "portfolioListing": Array [
+    Object {
+      "balance": 500,
+      "lastDayRevenue": 0,
+      "name": "Portfolio1",
+      "ownerId": "JohnDoe",
+      "portfolioInfo": Object {
+        "error": undefined,
+        "loading": false,
+        "portfolio": Object {
+          "balance": 500,
+          "lastDayRevenue": 0,
+          "name": "Portfolio1",
+          "ownerId": "JohnDoe",
+          "stocks": Array [],
+          "totalMarketValue": 5000,
+          "totalRevenue": -0.02,
+          "uid": "Portfolio1",
+        },
+        "refreshing": false,
+      },
+      "totalMarketValue": 5000,
+      "totalRevenue": -0.02,
+      "transactionInfo": Object {
+        "transactionSuccess": false,
+        "transactions": undefined,
+        "transactionsError": undefined,
+        "transactionsLoading": false,
+      },
+      "transactions": Object {
+        "error": undefined,
+        "loading": false,
+        "transactionListing": Array [],
+      },
+      "uid": "Portfolio1",
+    },
+  ],
+}
+`;
+
+exports[`Portfolio pending transactions tests:  renders correctly 1`] = `
+<View>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Icon
+        iconHeight={24}
+        iconName="opensign"
+        iconWidth={24}
+      />
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#004D40",
+              "fontSize": 33.35,
+              "fontWeight": "bold",
+              "marginLeft": 17.142857142857142,
+            }
+          }
+        >
+          Open Transactions
+        </Text>
+      </View>
+      <Icon
+        iconHeight={24}
+        iconName="arrowDown"
+        iconWidth={24}
+      />
+    </View>
+  </TouchableOpacity>
+  <Collapsible
+    align="top"
+    collapsed={true}
+    collapsedHeight={0}
+    duration={300}
+    easing="easeOutCubic"
+    enablePointerEvents={false}
+    onAnimationEnd={[Function]}
+    style={
+      Object {
+        "marginTop": 11.770588235294117,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "Roboto",
+          "fontSize": 27.46470588235294,
+          "marginBottom": 7.847058823529411,
+          "marginTop": 29.426470588235293,
+          "opacity": 0.6,
+        }
+      }
+    >
+      No pending transactions
+    </Text>
+  </Collapsible>
+</View>
+`;
+
+exports[`Portfolio pending transactions tests:  renders correctly with data 1`] = `
+<Collapsible
+  align="top"
+  collapsed={true}
+  collapsedHeight={0}
+  duration={300}
+  easing="easeOutCubic"
+  enablePointerEvents={false}
+  onAnimationEnd={[Function]}
+  style={
+    Object {
+      "marginTop": 11.770588235294117,
+    }
+  }
+>
+  <View
+    key="0"
+    style={
+      Object {
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "row",
+        "marginBottom": 3.9235294117647057,
+        "marginTop": 23.541176470588233,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "textAlign": "justify",
+          }
+        }
+      >
+        SELL
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 23.541176470588233,
+            "textAlign": "justify",
+          }
+        }
+      >
+        Amount
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "marginTop": -3.9235294117647057,
+            "textAlign": "justify",
+          }
+        }
+      >
+        20
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1.5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "textAlign": "justify",
+          }
+        }
+      >
+        AMZN
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontFamily": "Roboto",
+            "fontSize": 23.541176470588233,
+            "textAlign": "justify",
+          }
+        }
+      >
+        Total cost
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#004D40",
+            "fontSize": 27.46470588235294,
+            "fontWeight": "bold",
+            "marginBottom": 7.847058823529411,
+            "marginTop": -3.9235294117647057,
+            "textAlign": "justify",
+          }
+        }
+      >
+        222.2
+      </Text>
+    </View>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "orange",
+            "fontFamily": "Roboto",
+            "fontSize": 29.426470588235293,
+          }
+        }
+      >
+        CANCEL
+      </Text>
+    </TouchableOpacity>
+  </View>
+</Collapsible>
+`;
+
+exports[`Portfolio pending transactions tests:  renders correctly with error 1`] = `
+<Collapsible
+  align="top"
+  collapsed={true}
+  collapsedHeight={0}
+  duration={300}
+  easing="easeOutCubic"
+  enablePointerEvents={false}
+  onAnimationEnd={[Function]}
+  style={
+    Object {
+      "marginTop": 11.770588235294117,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontFamily": "Roboto",
+        "fontSize": 27.46470588235294,
+        "marginBottom": 7.847058823529411,
+        "marginTop": 29.426470588235293,
+        "opacity": 0.6,
+      }
+    }
+  >
+    Error! 
+    Network connection failed
+  </Text>
+</Collapsible>
+`;

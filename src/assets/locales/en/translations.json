@@ -66,6 +66,35 @@
     "NewUserButton": "Continue as new user",
     "AfterErrButton": "Try again"
   },
+  "BidPage": {
+    "Title": "Choose action for ",
+    "Buy": "Buy",
+    "Sell": "Sell",
+    "ChoosePortfolio": "Choose portfolio",
+    "SumOfStocksBuy": "Select sum of stocks to buy",
+    "SumOfStocksSell": "Select sum of stocks to sell",
+    "ChooseBidLevel": "Choose bid level",
+    "SumUp": "SUM UP",
+    "Cancel": "CANCEL",
+    "NoPortfoliosError": "You can't bid on stocks because you don't have any portfolios. Please create portfolio from Portfolios-page and try again.",
+    "GoBack": "GO BACK"
+  },
+  "SumUpPage": {
+    "Cancel": "CANCEL",
+    "Confirm": "CONFIRM",
+    "YoureGoingTo": "You're going to",
+    "FollowingDetails": "with following details",
+    "Portfolio": "Portfolio",
+    "TotalValueOfPortfolio": "Total value of portfolio",
+    "AmountOfStocks": "Amount of stocks",
+    "BidLevel": "Bid level",
+    "TotalCost": "Total cost of transaction:",
+    "PortfoliosValueAfter": "Portfolios value after transaction:",
+    "YouOwn": "You own",
+    "StocksOf": "stocks of",
+    "YourPortfoliosTotVal": "Your portfolios total value is",
+    "TotalSumOfTransaction": "Total sum of transaction is"
+  },
   "Graph": {
     "NoData": "No data, choose another timespan",
     "1D": "Today",
@@ -121,5 +150,22 @@
     "TotalRevenue": "Total revenue (%)",
     "RevenueToday": "Revenue today",
     "NoPortfolios": "You don't have any portfolios"
+  },
+  "OpenTransactions": {
+    "NoTransactions": "No pending transactions",
+    "ToggleTitle": "Open Transactions",
+    "Amount": "Amount",
+    "Total": "Total cost",
+    "Cancel": "Cancel",
+    "AlertTitle": "Confirmation",
+    "Transaction": "transaction",
+    "No": "No",
+    "Yes": "Yes"
+  },
+  "TransactionsPage": {
+    "NoTransactions": "No transactions",
+    "Amount": "Amount",
+    "Value": "Value",
+    "State": "State"
   }
 }

@@ -8,10 +8,13 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { Colors } from '../App/colors';
 import { cardStyles } from '../App/styles';
 import CardButton from '../general/cardButton';
+import { IconNames } from '../general/icon';
 import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
+import { countRevenue } from '../util/stock';
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
 import { stockStyles } from './styles';
@@ -38,6 +41,11 @@ export class StockScreen extends React.Component<
     super(props);
   }
 
+  static navigationOptions = {
+    title: 'Stock',
+    headerLeft: <BackButtonWithNavigation />,
+  };
+
   componentDidMount() {
     if (this.props.symbol && this.props.stock) {
       // Attempt to get or refresh necessary data:
@@ -49,16 +57,15 @@ export class StockScreen extends React.Component<
 
   countRevenuePercentage() {
     if (
-      this.props.stock !== undefined &&
-      this.props.stock.stockInfo !== undefined &&
-      this.props.stock.stockInfo.historyData !== undefined &&
-      this.props.stock.stockInfo.intraday !== undefined
+      this.props.stock &&
+      this.props.stock.stockInfo &&
+      this.props.stock.stockInfo.historyData &&
+      this.props.stock.stockInfo.intraday
     ) {
       const yesterday = this.props.stock.stockInfo.historyData
         .historyDataQuote[0].close;
       const today = this.props.stock.stockInfo.intraday.intradayQuote[0].close;
-      const revenue = (today - yesterday) / yesterday;
-      return revenue;
+      return countRevenue(yesterday, today);
     }
     return 0;
   }
@@ -129,9 +136,9 @@ export class StockScreen extends React.Component<
 
           <Card containerStyle={cardStyles.container}>
             <CardButton
-              iconName={'bid'}
+              iconName={IconNames.bid}
               translationTitle={'StockPage.Bid'}
-              onPress={() => this.props.navigation.navigate(RouteName.Home)}
+              onPress={() => this.props.navigation.navigate(RouteName.Bid)}
             />
           </Card>
         </ScrollView>

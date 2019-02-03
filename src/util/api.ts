@@ -2,11 +2,7 @@ import axios from 'axios';
 
 import { config } from '../config';
 import { DailyQuote, Stock, StockMetadata } from '../MarketScreen/reducer';
-import {
-  CreatePortfolio,
-  Portfolio,
-  SinglePortfolio,
-} from '../PortfolioList/reducer';
+import { CreatePortfolio, Portfolio, SinglePortfolio, Transaction } from '../PortfolioList/reducer';
 import { getIdToken } from './general';
 
 const stockListApiRequest = async (): Promise<Array<Stock>> => {
@@ -85,6 +81,43 @@ const portfolioListApiRequest = async (): Promise<SinglePortfolio[]> => {
   }
 };
 
+const transactionApiRequest = async (
+  type: string,
+  symbol: string,
+  amount: number,
+  price: number,
+  portfolioId: string
+): Promise<Transaction> => {
+  try {
+    const url =
+      config.app.PROFILE_API_URL +
+      '/profile/portfolio/' +
+      portfolioId +
+      '/transaction';
+    const token = await getIdToken();
+    const expires = new Date();
+    expires.setDate(expires.getDate() + 14);
+    const res = await axios.post(
+      url,
+      {
+        type: type.toUpperCase(),
+        symbol: symbol,
+        amount: amount,
+        price: price,
+        expiresAt: expires.toISOString(),
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const createPortfolioRequest = async (
   portfolioName: string,
   porftolioAmount: number
@@ -110,6 +143,37 @@ const createPortfolioRequest = async (
   }
 };
 
+const transactionsApiRequest = async (pid: string): Promise<Transaction[]> => {
+  try {
+    const url =
+      config.app.PROFILE_API_URL + '/profile/portfolio/' + pid + '/transaction';
+    const token = await getIdToken();
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const cancelTransactionApiRequest = async (pid: string, tid: string) => {
+  try {
+    const url =
+      config.app.PROFILE_API_URL + '/profile/portfolio/' + pid + '/transaction/' + tid;
+    const token = await getIdToken();
+    await axios.delete(url, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 export {
   stockListApiRequest,
   stockMetaApiRequest,
@@ -117,5 +181,8 @@ export {
   stockHistoryApiRequest,
   portfolioApiRequest,
   portfolioListApiRequest,
+  transactionApiRequest,
   createPortfolioRequest,
+  transactionsApiRequest,
+  cancelTransactionApiRequest,
 };

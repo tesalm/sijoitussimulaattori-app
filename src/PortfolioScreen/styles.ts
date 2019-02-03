@@ -5,14 +5,14 @@ import { Colors } from '../App/colors';
 
 const portfolioStyles = StyleSheet.create({
   valueHeader: {
-    fontSize: 12,
+    fontSize: verticalScale(12),
     textAlign: 'justify',
     marginBottom: verticalScale(0),
     color: Colors.baseColor,
   },
 
   value: {
-    fontSize: 14,
+    fontSize: verticalScale(14),
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
@@ -20,7 +20,7 @@ const portfolioStyles = StyleSheet.create({
     color: Colors.baseColor,
   },
   valueGreen: {
-    fontSize: 14,
+    fontSize: verticalScale(14),
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
@@ -29,7 +29,7 @@ const portfolioStyles = StyleSheet.create({
     color: Colors.greenPercent,
   },
   valueRed: {
-    fontSize: 14,
+    fontSize: verticalScale(14),
     fontWeight: 'bold',
     textAlign: 'justify',
     marginTop: verticalScale(-2),
@@ -39,7 +39,7 @@ const portfolioStyles = StyleSheet.create({
   },
 
   titleText: {
-    fontSize: 17,
+    fontSize: verticalScale(17),
     fontWeight: 'bold',
     marginLeft: scale(8),
 
@@ -125,6 +125,40 @@ const portfolioStyles = StyleSheet.create({
   holdingsArrowView: {
     flex: 0.1,
     marginTop: scale(5),
+    alignItems: 'flex-end',
+  },
+  symbol: {
+    fontFamily: 'Roboto',
+    fontSize: verticalScale(14),
+    fontWeight: 'bold',
+    textAlign: 'justify',
+    marginBottom: verticalScale(4),
+    color: Colors.baseColor,
+  },
+  basicText: {
+    fontFamily: 'Roboto',
+    fontSize: verticalScale(12),
+    textAlign: 'justify',
+    color: Colors.baseColor,
+  },
+  noActionsText: {
+    fontFamily: 'Roboto',
+    fontSize: verticalScale(14),
+    marginTop: verticalScale(15),
+    marginBottom: verticalScale(4),
+    opacity: 0.6,
+  },
+  cancelAction: {
+    fontFamily: 'Roboto',
+    fontSize: verticalScale(15),
+    color: 'orange',
+  },
+  transaction: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: verticalScale(12),
+    marginBottom: verticalScale(2),
   },
 });
 

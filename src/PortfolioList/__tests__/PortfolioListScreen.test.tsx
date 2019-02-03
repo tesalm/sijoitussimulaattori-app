@@ -76,6 +76,17 @@ describe('portfolio-list tests', () => {
             ],
           },
         },
+        transactionInfo: {
+          transactionSuccess: false,
+          transactions: undefined,
+          transactionsError: undefined,
+          transactionsLoading: false,
+        },
+        transactions: {
+          transactionListing: [],
+          loading: false,
+          error: undefined,
+        },
       },
     ],
 

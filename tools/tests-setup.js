@@ -23,6 +23,8 @@ jest.mock('react-native-firebase', () => {
 });
 
 jest.mock('react-native-languages', () => ({
+  __esModule: true,
+  default: { locale: 'en' },
   Languages: {
     language: 'en',
     languages: ['en'],
@@ -31,6 +33,9 @@ jest.mock('react-native-languages', () => ({
 
 // Mock react navigation dependency to avoid MockNativeMethods lib error
 jest.mock('react-native-safe-area-view', () => ({ default: () => null }));
+
+// Mock native animated helpor to avoid test warnings related to native dependencies
+jest.mock('NativeAnimatedHelper');
 
 // Set up jsdom with RN:
 // (modified from https://github.com/kentcdodds/react-testing-library/issues/22)

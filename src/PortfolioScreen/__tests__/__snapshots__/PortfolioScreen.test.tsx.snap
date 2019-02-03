@@ -323,7 +323,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               <Image
                 source={
                   Object {
-                    "testUri": "../../../src/navigation/assets/briefcase2.png",
+                    "testUri": "../../../src/navigation/assets/briefcase.png",
                   }
                 }
                 style={
@@ -338,7 +338,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 17,
+                    "fontSize": 33.35,
                     "fontWeight": "bold",
                     "marginLeft": 17.142857142857142,
                   }
@@ -350,6 +350,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
             <View
               style={
                 Object {
+                  "alignItems": "flex-end",
                   "flex": 0.1,
                   "marginTop": 10.714285714285714,
                 }
@@ -480,6 +481,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                   <View
                     style={
                       Object {
+                        "alignItems": "flex-end",
                         "flex": 0.1,
                         "marginTop": 10.714285714285714,
                       }
@@ -549,7 +551,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -575,7 +577,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -602,7 +604,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#54c242",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -638,7 +640,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -664,7 +666,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -691,7 +693,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#e20f00",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -717,7 +719,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 12,
+                              "fontSize": 23.541176470588233,
                               "marginBottom": 0,
                               "textAlign": "justify",
                             }
@@ -753,7 +755,148 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
-          "height": 112,
+          "flex": 1,
+          "margin": 0,
+          "marginBottom": 0,
+          "padding": 15,
+          "paddingBottom": 32,
+          "paddingLeft": 32,
+          "paddingRight": 32,
+          "paddingTop": 32,
+          "shadowColor": "rgba(0,0,0, .2)",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/navigation/assets/opensign.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 48,
+                    "tintColor": "#004D40",
+                    "width": 48,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#004D40",
+                      "fontSize": 33.35,
+                      "fontWeight": "bold",
+                      "marginLeft": 17.142857142857142,
+                    }
+                  }
+                >
+                  Open Transactions
+                </Text>
+              </View>
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/navigation/assets/arrowDown.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 48,
+                    "tintColor": "#004D40",
+                    "width": 48,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            pointerEvents="none"
+            style={
+              Object {
+                "height": 0,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <View
+              onLayout={[Function]}
+              style={
+                Object {
+                  "marginTop": 11.770588235294117,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontFamily": "Roboto",
+                    "fontSize": 27.46470588235294,
+                    "marginBottom": 7.847058823529411,
+                    "marginTop": 29.426470588235293,
+                    "opacity": 0.6,
+                  }
+                }
+              >
+                No pending transactions
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "#e1e8ee",
+          "borderWidth": 1,
+          "flex": 1,
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -783,7 +926,11 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={null}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
         >
           <View
             style={
@@ -851,7 +998,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
-          "height": 112,
+          "flex": 1,
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -881,7 +1028,11 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={null}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
         >
           <View
             style={

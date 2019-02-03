@@ -41,7 +41,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
       <Image
         source={
           Object {
-            "testUri": "../../../src/navigation/assets/briefcase2.png",
+            "testUri": "../../../src/navigation/assets/briefcase.png",
           }
         }
         style={
@@ -56,7 +56,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
         style={
           Object {
             "color": "#004D40",
-            "fontSize": 17,
+            "fontSize": 33.35,
             "fontWeight": "bold",
             "marginLeft": 17.142857142857142,
           }
@@ -68,6 +68,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
     <View
       style={
         Object {
+          "alignItems": "flex-end",
           "flex": 0.1,
           "marginTop": 10.714285714285714,
         }
@@ -198,6 +199,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-end",
                 "flex": 0.1,
                 "marginTop": 10.714285714285714,
               }
@@ -267,7 +269,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
@@ -293,7 +295,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
@@ -320,7 +322,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#54c242",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
@@ -356,7 +358,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
@@ -382,7 +384,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
@@ -409,7 +411,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#e20f00",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
@@ -435,7 +437,7 @@ exports[`Holdings tests Holdings renders correctly with error 1`] = `
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 12,
+                      "fontSize": 23.541176470588233,
                       "marginBottom": 0,
                       "textAlign": "justify",
                     }
