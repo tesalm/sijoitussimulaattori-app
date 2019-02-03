@@ -269,7 +269,7 @@ exports[`portfolio-list tests renders correctly with portfolio 1`] = `
                   style={
                     Object {
                       "color": "#54c242",
-                      "fontSize": 14,
+                      "fontSize": 27.46470588235294,
                       "fontWeight": "bold",
                       "marginBottom": 7.847058823529411,
                       "marginTop": -3.9235294117647057,
