@@ -86,7 +86,7 @@ export class SumUpScreen extends React.Component<
       this.props.portfolio.transactionInfo &&
       this.props.portfolio.transactionInfo.transactionSuccess
     ) {
-      this.props.navigation.navigate(RouteName.Stock);
+      this.props.navigation.navigate(RouteName.StockModal);
       // TODO: Format toast-message for user.
       ToastAndroid.show('Bid was successfull.', ToastAndroid.SHORT);
     }

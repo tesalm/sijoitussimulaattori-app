@@ -71,7 +71,7 @@ class CreatePortfolio extends React.Component<
 
   componentDidUpdate() {
     if (this.props.createPortfolioSuccess && this.state.dataSent) {
-      this.props.navigation.goBack();
+      this.props.navigation.navigate(RouteName.Home);
       ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
     }
   }
