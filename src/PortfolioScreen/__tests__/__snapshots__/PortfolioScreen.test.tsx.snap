@@ -323,7 +323,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
               <Image
                 source={
                   Object {
-                    "testUri": "../../../src/navigation/assets/briefcase2.png",
+                    "testUri": "../../../src/navigation/assets/briefcase.png",
                   }
                 }
                 style={

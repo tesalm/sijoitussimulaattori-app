@@ -133,37 +133,35 @@ If developing with Visual Studio Code, install the following plugins:
 - EditorConfig for VS Code
 - Prettier - Code formatter
 - TypeScript Hero
-- 
-## Redux
+
+## Documentation
+
+### Redux
 
 This app uses redux. For further information of the redux, see [Redux documentation](https://redux.js.org/).
 Rootstate contains following objects:
-- `login` 
-- `stocksListing`
-- `user` 
-- `bid` 
-- `portfolioListing` 
 
-### stocksListing
-Object `stocksListing` contains information  of all available stocks. Structure and actions related to `stocksListing` are presented in figure below.
+- `login`
+- `stocksListing`
+- `user`
+- `bid`
+- `portfolioListing`
+
+#### stocksListing
+
+Object `stocksListing` contains information of all available stocks. Structure and actions related to `stocksListing` are presented in figure below.
 
 ![stocksListing structure](/docs/img/stocksListingPicture.png?raw=true)
 
-`stocksListing.stocks` contains only general information for each stock. When `stocksListing` is updated for the first time, `stockMetadata`, `intraday` and  `historyData` are all undefined. When more data is needed for some stock, actions for updating intraday data, history data or metadata are dispatched for that stock. 
+`stocksListing.stocks` contains only general information for each stock. When `stocksListing` is updated for the first time, `stockMetadata`, `intraday` and `historyData` are all undefined. When more data is needed for some stock, actions for updating intraday data, history data or metadata are dispatched for that stock.
 
+#### portfolioListing
 
-
-### portfolioListing
 Object portfolioListings contains information of all users portfolio's. Structure and actions related to `portfolioListings` is presented figure below.
 
 ![stocksListing structure](/docs/img/portfolioListingPicture.png?raw=true)
 
-Array `portfoliListing.portfolioListing` contains general information for each user's portfolio. When stock data is needed for some portfolio, `portfolioInfo.portfolio` is updated for that portfolio with actions `RequestPortfolioBegin`, `RequestPortfolioSuccess` and `RequestPortfolioFailure`.
-## Other
-
-- The app is using some icons from [Icons8](https://icons8.com).
-
-## Documentation
+Array `portfolioListing.portfolioListing` contains general information for each user's portfolio. When stock data is needed for some portfolio, `portfolioInfo.portfolio` is updated for that portfolio with actions `RequestPortfolioBegin`, `RequestPortfolioSuccess` and `RequestPortfolioFailure`.
 
 ### Navigation
 
