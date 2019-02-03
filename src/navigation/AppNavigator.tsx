@@ -11,8 +11,8 @@ import StockModalNavigator from './StockModalNavigator';
 const AppNavigator = createStackNavigator(
   {
     App: MainNavigator,
-    StockModal: StockModalNavigator,
-    PortfolioModal: PortfolioModalNavigator,
+    Stock: StockModalNavigator,
+    SinglePortfolio: PortfolioModalNavigator,
     CreatePortfolio: CreatePortfolioModalNavigator,
     Info: InfoScreen,
   },
