@@ -33,6 +33,7 @@ type SumUpPropsWithNavigation = SumUpProps & NavigationScreenProps;
 interface SumUpState {
   totalCost: string;
   portfolioValueAfter: string;
+  dataSent: boolean;
 }
 
 export class SumUpScreen extends React.Component<
@@ -44,6 +45,7 @@ export class SumUpScreen extends React.Component<
     this.state = {
       totalCost: '0',
       portfolioValueAfter: '0',
+      dataSent: false,
     };
   }
 
@@ -84,7 +86,8 @@ export class SumUpScreen extends React.Component<
     if (
       this.props.portfolio &&
       this.props.portfolio.transactionInfo &&
-      this.props.portfolio.transactionInfo.transactionSuccess
+      this.props.portfolio.transactionInfo.transactionSuccess &&
+      this.state.dataSent
     ) {
       this.props.navigation.navigate(RouteName.Stock);
       // TODO: Format toast-message for user.
@@ -109,12 +112,15 @@ export class SumUpScreen extends React.Component<
   // Saves form-data to backend
   confirmForm() {
     if (this.props.portfolio) {
-      this.props.saveBid(
-        this.props.bidInfo.action,
-        this.props.bidInfo.symbol,
-        this.props.bidInfo.sumOfStocks,
-        this.props.bidInfo.bidLevel,
-        this.props.portfolio.uid
+      const portfolio = this.props.portfolio;
+      this.setState({ dataSent: true }, () =>
+        this.props.saveBid(
+          this.props.bidInfo.action,
+          this.props.bidInfo.symbol,
+          this.props.bidInfo.sumOfStocks,
+          this.props.bidInfo.bidLevel,
+          portfolio.uid
+        )
       );
     }
   }
