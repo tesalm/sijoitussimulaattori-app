@@ -7,7 +7,7 @@ const generalStyles = StyleSheet.create({});
 const cardButtonStyles = StyleSheet.create({
   cardButton: {
     margin: 0,
-    height: verticalScale(56),
+    flex: 1,
   },
   cardButtonView: {
     flexDirection: 'row',

@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 import { t } from '../../assets/i18n';
 import { SinglePortfolio } from '../../PortfolioList/reducer';
-import { formatCurrency } from '../../util/general';
+import { formatCurrency } from '../../util/stock';
 import { bidStyles } from '../styles';
 
 export interface PortfolioInfoTextsProps {

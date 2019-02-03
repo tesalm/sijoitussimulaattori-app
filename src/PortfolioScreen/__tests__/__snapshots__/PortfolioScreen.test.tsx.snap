@@ -338,7 +338,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "color": "#004D40",
-                    "fontSize": 17,
+                    "fontSize": 33.35,
                     "fontWeight": "bold",
                     "marginLeft": 17.142857142857142,
                   }
@@ -551,7 +551,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -577,7 +577,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -604,7 +604,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#54c242",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -640,7 +640,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -666,7 +666,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -693,7 +693,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#e20f00",
-                              "fontSize": 14,
+                              "fontSize": 27.46470588235294,
                               "fontWeight": "bold",
                               "marginBottom": 7.847058823529411,
                               "marginTop": -3.9235294117647057,
@@ -719,7 +719,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                           style={
                             Object {
                               "color": "#004D40",
-                              "fontSize": 12,
+                              "fontSize": 23.541176470588233,
                               "marginBottom": 0,
                               "textAlign": "justify",
                             }
@@ -830,7 +830,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                   style={
                     Object {
                       "color": "#004D40",
-                      "fontSize": 17,
+                      "fontSize": 33.35,
                       "fontWeight": "bold",
                       "marginLeft": 17.142857142857142,
                     }
@@ -872,7 +872,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
                 style={
                   Object {
                     "fontFamily": "Roboto",
-                    "fontSize": 14,
+                    "fontSize": 27.46470588235294,
                     "marginBottom": 7.847058823529411,
                     "marginTop": 29.426470588235293,
                     "opacity": 0.6,
@@ -892,7 +892,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
-          "height": 112,
+          "flex": 1,
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,
@@ -994,7 +994,7 @@ exports[`portfolio-screen tests PortfolioScreen renders correctly with portfolio
           "backgroundColor": "white",
           "borderColor": "#e1e8ee",
           "borderWidth": 1,
-          "height": 112,
+          "flex": 1,
           "margin": 0,
           "marginBottom": 0,
           "padding": 15,

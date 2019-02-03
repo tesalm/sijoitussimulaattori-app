@@ -14,7 +14,7 @@ import { Stock } from '../MarketScreen/reducer';
 import BackButtonWithNavigation from '../navigation/components/BackButton';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
-import { countRevenue } from '../util/general';
+import { countRevenue } from '../util/stock';
 import Basicinfo from './components/Basicinfo';
 import Diagram from './components/Diagram';
 import { stockStyles } from './styles';
