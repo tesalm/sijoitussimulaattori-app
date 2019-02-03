@@ -7,7 +7,7 @@ import { Styles } from './styles';
 
 const StockModalNavigator = createStackNavigator(
   {
-    StockModal: {
+    Stock: {
       screen: StockScreen,
       navigationOptions: {
         headerBackTitle: 'StockList',

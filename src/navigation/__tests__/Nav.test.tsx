@@ -50,6 +50,6 @@ describe('Main navigation', () => {
 
     expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.Stock);
     navigator.dispatch(StackActions.pop({}));
-    expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.Home);
+    expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.Profile);
   });
 });

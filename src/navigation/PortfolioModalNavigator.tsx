@@ -6,7 +6,7 @@ import { Styles } from './styles';
 
 const PortfolioModalNavigator = createStackNavigator(
   {
-    PortfolioModal: {
+    SinglePortfolio: {
       screen: PortfolioScreen,
     },
     EventsAndTransactions: { screen: TransactionsScreen },
