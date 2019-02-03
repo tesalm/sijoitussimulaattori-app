@@ -1,6 +1,10 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import { DrawerActions, NavigationActions, StackActions } from 'react-navigation';
+import {
+  DrawerActions,
+  NavigationActions,
+  StackActions,
+} from 'react-navigation';
 
 import { createMainSwitchNavigator } from '../AppNavigator';
 import { RouteName } from '../routes';
@@ -46,6 +50,6 @@ describe('Main navigation', () => {
 
     expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.Stock);
     navigator.dispatch(StackActions.pop({}));
-    expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.StockList);
+    expect(getCurrentRoute(navigator.state.nav)).toEqual(RouteName.Profile);
   });
 });

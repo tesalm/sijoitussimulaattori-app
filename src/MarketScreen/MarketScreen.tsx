@@ -55,7 +55,7 @@ export class MarketScreen extends React.Component<
       <SearchBar
         lightTheme
         round
-        placeholder={t('ListStockPage.SearcBarPlaceholder')} // TODO: search bar functionality
+        placeholder={t('ListStockPage.SearchBarPlaceholder')} // TODO: search bar functionality
         autoCorrect={false}
       />
     );

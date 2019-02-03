@@ -3,10 +3,7 @@ import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { t } from '../../assets/i18n';
-import CreatePortfolio from '../../CreatePortfolio/CreatePortfolio';
-import TransactionsScreen from '../../EventsAndTransactionsScreen/TransactionsScreen';
 import PortfolioListScreen from '../../PortfolioList/PortfolioListScreen';
-import PortfolioScreen from '../../PortfolioScreen/PortfolioScreen';
 import MenuIcon from '../components/MenuIcon';
 import { RouteName } from '../routes';
 import { Colors, Styles } from '../styles';
@@ -14,10 +11,6 @@ import { Colors, Styles } from '../styles';
 const HomeStack = createStackNavigator(
   {
     Home: PortfolioListScreen,
-    SinglePortfolio: { screen: PortfolioScreen },
-    CreatePortfolio: { screen: CreatePortfolio },
-    EventsAndTransactions: { screen: TransactionsScreen },
-    // TODO add more pages related to this tab
   },
   {
     // Shared options
@@ -26,7 +19,7 @@ const HomeStack = createStackNavigator(
     navigationOptions: ({ navigation }) => ({
       headerStyle: Styles.header,
       headerTintColor: Colors.headerTint,
-      headerTitleStyle: { textAlign: 'right', flex: 1, marginRight: 30 },
+      headerTitleStyle: { textAlign: 'left', flex: 1 },
       headerLeft: <MenuIcon navigation={navigation} />,
     }),
   }

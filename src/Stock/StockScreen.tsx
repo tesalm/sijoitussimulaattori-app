@@ -7,11 +7,12 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { Colors } from '../App/colors';
 import { cardStyles } from '../App/styles';
+import { t } from '../assets/i18n';
 import CardButton from '../general/cardButton';
 import { IconNames } from '../general/icon';
 import { getHistory, getIntraday, getStockMetadata, refreshIntraday } from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
-import BackButtonWithNavigation from '../navigation/components/BackButton';
+import StockBackButtonWithNavigation from '../navigation/components/StockBackButton';
 import { RouteName } from '../navigation/routes';
 import { RootState } from '../redux/reducers';
 import { countRevenue } from '../util/stock';
@@ -42,8 +43,8 @@ export class StockScreen extends React.Component<
   }
 
   static navigationOptions = {
-    title: 'Stock',
-    headerLeft: <BackButtonWithNavigation />,
+    title: t('StockPage.Title'),
+    headerLeft: <StockBackButtonWithNavigation />,
   };
 
   componentDidMount() {

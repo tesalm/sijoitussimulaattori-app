@@ -21,7 +21,7 @@ import { RootState } from '../redux/reducers';
 import { formatCurrency } from '../util/stock';
 import { sumUpStyles } from './styles';
 
-interface SumUpProps {
+export interface SumUpProps {
   stock?: Stock;
   saveBid: typeof saveTransaction;
   bidInfo: BidInfo;

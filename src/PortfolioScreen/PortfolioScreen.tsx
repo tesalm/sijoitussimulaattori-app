@@ -10,8 +10,14 @@ import { Colors } from '../App/colors';
 import { cardButtonStyles, cardStyles } from '../App/styles';
 import CardButton from '../general/cardButton';
 import { IconNames } from '../general/icon';
-import { getIntraday, getStockMetadata, getStocks, refreshIntraday } from '../MarketScreen/actions';
+import {
+  getIntraday,
+  getStockMetadata,
+  getStocks,
+  refreshIntraday,
+} from '../MarketScreen/actions';
 import { Stock } from '../MarketScreen/reducer';
+import PortfolioBackButtonWithNavigation from '../navigation/components/PortfolioBackButton';
 import { RouteName } from '../navigation/routes';
 import { cancelTransaction, getPortfolioData, getTransactions } from '../PortfolioList/actions';
 import { PortfolioStock, SinglePortfolio } from '../PortfolioList/reducer';
@@ -40,10 +46,13 @@ type PortfolioPropsWithNavigation = PortfolioProps & NavigationScreenProps;
 export class PortfolioScreen extends React.Component<
   PortfolioPropsWithNavigation
 > {
-  static navigationOptions = { title: t('PortfoliosPage.Title') };
   constructor(props: PortfolioPropsWithNavigation) {
     super(props);
   }
+  static navigationOptions = {
+    title: t('PortfolioPage.Title'),
+    headerLeft: <PortfolioBackButtonWithNavigation />,
+  };
 
   componentDidMount() {
     if (

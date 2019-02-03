@@ -13,7 +13,7 @@ export enum RouteName {
   Bid = 'Bid',
   SumUp = 'SumUp',
   CreatePortfolio = 'CreatePortfolio',
-  StockModal = 'StockModal',
   Info = 'Info',
   EventsAndTransactions = 'EventsAndTransactions',
+  StockModal = 'StockModal',
 }

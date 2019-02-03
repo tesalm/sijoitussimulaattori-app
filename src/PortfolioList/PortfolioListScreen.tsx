@@ -41,6 +41,10 @@ export class PortfolioListScreen extends React.Component<
     super(props);
   }
 
+  static navigationOptions = {
+    title: t('PortfoliosPage.Title'),
+  };
+
   componentDidMount() {
     // Dispatch the actions
     this.props.getAllPortfolios();
@@ -75,7 +79,7 @@ export class PortfolioListScreen extends React.Component<
     }
     if (loading) {
       return (
-        <View>
+        <View style={PortfolioListingStyles.loadingView}>
           <ActivityIndicator size="large" />
         </View>
       );

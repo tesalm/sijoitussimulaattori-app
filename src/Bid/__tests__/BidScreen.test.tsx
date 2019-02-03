@@ -174,6 +174,13 @@ describe('bid tests', () => {
 
   it('BidScreen renders correctly', async () => {
     const component = renderer
+      .create(<BidScreen {...defaultBidProps} {...navigationMock} />)
+      .toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('BidScreen renders correctly with real data', async () => {
+    const component = renderer
       .create(<BidScreen {...bidProps} {...navigationMock} />)
       .toJSON();
     expect(component).toMatchSnapshot();

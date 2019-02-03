@@ -10,4 +10,6 @@ const verticalScale = (size: number) => (height / guidelineHeight) * size;
 const moderateScale = (size: number, factor: number = 0.5) =>
   size + (scale(size) - size) * factor;
 
-export { scale, verticalScale, moderateScale };
+const screenHeight = () => height;
+
+export { scale, verticalScale, moderateScale, screenHeight };

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ActivityIndicator,
+  ScrollView,
   Text,
   TextInput,
   ToastAndroid,
@@ -18,6 +19,7 @@ import { CreatePortfolioStyles as styles } from './styles';
 
 import { FormColors } from '../App/colors';
 import { buttonStyles, textInputStyles } from '../App/styles';
+import { RouteName } from '../navigation/routes';
 import { createPortfolio } from '../PortfolioList/actions';
 
 export interface CreatePortfolioProps {
@@ -69,7 +71,7 @@ class CreatePortfolio extends React.Component<
 
   componentDidUpdate() {
     if (this.props.createPortfolioSuccess && this.state.dataSent) {
-      this.props.navigation.goBack();
+      this.props.navigation.navigate(RouteName.Home);
       ToastAndroid.show('Portfolio created successfully!', ToastAndroid.SHORT);
     }
   }
@@ -218,7 +220,7 @@ class CreatePortfolio extends React.Component<
     }
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.nameContainer}>
           <Text style={styles.headings}>
             {t('CreatePortfolio.PortfolioNameInputTitle')}
@@ -264,7 +266,7 @@ class CreatePortfolio extends React.Component<
           <View style={buttonStyles.container}>
             <TouchableOpacity
               style={buttonStyles.cancelButton}
-              onPress={() => this.props.navigation.goBack()}
+              onPress={() => this.props.navigation.navigate(RouteName.Home)}
             >
               <Text style={buttonStyles.cancelText}>
                 {t('CreatePortfolio.Cancel').toUpperCase()}
@@ -289,7 +291,7 @@ class CreatePortfolio extends React.Component<
             <ActivityIndicator size="large" />
           </View>
         )}
-      </View>
+      </ScrollView>
     );
   }
 }

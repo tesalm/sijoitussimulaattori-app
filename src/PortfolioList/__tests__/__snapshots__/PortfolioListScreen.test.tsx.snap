@@ -69,7 +69,14 @@ exports[`portfolio-list tests renders correctly with error 1`] = `
 `;
 
 exports[`portfolio-list tests renders correctly with loading 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "height": 1334,
+      "justifyContent": "center",
+    }
+  }
+>
   <ActivityIndicator
     animating={true}
     color="#999999"

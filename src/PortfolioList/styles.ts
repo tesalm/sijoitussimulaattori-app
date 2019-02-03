@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from '../App/colors';
-import { scale, verticalScale } from '../util/scale';
+import { scale, screenHeight, verticalScale } from '../util/scale';
 
 const PortfolioListingStyles = StyleSheet.create({
   screen: {
@@ -52,7 +52,7 @@ const PortfolioListingStyles = StyleSheet.create({
     textAlign: 'center',
   },
   loadingView: {
-    flex: 1,
+    height: screenHeight(),
     justifyContent: 'center',
   },
   listContainer: {

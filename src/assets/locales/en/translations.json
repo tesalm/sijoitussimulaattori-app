@@ -118,7 +118,7 @@
     }
   },
   "PortfolioPage": {
-    "Title": "My main stocks",
+    "Title": "Portfolio",
     "MarketValue": "Market value",
     "Cash": "Cash",
     "TotalValue": "Total Value",
