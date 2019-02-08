@@ -80,17 +80,17 @@ export class TransactionsScreen extends React.Component<
           <View style={{ flex: 1 }}>
             {item.status === 'CANCELLED' ? (
               <Text style={transactionStyles.bold}>
-                {new Date(item.cancelledAt).getDay()}
+                {new Date(item.cancelledAt).getDate()}
                 {'.'}
-                {new Date(item.cancelledAt).getMonth()}
+                {new Date(item.cancelledAt).getMonth() + 1}
                 {'.'}
                 {new Date(item.cancelledAt).getFullYear()}
               </Text>
             ) : (
               <Text style={transactionStyles.bold}>
-                {new Date(item.fulfilledAt).getDay()}
+                {new Date(item.fulfilledAt).getDate()}
                 {'.'}
-                {new Date(item.fulfilledAt).getMonth()}
+                {new Date(item.fulfilledAt).getMonth() + 1}
                 {'.'}
                 {new Date(item.fulfilledAt).getFullYear()}
               </Text>
